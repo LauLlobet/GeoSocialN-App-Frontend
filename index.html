@@ -1,33 +1,27 @@
 <!doctype html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+</head>
 <body>
 <script type="text/javascript" src="http://iioengine.com/js/iioEngine-1.2.2.min.js"></script>
 <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.3.0.js"></script>
-
-
-<canvas id="myCanvas" width="640" height="1136"
-        style="border:1px solid #000000;">
-</canvas>
-
-
-<input type="text" id="messageBox" data-bind="value: firstName, valueUpdate:'afterkeydown'"></div>
-
+<script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
 <style>
-    #messageBox {
-        background-color:rgba(0, 0, 0, 0);
-        /*color:white;*/
-        /*border: none;*/
-        outline:none;
-        height:30px;
-        transition:height 1s;
-        -webkit-transition:height 1s;
+    image, canvas {
+        user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-drag: none;
     }
 </style>
 
-
-
 <script type="text/javascript">
+    //disableDragCanvas(document.getElementById('myCanvas'));
 
-   DrawSquareApp = function(io){
+    DrawSquareApp = function(io){
 
        var farDiagonalLeftWood;
        var farDiagonalRigtWood;
@@ -106,32 +100,17 @@
 
    };
 
-   iio.start(DrawSquareApp,'myCanvas');
+   iio.start(DrawSquareApp);
    iio.setTextFunction('------');
 
-   window.onload= function() {
-    var viewModel = {
-            firstName : ko.observable("v 0.000003 ")
-        };
-        viewModel.fullName = ko.dependentObservable(function () {
-            iio.setTextFunction(viewModel.firstName());
-            return viewModel.firstName() + "concat ";
-        });
-        ko.applyBindings(viewModel);
-    }
-
-
    var doMouseDown = function(event){
-       setTimeout(function(){
-           document.getElementById("messageBox").focus();
-       },10);
        iio.setTextFunction("clicked"+event.pageX);
-       //document.getElementById("messageBox").focus();
-       //document.getElementById("messageBox").focus();
    }
 
-   var canvas = document.getElementById("myCanvas");
-   canvas.addEventListener("mousedown",doMouseDown,false);
+    var canvas = document.getElementById("myCanvas");
+    canvas.addEventListener("mousedown",doMouseDown,false);
+
+
 
 </script>
 
