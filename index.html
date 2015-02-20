@@ -1,0 +1,143 @@
+<!doctype html>
+<body>
+<script type="text/javascript" src="iioEngine-1.2.2.min.js"></script>
+<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.3.0.js"></script>
+
+
+
+<div id="canvas-wrap">
+    <canvas id="myCanvas" width="640" height="1136"
+            style="border:1px solid #000000;">
+    </canvas>
+    <div id="overlay"><input id="input" data-bind="value: firstName, valueUpdate:'afterkeydown'"></div>
+</div>
+
+
+<style>
+#input {
+background-color:rgba(0, 0, 0, 0);
+color:white;
+/*border: none;*/
+outline:none;
+height:30px;
+transition:height 1s;
+-webkit-transition:height 1s;
+}
+input:focus {
+height:50px;
+font-size:16px;
+}</style>
+
+<script type="text/javascript">
+
+   DrawSquareApp = function(io){
+
+       var farDiagonalLeftWood;
+       var farDiagonalRigtWood;
+       var targetWood;
+       var leftTargetWood;
+       var rightTargetWood;
+       var nearLeftWood;
+       var nearRightWood;
+
+       var farCoef = 0.3;
+       var targetCoef = 0.7;
+       var nearCoef = 1.5;
+
+       var woodHeight = 300;
+       var woodWidth = 80;
+
+       var centerX = io.canvas.center.x;
+       var centerY = io.canvas.center.y;
+
+       var nearOffTheCenter = 100;
+       var targetOffTheCenter = 90;
+       var farOffTheCenter = 45;
+
+       RandomColour = function(){
+           var r = Math.floor(Math.random() * 256);
+           var g = Math.floor(Math.random() * 256);
+           var b = Math.floor(Math.random() * 256);
+           var colour = { r:r,g:g,b:b};
+           return colour;
+       }
+
+       RandColourStr = function(){
+           var colour = RandomColour();
+           return ColourStr(colour.r,colour.g,colour.b);
+       }
+
+       ColourStr = function(r,g,b){
+           return 'rgb('+r+','+g+','+b+')';
+       }
+
+       CreateAndAddWood = function(io,x,y,w,h,scale){
+           var wood;
+           wood = new iio.Rect(x,y,w*scale,h*scale)
+                   .setFillStyle(RandColourStr())
+                   .setAlpha(0.3)
+                   .enableKinematics();
+           io.addObj(wood);
+           return wood;
+       }
+
+       farDiagonalLeftWood = CreateAndAddWood(io,centerX-farOffTheCenter,100,woodWidth,woodHeight,farCoef);
+       farDiagonalRigtWood = CreateAndAddWood(io,centerX+farOffTheCenter,100,woodWidth,woodHeight,farCoef);
+       targetWood = CreateAndAddWood(io,centerX,200,woodWidth,woodHeight,targetCoef);
+       leftTargetWood = CreateAndAddWood(io,centerX-targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
+       rightTargetWood = CreateAndAddWood(io,centerX+targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
+       nearLeftWood = CreateAndAddWood(io,centerX-nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
+       nearRightWood = CreateAndAddWood(io,centerX+nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
+
+
+       nearRightWood.setVel(3,2);
+       nearLeftWood.setVel(-3,2);
+
+       io.setFramerate(40);
+
+       var text = new iio.Text('Hello iio!!', io.canvas.center)
+               .setFont('30px Consolas')
+               .setTextAlign('center')
+               .setFillStyle('black');
+       io.addObj(text);
+       text.text = "Welcome!";
+
+       iio.setTextFunction = function(inputtext){
+         text.text=inputtext;
+       }
+
+
+   };
+
+   iio.start(DrawSquareApp,'myCanvas');
+   iio.setTextFunction('------');
+
+   window.onload= function() {
+    var viewModel = {
+            firstName : ko.observable("Jim")
+        };
+        viewModel.fullName = ko.dependentObservable(function () {
+            iio.setTextFunction(viewModel.firstName());
+            return viewModel.firstName() + "concat ";
+        });
+        ko.applyBindings(viewModel);
+    }
+
+
+   var doMouseDown = function(event){
+       iio.setTextFunction("clicked"+event.pageX);
+   }
+
+   var canvas = document.getElementById("myCanvas");
+   canvas.addEventListener("mousedown",doMouseDown,false);
+
+</script>
+
+<style>
+    #overlay     { position:absolute; top:20px; left:30px; }
+    #canvas-wrap { position:relative; width:800px; height:600px }
+    #canvas-wrap canvas { position:absolute; top:0; left:0; z-index:0 }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ioengine1.2.2min" type="javaScript">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/iioEngine-1.2.2.min.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
