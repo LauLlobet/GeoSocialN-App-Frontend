@@ -4,14 +4,12 @@
 <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.3.0.js"></script>
 
 
-<div id="canvas-wrap">
-    <canvas id="myCanvas" width="640" height="1136"
-            style="border:1px solid #000000;">
-    </canvas>
-    <div id="overlay"><input id="messageBox" data-bind="value: firstName, valueUpdate:'afterkeydown'"></div>
-</div>
+<canvas id="myCanvas" width="640" height="1136"
+        style="border:1px solid #000000;">
+</canvas>
 
 
+<input type="text" id="messageBox" data-bind="value: firstName, valueUpdate:'afterkeydown'"></div>
 
 <style>
     #messageBox {
@@ -24,6 +22,8 @@
         -webkit-transition:height 1s;
     }
 </style>
+
+
 
 <script type="text/javascript">
 
@@ -134,12 +134,6 @@
    canvas.addEventListener("mousedown",doMouseDown,false);
 
 </script>
-
-<style>
-    #overlay     { position:absolute; top:20px; left:30px; }
-    #canvas-wrap { position:relative; width:800px; height:600px }
-    #canvas-wrap canvas { position:absolute; top:0; left:0; z-index:0 }
-</style>
 
 
 </body>
