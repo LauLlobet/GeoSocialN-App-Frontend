@@ -6,6 +6,7 @@
 <script type="text/javascript" src="http://iioengine.com/js/iioEngine-1.2.2.min.js"></script>
 <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.3.0.js"></script>
 <script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
+
 <style>
     image, canvas {
         user-select: none;
@@ -19,9 +20,8 @@
 </style>
 
 <script type="text/javascript">
-    //disableDragCanvas(document.getElementById('myCanvas'));
 
-    DrawSquareApp = function(io){
+   DrawSquareApp = function(io){
 
        var farDiagonalLeftWood;
        var farDiagonalRigtWood;
@@ -97,18 +97,21 @@
          text.text=inputtext;
        }
 
+       var doMouseDown = function(event){
+           iio.setTextFunction("clicked"+event.pageX);
+       }
+
+       io.canvas.addEventListener("mousedown",doMouseDown,false);
 
    };
+
 
    iio.start(DrawSquareApp);
    iio.setTextFunction('------');
 
-   var doMouseDown = function(event){
-       iio.setTextFunction("clicked"+event.pageX);
-   }
+ //  disableDragCanvas(iio.canvas);
 
-    var canvas = document.getElementById("myCanvas");
-    canvas.addEventListener("mousedown",doMouseDown,false);
+
 
 
 
