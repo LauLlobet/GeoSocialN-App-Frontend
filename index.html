@@ -17,6 +17,14 @@
         -webkit-touch-callout: none;
         -webkit-user-drag: none;
     }
+
+    @font-face {
+        font-family: 'Graublau Web';
+        src: url('GraublauWeb.eot');
+        src: local('☺︎'),
+        url('GraublauWeb.otf') format('opentype');
+    }
+
 </style>
 
 <script type="text/javascript">
@@ -63,13 +71,13 @@
        }
 
        CreateAndAddWood = function(io,x,y,w,h,scale){
-           var wood;
-           wood = new iio.Rect(x,y,w*scale,h*scale)
-                   .setFillStyle(RandColourStr())
+           var wood = new iio.Rect(x,y,w*scale,h*scale)
                    .setAlpha(0.3)
-                   .enableKinematics();
-           io.addObj(wood);
-           return wood;
+                   .enableKinematics()
+                   .createWithImage('treeTrunk.png'
+                   ,function(){io.addObj(wood)});
+           wood.setImgSize(w*scale,h*scale);
+         return wood;
        }
 
        farDiagonalLeftWood = CreateAndAddWood(io,centerX-farOffTheCenter,100,woodWidth,woodHeight,farCoef);
@@ -80,14 +88,20 @@
        nearLeftWood = CreateAndAddWood(io,centerX-nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
        nearRightWood = CreateAndAddWood(io,centerX+nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
 
+       iio.wood = nearLeftWood;
 
-       nearRightWood.setVel(3,2);
-       nearLeftWood.setVel(-3,2);
+       nearRightWood.setVel(0.9,0.5);
+       nearLeftWood.setVel(-0.4,0.1);
 
-       io.setFramerate(40);
+       nearLeftWood.setImgSize(300,500);
+
+       io.setFramerate(40,function(){
+            iio.resizeFunction();
+           //iio.setTextFunction('--REFRESCA--');
+       });
 
        var text = new iio.Text('Hello iio!!', io.canvas.center)
-               .setFont('30px Consolas')
+               .setFont('30px Graublau Web')
                .setTextAlign('center')
                .setFillStyle('black');
        io.addObj(text);
@@ -95,10 +109,18 @@
 
        iio.setTextFunction = function(inputtext){
          text.text=inputtext;
+
+       }
+        var textsize = 30;
+
+       iio.resizeFunction = function(){
+           nearLeftWood.setImgSize(nearLeftWood.img.size.x + 1 ,nearLeftWood.img.size.y + 1);
+           textsize+= 1/6;
+           text.font= textsize +'px Graublau Web'
        }
 
        var doMouseDown = function(event){
-           iio.setTextFunction("clicked"+event.pageX);
+           iio.setTextFunction("QQlicked"+event.pageX);
        }
 
        io.canvas.addEventListener("mousedown",doMouseDown,false);
