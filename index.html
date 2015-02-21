@@ -4,8 +4,8 @@
 </head>
 <body>
 <script type="text/javascript" src="http://iioengine.com/js/iioEngine-1.2.2.min.js"></script>
-<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.3.0.js"></script>
 <script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
+<script type="text/javascript" src="createWood.js"></script>
 
 <style>
     image, canvas {
@@ -53,89 +53,56 @@
        var targetOffTheCenter = 90;
        var farOffTheCenter = 45;
 
-       RandomColour = function(){
-           var r = Math.floor(Math.random() * 256);
-           var g = Math.floor(Math.random() * 256);
-           var b = Math.floor(Math.random() * 256);
-           var colour = { r:r,g:g,b:b};
-           return colour;
-       }
 
-       RandColourStr = function(){
-           var colour = RandomColour();
-           return ColourStr(colour.r,colour.g,colour.b);
-       }
-
-       ColourStr = function(r,g,b){
-           return 'rgb('+r+','+g+','+b+')';
-       }
-
-       CreateAndAddWood = function(io,x,y,w,h,scale){
-           var wood = new iio.Rect(x,y,w*scale,h*scale)
-                   .setAlpha(0.3)
-                   .enableKinematics()
-                   .createWithImage('treeTrunk.png'
-                   ,function(){io.addObj(wood)});
-           wood.setImgSize(w*scale,h*scale);
-         return wood;
-       }
-
-       farDiagonalLeftWood = CreateAndAddWood(io,centerX-farOffTheCenter,100,woodWidth,woodHeight,farCoef);
-       farDiagonalRigtWood = CreateAndAddWood(io,centerX+farOffTheCenter,100,woodWidth,woodHeight,farCoef);
-       targetWood = CreateAndAddWood(io,centerX,200,woodWidth,woodHeight,targetCoef);
-       leftTargetWood = CreateAndAddWood(io,centerX-targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
-       rightTargetWood = CreateAndAddWood(io,centerX+targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
+      // farDiagonalLeftWood = CreateAndAddWood(io,centerX-farOffTheCenter,100,woodWidth,woodHeight,farCoef);
+      // farDiagonalRigtWood = CreateAndAddWood(io,centerX+farOffTheCenter,100,woodWidth,woodHeight,farCoef);
+      // targetWood = CreateAndAddWood(io,centerX,200,woodWidth,woodHeight,targetCoef);
+      // leftTargetWood = CreateAndAddWood(io,centerX-targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
+      // rightTargetWood = CreateAndAddWood(io,centerX+targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
        nearLeftWood = CreateAndAddWood(io,centerX-nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
-       nearRightWood = CreateAndAddWood(io,centerX+nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
+       nearRightWood = CreateAndAddWood(io,centerX,centerY,woodWidth,woodHeight,nearCoef);
 
-       iio.wood = nearLeftWood;
-
-       nearRightWood.setVel(0.9,0.5);
-       nearLeftWood.setVel(-0.4,0.1);
-
-       nearLeftWood.setImgSize(300,500);
-
-       io.setFramerate(40,function(){
-            iio.resizeFunction();
-           //iio.setTextFunction('--REFRESCA--');
-       });
-
-       var text = new iio.Text('Hello iio!!', io.canvas.center)
-               .setFont('30px Graublau Web')
+       var text = new iio.Text('Hello iio!!', centerX,centerY)
+               .setFont('30px Arial') // monospaced ( no proporcionales )
                .setTextAlign('center')
+               .setAlpha(0.4)
                .setFillStyle('black');
        io.addObj(text);
+
+       io.addToGroup('background layer', nearRightWood, -10);
+       io.addToGroup('foreground layer', text, +10);
        text.text = "Welcome!";
 
-       iio.setTextFunction = function(inputtext){
-         text.text=inputtext;
+       var velX = 1;
+       nearLeftWood.setVel(0.000001,0);
 
+       io.canvas.addEventListener("mousedown",doMouseDown,false);
+
+       iio.refreshEachFrame = function(){
+           //nearRightWood.setImgSize(nearRightWood.img.size.x + 0.002 ,nearRightWood.img.size.y + 0.002);
+           text.translate(velX,0);
+           nearRightWood.translate(velX,0);
+           //textsize+= 1/6;
+           //text.font= textsize +'px Graublau Web'
        }
-        var textsize = 30;
 
-       iio.resizeFunction = function(){
-           nearLeftWood.setImgSize(nearLeftWood.img.size.x + 1 ,nearLeftWood.img.size.y + 1);
-           textsize+= 1/6;
-           text.font= textsize +'px Graublau Web'
+       io.setFramerate(5,function(){
+           iio.refreshEachFrame();
+       });
+
+       iio.setTextFunction = function(inputtext){
+           text.text=inputtext;
        }
 
        var doMouseDown = function(event){
            iio.setTextFunction("QQlicked"+event.pageX);
        }
-
-       io.canvas.addEventListener("mousedown",doMouseDown,false);
-
    };
-
 
    iio.start(DrawSquareApp);
    iio.setTextFunction('------');
 
  //  disableDragCanvas(iio.canvas);
-
-
-
-
 
 </script>
 
