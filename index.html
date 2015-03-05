@@ -1,13 +1,10 @@
+
 <!doctype html>
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
 </head>
-<body>
-<script type="text/javascript" src="http://iioengine.com/js/iioEngine-1.2.2.min.js"></script>
-<script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
-<script type="text/javascript" src="createWood.js"></script>
-
 <style>
+    /*noinspection ALL*/
     image, canvas {
         user-select: none;
         -ms-user-select: none;
@@ -17,95 +14,16 @@
         -webkit-touch-callout: none;
         -webkit-user-drag: none;
     }
-
     @font-face {
         font-family: 'Graublau Web';
         src: url('GraublauWeb.eot');
         src: local('☺︎'),
         url('GraublauWeb.otf') format('opentype');
     }
-
 </style>
 
-<script type="text/javascript">
-
-   DrawSquareApp = function(io){
-
-       var farDiagonalLeftWood;
-       var farDiagonalRigtWood;
-       var targetWood;
-       var leftTargetWood;
-       var rightTargetWood;
-       var nearLeftWood;
-       var nearRightWood;
-
-       var farCoef = 0.3;
-       var targetCoef = 0.7;
-       var nearCoef = 1.5;
-
-       var woodHeight = 300;
-       var woodWidth = 80;
-
-       var centerX = io.canvas.center.x;
-       var centerY = io.canvas.center.y;
-
-       var nearOffTheCenter = 100;
-       var targetOffTheCenter = 90;
-       var farOffTheCenter = 45;
-
-
-      // farDiagonalLeftWood = CreateAndAddWood(io,centerX-farOffTheCenter,100,woodWidth,woodHeight,farCoef);
-      // farDiagonalRigtWood = CreateAndAddWood(io,centerX+farOffTheCenter,100,woodWidth,woodHeight,farCoef);
-      // targetWood = CreateAndAddWood(io,centerX,200,woodWidth,woodHeight,targetCoef);
-      // leftTargetWood = CreateAndAddWood(io,centerX-targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
-      // rightTargetWood = CreateAndAddWood(io,centerX+targetOffTheCenter,200,woodWidth,woodHeight,targetCoef);
-       nearLeftWood = CreateAndAddWood(io,centerX-nearOffTheCenter,300,woodWidth,woodHeight,nearCoef);
-       nearRightWood = CreateAndAddWood(io,centerX,centerY,woodWidth,woodHeight,nearCoef);
-
-       var text = new iio.Text('Hello iio!!', centerX,centerY)
-               .setFont('30px Arial') // monospaced ( no proporcionales )
-               .setTextAlign('center')
-               .setAlpha(0.4)
-               .setFillStyle('black');
-       io.addObj(text);
-
-       io.addToGroup('background layer', nearRightWood, -10);
-       io.addToGroup('foreground layer', text, +10);
-       text.text = "Welcome!";
-
-       var velX = 1;
-       nearLeftWood.setVel(0.000001,0);
-
-       io.canvas.addEventListener("mousedown",doMouseDown,false);
-
-       iio.refreshEachFrame = function(){
-           //nearRightWood.setImgSize(nearRightWood.img.size.x + 0.002 ,nearRightWood.img.size.y + 0.002);
-           text.translate(velX,0);
-           nearRightWood.translate(velX,0);
-           //textsize+= 1/6;
-           //text.font= textsize +'px Graublau Web'
-       }
-
-       io.setFramerate(5,function(){
-           iio.refreshEachFrame();
-       });
-
-       iio.setTextFunction = function(inputtext){
-           text.text=inputtext;
-       }
-
-       var doMouseDown = function(event){
-           iio.setTextFunction("QQlicked"+event.pageX);
-       }
-   };
-
-   iio.start(DrawSquareApp);
-   iio.setTextFunction('------');
-
- //  disableDragCanvas(iio.canvas);
-
-</script>
-
-
+<body>
+<script type="text/javascript" src="iioEngine-1.2.2.min.js"></script>
+<script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
+<script data-main="scripts/main" src="scripts/require.js"></script>
 </body>
-</html>

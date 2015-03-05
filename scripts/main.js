@@ -1,0 +1,2 @@
+require(["iioModule"], function (iioModule) {
+});
