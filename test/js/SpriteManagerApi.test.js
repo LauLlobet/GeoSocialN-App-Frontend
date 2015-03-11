@@ -1,19 +1,197 @@
-/*global define, require, module, asyncTest, equal, start*/
+/*global define, require, module, asyncTest, equal, start, QUnit*/
 define([], function () {
     'use strict';
     module('SpriteManagerPhaserApi with real PhaserGame');
 
-    asyncTest('SpriteManagerPhaserApi', function () {
+    asyncTest('add sprites and get it\'s length', function () {
         require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             var phaserGame, spriteManagerPhaserApi;
-            phaserGame = new PhaserGame(function(){
+            phaserGame = new PhaserGame(function () {
                 spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                equal('ok', 'ok', 'spriteManagerPhaserApi.state');
+                spriteManagerPhaserApi.createSprite({
+                    x: 720 / 2 - 200,
+                    y: 1280 / 2 - 200,
+                    w: 200,
+                    h: 200,
+                    type: "debugTree"
+                }, 1234);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: 100,
+                    w: 100,
+                    h: 100,
+                    type: "debugTree"
+                }, 12345);
+                spriteManagerPhaserApi.createSprite({
+                    x: 400,
+                    y: 400,
+                    w: 100,
+                    h: 100,
+                    type: "debugTree"
+                }, 123456);
+                equal(spriteManagerPhaserApi.size(), 3, 'spriteManagerPhaserApi.size');
+                QUnit.start();
+            });
+
+        });
+
+    });
+
+    asyncTest('delete sprites', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            var phaserGame, spriteManagerPhaserApi;
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
+                spriteManagerPhaserApi.createSprite({
+                    x: 0,
+                    y: 0,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 1234);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 12345);
+                spriteManagerPhaserApi.createSprite({
+                    x: 400,
+                    y: -300,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 123456);
+                spriteManagerPhaserApi.deleteSprite(123456);
+                equal(spriteManagerPhaserApi.size(), 2, 'debugTree.state');
                 QUnit.start();
             });
 
         });
     });
+
+
+    asyncTest('delete sprites', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            var phaserGame, spriteManagerPhaserApi;
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
+                spriteManagerPhaserApi.createSprite({
+                    x: 0,
+                    y: 0,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 1234);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 12345);
+                spriteManagerPhaserApi.createSprite({
+                    x: 400,
+                    y: -300,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 123456);
+                equal(spriteManagerPhaserApi.existsId(123456), true, 'id of a sprite that exists');
+                equal(spriteManagerPhaserApi.existsId(999999), false, 'id of a sprite that doesent exist');
+                QUnit.start();
+            });
+
+        });
+    });
+
+    asyncTest('compare lists of id and delete unexistant', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            var phaserGame, spriteManagerPhaserApi;
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
+                spriteManagerPhaserApi.createSprite({
+                    x: 0,
+                    y: 0,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 32);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 45);
+                spriteManagerPhaserApi.createSprite({
+                    x: 400,
+                    y: -300,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 12);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 50);
+                spriteManagerPhaserApi.tellAllActiveSpritesSoItCanUpdateIt([45, 32]);
+                equal(spriteManagerPhaserApi.size(), 2, 'deleted one by ommiting it form the list of ids');
+                QUnit.start();
+            });
+
+        });
+    });
+
+    asyncTest('compare lists of id and delete unexistant', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            //noinspection JSLint
+            var phaserGame, spriteManagerPhaserApi,
+                sceneLoaderMockSpy = {
+                    numcalls : 0,
+                    getTreeFromId: function getTreeFromId (id) {
+                        this.numcalls += 1;
+                        return {
+                            x: 400 * Math.random(),
+                            y: 400 * Math.random(),
+                            w: 50,
+                            h: 50,
+                            type: "point"
+                        };
+                    },
+                    getNumCalls : function getNumCalls () {
+                        return this.numcalls;
+                    }
+                };
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
+                spriteManagerPhaserApi.createSprite({
+                    x: 0,
+                    y: 0,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 32);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 45);
+                spriteManagerPhaserApi.tellAllActiveSpritesSoItCanUpdateIt([45, 12, 21]);
+                equal(spriteManagerPhaserApi.size(), 3, 'deleted one by ommiting it form the list of ids and add two');
+                equal(sceneLoaderMockSpy.getNumCalls(), 2, 'num of calls to the interface of the scene loader');
+                QUnit.start();
+            });
+
+        });
+    });
+
 
 });
 
