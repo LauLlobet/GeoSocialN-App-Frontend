@@ -10,6 +10,7 @@ define([], function () {
             this.game = phaserGame.game;
             this.phaserGame = phaserGame;
             this.sceneLoaderInterface = sceneLoaderInterface;
+            phaserGame.scaleToReal(40);
     }
     SpriteManagerPhaserApi.prototype.displayScreenSizeTest = function displayScreenSizeTest() {
         var point, point2, point3, point4, point5;
@@ -37,6 +38,19 @@ define([], function () {
         sprite.height = tree.h;
         sprite.width = tree.w;
         this.phaserGame.resizeSprite(sprite);
+    };
+    SpriteManagerPhaserApi.prototype.tweenStprite = function tweenStprite(id, tween) {
+        var sprite = this.findSpriteByNameOrThrowIfNotExists(id),
+            wworld = this.phaserGame.scaleToReal(tween.w),
+            scale = wworld / (sprite.width / sprite.scale.x);
+        this.game.add.tween(sprite).to({
+            x : this.phaserGame.coordX(tween.x),
+            y : this.phaserGame.coordY(tween.y)
+        }, tween.t, "Linear", true, 0, 0);
+        this.game.add.tween(sprite.scale).to({
+            x : scale,
+            y : scale
+        }, tween.t, "Linear", true, 0, 0);
     };
     SpriteManagerPhaserApi.prototype.size = function size() {
         return this.allSpritesGroup.length;
