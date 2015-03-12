@@ -1,4 +1,5 @@
 /*global define, require, module, Phaser*/
+/*jslint todo: true */
 
 define([], function () {
     "use strict";
@@ -51,21 +52,22 @@ define([], function () {
         return this.findSpriteByNameOrThrowIfNotExists(id) !== null;
     };
     SpriteManagerPhaserApi.prototype.tellAllActiveSpritesSoItCanUpdateIt = function tellAllActiveSpritesSoItCanUpdateIt(list) {
-       this.addTreesThatExistOnTheIncommingListButNotInGroup(list);
+        this.addTreesThatExistOnTheIncommingListButNotInGroup(list);
         this.removeSpritesThatNoLongerExistInTheIncommingList(list);
 
     };
-    SpriteManagerPhaserApi.prototype.addTreesThatExistOnTheIncommingListButNotInGroup = function addTreesThatExistOnTheIncommingListButNotInGroup(list){
-        var i;
+    SpriteManagerPhaserApi.prototype.addTreesThatExistOnTheIncommingListButNotInGroup = function addTreesThatExistOnTheIncommingListButNotInGroup(list) {
+        var i, tree;
         for (i in list) {
             if (list.hasOwnProperty(i)) {
                 if (!this.existsId(list[i])) {
-                    var tree = this.askForTreeToSceneLoader();
+                    tree = this.askForTreeToSceneLoader();
                     this.createSprite(tree, list[i]);
                 }
             }
         }
     };
+    //TODO: refactor loops in separate functions
     SpriteManagerPhaserApi.prototype.removeSpritesThatNoLongerExistInTheIncommingList = function removeSpritesThatNoLongerExistInTheIncommingList(list) {
         var groupLength = this.allSpritesGroup.length,
             namesInGroupNotInList = [],
@@ -74,24 +76,28 @@ define([], function () {
             found,
             j,
             k;
-        for (i = 0; i < groupLength; i = i + 1) {
-            namesInGroupNotInList = this.allSpritesGroup.getAt(i).name;
+        for (i = 0; i < groupLength; i += 1) {
+            nameInGroup = this.allSpritesGroup.getAt(i).name;
             found = false;
             for (j in list) {
-                if (list[j] === nameInGroup ){
-                    found = true;
+                if (list.hasOwnProperty(j)) {
+                    if (list[j] === nameInGroup) {
+                        found = true;
+                    }
                 }
             }
-            if(! found){
+            if (!found) {
                 namesInGroupNotInList.push(nameInGroup);
             }
         }
-        for(var k in namesInGroupNotInList){
-            this.deleteSprite(namesInGroupNotInList[k]);
+        for (k in namesInGroupNotInList) {
+            if (namesInGroupNotInList.hasOwnProperty(k)) {
+                this.deleteSprite(namesInGroupNotInList[k]);
+            }
         }
     };
     SpriteManagerPhaserApi.prototype.askForTreeToSceneLoader = function askForTreeToSceneLoader(id) {
         return this.sceneLoaderInterface.getTreeFromId(id);
     };
-        return SpriteManagerPhaserApi;
+    return SpriteManagerPhaserApi;
 });
