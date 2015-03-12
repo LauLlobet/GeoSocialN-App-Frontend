@@ -106,37 +106,44 @@ define([], function () {
         });
     });
 
-    asyncTest('tween animation', function () {
+    asyncTest('compare lists of id and delete unexistant', function () {
         require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
-            var spriteManagerPhaserApi, phaserGame;
+            var phaserGame, spriteManagerPhaserApi;
             phaserGame = new PhaserGame(function () {
                 spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
                 spriteManagerPhaserApi.createSprite({
-                    x: 360,
-                    y: 640,
+                    x: 0,
+                    y: 0,
                     w: 50,
                     h: 50,
-                    type: "debugTree"
+                    type: "point"
                 }, 32);
                 spriteManagerPhaserApi.createSprite({
-                    x: 360 - 50,
-                    y: 640 - 50,
+                    x: -100,
+                    y: -400,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 45);
-                var sprite32 = spriteManagerPhaserApi.findSpriteByNameOrThrowIfNotExists(32);
-                spriteManagerPhaserApi.tweenStprite(32, {
-                    x: -360,
-                    y: -640,
-                    w: 720,
-                    t: 1000
-                });
-                setTimeout(function f() {
-                    notEqual(0, sprite32.x, 'go to 0');
-                    QUnit.start();
-                }, 1000);
+                spriteManagerPhaserApi.createSprite({
+                    x: 400,
+                    y: -300,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 12);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 50);
+                spriteManagerPhaserApi.tellAllActiveSpritesSoItCanUpdateIt([45, 32]);
+                equal(spriteManagerPhaserApi.size(), 2, 'deleted one by ommiting it form the list of ids');
+                QUnit.start();
             });
+
         });
     });
 
@@ -181,7 +188,96 @@ define([], function () {
                 equal(sceneLoaderMockSpy.getNumCalls(), 2, 'num of calls to the interface of the scene loader');
                 QUnit.start();
             });
+
         });
     });
+
+
+    asyncTest('tween animation', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            var spriteManagerPhaserApi, phaserGame;
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
+                spriteManagerPhaserApi.createSprite({
+                    x: 360,
+                    y: 640,
+                    w: 50,
+                    h: 50,
+                    type: "debugTree"
+                }, 32);
+                spriteManagerPhaserApi.createSprite({
+                    x: 360 - 50,
+                    y: 640 - 50,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 45);
+                var sprite32 = spriteManagerPhaserApi.findSpriteByNameOrThrowIfNotExists(32);
+                spriteManagerPhaserApi.tweenStprite(32, {
+                    x: -360,
+                    y: -640,
+                    w: 720,
+                    t: 1000
+                });
+                setTimeout(function f() {
+                    notEqual(0, sprite32.x, 'go to 0');
+                    QUnit.start();
+                }, 1000);
+            });
+        });
+    });
+
+
+    asyncTest('compare lists of id and delete unexistant', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            //noinspection JSLint
+            var phaserGame, spriteManagerPhaserApi,
+                sceneLoaderMockSpy = {
+                    numcalls : 0,
+                    getTreeFromId: function getTreeFromId (id) {
+                        this.numcalls += 1;
+                        return {
+                            x: 400 * Math.random(),
+                            y: 400 * Math.random(),
+                            w: 50,
+                            h: 50,
+                            type: "point",
+                            tween: {
+                                x: -360,
+                                y: -640,
+                                w: 360
+                            }
+                        };
+                    },
+                    getNumCalls : function getNumCalls () {
+                        return this.numcalls;
+                    }
+                };
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
+                spriteManagerPhaserApi.createSprite({
+                    x: 0,
+                    y: 0,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 32);
+                spriteManagerPhaserApi.createSprite({
+                    x: -100,
+                    y: -400,
+                    w: 50,
+                    h: 50,
+                    type: "point"
+                }, 45);
+                spriteManagerPhaserApi.tellAllActiveSpritesSoItCanUpdateIt([45, 12, 21]);
+                equal(spriteManagerPhaserApi.size(), 3, 'deleted one by ommiting it form the list of ids and add two');
+                equal(sceneLoaderMockSpy.getNumCalls(), 2, 'num of calls to the interface of the scene loader');
+                QUnit.start();
+            });
+
+        });
+    });
+
+
 });
 
