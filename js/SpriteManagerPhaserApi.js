@@ -77,6 +77,9 @@ define([], function () {
                 if (!this.existsId(list[i])) {
                     tree = this.askForTreeToSceneLoader();
                     this.createSprite(tree, list[i]);
+                    if (tree.tween !== undefined) {
+                        this.tweenStprite(list[i], tree.tween);
+                    }
                 }
             }
         }
