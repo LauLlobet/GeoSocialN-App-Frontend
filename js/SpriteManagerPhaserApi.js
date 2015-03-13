@@ -12,6 +12,17 @@ define([], function () {
             this.sceneLoaderInterface = sceneLoaderInterface;
             phaserGame.scaleToReal(40);
     }
+
+    //MAIN INPUT FUNCTION
+    SpriteManagerPhaserApi.prototype.tellAllActiveSpritesSoItCanUpdateIt = function tellAllActiveSpritesSoItCanUpdateIt(list) {
+        this.addTreesThatExistOnTheIncommingListButNotInGroup(list);
+        this.removeSpritesThatNoLongerExistInTheIncommingList(list);
+
+    };
+    //MAIN INPUT FUNCTION
+    SpriteManagerPhaserApi.prototype.askForTreeToSceneLoader = function askForTreeToSceneLoader(id) {
+        return this.sceneLoaderInterface.getTreeFromId(id);
+    };
     SpriteManagerPhaserApi.prototype.displayScreenSizeTest = function displayScreenSizeTest() {
         var point, point2, point3, point4, point5;
         point = this.game.add.sprite(this.phaserGame.coordX(0), this.phaserGame.coordY(0), 'point');
@@ -65,17 +76,13 @@ define([], function () {
     SpriteManagerPhaserApi.prototype.existsId = function existsId(id) {
         return this.findSpriteByNameOrThrowIfNotExists(id) !== null;
     };
-    SpriteManagerPhaserApi.prototype.tellAllActiveSpritesSoItCanUpdateIt = function tellAllActiveSpritesSoItCanUpdateIt(list) {
-        this.addTreesThatExistOnTheIncommingListButNotInGroup(list);
-        this.removeSpritesThatNoLongerExistInTheIncommingList(list);
 
-    };
     SpriteManagerPhaserApi.prototype.addTreesThatExistOnTheIncommingListButNotInGroup = function addTreesThatExistOnTheIncommingListButNotInGroup(list) {
         var i, tree;
         for (i in list) {
             if (list.hasOwnProperty(i)) {
                 if (!this.existsId(list[i])) {
-                    tree = this.askForTreeToSceneLoader();
+                    tree = this.askForTreeToSceneLoader(list[i]);
                     this.createSprite(tree, list[i]);
                     if (tree.tween !== undefined) {
                         this.tweenStprite(list[i], tree.tween);
@@ -113,8 +120,8 @@ define([], function () {
             }
         }
     };
-    SpriteManagerPhaserApi.prototype.askForTreeToSceneLoader = function askForTreeToSceneLoader(id) {
-        return this.sceneLoaderInterface.getTreeFromId(id);
-    };
+
+
+
     return SpriteManagerPhaserApi;
 });

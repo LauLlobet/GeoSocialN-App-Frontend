@@ -29,6 +29,7 @@ define(["phaser"], function (phaser) {
         this.game.stage.backgroundColor = '#336699';
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
+        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree.png');
 
         this.game.scale.parentIsWindow = true;
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;

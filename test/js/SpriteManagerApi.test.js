@@ -2,7 +2,6 @@
 define([], function () {
     'use strict';
     module('SpriteManagerPhaserApi with real PhaserGame');
-
     asyncTest('add sprites and get it\'s length', function () {
         require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             var phaserGame, spriteManagerPhaserApi;
@@ -228,6 +227,7 @@ define([], function () {
     });
 
 
+
     asyncTest('compare lists of id and delete unexistant', function () {
         require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             //noinspection JSLint
@@ -245,7 +245,8 @@ define([], function () {
                             tween: {
                                 x: -360,
                                 y: -640,
-                                w: 360
+                                w: 360,
+                                t: 15000
                             }
                         };
                     },
