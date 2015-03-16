@@ -37,6 +37,7 @@ define([], function () {
                 initialPosition: '3center',
                 finalPosition: '2diagonalLeft'
             });
+            sceneLoader.setAllToOld();
             sceneLoader.bindTreeAndTweenToTable({
                 x: 500,
                 y: 500,
@@ -95,6 +96,7 @@ define([], function () {
                 initialPosition: '3center',
                 finalPosition: '2diagonalLeft'
             });
+            sceneLoader.setAllToOld();
             sceneLoader.bindTreeAndTweenToTable({
                 x: 500,
                 y: 500,
@@ -164,6 +166,7 @@ define([], function () {
                 initialPosition: '3center',
                 finalPosition: '2diagonalLeft'
             });
+            sceneLoader.setAllToOld();
             sceneLoader.bindTreeAndTweenToTable({
                 x: 500,
                 y: 500,
@@ -209,26 +212,46 @@ define([], function () {
                     isOk : function () { return this.isOkFlag; }
                 };
             sceneLoader = new SceneLoader(mockSpriteManagerApi);
-            sceneLoader.loadScene('ForestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+            sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
             tree = sceneLoader.getTreeFromId(1);
-            equal(-98, tree.x);
+            equal(625, tree.x);
             equal(true, mockSpriteManagerApi.isOk());
             QUnit.start();
         });
     });
 
-*/
     asyncTest('Load full scene with full equip', function () {
         require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
-            var sceneLoader, tree, spriteManagerApi,
+            var sceneLoader, spriteManagerApi,
                 phaserGame = new PhaserGame(function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
                     spriteManagerApi.sceneLoaderInterface = sceneLoader;
-                    sceneLoader.loadScene('ForestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+                    sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+                    //sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
+                    deepEqual(sceneLoader.getAllActiveIds(), [1, 2, 3, 4, 5], 'all ids');
                     QUnit.start();
                 });
         });
     });
+*/
+    asyncTest('Load two full scenes with full equip', function () {
+        require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+            var sceneLoader, spriteManagerApi,
+                phaserGame = new PhaserGame(function () {
+                    spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
+                    sceneLoader = new SceneLoader(spriteManagerApi);
+                    spriteManagerApi.sceneLoaderInterface = sceneLoader;
+                    sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+                    sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
+                    deepEqual(sceneLoader.getAllActiveIds(), [6, 7, 8, 9, 10], 'all ids');
+                    equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'original left 3c');
+                    equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'original right 3c');
+                    equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'original right 3r');
+                    QUnit.start();
+                });
+        });
+    });
+
 });
 

@@ -11,6 +11,7 @@ define(["phaser"], function (phaser) {
             callbackFunct = callback;
             this.game = new Phaser.Game(windowObj.innerWidth, windowObj.innerHeight, Phaser.CANVAS, this,
                     { preload: this.preload, create: this.create, update: this.update, render: this.render  });
+            this.lastSwipeTime = Date.now();
 
     }
 
@@ -40,7 +41,8 @@ define(["phaser"], function (phaser) {
 
     PhaserGame.prototype.create = function create() {
         this.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
-        setTimeout(callbackFunct(), 0);
+        this.game.input.addPointer();
+        setTimeout(callbackFunct(this), 0);
     };
 
     PhaserGame.prototype.coordX = function coordX(xi) {
@@ -63,13 +65,41 @@ define(["phaser"], function (phaser) {
         this.game.scale.scaleSprite(sprite, width * this.scale, height * this.scale, true);
     };
 
+    PhaserGame.prototype.onSwipe = function onSwipe() {
+        this.lastSwipe =  Date.now() - this.lastSwipeTime;
+        var isSwipe = (Phaser.Point.distance(this.game.input.activePointer.position,
+            this.game.input.activePointer.positionDown) > 100 &&
+        this.game.input.activePointer.duration > 100 &&
+        this.game.input.activePointer.duration < 250 && this.lastSwipe > 1000);
+        if (isSwipe) {
+            this.lastSwipeTime = Date.now();
+        }
+        if (!isSwipe) {
+            return false;
+        }
+        if (this.game.input.activePointer.positionDown > this.game.input.activePointer.position){
+            return "right";
+        }
+        return "left";
+    };
     PhaserGame.prototype.update = function update() //noinspection JSLint
     {
-       // console.log("updatinggggggg");
+        var swipe = this.game.parent.onSwipe();
+
+            if (swipe === "left") {
+                this.sceneLoaderInterface.loadScene('forestSwipeLeft', []);
+            }
+            if (swipe === "right") {
+                this.sceneLoaderInterface.loadScene('forestSwipeRight', []);
+            }
     };
     PhaserGame.prototype.render = function render() {
         this.game.debug.inputInfo(16, 16);
+        this.game.debug.pointer(this.game.input.activePointer);
+    //    this.game.debug.pointer(this.game.input.pointer1);
     };
+
+
 
     return PhaserGame;
 });

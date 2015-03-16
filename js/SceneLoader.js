@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"], function (_, forestSwipeLeft, forestSwipeRight) {
+define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"], function (_, forestSwipeRight, forestSwipeLeft) {
     "use strict";
     function SceneLoader(spriteManagerPhaserApiInterface) //noinspection JSLint
     {
@@ -16,7 +16,15 @@ define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"]
         _.each(scene.trees, function (entry) {
             this.bindTreeAndTweenToTable(entry);
         }, this); // bind to table
+        this.setAllToOld();
         this.spriteManagerPhaserApiInterface.tellAllActiveSpritesSoItCanUpdateIt(this.getAllActiveIds());
+    };
+
+    SceneLoader.prototype.setAllToOld = function setAllToOld(){
+        _.each(this.sceneObjectsTable, function (entry) {
+            entry.isOld = true;
+        }, this); // bind to table
+
     };
 
     SceneLoader.prototype.getTreeFromId = function getTreeFromId(id){
@@ -52,7 +60,7 @@ define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"]
 
     SceneLoader.prototype.deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType = function deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType(initialPosition, tableentry) {
         var toSubstituteTreeEntry,
-            toSubstituteIndex = this.findIndexOfTreeWithFinalPosition(initialPosition);
+            toSubstituteIndex = this.findIndexOfOldTreeWithFinalPosition(initialPosition);
         toSubstituteTreeEntry = this.sceneObjectsTable[toSubstituteIndex];
         if (toSubstituteIndex >= 0) {
             this.sceneObjectsTable.splice(toSubstituteIndex, 1);
@@ -64,7 +72,17 @@ define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"]
     SceneLoader.prototype.copyValuesFromOldTreeToNewOne = function copyValuesFromOldTreeToNewOne(oldTree, newTree) {
         newTree.tree.text = oldTree.tree.text;
         newTree.tree.type = oldTree.tree.type;
-    }
+    };
+
+    SceneLoader.prototype.findIndexOfOldTreeWithFinalPosition = function findIndexOfOldTreeWithFinalPosition(position) {
+        var i;
+        for (i = 0; i < this.sceneObjectsTable.length; i += 1) {
+            if (this.sceneObjectsTable[i].finalPosition === position && this.sceneObjectsTable[i].isOld === true) {
+                return i;
+            }
+        }
+        return -1;
+    };
 
     SceneLoader.prototype.findIndexOfTreeWithFinalPosition = function findIndexOfTreeWithFinalPosition(position) {
         var i;
@@ -75,6 +93,7 @@ define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"]
         }
         return -1;
     };
+
     SceneLoader.prototype.getTreeWithFinalPosition = function getTreeWithFinalPosition(position) {
         var i = this.findIndexOfTreeWithFinalPosition(position);
         if (i >= 0) {
@@ -86,7 +105,9 @@ define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"]
 
 
     SceneLoader.prototype.cleanToDelete = function cleanToDelete(){
-        this.sceneObjectsTable = _.filter(this.sceneObjectsTable, function(entry){ return entry.finalPosition !== 'delete'});
+        this.sceneObjectsTable = _.filter(this.sceneObjectsTable, function(entry){
+            return entry.finalPosition !== 'delete'
+        });
     };
 
     SceneLoader.prototype.loadSceneFromScenes = function loadSceneFromScenes(sceneType){
