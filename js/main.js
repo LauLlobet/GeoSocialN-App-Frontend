@@ -5,6 +5,6 @@ require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (Scene
             spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
             sceneLoader = new SceneLoader(spriteManagerApi);
             spriteManagerApi.sceneLoaderInterface = sceneLoader;
-            sceneLoader.loadScene('ForestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+            sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
         });
 });

@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(['underscore', "../scenes/ForestSwipeLeft"], function (_, forestSwipeLeft) {
+define(['underscore', "../scenes/ForestSwipeLeft", "../scenes/ForestSwipeRight"], function (_, forestSwipeLeft, forestSwipeRight) {
     "use strict";
     function SceneLoader(spriteManagerPhaserApiInterface) //noinspection JSLint
     {
@@ -90,6 +90,8 @@ define(['underscore', "../scenes/ForestSwipeLeft"], function (_, forestSwipeLeft
     };
 
     SceneLoader.prototype.loadSceneFromScenes = function loadSceneFromScenes(sceneType){
+        if(sceneType === 'forestSwipeRight')
+            return forestSwipeRight;
         return forestSwipeLeft;
     };
 

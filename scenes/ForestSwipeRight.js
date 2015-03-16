@@ -7,25 +7,8 @@ define([], function () {
         title: "ForestSwipeLeft",
         trees: [
             {
-                initialPosition: "3r",
-                x: 625,
-                y: -397,
-                w: 174,
-                h: 357,
-                text: "arbre del centre, benvingut siguis",
-                type: "real",
-                tween: {
-                    x: 323,
-                    y: -329,
-                    w: 227,
-                    t: time
-                },
-                finalPostion: "2r",
-                newTree : false
-            },
-            {
-                initialPosition: "3c",
-                x: -33,
+                initialPosition: "3l",
+                x: -687,
                 y: -397,
                 w: 174,
                 h: 357,
@@ -41,6 +24,23 @@ define([], function () {
                 newTree : false
             },
             {
+                initialPosition: "3c",
+                x: -33,
+                y: -397,
+                w: 174,
+                h: 357,
+                text: "arbre del centre, benvingut siguis",
+                type: "real",
+                tween: {
+                    x: 323,
+                    y: -329,
+                    w: 227,
+                    t: time
+                },
+                finalPostion: "2r",
+                newTree : false
+            },
+            {
                 initialPosition: "2r",
                 x: 324,
                 y: -329,
@@ -49,12 +49,12 @@ define([], function () {
                 text: "arbre del centre, benvingut siguis",
                 type: "real",
                 tween: {
-                    x: -215,
+                    x: 1429,
                     y: -216,
                     w: 436,
                     t: time
                 },
-                finalPostion: "1c",
+                finalPostion: "delete",
                 newTree : false
             },
             {
@@ -66,12 +66,12 @@ define([], function () {
                 text: "arbre del centre, benvingut siguis",
                 type: "real",
                 tween: {
-                    x: -1858,
-                    y: -221,
+                    x: -216,
+                    y: -216,
                     w: 436,
                     t: time
                 },
-                finalPostion: "delete",
+                finalPostion: "1c",
                 newTree : false
             },
             {
@@ -83,7 +83,7 @@ define([], function () {
                 text: "arbre del centre, benvingut siguis",
                 type: "real",
                 tween: {
-                    x: -1812,
+                    x: 526,
                     y: -443,
                     w: 1241,
                     t: time
