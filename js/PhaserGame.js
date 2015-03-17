@@ -28,7 +28,7 @@ define(["phaser"], function (phaser) {
     };
 
     PhaserGame.prototype.preload = function preload() {
-        this.game.stage.backgroundColor = '#336699';
+        this.game.stage.backgroundColor = '#095712';
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree.png');
@@ -66,35 +66,9 @@ define(["phaser"], function (phaser) {
         this.game.scale.scaleSprite(sprite, width * this.scale, height * this.scale, true);
     };
 
-   /* PhaserGame.prototype.onSwipe = function onSwipe() {
-        this.lastSwipe =  Date.now() - this.lastSwipeTime;
-        var isSwipe = (Phaser.Point.distance(this.game.input.activePointer.position,this.game.input.activePointer.positionDown) > 100 &&
-        this.game.input.activePointer.duration > 100 &&
-        this.game.input.activePointer.duration < 250 &&
-        this.lastSwipe > 1000);
-        if (isSwipe) {
-            this.lastSwipeTime = Date.now();
-        }
-        if (!isSwipe) {
-            return false;
-        }
-        if (this.game.input.activePointer.positionDown.x > this.game.input.activePointer.position.x) {
-            return "right";
-        }
-        return "left";
-    };*/
     PhaserGame.prototype.update = function update() //noinspection JSLint
     {
             this.game.parent.gestureObserver.updatePointer(this.game.input.activePointer);
-       /* var swipe = this.game.parent.onSwipe();
-
-            if (swipe === "left") {
-                this.sceneLoaderInterface.loadScene('forestSwipeLeft', []);
-            }
-            if (swipe === "right") {
-                this.sceneLoaderInterface.loadScene('forestSwipeRight', []);
-            }
-            */
     };
     PhaserGame.prototype.render = function render() {
         this.game.debug.inputInfo(16, 16);

@@ -43,8 +43,19 @@ define([], function () {
         this.game.camera.x = this.game.world.centerX - this.game.camera.width / 2;
         this.game.camera.y = this.game.world.centerY - this.game.camera.height / 2;
     };
+    SpriteManagerPhaserApi.prototype.createImgFromTreeTypeAndText = function createImgFromTreeTypeAndText(type, text) {
+        var dataTree = this.game.cache.getFrame(type),
+            bmd = this.game.make.bitmapData(dataTree.width, dataTree.height);
+        bmd.load(type);
+        bmd.ctx.fillStyle = "#000000";
+        bmd.ctx.font = '25px san-serif';
+        bmd.ctx.fillText(text, 10, 50);
+        return bmd;
+        //TODO: add destroy to all events
+    };
     SpriteManagerPhaserApi.prototype.createSprite = function createSprite(tree, id) {
-        var sprite = this.allSpritesGroup.create(this.phaserGame.coordX(tree.x),  this.phaserGame.coordY(tree.y), tree.type);
+        var imgId = this.createImgFromTreeTypeAndText(tree.type, tree.text),
+            sprite = this.allSpritesGroup.create(this.phaserGame.coordX(tree.x),  this.phaserGame.coordY(tree.y), imgId);
         sprite.name = id;
         sprite.height = tree.h;
         sprite.width = tree.w;
@@ -69,6 +80,7 @@ define([], function () {
     SpriteManagerPhaserApi.prototype.deleteSprite = function deleteSprite(id) {
         var sprite = this.findSpriteByNameOrThrowIfNotExists(id);
         this.allSpritesGroup.remove(sprite);
+        sprite.destroy();
     };
     SpriteManagerPhaserApi.prototype.findSpriteByNameOrThrowIfNotExists = function findSpriteByNameOrThrowIfNotExists(id) {
         return this.allSpritesGroup.iterate('name', id, Phaser.Group.RETURN_CHILD);
