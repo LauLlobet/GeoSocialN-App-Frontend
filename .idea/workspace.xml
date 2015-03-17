@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/GestureObserver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/GestureObserver.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/PhaserGame.js" afterPath="$PROJECT_DIR$/js/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SceneLoader.js" afterPath="$PROJECT_DIR$/js/SceneLoader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/SceneLoader.test.js" afterPath="$PROJECT_DIR$/test/js/SceneLoader.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" afterPath="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -40,65 +39,11 @@
       <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1111112" vertical-offset="0" max-vertical-offset="1890">
-              <caret line="2" column="128" selection-start-line="2" selection-start-column="128" selection-end-line="2" selection-end-column="128" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1890">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32352942" vertical-offset="0" max-vertical-offset="510">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpriteManagerPhaserApi.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1287" max-vertical-offset="1980">
-              <caret line="84" column="63" selection-start-line="84" selection-start-column="63" selection-end-line="84" selection-end-column="63" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ForestSwipeRight.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeRight.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="12.321428" vertical-offset="1290" max-vertical-offset="1995">
-              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ForestSwipeLeft.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeLeft.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.017857" vertical-offset="1005" max-vertical-offset="1995">
-              <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requireBootstrap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/requireBootstrap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -106,11 +51,21 @@
       <file leaf-file-name="SpriteManagerApi.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3657" max-vertical-offset="4350">
-              <caret line="249" column="29" selection-start-line="238" selection-start-column="31" selection-end-line="249" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4065" max-vertical-offset="4695">
+              <caret line="299" column="35" selection-start-line="279" selection-start-column="12" selection-end-line="299" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all.test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/all.test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.25" vertical-offset="75" max-vertical-offset="630">
+              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,8 +83,8 @@
       <file leaf-file-name="SceneLoader.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3400" max-vertical-offset="3945">
-              <caret line="238" column="120" selection-start-line="238" selection-start-column="120" selection-end-line="238" selection-end-column="120" />
+            <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="4035">
+              <caret line="12" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="8" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -140,8 +95,32 @@
       <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/PhaserGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.888889" vertical-offset="1017" max-vertical-offset="1650">
-              <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+            <state vertical-scroll-proportion="-10.555555" vertical-offset="1140" max-vertical-offset="1695">
+              <caret line="95" column="144" selection-start-line="95" selection-start-column="144" selection-end-line="95" selection-end-column="144" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestureObserver.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/GestureObserver.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="900">
+              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestureObserver.test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/js/GestureObserver.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3529412" vertical-offset="0" max-vertical-offset="510">
+              <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -179,20 +158,23 @@
         <option value="$PROJECT_DIR$/scripts/SpriteManagerPhaserApi.js" />
         <option value="$PROJECT_DIR$/test/TetsSpriteManagerPhaserApi.js" />
         <option value="$PROJECT_DIR$/test/js/TetsSpriteManagerPhaserApi.js" />
-        <option value="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
         <option value="$PROJECT_DIR$/js/requireConfig.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/test/js/requireConfig.js" />
         <option value="$PROJECT_DIR$/scenes/ForestSwipeLeft.json" />
         <option value="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
-        <option value="$PROJECT_DIR$/test/all.test.html" />
         <option value="$PROJECT_DIR$/js/requireBootstrap.js" />
         <option value="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
         <option value="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
         <option value="$PROJECT_DIR$/js/SceneLoader.js" />
-        <option value="$PROJECT_DIR$/test/js/SceneLoader.test.js" />
-        <option value="$PROJECT_DIR$/js/PhaserGame.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
+        <option value="$PROJECT_DIR$/js/PhaserGame.js" />
+        <option value="$PROJECT_DIR$/test/js/SceneLoader.test.js" />
+        <option value="$PROJECT_DIR$/test/js/util/GestureObserver.test.js" />
+        <option value="$PROJECT_DIR$/test/all.test.html" />
+        <option value="$PROJECT_DIR$/js/GestureObserver.js" />
+        <option value="$PROJECT_DIR$/test/js/GestureObserver.test.js" />
       </list>
     </option>
   </component>
@@ -316,6 +298,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OurTreeWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OurTreeWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="scenes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -379,8 +383,8 @@
       <recent name="$PROJECT_DIR$/scripts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/test/js" />
+      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/scripts" />
@@ -713,7 +717,7 @@
       <updated>1424344727497</updated>
       <workItem from="1424344730241" duration="18021000" />
       <workItem from="1424434258638" duration="44848000" />
-      <workItem from="1425664843157" duration="96468000" />
+      <workItem from="1425664843157" duration="103111000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -793,11 +797,17 @@
       <option name="project" value="LOCAL" />
       <updated>1426496723963</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="es pot fer swipe de les escenes">
+      <created>1426521591729</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1426521591729</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159337000" />
+    <option name="totallyTimeSpent" value="165980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="24" width="1440" height="746" extended-state="6" />
@@ -863,7 +873,8 @@
     <MESSAGE value="NIC &#10;desde les 5.15 treballant amb scene loader" />
     <MESSAGE value="scene loader funcionant per a una escena nomes" />
     <MESSAGE value="escenes importades del spreadsheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="escenes importades del spreadsheet" />
+    <MESSAGE value="es pot fer swipe de les escenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="es pot fer swipe de les escenes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1003,14 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/all.test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="585">
-          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1980">
@@ -1029,9 +1032,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeRight.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.321428" vertical-offset="1290" max-vertical-offset="1995">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/requireBootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+        <state vertical-scroll-proportion="0.0882353" vertical-offset="0" max-vertical-offset="510">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
           <folding />
         </state>
@@ -1045,38 +1066,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeRight.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="12.321428" vertical-offset="1290" max-vertical-offset="1995">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1111112" vertical-offset="0" max-vertical-offset="1890">
-          <caret line="2" column="128" selection-start-line="2" selection-start-column="128" selection-end-line="2" selection-end-column="128" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3400" max-vertical-offset="3945">
-          <caret line="238" column="120" selection-start-line="238" selection-start-column="120" selection-end-line="238" selection-end-column="120" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3210" max-vertical-offset="4350">
-          <caret line="249" column="29" selection-start-line="238" selection-start-column="31" selection-end-line="249" selection-end-column="29" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1890">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1085,18 +1078,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/PhaserGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.888889" vertical-offset="1017" max-vertical-offset="1650">
-          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+        <state vertical-scroll-proportion="-10.555555" vertical-offset="1140" max-vertical-offset="1695">
+          <caret line="95" column="144" selection-start-line="95" selection-start-column="144" selection-end-line="95" selection-end-column="144" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32352942" vertical-offset="0" max-vertical-offset="510">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="4035">
+          <caret line="12" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4065" max-vertical-offset="4695">
+          <caret line="299" column="35" selection-start-line="279" selection-start-column="12" selection-end-line="299" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/all.test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.25" vertical-offset="75" max-vertical-offset="630">
+          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/GestureObserver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="900">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/GestureObserver.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3529412" vertical-offset="0" max-vertical-offset="510">
+          <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

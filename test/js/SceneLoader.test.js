@@ -2,7 +2,7 @@
 define([], function () {
     'use strict';
     module('Scene Loader independent tests');
-/*
+
     asyncTest('Scane loader add tree and bind a new one on it', function () {
         require(["SceneLoader"], function (SceneLoader) {
             var treeentry, sceneLoader;
@@ -214,7 +214,7 @@ define([], function () {
             sceneLoader = new SceneLoader(mockSpriteManagerApi);
             sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
             tree = sceneLoader.getTreeFromId(1);
-            equal(625, tree.x);
+            equal(-687, tree.x);
             equal(true, mockSpriteManagerApi.isOk());
             QUnit.start();
         });
@@ -223,6 +223,9 @@ define([], function () {
     asyncTest('Load full scene with full equip', function () {
         require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var sceneLoader, spriteManagerApi,
+                fakeGestureObserver = {
+                    updatePointer: function () {}
+                },
                 phaserGame = new PhaserGame(function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
@@ -231,13 +234,16 @@ define([], function () {
                     //sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
                     deepEqual(sceneLoader.getAllActiveIds(), [1, 2, 3, 4, 5], 'all ids');
                     QUnit.start();
-                });
+                }, fakeGestureObserver);
         });
     });
-*/
+
     asyncTest('Load two full scenes with full equip', function () {
         require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var sceneLoader, spriteManagerApi,
+                fakeGestureObserver = {
+                    updatePointer: function () {}
+                },
                 phaserGame = new PhaserGame(function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
@@ -249,7 +255,7 @@ define([], function () {
                     equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'original right 3c');
                     equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'original right 3r');
                     QUnit.start();
-                });
+                },fakeGestureObserver);
         });
     });
 

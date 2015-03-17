@@ -5,8 +5,9 @@ define(["phaser"], function (phaser) {
     //noinspection JSLint
     var windowObj = window, callbackFunct, targetW = 720, targetH = 1280;
 
-    function PhaserGame(callback) //noinspection JSLint
+    function PhaserGame(callback, gestureObserver) //noinspection JSLint
     {
+            this.gestureObserver = gestureObserver;
             this.scale = 0.4;
             callbackFunct = callback;
             this.game = new Phaser.Game(windowObj.innerWidth, windowObj.innerHeight, Phaser.CANVAS, this,
@@ -65,26 +66,27 @@ define(["phaser"], function (phaser) {
         this.game.scale.scaleSprite(sprite, width * this.scale, height * this.scale, true);
     };
 
-    PhaserGame.prototype.onSwipe = function onSwipe() {
+   /* PhaserGame.prototype.onSwipe = function onSwipe() {
         this.lastSwipe =  Date.now() - this.lastSwipeTime;
-        var isSwipe = (Phaser.Point.distance(this.game.input.activePointer.position,
-            this.game.input.activePointer.positionDown) > 100 &&
+        var isSwipe = (Phaser.Point.distance(this.game.input.activePointer.position,this.game.input.activePointer.positionDown) > 100 &&
         this.game.input.activePointer.duration > 100 &&
-        this.game.input.activePointer.duration < 250 && this.lastSwipe > 1000);
+        this.game.input.activePointer.duration < 250 &&
+        this.lastSwipe > 1000);
         if (isSwipe) {
             this.lastSwipeTime = Date.now();
         }
         if (!isSwipe) {
             return false;
         }
-        if (this.game.input.activePointer.positionDown > this.game.input.activePointer.position){
+        if (this.game.input.activePointer.positionDown.x > this.game.input.activePointer.position.x) {
             return "right";
         }
         return "left";
-    };
+    };*/
     PhaserGame.prototype.update = function update() //noinspection JSLint
     {
-        var swipe = this.game.parent.onSwipe();
+            this.game.parent.gestureObserver.updatePointer(this.game.input.activePointer);
+       /* var swipe = this.game.parent.onSwipe();
 
             if (swipe === "left") {
                 this.sceneLoaderInterface.loadScene('forestSwipeLeft', []);
@@ -92,6 +94,7 @@ define(["phaser"], function (phaser) {
             if (swipe === "right") {
                 this.sceneLoaderInterface.loadScene('forestSwipeRight', []);
             }
+            */
     };
     PhaserGame.prototype.render = function render() {
         this.game.debug.inputInfo(16, 16);
