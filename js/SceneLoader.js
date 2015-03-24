@@ -8,11 +8,16 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
             this.spriteManagerPhaserApiInterface = spriteManagerPhaserApiInterface;
             this.sceneObjectsTable = [];
     }
-    SceneLoader.prototype.loadScene = function loadScene(sceneType,text){
+    SceneLoader.prototype.loadScene = function loadScene(sceneType, text) {
         this.cleanToDelete();
-        var scene = this.loadSceneFromScenes(sceneType);
-        //bind with texts
-        //create image for texts
+        var scene = this.loadSceneFromScenes(sceneType),
+            i = 0;
+        _.each(scene.trees, function (entry) {
+            if (entry.initialPosition.charAt(0) === '3') {
+                entry.text = text[i];
+                i += 1;
+            }
+        }, this);
         _.each(scene.trees, function (entry) {
             this.bindTreeAndTweenToTable(entry);
         }, this); // bind to table

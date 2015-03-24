@@ -251,11 +251,11 @@ define([], function () {
                     sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
                     sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
                     deepEqual(sceneLoader.getAllActiveIds(), [6, 7, 8, 9, 10], 'all ids');
-                    equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'original left 3c');
-                    equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'original right 3c');
-                    equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'original right 3r');
+                    equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'text2');
+                    equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'text2');
+                    equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'text1');
                     QUnit.start();
-                },fakeGestureObserver);
+                }, fakeGestureObserver);
         });
     });
 

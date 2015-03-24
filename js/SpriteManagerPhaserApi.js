@@ -1,6 +1,5 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-
 define([], function () {
     "use strict";
     function SpriteManagerPhaserApi(phaserGame, sceneLoaderInterface) //noinspection JSLint
