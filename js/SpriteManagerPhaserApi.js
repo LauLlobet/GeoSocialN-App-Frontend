@@ -21,26 +21,6 @@ define([], function () {
     SpriteManagerPhaserApi.prototype.askForTreeToSceneLoader = function askForTreeToSceneLoader(id) {
         return this.sceneLoaderInterface.getTreeFromId(id);
     };
-    SpriteManagerPhaserApi.prototype.displayScreenSizeTest = function displayScreenSizeTest() {
-        var point, point2, point3, point4, point5;
-        point = this.game.add.sprite(this.phaserGame.coordX(0), this.phaserGame.coordY(0), 'point');
-        point.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point);
-        point2 = this.game.add.sprite(this.phaserGame.coordX(360), this.phaserGame.coordY(640), 'point');
-        point2.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point2);
-        point3 = this.game.add.sprite(this.phaserGame.coordX(-360), this.phaserGame.coordY(640), 'point');
-        point3.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point3);
-        point4 = this.game.add.sprite(this.phaserGame.coordX(360), this.phaserGame.coordY(-640), 'point');
-        point4.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point4);
-        point5 = this.game.add.sprite(this.phaserGame.coordX(-360), this.phaserGame.coordY(-640), 'point');
-        this.phaserGame.resizeSpriteToSize(point5, 360, 360);
-
-        this.game.camera.x = this.game.world.centerX - this.game.camera.width / 2;
-        this.game.camera.y = this.game.world.centerY - this.game.camera.height / 2;
-    };
     SpriteManagerPhaserApi.prototype.createImgFromTreeTypeAndText = function createImgFromTreeTypeAndText(type, text) {
         var dataTree = this.game.cache.getFrame(type),
             bmd = this.game.make.bitmapData(dataTree.width, dataTree.height);
@@ -62,7 +42,7 @@ define([], function () {
         this.phaserGame.resizeSprite(sprite);
     };
     SpriteManagerPhaserApi.prototype.tweenStprite = function tweenStprite(id, tween) {
-        var sprite = this.findTreeSpriteGroupByName(id),
+        var sprite = this.findTreeSpriteById(id),
             wworld = this.phaserGame.scaleToReal(tween.w),
             scale = wworld / (sprite.width / sprite.scale.x);
         this.game.add.tween(sprite).to({
@@ -137,6 +117,26 @@ define([], function () {
                 this.deleteTreeSpriteGroup(namesInGroupNotInList[k]);
             }
         }
+    };
+    SpriteManagerPhaserApi.prototype.displayScreenSizeTest = function displayScreenSizeTest() {
+        var point, point2, point3, point4, point5;
+        point = this.game.add.sprite(this.phaserGame.coordX(0), this.phaserGame.coordY(0), 'point');
+        point.anchor.set(0.5);
+        this.phaserGame.resizeSprite(point);
+        point2 = this.game.add.sprite(this.phaserGame.coordX(360), this.phaserGame.coordY(640), 'point');
+        point2.anchor.set(0.5);
+        this.phaserGame.resizeSprite(point2);
+        point3 = this.game.add.sprite(this.phaserGame.coordX(-360), this.phaserGame.coordY(640), 'point');
+        point3.anchor.set(0.5);
+        this.phaserGame.resizeSprite(point3);
+        point4 = this.game.add.sprite(this.phaserGame.coordX(360), this.phaserGame.coordY(-640), 'point');
+        point4.anchor.set(0.5);
+        this.phaserGame.resizeSprite(point4);
+        point5 = this.game.add.sprite(this.phaserGame.coordX(-360), this.phaserGame.coordY(-640), 'point');
+        this.phaserGame.resizeSpriteToSize(point5, 360, 360);
+
+        this.game.camera.x = this.game.world.centerX - this.game.camera.width / 2;
+        this.game.camera.y = this.game.world.centerY - this.game.camera.height / 2;
     };
     return SpriteManagerPhaserApi;
 });
