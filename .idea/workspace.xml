@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/UserInterfaceBussinesController.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SceneLoader.js" afterPath="$PROJECT_DIR$/js/SceneLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/SceneLoader.test.js" afterPath="$PROJECT_DIR$/test/js/SceneLoader.test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" afterPath="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" afterPath="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/UserInterfaceBussinesController.test.js" afterPath="$PROJECT_DIR$/test/js/UserInterfaceBussinesController.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -49,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneLoader.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SceneLoader.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72924185" vertical-offset="3481" max-vertical-offset="4035">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3481" max-vertical-offset="4035">
               <caret line="259" column="7" selection-start-line="259" selection-start-column="7" selection-end-line="259" selection-end-column="7" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -74,8 +71,8 @@
       <file leaf-file-name="all.test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/all.test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5" vertical-offset="45" max-vertical-offset="585">
-              <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+            <state vertical-scroll-proportion="-5.625" vertical-offset="45" max-vertical-offset="585">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -84,8 +81,20 @@
       <file leaf-file-name="SpriteManagerApi.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3181" max-vertical-offset="4695">
-              <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="243" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="4695">
+              <caret line="231" column="37" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="karma-test-main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/karma-test-main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -105,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpriteManagerPhaserApi.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SpriteManagerPhaserApi.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.4814816" vertical-offset="1070" max-vertical-offset="2145">
-              <caret line="83" column="83" selection-start-line="83" selection-start-column="83" selection-end-line="83" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.9378882" vertical-offset="867" max-vertical-offset="2205">
+              <caret line="88" column="90" selection-start-line="88" selection-start-column="90" selection-end-line="88" selection-end-column="90" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -135,18 +144,6 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1995">
               <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GestureObserver.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/GestureObserver.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="166" max-vertical-offset="900">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -195,11 +192,11 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/js/SceneLoader.js" />
-        <option value="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
         <option value="$PROJECT_DIR$/test/js/UserInterfaceBussinesController.test.js" />
-        <option value="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
-        <option value="$PROJECT_DIR$/test/all.test.html" />
         <option value="$PROJECT_DIR$/test/js/SceneLoader.test.js" />
+        <option value="$PROJECT_DIR$/test/all.test.html" />
+        <option value="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
+        <option value="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
       </list>
     </option>
   </component>
@@ -209,7 +206,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="790" />
+    <option name="height" value="746" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -719,7 +716,7 @@
       <updated>1424344727497</updated>
       <workItem from="1424344730241" duration="18021000" />
       <workItem from="1424434258638" duration="44848000" />
-      <workItem from="1425664843157" duration="113767000" />
+      <workItem from="1425664843157" duration="119452000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -835,14 +832,20 @@
       <option name="project" value="LOCAL" />
       <updated>1426609368723</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="NotInterestingCommit &#10;&#10;treballant en arbres buits i botons desde les 16:30">
+      <created>1427214659578</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1427214659579</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176636000" />
+    <option name="totallyTimeSpent" value="182321000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="790" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="746" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -851,7 +854,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1927878" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20531757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -908,7 +911,8 @@
     <MESSAGE value="es pot fer swipe de les escenes" />
     <MESSAGE value="swipe corretgit i refactoritzat" />
     <MESSAGE value="texte incrustat" />
-    <option name="LAST_COMMIT_MESSAGE" value="texte incrustat" />
+    <MESSAGE value="NotInterestingCommit &#10;&#10;treballant en arbres buits i botons desde les 16:30" />
+    <option name="LAST_COMMIT_MESSAGE" value="NotInterestingCommit &#10;&#10;treballant en arbres buits i botons desde les 16:30" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1059,7 +1063,7 @@
         <state vertical-scroll-proportion="-6.4814816" vertical-offset="275" max-vertical-offset="1305">
           <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1102,24 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/UserInterfaceBussinesController.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3181" max-vertical-offset="4695">
-          <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="243" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.4814816" vertical-offset="545" max-vertical-offset="1965">
@@ -1130,10 +1116,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
+    <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4814816" vertical-offset="1070" max-vertical-offset="2145">
-          <caret line="83" column="83" selection-start-line="83" selection-start-column="83" selection-end-line="83" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3481" max-vertical-offset="4035">
+          <caret line="259" column="7" selection-start-line="259" selection-start-column="7" selection-end-line="259" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/karma-test-main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="554">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1142,16 +1138,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/all.test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5" vertical-offset="45" max-vertical-offset="585">
-          <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+        <state vertical-scroll-proportion="-5.625" vertical-offset="45" max-vertical-offset="585">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
+    <entry file="file://$PROJECT_DIR$/test/js/UserInterfaceBussinesController.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72924185" vertical-offset="3481" max-vertical-offset="4035">
-          <caret line="259" column="7" selection-start-line="259" selection-start-column="7" selection-end-line="259" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="4695">
+          <caret line="231" column="37" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9378882" vertical-offset="867" max-vertical-offset="2205">
+          <caret line="88" column="90" selection-start-line="88" selection-start-column="90" selection-end-line="88" selection-end-column="90" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

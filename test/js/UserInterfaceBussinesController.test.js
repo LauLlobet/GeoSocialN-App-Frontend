@@ -17,7 +17,7 @@ define([], function () {
                     userInterfaceBussinesController.sceneLoaderInterface = sceneLoader;
                     sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
                     setTimeout(function f() {
-                        equal(spriteManagerApi.findSpriteByNameOrThrowIfNotExists(1).type, "cco");
+                        equal(spriteManagerApi.findTreeSpriteGroupByNameOrThrowIfNotExists(1).type, "cco");
                         QUnit.start();
                     }, 0);
                     return sceneLoader;

@@ -10,21 +10,21 @@ define([], function () {
                 };
             phaserGame = new PhaserGame(function () {
                 spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 720 / 2 - 200,
                     y: 1280 / 2 - 200,
                     w: 200,
                     h: 200,
                     type: "debugTree"
                 }, 1234);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: -100,
                     y: 100,
                     w: 100,
                     h: 100,
                     type: "debugTree"
                 }, 12345);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 400,
                     y: 400,
                     w: 100,
@@ -48,28 +48,28 @@ define([], function () {
                 },
                 phaserGame = new PhaserGame(function () {
                     spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: 0,
                         y: 0,
                         w: 50,
                         h: 50,
                         type: "point"
                     }, 1234);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: -100,
                         y: -400,
                         w: 50,
                         h: 50,
                         type: "point"
                     }, 12345);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: 400,
                         y: -300,
                         w: 50,
                         h: 50,
                         type: "point"
                     }, 123456);
-                    spriteManagerPhaserApi.deleteSprite(123456);
+                    spriteManagerPhaserApi.deleteTreeSpriteGroup(123456);
                     equal(spriteManagerPhaserApi.size(), 2, 'debugTree.state');
                     QUnit.start();
                 }, fakeGestureObserver);
@@ -85,21 +85,21 @@ define([], function () {
                 };
             phaserGame = new PhaserGame(function () {
                 spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 0,
                     y: 0,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 1234);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: -100,
                     y: -400,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 12345);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 400,
                     y: -300,
                     w: 50,
@@ -123,28 +123,28 @@ define([], function () {
                 };
             phaserGame = new PhaserGame(function () {
                 spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 0,
                     y: 0,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 32);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: -100,
                     y: -400,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 45);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 400,
                     y: -300,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 12);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: -100,
                     y: -400,
                     w: 50,
@@ -184,14 +184,14 @@ define([], function () {
                 },
             phaserGame = new PhaserGame(function () {
                     spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: 0,
                         y: 0,
                         w: 50,
                         h: 50,
                         type: "point"
                     }, 32);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: -100,
                         y: -400,
                         w: 50,
@@ -217,21 +217,21 @@ define([], function () {
                 },
                 phaserGame = new PhaserGame(function () {
                     spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: 360,
                         y: 640,
                         w: 50,
                         h: 50,
                         type: "debugTree"
                     }, 32);
-                    spriteManagerPhaserApi.createSprite({
+                    spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: 360 - 50,
                         y: 640 - 50,
                         w: 50,
                         h: 50,
                         type: "point"
                     }, 45);
-                    var sprite32 = spriteManagerPhaserApi.findSpriteByNameOrThrowIfNotExists(32);
+                    var sprite32 = spriteManagerPhaserApi.findTreeSpriteById(32);
                     spriteManagerPhaserApi.tweenStprite(32, {
                         x: -360,
                         y: -640,
@@ -239,7 +239,7 @@ define([], function () {
                         t: 1000
                     });
                     setTimeout(function f() {
-                        notEqual(0, sprite32.x, 'go to 0');
+                        equal('treeSprite', sprite32.x, 'name');
                         QUnit.start();
                     }, 1000);
                 }, fakeGestureObserver);
@@ -279,14 +279,14 @@ define([], function () {
                 };
             phaserGame = new PhaserGame(function () {
                 spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 0,
                     y: 0,
                     w: 50,
                     h: 50,
                     type: "point"
                 }, 32);
-                spriteManagerPhaserApi.createSprite({
+                spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: -100,
                     y: -400,
                     w: 50,

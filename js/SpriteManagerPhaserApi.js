@@ -1,4 +1,4 @@
-/*global define, require, module, Phaser*/
+/*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
 define([], function () {
     "use strict";
@@ -16,7 +16,6 @@ define([], function () {
     SpriteManagerPhaserApi.prototype.tellAllActiveSpritesSoItCanUpdateIt = function tellAllActiveSpritesSoItCanUpdateIt(list) {
         this.addTreesThatExistOnTheIncommingListButNotInGroup(list);
         this.removeSpritesThatNoLongerExistInTheIncommingList(list);
-
     };
     //MAIN INPUT FUNCTION
     SpriteManagerPhaserApi.prototype.askForTreeToSceneLoader = function askForTreeToSceneLoader(id) {
@@ -50,18 +49,20 @@ define([], function () {
         bmd.ctx.font = '25px san-serif';
         bmd.ctx.fillText(text, 10, 50);
         return bmd;
-        //TODO: add destroy to all events
     };
-    SpriteManagerPhaserApi.prototype.createSprite = function createSprite(tree, id) {
+    SpriteManagerPhaserApi.prototype.createTreeSpriteGroup = function createSprite(tree, id) {
         var imgId = this.createImgFromTreeTypeAndText(tree.type, tree.text),
-            sprite = this.allSpritesGroup.create(this.phaserGame.coordX(tree.x),  this.phaserGame.coordY(tree.y), imgId);
-        sprite.name = id;
+            group = this.phaserGame.game.add.group(),
+            sprite = group.create(this.phaserGame.coordX(tree.x),  this.phaserGame.coordY(tree.y), imgId);
+        group.name = id;
+        this.allSpritesGroup.add(group);
+        sprite.name = "treeSprite";
         sprite.height = tree.h;
         sprite.width = tree.w;
         this.phaserGame.resizeSprite(sprite);
     };
     SpriteManagerPhaserApi.prototype.tweenStprite = function tweenStprite(id, tween) {
-        var sprite = this.findSpriteByNameOrThrowIfNotExists(id),
+        var sprite = this.findTreeSpriteGroupByName(id),
             wworld = this.phaserGame.scaleToReal(tween.w),
             scale = wworld / (sprite.width / sprite.scale.x);
         this.game.add.tween(sprite).to({
@@ -76,16 +77,22 @@ define([], function () {
     SpriteManagerPhaserApi.prototype.size = function size() {
         return this.allSpritesGroup.length;
     };
-    SpriteManagerPhaserApi.prototype.deleteSprite = function deleteSprite(id) {
-        var sprite = this.findSpriteByNameOrThrowIfNotExists(id);
+    SpriteManagerPhaserApi.prototype.deleteTreeSpriteGroup = function deleteTreeSpriteGroup(id) {
+        var sprite = this.findTreeSpriteGroupByName(id);
         this.allSpritesGroup.remove(sprite);
         sprite.destroy();
     };
-    SpriteManagerPhaserApi.prototype.findSpriteByNameOrThrowIfNotExists = function findSpriteByNameOrThrowIfNotExists(id) {
+    SpriteManagerPhaserApi.prototype.findTreeSpriteGroupByName = function findTreeSpriteGroupByName(id) {
         return this.allSpritesGroup.iterate('name', id, Phaser.Group.RETURN_CHILD);
     };
+
+    SpriteManagerPhaserApi.prototype.findTreeSpriteById = function findTreeSpriteById(id) {
+        var group = this.findTreeSpriteGroupByName(id);
+        return group.iterate('name', 'treeSprite', Phaser.Group.RETURN_CHILD);
+    }
+
     SpriteManagerPhaserApi.prototype.existsId = function existsId(id) {
-        return this.findSpriteByNameOrThrowIfNotExists(id) !== null;
+        return this.findTreeSpriteGroupByName(id) !== null;
     };
 
     SpriteManagerPhaserApi.prototype.addTreesThatExistOnTheIncommingListButNotInGroup = function addTreesThatExistOnTheIncommingListButNotInGroup(list) {
@@ -94,7 +101,7 @@ define([], function () {
             if (list.hasOwnProperty(i)) {
                 if (!this.existsId(list[i])) {
                     tree = this.askForTreeToSceneLoader(list[i]);
-                    this.createSprite(tree, list[i]);
+                    this.createTreeSpriteGroup(tree, list[i]);
                     if (tree.tween !== undefined) {
                         this.tweenStprite(list[i], tree.tween);
                     }
@@ -127,12 +134,9 @@ define([], function () {
         }
         for (k in namesInGroupNotInList) {
             if (namesInGroupNotInList.hasOwnProperty(k)) {
-                this.deleteSprite(namesInGroupNotInList[k]);
+                this.deleteTreeSpriteGroup(namesInGroupNotInList[k]);
             }
         }
     };
-
-
-
     return SpriteManagerPhaserApi;
 });
