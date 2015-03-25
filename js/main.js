@@ -8,7 +8,7 @@ require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame", "GestureObserver
             sceneLoader = new SceneLoader(spriteManagerApi);
             spriteManagerApi.sceneLoaderInterface = sceneLoader;
             userInterfaceBussinesController.sceneLoaderInterface = sceneLoader;
-            sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
+            sceneLoader.loadScene('forestSwipeRight', [undefined, undefined, undefined, undefined]);
             return sceneLoader;
         }, gestureObserver);
 });

@@ -32,6 +32,7 @@ define(["phaser"], function (phaser) {
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree.png');
+        this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
 
         this.game.scale.parentIsWindow = true;
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;

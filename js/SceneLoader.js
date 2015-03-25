@@ -13,7 +13,7 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
         var scene = this.loadSceneFromScenes(sceneType),
             i = 0;
         _.each(scene.trees, function (entry) {
-            if (entry.initialPosition.charAt(0) === '3') {
+            if (entry.initialPosition.charAt(0) === '3' || entry.text === "%initial") {
                 entry.text = text[i];
                 i += 1;
             }
@@ -23,6 +23,14 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
         }, this); // bind to table
         this.setAllToOld();
         this.spriteManagerPhaserApiInterface.tellAllActiveSpritesSoItCanUpdateIt(this.getAllActiveIds());
+    };
+
+    SceneLoader.prototype.bindTreeAndTweenToTable = function bindTreeAndTweenToTable(tree) {
+        var tableentry;
+        tableentry = this.createTableEntry(tree);
+        this.deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType(tree.initialPosition, tableentry);
+        this.sceneObjectsTable.push(tableentry);
+        return this.idCounter;
     };
 
     SceneLoader.prototype.setAllToOld = function setAllToOld(){
@@ -46,14 +54,6 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
         }
         return array;
     };
-    SceneLoader.prototype.bindTreeAndTweenToTable = function bindTreeAndTweenToTable(tree) {
-        var tableentry;
-        tableentry = this.createTableEntry(tree);
-        this.deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType(tree.initialPosition, tableentry);
-        this.sceneObjectsTable.push(tableentry);
-        return this.idCounter;
-    };
-
     SceneLoader.prototype.createTableEntry = function createTableEntry(tree) {
         this.idCounter += 1;
         return {

@@ -1,6 +1,6 @@
 
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual*/
-define([], function () {
+define([ "../scenes/WriteButton"], function (writteButton) {
     'use strict';
     var time = 1000;
     return {
@@ -12,7 +12,7 @@ define([], function () {
                 y: -397,
                 w: 174,
                 h: 357,
-                text: "original right 3r",
+                text: "%initial",
                 type: "real",
                 tween: {
                     x: 323,
@@ -21,7 +21,8 @@ define([], function () {
                     t: time
                 },
                 finalPosition: "2r",
-                newTree : false
+                newTree : false,
+                button: writteButton
             },
             {
                 initialPosition: "3c",
@@ -29,7 +30,7 @@ define([], function () {
                 y: -397,
                 w: 174,
                 h: 357,
-                text: "original right 3c",
+                text: "%initial",
                 type: "real",
                 tween: {
                     x: -535,
@@ -38,7 +39,8 @@ define([], function () {
                     t: time
                 },
                 finalPosition: "2l",
-                newTree : false
+                newTree : false,
+                button: writteButton
             },
             {
                 initialPosition: "2r",
@@ -46,7 +48,7 @@ define([], function () {
                 y: -329,
                 w: 227,
                 h: 464,
-                text: "original right 2r",
+                text: "%initial",
                 type: "real",
                 tween: {
                     x: -215,
@@ -55,7 +57,8 @@ define([], function () {
                     t: time
                 },
                 finalPosition: "1c",
-                newTree : false
+                newTree : false,
+                button: writteButton
             },
             {
                 initialPosition: "2l",
@@ -63,7 +66,7 @@ define([], function () {
                 y: -329,
                 w: 227,
                 h: 464,
-                text: "original right 2l",
+                text: "%initial",
                 type: "real",
                 tween: {
                     x: -1858,
@@ -72,7 +75,8 @@ define([], function () {
                     t: time
                 },
                 finalPosition: "delete",
-                newTree : false
+                newTree : false,
+                button: writteButton
             },
             {
                 initialPosition: "1c",
@@ -80,7 +84,7 @@ define([], function () {
                 y: -216,
                 w: 436,
                 h: 893,
-                text: "original right 1c",
+                text: "%initial",
                 type: "real",
                 tween: {
                     x: -1812,
@@ -89,40 +93,9 @@ define([], function () {
                     t: time
                 },
                 finalPosition: "delete",
-                newTree : false
+                newTree : false,
+                button: writteButton
             }
         ]
     };
 });
-
-/*      tree = {
- x: 400 * Math.random(),
- y: 400 * Math.random(),
- w: 50,
- h: 50,
- type: "point",
- tween:
- x: -360,
- y: -640,
- w: 360,
- t: 15000
- }
- }*/
-
-/* {
- x: 0,
- y: 0,
- w: 198,
- h: 406,
- text: "original right",
- type: "point",
- tween: {
- x: -823,
- y: -201,
- w: 564,
- t: 1000
- },
- initialPosition: "central",
- finalPosition: "delete",
- newTree : false
- }*/

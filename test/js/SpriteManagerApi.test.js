@@ -1,5 +1,5 @@
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual*/
-define([], function () {
+define([ "../../scenes/WriteButton"], function (writeButton) {
     'use strict';
     module('SpriteManagerPhaserApi with real PhaserGame');
     asyncTest('add sprites and get it\'s length', function () {
@@ -210,7 +210,7 @@ define([], function () {
 
     asyncTest('tween animation', function () {
         require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
-            var spriteManagerPhaserApi,
+          /*  var spriteManagerPhaserApi,
                 phaserGame,
                 fakeGestureObserver = {
                     updatePointer: function () {}
@@ -232,6 +232,7 @@ define([], function () {
                         type: "point"
                     }, 45);
                     var sprite32 = spriteManagerPhaserApi.findTreeSpriteById(32);
+                    var xinit = sprite32.x;
                     spriteManagerPhaserApi.tweenStprite(32, {
                         x: -360,
                         y: -640,
@@ -239,11 +240,15 @@ define([], function () {
                         t: 1000
                     });
                     setTimeout(function f() {
-                        equal('treeSprite', sprite32.x, 'name');
+                        notEqual(xinit, sprite32.x, 'name');
                         QUnit.start();
                     }, 1000);
                 }, fakeGestureObserver);
+           */
+            equal("commented", "do uncomment", 'name');
+            QUnit.start();
         });
+
     });
 
 
@@ -301,6 +306,48 @@ define([], function () {
 
         });
     });
+
+
+    asyncTest('compare lists of id and delete unexistant', function () {
+        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+            //noinspection JSLint
+            var phaserGame, spriteManagerPhaserApi,
+                sceneLoaderMockSpy = {
+                    numcalls : 0,
+                    getTreeFromId: function getTreeFromId (id) {
+                        return {
+                            initialPosition: "2l",
+                            x: -535,
+                            y: -329,
+                            w: 227,
+                            h: 464,
+                            text: undefined,
+                            type: "real",
+                            tween: {
+                                x: -216,
+                                y: -216,
+                                w: 436,
+                                t: 3000
+                            },
+                            finalPosition: "1c",
+                            newTree : false,
+                            button: writeButton
+                        };
+                    }
+                },
+                fakeGestureObserver = {
+                    updatePointer: function () {}
+                };
+            phaserGame = new PhaserGame(function () {
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
+                spriteManagerPhaserApi.tellAllActiveSpritesSoItCanUpdateIt([45]);
+                equal(spriteManagerPhaserApi.findTreeSpriteGroupByName(45).length, 2, '2 elements in treeGroups that are empty');
+                QUnit.start();
+            }, fakeGestureObserver);
+
+        });
+    });
+
 
 
 });
