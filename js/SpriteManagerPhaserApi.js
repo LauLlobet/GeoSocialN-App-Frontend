@@ -2,14 +2,13 @@
 /*jslint todo: true */
 define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
     "use strict";
-    function SpriteManagerPhaserApi(phaserGame, sceneLoaderInterface) //noinspection JSLint
+    function SpriteManagerPhaserApi(phaserGame, gestureObserver) //noinspection JSLint
     {
             this.allSpritesGroup = phaserGame.game.add.group();
             this.state = 'ok';
             this.game = phaserGame.game;
             this.phaserGame = phaserGame;
-            this.sceneLoaderInterface = sceneLoaderInterface;
-            this.singleTreeGroupFactory = new SingleTreeGroupFactory(phaserGame, this.allSpritesGroup);
+            this.singleTreeGroupFactory = new SingleTreeGroupFactory(phaserGame, this.allSpritesGroup, gestureObserver);
             phaserGame.scaleToReal(40);
     }
 
@@ -26,7 +25,8 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
                     tree = this.askForTreeToSceneLoader(list[i]);
                     this.singleTreeGroupFactory.createTreeSpriteGroup(tree, list[i]);
                     if (tree.tween !== undefined) {
-                        //this.tweenStprite(list[i], tree);
+                        this.tweenStprite(list[i], tree);
+                        this.enableButtonOfSpriteIfItBecomesCentral(list[i], tree);
                     }
                 }
             }
@@ -71,8 +71,9 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
     SpriteManagerPhaserApi.prototype.tweenStprite = function tweenStprite(id, tree) {
         var sprite = this.findTreeSpriteGroupByName(id),
             tween = tree.tween,
+            tree = this.findTreeSpriteById(id),
             wworld = this.phaserGame.scaleToReal(tween.w),
-            scale = wworld / (sprite.width / sprite.scale.x);
+            scale = wworld / (tree.width / tree.scale.x);
         this.game.add.tween(sprite).to({
             x : this.phaserGame.coordX(tween.x),
             y : this.phaserGame.coordY(tween.y)
@@ -81,6 +82,18 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
             x : scale,
             y : scale
         }, tween.t, "Linear", true, 0, 0);
+    };
+    SpriteManagerPhaserApi.prototype.enableButtonOfSpriteIfItBecomesCentral = function enableButtonOfSpriteIfItBecomesCentral(id, tree) {
+        var button;
+        if (tree.text !== undefined || tree.tween === undefined) {
+            return;
+        }
+        button = this.findTreeButtonById(id);
+        if (tree.finalPosition === '1c') {
+            button.inputEnabled = true;
+        } else {
+            button.inputEnabled = false;
+        }
     };
     SpriteManagerPhaserApi.prototype.size = function size() {
         return this.allSpritesGroup.length;

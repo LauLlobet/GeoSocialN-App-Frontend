@@ -51,5 +51,8 @@ define(['underscore'], function (_) {
         return "left";
     };
 
+    GestureObserver.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
+        this.bussinesInput.clickedOnWriteButton();
+    }
     return GestureObserver;
 });

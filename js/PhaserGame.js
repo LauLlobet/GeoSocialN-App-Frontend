@@ -72,8 +72,8 @@ define(["phaser"], function (phaser) {
             this.game.parent.gestureObserver.updatePointer(this.game.input.activePointer);
     };
     PhaserGame.prototype.render = function render() {
-        this.game.debug.inputInfo(16, 16);
-        this.game.debug.pointer(this.game.input.activePointer);
+        //this.game.debug.inputInfo(16, 16);
+        //this.game.debug.pointer(this.game.input.activePointer);
     //    this.game.debug.pointer(this.game.input.pointer1);
     };
 

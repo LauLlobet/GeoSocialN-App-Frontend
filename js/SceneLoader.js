@@ -110,15 +110,16 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
 
 
     SceneLoader.prototype.cleanToDelete = function cleanToDelete(){
-        this.sceneObjectsTable = _.filter(this.sceneObjectsTable, function(entry){
-            return entry.finalPosition !== 'delete'
+        this.sceneObjectsTable = _.filter(this.sceneObjectsTable, function (entry) {
+            return entry.finalPosition !== 'delete';
         });
     };
 
-    SceneLoader.prototype.loadSceneFromScenes = function loadSceneFromScenes(sceneType){
-        if(sceneType === 'forestSwipeRight')
-            return forestSwipeRight;
-        return forestSwipeLeft;
+    SceneLoader.prototype.loadSceneFromScenes = function loadSceneFromScenes(sceneType) {
+        if (sceneType === 'forestSwipeRight') {
+            return JSON.parse(JSON.stringify(forestSwipeRight));
+        }
+        return JSON.parse(JSON.stringify(forestSwipeLeft));
     };
 
 
