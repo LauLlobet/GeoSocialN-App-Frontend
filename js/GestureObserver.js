@@ -54,5 +54,9 @@ define(['underscore'], function (_) {
     GestureObserver.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
         this.bussinesInput.clickedOnWriteButton();
     }
+
+    GestureObserver.prototype.clickedOnKey = function (char){
+        console.log("char: "+ char);
+    }
     return GestureObserver;
 });

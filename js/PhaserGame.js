@@ -34,6 +34,7 @@ define(["phaser"], function (phaser) {
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
         this.game.load.image('keyboardBackground', '/OurTreeWeb/assets/fondoTeclat.png');
+        this.game.load.image('keyBackground', '/OurTreeWeb/assets/keyBackground.png');
 
         this.game.scale.parentIsWindow = true;
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
