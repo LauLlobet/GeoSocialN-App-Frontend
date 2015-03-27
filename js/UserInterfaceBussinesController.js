@@ -26,6 +26,7 @@ define([], function () {
     UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton () {
         if (this.state === NAVIGATE) {
             this.state = WRITTING;
+            this.keyboardInterface.showOnScene();
         }
         console.log("clicked state" + this.state);
     }
