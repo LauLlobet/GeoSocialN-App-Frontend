@@ -16,6 +16,8 @@ define([ ], function () {
         distanceBetweenKeys: keySize + 5,
         distanceBetweenLines: keySize + 5,
         fontSize: 20,
+        keysOccupiedBySpace: 4,
+        keysOccupiedByEnter: 3,
         keys: [
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
             ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ"],

@@ -1,5 +1,3 @@
-/*global define, require, module, Phaser*/
-/*jslint todo: true */
 define(['underscore'], function (_) {
     "use strict";
     function GestureObserver(bussinesInput) //noinspection JSLint
@@ -55,8 +53,8 @@ define(['underscore'], function (_) {
         this.bussinesInput.clickedOnWriteButton();
     }
 
-    GestureObserver.prototype.clickedOnKey = function (char){
-        console.log("char: "+ char);
+    GestureObserver.prototype.clickedOnKey = function (char) {
+        this.bussinesInput.clickedOnKey(char);
     }
     return GestureObserver;
 });

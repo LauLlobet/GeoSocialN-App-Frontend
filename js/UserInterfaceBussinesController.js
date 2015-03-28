@@ -23,12 +23,19 @@ define([], function () {
         }
     };
 
-    UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton () {
+    UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
         if (this.state === NAVIGATE) {
             this.state = WRITTING;
             this.keyboardInterface.showOnScene();
         }
-        console.log("clicked state" + this.state);
+    };
+
+    UserInterfaceBussinesController.prototype.clickedOnKey = function (char) {
+        console.log("char: " + char);
+        if (char === "enter") {
+            this.state = NAVIGATE;
+            this.keyboardInterface.hideOnScene();
+        }
     }
     return UserInterfaceBussinesController;
 });

@@ -42,7 +42,7 @@ define([], function () {
     };
 
     SingleTreeGroupFactory.prototype.ifEmptyTreeSetWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
-        var button, context;
+        var button, context, tween;
         if (tree.text !== undefined || tree.button === undefined) {
             return;
         }
@@ -53,7 +53,7 @@ define([], function () {
         button.inputEnabled = true;
         button.input.priorityID = 1;
         button.useHandCursor = true;
-        var tween = this.game.add.tween(button).to({y: tree.button.y - 100}, 500, 'Linear', true, 0, -1);
+        tween = this.game.add.tween(button).to({y: tree.button.y - 100}, 500, 'Linear', true, 0, -1);
         tween.yoyo(true, 500);
         context = {
             observer : this.gestureObserver,
@@ -62,8 +62,10 @@ define([], function () {
             previousTween : tween
         };
         button.events.onInputDown.add(function () {
-            this.game.tweens.remove(this.previousTween);
             this.game.add.tween(this.button).to({alpha: 0}, 300, 'Linear', true, 0, 0);
+            this.game.tweens.remove(this.previousTween);
+            this.button.inputEnabled = false;
+            this.button.useHandCursor = false;
             this.observer.clickedOnWriteButton();
         }, context);
     };
