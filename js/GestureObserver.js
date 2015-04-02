@@ -29,10 +29,10 @@ define(['underscore'], function (_) {
 
     GestureObserver.prototype.isSwipe = function isSwipe(activePointer) {
         var isLongDistance, lastMoreTime, lastLessTimeThan, lastSwipeWasOneSecondAgo;
-        isLongDistance = Phaser.Point.distance(activePointer.position, activePointer.positionDown) > 100;
+        isLongDistance = Phaser.Point.distance(activePointer.position, activePointer.positionDown) > 50;
         lastMoreTime = activePointer.duration > 100;
-        lastLessTimeThan = activePointer.duration < 250;
-        lastSwipeWasOneSecondAgo = this.lastSwipeElapsed > 1000;
+        lastLessTimeThan = activePointer.duration < 400;
+        lastSwipeWasOneSecondAgo = this.lastSwipeElapsed > 500;
         return isLongDistance && lastMoreTime && lastLessTimeThan && lastSwipeWasOneSecondAgo;
     };
 
