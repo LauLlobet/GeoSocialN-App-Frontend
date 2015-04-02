@@ -96,7 +96,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         return sprite;
     };
     Keyboard.prototype.addKeyChar = function (char, sprite) {
-        var style = { font: "32px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: sprite.width, align: "center" };
+        var style = { font: "32px Craved", fill: "#000000", wordWrap: true, wordWrapWidth: sprite.width, align: "center" };
         var text = this.game.add.text(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, char, style, this.keyboardGroup);
         text.anchor.set(0.5);
         text.alive = false;

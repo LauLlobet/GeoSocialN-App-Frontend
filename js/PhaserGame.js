@@ -39,18 +39,40 @@ define(["phaser"], function (phaser) {
         this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
         this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
 
+        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet.png');
+
+
 
         this.game.scale.parentIsWindow = true;
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
-        this.game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.game.scale.refresh();
         this.game.parent.resizeUpdate();
+
     };
 
     PhaserGame.prototype.create = function create() {
         this.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
         this.game.input.addPointer();
+
+        var ow = parseInt(this.game.canvas.style.width, 10);
+        var oh = parseInt(this.game.canvas.style.height, 10);
+        var r = Math.max(window.innerWidth / ow, window.innerHeight / oh);
+        var nw = ow * r;
+        var nh = oh * r;
+        this.game.canvas.style.width = nw + "px";
+        this.game.canvas.style.height = nh + "px";
+        this.game.canvas.style.marginLeft = (window.innerWidth / 2 - nw / 2) + "px";
+        this.game.canvas.style.marginTop = (window.innerHeight / 2 - nh / 2) + "px";
+        this.game.canvas.id = 'gameContainer';
+        document.getElementById("gameContainer").style.width = window.innerWidth + "px";
+        document.getElementById("gameContainer").style.height = window.innerHeight - 1 + "px";//The css for body includes 1px top margin, I believe this is the cause for this -1
+        document.getElementById("gameContainer").style.overflow = "hidden";
+
+
         setTimeout(callbackFunct(this), 0);
+
+
     };
 
     PhaserGame.prototype.coordX = function coordX(xi) {

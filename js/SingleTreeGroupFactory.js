@@ -18,7 +18,8 @@ define([], function () {
             return bmd;
         }
         bmd.ctx.fillStyle = "#000000";
-        bmd.ctx.font = '25px san-serif';
+        bmd.ctx.font =  this.game.add.retroFont('carved', 60, 60, ",!?abcdefghijklmnopqrstuvwxyz.", 5, 0, 0, 0, 0);
+
         bmd.ctx.fillText(text, 10, 50);
         return bmd;
     };
