@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/GestureObserver.js" afterPath="$PROJECT_DIR$/js/GestureObserver.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Keyboard.js" afterPath="$PROJECT_DIR$/js/Keyboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/PhaserGame.js" afterPath="$PROJECT_DIR$/js/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -720,7 +716,7 @@
       <workItem from="1425664843157" duration="132239000" />
       <workItem from="1427304293850" duration="576000" />
       <workItem from="1427304894629" duration="39197000" />
-      <workItem from="1427876985263" duration="7620000" />
+      <workItem from="1427876985263" duration="7636000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -896,11 +892,17 @@
       <option name="project" value="LOCAL" />
       <updated>1427968120464</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="no margin in body &#10;Bugfix">
+      <created>1427969309543</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1427969309543</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242501000" />
+    <option name="totallyTimeSpent" value="242517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="746" extended-state="0" />
@@ -952,7 +954,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="test de desplaçament de texte i imatge a lhora amb exit&#10;" />
     <MESSAGE value="loads scene from object" />
     <MESSAGE value="loads scene from object&#10;" />
     <MESSAGE value="screen size proves" />
@@ -977,7 +978,8 @@
     <MESSAGE value="teclat funciona enter exits&#10;" />
     <MESSAGE value="no margin in body" />
     <MESSAGE value="no margin in body 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="no margin in body 2" />
+    <MESSAGE value="no margin in body &#10;Bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="no margin in body &#10;Bugfix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
