@@ -2,6 +2,7 @@
 /*jslint todo: true */
 define([], function () {
     "use strict";
+    var TEXTLENGTH = 13;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
     {
             this.game = phaserGame.game;
@@ -17,25 +18,48 @@ define([], function () {
         if (text === undefined) {
             return bmd;
         }
-        bmd.ctx.fillStyle = "#000000";
-        bmd.ctx.font =  this.game.add.retroFont('carved', 60, 60, ",!?abcdefghijklmnopqrstuvwxyz.", 5, 0, 0, 0, 0);
-
-        bmd.ctx.fillText(text, 10, 50);
         return bmd;
     };
     SingleTreeGroupFactory.prototype.createTreeSpriteGroup = function createTreeSpriteGroup(tree, id) {
         var imgId = this.createImgFromTreeTypeAndText(tree.type, tree.text);
         this.group = this.phaserGame.game.add.group();
         this.sprite = this.group.create(0, 0, imgId);
-        this.sprite.name = "treeSprite";
         this.group.x = this.phaserGame.coordX(tree.x);
         this.group.y = this.phaserGame.coordY(tree.y);
         this.ifEmptyTreeSetWriteTextButtonToGroup(tree);
-        this.setPropertiesToNewGroup(tree);
+        this.setScalePropertiesToNewGroup(tree);
+        this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
+        this.setText(tree.text);
     };
 
-    SingleTreeGroupFactory.prototype.setPropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
+    SingleTreeGroupFactory.prototype.setText = function setText(text) {
+        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^*#0123456789",
+            font =  this.game.add.retroFont('carved', 60, 60, keymap, 5, 0, 0, 0, 0),
+            i = this.game.add.image(10, 10, font),
+            formatedText;
+        if (text === undefined) {
+            return;
+        }
+        formatedText =  this.formatText(text);
+        i.scale.x = 0.24;
+        i.scale.y = 0.24;
+        font.setText(formatedText, true, 0, 8, keymap, 10);
+        this.group.add(i);
+    };
+    SingleTreeGroupFactory.prototype.formatText = function (text) {
+        var textreturned = "",
+            length =  TEXTLENGTH,
+            j;
+        text = text.toUpperCase();
+        for (j = 0; j < text.length; j = j + length) {
+            textreturned += text.substring(j, j + length) + "\n";
+        }
+        textreturned += text.substring(j) + "\n";
+        return textreturned;
+    };
+
+    SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
         var prespectiveScale = tree.h / this.sprite.height,
             cellPhoneScale = this.phaserGame.scale,
             finalScale = prespectiveScale * cellPhoneScale;
