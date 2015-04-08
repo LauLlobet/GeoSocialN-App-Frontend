@@ -31,7 +31,7 @@ define(["phaser"], function (phaser) {
         this.game.stage.backgroundColor = '#095712';
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
-        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree2.png');
+        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree3.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
         this.game.load.image('keyboardBackground', '/OurTreeWeb/assets/fondoTeclat.png');
         this.game.load.image('keyBackground', '/OurTreeWeb/assets/keyBackground.png');

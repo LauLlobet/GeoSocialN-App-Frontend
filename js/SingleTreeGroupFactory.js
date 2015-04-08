@@ -24,6 +24,8 @@ define([], function () {
         var imgId = this.createImgFromTreeTypeAndText(tree.type, tree.text);
         this.group = this.phaserGame.game.add.group();
         this.sprite = this.group.create(0, 0, imgId);
+        this.sprite.anchor.x = 104 / 400;
+        this.sprite.anchor.y = 114 / 611;
         this.group.x = this.phaserGame.coordX(tree.x);
         this.group.y = this.phaserGame.coordY(tree.y);
         this.ifEmptyTreeSetWriteTextButtonToGroup(tree);
@@ -60,7 +62,7 @@ define([], function () {
     };
 
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
-        var prespectiveScale = tree.h / this.sprite.height,
+        var prespectiveScale = tree.w / this.sprite.width,
             cellPhoneScale = this.phaserGame.scale,
             finalScale = prespectiveScale * cellPhoneScale;
         this.group.scale.setTo(finalScale, finalScale);
