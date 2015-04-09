@@ -4,10 +4,6 @@
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/PhaserGame.js" afterPath="$PROJECT_DIR$/js/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SceneLoader.js" afterPath="$PROJECT_DIR$/js/SceneLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -60,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeLeft.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1476" max-vertical-offset="1995">
-              <caret line="107" column="30" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
+              <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -96,21 +92,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7976879" vertical-offset="156" max-vertical-offset="2025">
+            <state vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="2025">
               <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForestSwipeRight.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ForestSwipeRight.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeRight.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1251" max-vertical-offset="1980">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7109827" vertical-offset="1386" max-vertical-offset="1980">
+              <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -189,10 +185,10 @@
         <option value="$PROJECT_DIR$/js/PhaserGame.js" />
         <option value="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
-        <option value="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
         <option value="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
         <option value="$PROJECT_DIR$/js/SceneLoader.js" />
+        <option value="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
+        <option value="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
       </list>
     </option>
   </component>
@@ -201,7 +197,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="5" />
-    <option name="y" value="90" />
+    <option name="y" value="53" />
     <option name="width" value="1440" />
     <option name="height" value="746" />
   </component>
@@ -703,7 +699,7 @@
       <workItem from="1425664843157" duration="132239000" />
       <workItem from="1427304293850" duration="576000" />
       <workItem from="1427304894629" duration="39197000" />
-      <workItem from="1427876985263" duration="29287000" />
+      <workItem from="1427876985263" duration="30517000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -909,14 +905,20 @@
       <option name="project" value="LOCAL" />
       <updated>1428511665269</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="branques es comporten correctament sense solaparese ni  reapareixer i amb un nivell nou de profunditat, potser s'han d'ajustar els numeros en el futur perque singuin mes coherents amb la prespectiva">
+      <created>1428577187206</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1428577187206</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264168000" />
+    <option name="totallyTimeSpent" value="265398000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="90" width="1440" height="746" extended-state="0" />
+    <frame x="5" y="53" width="1440" height="746" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -965,7 +967,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="unit testing with dependecy injection done&#10;resize screen semi integrated&#10;" />
     <MESSAGE value="phaser api almost done , falta arreglar jslite" />
     <MESSAGE value="jlint arreglat a mitjes ara funciona be, l'ultim commit no funcionava" />
     <MESSAGE value="Phaser Api completa" />
@@ -990,7 +991,8 @@
     <MESSAGE value="tipografia insertada" />
     <MESSAGE value="nova animacio amb ample nou" />
     <MESSAGE value="arbre mes complert amb branques a primerissim pla" />
-    <option name="LAST_COMMIT_MESSAGE" value="arbre mes complert amb branques a primerissim pla" />
+    <MESSAGE value="branques es comporten correctament sense solaparese ni  reapareixer i amb un nivell nou de profunditat, potser s'han d'ajustar els numeros en el futur perque singuin mes coherents amb la prespectiva" />
+    <option name="LAST_COMMIT_MESSAGE" value="branques es comporten correctament sense solaparese ni  reapareixer i amb un nivell nou de profunditat, potser s'han d'ajustar els numeros en el futur perque singuin mes coherents amb la prespectiva" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1388,22 +1390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeRight.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1980">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeLeft.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1476" max-vertical-offset="1995">
-          <caret line="107" column="30" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2190">
@@ -1414,8 +1400,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7976879" vertical-offset="156" max-vertical-offset="2025">
+        <state vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="2025">
           <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeLeft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1476" max-vertical-offset="1995">
+          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeRight.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7109827" vertical-offset="1386" max-vertical-offset="1980">
+          <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
           <folding />
         </state>
       </provider>

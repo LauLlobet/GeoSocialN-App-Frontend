@@ -105,16 +105,16 @@ define([ "../scenes/WriteButton"], function (writteButton) {
             {
                 initialPosition: "0l",
                 nocreate: true,
-                x: 466,
+                x: 516,
                 y: -729,
                 w: 1411 * widthFactor,
                 h: 893,
                 text: "%initial",
                 type: "real",
                 tween: {
-                    x: 666,
+                    x: 826,
                     y: -3729,
-                    w: 7811 * widthFactor,
+                    w: 7011 * widthFactor,
                     t: time
                 },
                 finalPosition: "delete",

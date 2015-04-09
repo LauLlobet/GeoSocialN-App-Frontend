@@ -94,7 +94,7 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
-                    x: 466,
+                    x: 516,
                     y: -729,
                     w: 1411 * widthFactor,
                     t: time
