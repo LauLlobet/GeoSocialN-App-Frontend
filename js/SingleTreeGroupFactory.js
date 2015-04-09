@@ -11,21 +11,11 @@ define([], function () {
             this.gestureObserver = gestureObserver;
     }
 
-    SingleTreeGroupFactory.prototype.createImgFromTreeTypeAndText = function createImgFromTreeTypeAndText(type, text) {
-        var dataTree = this.game.cache.getFrame(type), bmd;
-        bmd = this.game.make.bitmapData(dataTree.width, dataTree.height);
-        bmd.load(type);
-        if (text === undefined) {
-            return bmd;
-        }
-        return bmd;
-    };
     SingleTreeGroupFactory.prototype.createTreeSpriteGroup = function createTreeSpriteGroup(tree, id) {
-        var imgId = this.createImgFromTreeTypeAndText(tree.type, tree.text);
         this.group = this.phaserGame.game.add.group();
-        this.sprite = this.group.create(0, 0, imgId);
+        this.sprite = this.group.create(0, 0, 'real');
         this.sprite.anchor.x = 104 / 400;
-        this.sprite.anchor.y = 114 / 611;
+        this.sprite.anchor.y = 172 / 611;
         this.group.x = this.phaserGame.coordX(tree.x);
         this.group.y = this.phaserGame.coordY(tree.y);
         this.ifEmptyTreeSetWriteTextButtonToGroup(tree);
@@ -37,15 +27,15 @@ define([], function () {
 
     SingleTreeGroupFactory.prototype.setText = function setText(text) {
         var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^*#0123456789",
-            font =  this.game.add.retroFont('carved', 60, 60, keymap, 5, 0, 0, 0, 0),
+            font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
             i = this.game.add.image(10, 10, font),
             formatedText;
         if (text === undefined) {
             return;
         }
         formatedText =  this.formatText(text);
-        i.scale.x = 0.24;
-        i.scale.y = 0.24;
+        i.scale.x = 0.27 * 0.5;
+        i.scale.y = 0.27 * 0.5;
         font.setText(formatedText, true, 0, 8, keymap, 10);
         this.group.add(i);
     };

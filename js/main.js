@@ -12,7 +12,7 @@ require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame", "GestureObserver
                 sceneLoader = new SceneLoader(spriteManagerApi);
                 spriteManagerApi.sceneLoaderInterface = sceneLoader;
                 userInterfaceBussinesController.sceneLoaderInterface = sceneLoader;
-                sceneLoader.loadScene('forestSwipeRight', ["aaaa", "bbbb", "cccc"]);
+                sceneLoader.loadScene('forestSwipeLeft', ["aaaa", "bbbb", "cccc"]);
                 return sceneLoader;
             }, gestureObserver);
 });

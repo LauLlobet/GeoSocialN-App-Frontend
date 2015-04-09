@@ -19,6 +19,9 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
             }
         }, this);
         _.each(scene.trees, function (entry) {
+            if (entry.nocreate === true && this.findIndexOfOldTreeWithFinalPosition(entry.initialPosition) < 0) {
+                return;
+            }
             this.bindTreeAndTweenToTable(entry);
         }, this); // bind to table
         this.setAllToOld();

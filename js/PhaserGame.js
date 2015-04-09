@@ -39,7 +39,7 @@ define(["phaser"], function (phaser) {
         this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
         this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
 
-        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet.png');
+        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2x.png');
 
 
 
