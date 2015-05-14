@@ -2,7 +2,7 @@
 /*jslint todo: true */
 define([], function () {
     "use strict";
-    var TEXTLENGTH = 13;
+    var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
     {
             this.game = phaserGame.game;
@@ -28,7 +28,7 @@ define([], function () {
     SingleTreeGroupFactory.prototype.setText = function setText(text) {
         var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^*#0123456789",
             font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
-            i = this.game.add.image(10, 10, font),
+            i = this.game.add.image(0, 60, font),
             formatedText;
         if (text === undefined) {
             return;
@@ -36,7 +36,7 @@ define([], function () {
         formatedText =  this.formatText(text);
         i.scale.x = 0.27 * 0.5;
         i.scale.y = 0.27 * 0.5;
-        font.setText(formatedText, true, 0, 8, keymap, 10);
+        font.setText(formatedText, true, -30, 15, keymap, 10);
         this.group.add(i);
     };
     SingleTreeGroupFactory.prototype.formatText = function (text) {

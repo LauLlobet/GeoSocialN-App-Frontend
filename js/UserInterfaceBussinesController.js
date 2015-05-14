@@ -13,13 +13,13 @@ define([], function () {
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         if (this.state === NAVIGATE) {
-            this.sceneLoaderInterface.loadScene("forestSwipeLeft", ['y text1 ui', undefined, 'y text3 ui']);
+            this.sceneLoaderInterface.loadScene("forestSwipeLeft", [' Menudo fieston     monto aqui        felix      the house cat!                     30/10/2014     Pau y Joan   la liaron parda!', undefined, 'En este bar sirven la cerveza poco fria !!Ojo!!']);
         }
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
         if (this.state === NAVIGATE) {
-            this.sceneLoaderInterface.loadScene("forestSwipeRight", ['c text1 ui', 'b text2 ui', undefined]);
+            this.sceneLoaderInterface.loadScene("forestSwipeRight", ['Esta parte de barcelona esta genial, despues de este local siempre nos dejamos caer en el Cafe Royal', ' Aga and Hanna     from poland   where here', undefined]);
         }
     };
 

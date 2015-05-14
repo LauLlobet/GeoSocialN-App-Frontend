@@ -69,19 +69,32 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
         this.singleTreeGroupFactory.createTreeSpriteGroup(tree, id);
     };
     SpriteManagerPhaserApi.prototype.tweenStprite = function tweenStprite(id, tree) {
-        var sprite = this.findTreeSpriteGroupByName(id),
+        var group = this.findTreeSpriteGroupByName(id),
             tween = tree.tween,
-            tree = this.findTreeSpriteById(id),
+            spriteRefWidth = this.findTreeSpriteById(id),
             wworld = this.phaserGame.scaleToReal(tween.w),
-            scale = wworld / (tree.width / tree.scale.x);
-        this.game.add.tween(sprite).to({
+            scale = wworld / (spriteRefWidth.width / spriteRefWidth.scale.x);
+        this.game.add.tween(group).to({
             x : this.phaserGame.coordX(tween.x),
             y : this.phaserGame.coordY(tween.y)
         }, tween.t, "Linear", true, 0, 0);
-        this.game.add.tween(sprite.scale).to({
+        this.game.add.tween(group.scale).to({
             x : scale,
             y : scale
         }, tween.t, "Linear", true, 0, 0);
+       // this.tweenTint(spriteRefWidth, 0.20 * 255, 0.80 * 255, tween.t);
+    };
+
+    SpriteManagerPhaserApi.prototype.tweenTint = function tweenTint(obj, startColor, endColor, time) {
+        var colorBlend = {step: 0},
+            colorTween = this.game.add.tween(colorBlend).to({step: 10}, time),
+            fadeIncrement = (endColor - startColor) / 10;
+        colorTween.onUpdateCallback(function () {
+            var color = startColor + fadeIncrement * colorBlend.step;
+            obj.tint = Phaser.Color.getColor(color, color, color);
+        });
+        obj.tint = startColor;
+        colorTween.start();
     };
     SpriteManagerPhaserApi.prototype.enableButtonOfSpriteIfItBecomesCentral = function enableButtonOfSpriteIfItBecomesCentral(id, tree) {
         var button;

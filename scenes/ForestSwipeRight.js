@@ -17,6 +17,8 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
+                    startColor: 0xff0000,
+                    endColor: 0x0000ff,
                     x: 310,
                     y: -386,
                     w: 260 * widthFactor,
@@ -36,6 +38,8 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
+                    startColor: 0xff0000,
+                    endColor: 0x0000ff,
                     x: -548,
                     y: -386,
                     w: 260 * widthFactor,
@@ -55,6 +59,8 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
+                    startColor: 0xff0000,
+                    endColor: 0x0000ff,
                     x: -237,
                     y: -324,
                     w: 497 * widthFactor,
@@ -74,6 +80,8 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
+                    startColor: 0xff0000,
+                    endColor: 0x0000ff,
                     x: -1878,
                     y: -329,
                     w: 497 * widthFactor,
@@ -93,6 +101,8 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
+                    startColor: 0xff0000,
+                    endColor: 0x0000ff,
                     x: -1871,
                     y: -729,
                     w: 1411 * widthFactor,
@@ -112,6 +122,8 @@ define([ "../scenes/WriteButton"], function (writteButton) {
                 text: "%initial",
                 type: "real",
                 tween: {
+                    startColor: 0xff0000,
+                    endColor: 0x0000ff,
                     x: 826,
                     y: -3729,
                     w: 7011 * widthFactor,

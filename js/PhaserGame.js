@@ -10,9 +10,20 @@ define(["phaser"], function (phaser) {
             this.gestureObserver = gestureObserver;
             this.scale = 0.4;
             callbackFunct = callback;
-            this.game = new Phaser.Game(windowObj.innerWidth, windowObj.innerHeight, Phaser.CANVAS, this,
-                    { preload: this.preload, create: this.create, update: this.update, render: this.render  });
+            var element = document.getElementById("canvasBg");
+            element.parentNode.removeChild(element);
+            this.game = new Phaser.Game(windowObj.innerWidth, windowObj.innerHeight, Phaser.CANVAS, this);
+            this.gameState = { preload: this.preload, create: this.create, update: this.update, render: this.render  };
+            this.bootState = {  preload: function bootPreload() {
+                                                          this.game.load.image('aaaa', '/OurTreeWeb/assets/spaceKey.png');
+                                        },
+                                create: function () { this.state.start('GameState');
+                                        }
+                            }
+            this.game.state.add('Boot', this.bootState);
+            this.game.state.add('GameState', this.gameState);
             this.lastSwipeTime = Date.now();
+            this.game.state.start('Boot');
 
     }
 
@@ -29,9 +40,13 @@ define(["phaser"], function (phaser) {
 
     PhaserGame.prototype.preload = function preload() {
         this.game.stage.backgroundColor = '#095712';
+        var loading = this.game.add.sprite(50, 50, 'aaaa');
+        this.load.setPreloadSprite(loading);
+
+
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
-        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree3.png');
+        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree4.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
         this.game.load.image('keyboardBackground', '/OurTreeWeb/assets/fondoTeclat.png');
         this.game.load.image('keyBackground', '/OurTreeWeb/assets/keyBackground.png');
@@ -39,8 +54,7 @@ define(["phaser"], function (phaser) {
         this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
         this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
 
-        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2x.png');
-
+        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet.png');
 
 
         this.game.scale.parentIsWindow = true;
@@ -48,6 +62,7 @@ define(["phaser"], function (phaser) {
         this.game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
         this.game.scale.refresh();
         this.game.parent.resizeUpdate();
+        this.loading = loading;
 
     };
 
@@ -55,8 +70,7 @@ define(["phaser"], function (phaser) {
         this.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
         this.game.input.addPointer();
         setTimeout(callbackFunct(this), 0);
-
-
+        this.game.world.remove(this.loading);
     };
 
     PhaserGame.prototype.coordX = function coordX(xi) {
@@ -85,7 +99,7 @@ define(["phaser"], function (phaser) {
     };
     PhaserGame.prototype.render = function render() {
         //this.game.debug.inputInfo(16, 16);
-         this.game.debug.pointer(this.game.input.activePointer);
+         //this.game.debug.pointer(this.game.input.activePointer);
     //    this.game.debug.pointer(this.game.input.pointer1);
     };
 
