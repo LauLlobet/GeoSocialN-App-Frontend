@@ -16,6 +16,7 @@ define(["phaser"], function (phaser) {
             this.gameState = { preload: this.preload, create: this.create, update: this.update, render: this.render  };
             this.bootState = {  preload: function bootPreload() {
                                                           this.game.load.image('aaaa', '/OurTreeWeb/assets/spaceKey.png');
+                                                          this.game.load.image('mercator', '/OurTreeWeb/assets/mercator.png');
                                         },
                                 create: function () { this.state.start('GameState');
                                         }
@@ -38,12 +39,48 @@ define(["phaser"], function (phaser) {
         }
     };
 
+    PhaserGame.prototype.setZoomMap = function setZoomMap() {
+        var mapWidth = 1100,
+            mapHeight = 750;
+
+        var map = this.game.add.sprite(0, 0, 'mercator');
+        var scale = windowObj.innerWidth / mapWidth;
+
+        var lat = 22.53;
+        var long = -109.54;
+
+        var x = (long+180)*(mapWidth/365);
+        var latRad = lat*Math.PI/180;
+        var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2)));
+        var y = (mapHeight/2)-(mapWidth*mercN/(2*Math.PI));
+
+        map.anchor.x = x / mapWidth;
+        map.anchor.y = y / mapHeight;
+
+        map.scale.x = scale;
+        map.scale.y = scale;
+
+        this.game.zoomStartedMillieconds = (new Date()).getTime();
+        this.game.mapZoomTotalMilliseconds = 5000;
+
+        this.game.add.tween(map.scale).to({x : 6, y : 6}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
+        this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();
+        this.game.map = map;
+    };
     PhaserGame.prototype.preload = function preload() {
-        this.game.stage.backgroundColor = '#095712';
+        this.game.stage.backgroundColor = '#99b4cf';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
-
-
+        this.game.parent.setZoomMap();
+        this.game.parent.loadImages();
+        this.game.scale.parentIsWindow = true;
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
+        this.game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
+        this.game.scale.refresh();
+        this.game.parent.resizeUpdate();
+        this.game.loading = loading;
+    };
+    PhaserGame.prototype.loadImages = function loadImages(){
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree4.png');
@@ -53,26 +90,22 @@ define(["phaser"], function (phaser) {
         this.game.load.image('keySpace', '/OurTreeWeb/assets/spaceKey.png');
         this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
         this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
-
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet.png');
-
-
-        this.game.scale.parentIsWindow = true;
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
-        this.game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
-        this.game.scale.refresh();
-        this.game.parent.resizeUpdate();
-        this.loading = loading;
-
     };
-
     PhaserGame.prototype.create = function create() {
-        this.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
-        this.game.input.addPointer();
-        setTimeout(callbackFunct(this), 0);
-        this.game.world.remove(this.loading);
+        var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),
+            restOfTheTime = this.game.mapZoomTotalMilliseconds - elapsedTimeSinceStartZoomingMap;
+        console.log(restOfTheTime);
+        setTimeout(this.game.parent.afterMapZoomStartGame, restOfTheTime, this);
     };
-
+    PhaserGame.prototype.afterMapZoomStartGame = function afterMapZoomStartGame(parent) {
+        parent.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
+        parent.game.input.addPointer();
+        setTimeout(callbackFunct(parent), 0);
+        parent.game.stage.backgroundColor = '#095712';
+        parent.game.world.remove(parent.game.loading);
+        parent.game.world.remove(parent.game.map);
+    };
     PhaserGame.prototype.coordX = function coordX(xi) {
         return xi * this.scale + this.game.world.centerX;
     };

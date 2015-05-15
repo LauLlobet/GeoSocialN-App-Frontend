@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="loading bars">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
+    <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/PhaserGame.js" afterPath="$PROJECT_DIR$/js/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" afterPath="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -60,8 +54,8 @@
       <file leaf-file-name="SpriteManagerPhaserApi.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="978" max-vertical-offset="2385">
-              <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="982" max-vertical-offset="2385">
+              <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -120,8 +114,8 @@
       <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/PhaserGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37572256" vertical-offset="0" max-vertical-offset="1710">
-              <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+            <state vertical-scroll-proportion="1.155" vertical-offset="1128" max-vertical-offset="2205">
+              <caret line="106" column="50" selection-start-line="106" selection-start-column="50" selection-end-line="106" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -203,7 +197,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="53" />
+    <option name="x" value="1" />
+    <option name="y" value="44" />
     <option name="width" value="1440" />
     <option name="height" value="746" />
   </component>
@@ -706,7 +701,7 @@
       <workItem from="1427304293850" duration="576000" />
       <workItem from="1427304894629" duration="39197000" />
       <workItem from="1427876985263" duration="34939000" />
-      <workItem from="1431349945423" duration="14181000" />
+      <workItem from="1431349945423" duration="23350000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -924,14 +919,20 @@
       <option name="project" value="LOCAL" />
       <updated>1428593853482</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="loading bars">
+      <created>1431597272601</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1431597272602</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284001000" />
+    <option name="totallyTimeSpent" value="293170000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="53" width="1440" height="746" extended-state="0" />
+    <frame x="1" y="44" width="1440" height="746" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -940,15 +941,16 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19202363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19202363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19202363" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32791728" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24305555" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32791728" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -959,7 +961,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39898133" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -980,8 +981,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="jlint arreglat a mitjes ara funciona be, l'ultim commit no funcionava" />
-    <MESSAGE value="Phaser Api completa" />
     <MESSAGE value="Phaser Api completa 2" />
     <MESSAGE value="NIC &#10;desde les 5.15 treballant amb scene loader" />
     <MESSAGE value="scene loader funcionant per a una escena nomes" />
@@ -1005,7 +1004,9 @@
     <MESSAGE value="arbre mes complert amb branques a primerissim pla" />
     <MESSAGE value="branques es comporten correctament sense solaparese ni  reapareixer i amb un nivell nou de profunditat, potser s'han d'ajustar els numeros en el futur perque singuin mes coherents amb la prespectiva" />
     <MESSAGE value="petits ajustaments a la branca" />
-    <option name="LAST_COMMIT_MESSAGE" value="petits ajustaments a la branca" />
+    <MESSAGE value="loading bars" />
+    <MESSAGE value="zooom map , encara no pilla les coordenades del gps del mobil pero funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="zooom map , encara no pilla les coordenades del gps del mobil pero funciona" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1345,14 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="978" max-vertical-offset="2385">
-          <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/phaser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1411,10 +1404,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="982" max-vertical-offset="2385">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/PhaserGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37572256" vertical-offset="0" max-vertical-offset="1710">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        <state vertical-scroll-proportion="1.155" vertical-offset="1128" max-vertical-offset="2205">
+          <caret line="106" column="50" selection-start-line="106" selection-start-column="50" selection-end-line="106" selection-end-column="50" />
           <folding />
         </state>
       </provider>
