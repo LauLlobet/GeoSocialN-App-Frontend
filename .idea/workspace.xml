@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/alphabet2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/alphabet/alphabet2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/playmobile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/playportrait.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/realDimensionTree5.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/alphabet2x.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/backwards.psd" afterPath="$PROJECT_DIR$/assets/backwards.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/enter.png" afterPath="$PROJECT_DIR$/assets/enter.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/enter.psd" afterPath="$PROJECT_DIR$/assets/enter.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/fondoTeclat.png" afterPath="$PROJECT_DIR$/assets/fondoTeclat.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackground.png" afterPath="$PROJECT_DIR$/assets/keyBackground.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackground.psd" afterPath="$PROJECT_DIR$/assets/keyBackground.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackwards.png" afterPath="$PROJECT_DIR$/assets/keyBackwards.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/space.psd" afterPath="$PROJECT_DIR$/assets/space.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/spaceKey.png" afterPath="$PROJECT_DIR$/assets/spaceKey.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Keyboard.js" afterPath="$PROJECT_DIR$/js/Keyboard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" afterPath="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/PhaserGame.js" afterPath="$PROJECT_DIR$/js/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -121,28 +106,28 @@
       <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/PhaserGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2715">
-              <caret line="129" column="58" selection-start-line="129" selection-start-column="58" selection-end-line="129" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="2715">
+              <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Keyboard.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Keyboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Keyboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8211382" vertical-offset="1546" max-vertical-offset="2130">
-              <caret line="130" column="35" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
+            <state vertical-scroll-proportion="-7.6666665" vertical-offset="1278" max-vertical-offset="2325">
+              <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/UserInterfaceBussinesController.js">
+      <file leaf-file-name="KeyboardDescriptor.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scenes/KeyboardDescriptor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="690">
-              <caret line="21" column="206" selection-start-line="21" selection-start-column="206" selection-end-line="21" selection-end-column="206" />
+            <state vertical-scroll-proportion="0.28103045" vertical-offset="0" max-vertical-offset="495">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -193,7 +178,6 @@
         <option value="$PROJECT_DIR$/test/js/requireConfig.js" />
         <option value="$PROJECT_DIR$/js/phaser.js" />
         <option value="$PROJECT_DIR$/scenes/Keyboard.js" />
-        <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
         <option value="$PROJECT_DIR$/js/GestureObserver.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/SceneLoader.js" />
@@ -207,6 +191,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/PhaserGame.js" />
         <option value="$PROJECT_DIR$/js/Keyboard.js" />
+        <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
       </list>
     </option>
   </component>
@@ -719,7 +704,7 @@
       <workItem from="1427876985263" duration="34939000" />
       <workItem from="1431349945423" duration="25219000" />
       <workItem from="1431945224241" duration="334000" />
-      <workItem from="1431945591221" duration="9800000" />
+      <workItem from="1431945591221" duration="13311000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -943,15 +928,21 @@
       <option name="project" value="LOCAL" />
       <updated>1431597272602</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="teclat millorat , oncpomplete fade out when enter arreglat i tecles de la retro font , fondos cambiats per estetica temporal">
+      <created>1432128209310</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1432128209310</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305173000" />
+    <option name="totallyTimeSpent" value="308684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="44" width="1440" height="746" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -964,7 +955,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19202363" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32791728" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24305555" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -974,7 +965,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -999,7 +990,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="NIC &#10;desde les 5.15 treballant amb scene loader" />
     <MESSAGE value="scene loader funcionant per a una escena nomes" />
     <MESSAGE value="escenes importades del spreadsheet" />
     <MESSAGE value="es pot fer swipe de les escenes" />
@@ -1024,7 +1014,8 @@
     <MESSAGE value="loading bars" />
     <MESSAGE value="zooom map , encara no pilla les coordenades del gps del mobil pero funciona" />
     <MESSAGE value="teclat millorat , oncpomplete fade out when enter arreglat i tecles de la retro font , fondos cambiats per estetica temporal" />
-    <option name="LAST_COMMIT_MESSAGE" value="teclat millorat , oncpomplete fade out when enter arreglat i tecles de la retro font , fondos cambiats per estetica temporal" />
+    <MESSAGE value="teclant millorantse, popup sprite&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="teclant millorantse, popup sprite&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1293,13 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/KeyboardDescriptor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/SpriteManagerApi.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="5400">
@@ -1405,16 +1389,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/PhaserGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2715">
-          <caret line="129" column="58" selection-start-line="129" selection-start-column="58" selection-end-line="129" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="2715">
+          <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Keyboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8211382" vertical-offset="1546" max-vertical-offset="2130">
-          <caret line="130" column="35" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
+        <state vertical-scroll-proportion="-7.6666665" vertical-offset="1278" max-vertical-offset="2325">
+          <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/KeyboardDescriptor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28103045" vertical-offset="0" max-vertical-offset="495">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding />
         </state>
       </provider>

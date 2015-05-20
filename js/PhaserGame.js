@@ -85,7 +85,7 @@ define(["phaser"], function (phaser) {
         map.scale.y = scale;
 
         this.game.zoomStartedMillieconds = (new Date()).getTime();
-        this.game.mapZoomTotalMilliseconds = 5000;
+        this.game.mapZoomTotalMilliseconds = 500;
 
         this.game.add.tween(map.scale).to({x : 49, y : 49}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();

@@ -82,24 +82,37 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             observer : this.gestureObserver,
             sprite : sprite,
             game : this.game,
-            char : char
+            char : char,
+            popupDistance : KeyboardDescriptor.popupDistance,
+            keyboardGroup : this.keyboardGroup,
+            backgroundSprite : background
         };
         sprite.events.onInputDown.add(function () {
             if ("vibrate" in navigator) {
                 navigator.vibrate(100);
             }
-            var tween = this.game.add.tween(this.sprite).to({alpha: 0}, 200, 'Linear', true, 0, 0);
-            tween.yoyo(true,0);
+            this.popupGroup = this.game.add.group();
+            this.popupGroup.x = this.keyboardGroup.x;
+            this.popupGroup.y = this.keyboardGroup.y;
+            this.newsprite = this.popupGroup.create(this.sprite.x, this.sprite.y - this.popupDistance, this.backgroundSprite);
+            this.newsprite.alpha = 0;
+            this.newsprite.scale.x = this.newsprite.scale.y = 1.8;
+            this.newsprite.anchor.x = 0.8/4;
+            var appeare = this.game.add.tween(this.newsprite).to({alpha: 1}, 100, 'Linear', false, 0, 0);
+            var still = this.game.add.tween(this.newsprite).to({alpha: 1}, 400, 'Linear', false, 0, 0);
+            var disappeare = this.game.add.tween(this.newsprite).to({alpha: 0}, 100, 'Linear', false, 0, 0);
+            appeare.chain(still);
+            still.chain(disappeare);
+            disappeare.onComplete.add(function(){
+                console.log("remove sprite");
+            },this)
             this.observer.clickedOnKey(this.char);
+            appeare.start();
         }, context);
         sprite.alive = true;
         return sprite;
     };
     Keyboard.prototype.addKeyChar = function (char, sprite) {
-        /*var style = { font: "32px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: sprite.width, align: "center" };
-        var text = this.game.add.text(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, char, style, this.keyboardGroup);
-        text.anchor.set(0.5);
-        text.alive = false;*/
         var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^Ñ#0123456789",
             font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
             i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, this.keyboardGroup);
