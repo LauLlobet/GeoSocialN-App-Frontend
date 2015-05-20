@@ -96,10 +96,18 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         return sprite;
     };
     Keyboard.prototype.addKeyChar = function (char, sprite) {
-        var style = { font: "32px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: sprite.width, align: "center" };
+        /*var style = { font: "32px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: sprite.width, align: "center" };
         var text = this.game.add.text(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, char, style, this.keyboardGroup);
         text.anchor.set(0.5);
-        text.alive = false;
+        text.alive = false;*/
+        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^Ñ#0123456789",
+            font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
+            i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, this.keyboardGroup);
+        font.setText(char.toUpperCase(), false, 0, 0 , 0, 0);
+        i.alive = false;
+        i.anchor.set(0.5)
+        i.scale.x = 0.2;
+        i.scale.y = 0.2;
     };
     Keyboard.prototype.createBackwards = function (charPos) {
         this.addKeyBackground(charPos," ","keyBackwards");
@@ -119,8 +127,8 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     };
     Keyboard.prototype.hideOnScene = function () {
         var tween = this.game.add.tween(this.keyboardGroup).to({alpha: 0}, 400, 'Linear', true, 0, 0);
-        tween.onComplete(function(){
-            this.hideAndDisable();
+        tween.onComplete.add(function(){
+             this.hideAndDisable();
         },this)
     };
 

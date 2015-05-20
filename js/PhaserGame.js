@@ -38,16 +38,40 @@ define(["phaser"], function (phaser) {
             this.game.scale.setGameSize(window.innerWidth, window.innerHeight);
         }
     };
+    PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
+        //if (!this.game.device.desktop) {
+           // document.getElementById("turn").style.display = "block";
+        //}
+    };
+
+    PhaserGame.prototype.handleCorrect = function handleCorrect() {
+        //if (!this.game.device.desktop) {
+           document.getElementById("turn").style.display = "none";
+        //}
+    };
+
+    PhaserGame.prototype.handleDesktop = function handleDesktop() {
+        document.getElementById("desktopWarning").style.display = "block";
+    };
+
+    PhaserGame.prototype.handleMobile = function handleMobile() {
+        document.getElementById("desktopWarning").style.display = "none";
+    };
 
     PhaserGame.prototype.setZoomMap = function setZoomMap() {
         var mapWidth = 1100,
             mapHeight = 750;
 
         var map = this.game.add.sprite(0, 0, 'mercator');
+        map.anchor.x = 0.5;
+        map.anchor.y = 0.5;
+        map.x = windowObj.innerWidth/2;
+        map.y = windowObj.innerHeight/2;
+
         var scale = windowObj.innerWidth / mapWidth;
 
-        var lat = 22.53;
-        var long = -109.54;
+        var lat = latitude;
+        var long = longitude;
 
         var x = (long+180)*(mapWidth/365);
         var latRad = lat*Math.PI/180;
@@ -63,7 +87,7 @@ define(["phaser"], function (phaser) {
         this.game.zoomStartedMillieconds = (new Date()).getTime();
         this.game.mapZoomTotalMilliseconds = 5000;
 
-        this.game.add.tween(map.scale).to({x : 6, y : 6}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
+        this.game.add.tween(map.scale).to({x : 49, y : 49}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.map = map;
     };
@@ -76,10 +100,20 @@ define(["phaser"], function (phaser) {
         this.game.scale.parentIsWindow = true;
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
         this.game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
+        this.game.scale.forceOrientation(false, true);
+        this.game.scale.enterIncorrectOrientation.add(this.game.parent.handleIncorrect);
+        this.game.scale.leaveIncorrectOrientation.add(this.game.parent.handleCorrect);
+        if (this.game.device.desktop) {
+            this.game.parent.handleDesktop();
+        }else{
+            this.game.parent.handleMobile();
+        }
         this.game.scale.refresh();
         this.game.parent.resizeUpdate();
         this.game.loading = loading;
     };
+
+
     PhaserGame.prototype.loadImages = function loadImages(){
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
@@ -90,7 +124,7 @@ define(["phaser"], function (phaser) {
         this.game.load.image('keySpace', '/OurTreeWeb/assets/spaceKey.png');
         this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
         this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
-        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet.png');
+        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),
