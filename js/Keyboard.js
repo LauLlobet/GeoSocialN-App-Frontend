@@ -14,9 +14,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.hideAndDisable();
     }
     Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
-        var scale,
-            widthKeyboardInGamePixels = this.phaserGame.virtualWidth * this.phaserGame.scale;
-        scale = screen.width /  KeyboardDescriptor.width;
+        var scale = screen.width /  KeyboardDescriptor.width;
         this.keyboardGroup.x = 0 + KeyboardDescriptor.margin;
         this.keyboardGroup.y = this.phaserGame.coordY(KeyboardDescriptor.yinit);
         this.keyboardGroup.scale.x = scale;
