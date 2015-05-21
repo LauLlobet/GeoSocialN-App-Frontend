@@ -8,12 +8,19 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.phaserGame = phaserGame;
             this.gestureObserver = gestureObserver;
             this.keyboardGroup = this.game.add.group();
-
-            this.keyboardGroup.x = this.phaserGame.coordX(KeyboardDescriptor.xinit);
-            this.keyboardGroup.y = this.phaserGame.coordY(KeyboardDescriptor.yinit);
-            this.createAndSetBackgroundSize();
+            this.setSizeAndPositionToKeyboardAcordingToScreenResolution();
+            //this.createAndSetBackgroundSize();
             this.addCharacters();
-            this.hideAndDisable();
+            //this.hideAndDisable();
+    }
+    Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
+        var scale,
+            widthKeyboardInGamePixels = this.phaserGame.virtualWidth * this.phaserGame.scale;
+        scale = screen.width /  KeyboardDescriptor.width;
+        this.keyboardGroup.x = 0 + KeyboardDescriptor.margin;
+        this.keyboardGroup.y = this.phaserGame.coordY(KeyboardDescriptor.yinit);
+        this.keyboardGroup.scale.x = scale;
+        this.keyboardGroup.scale.y = scale;
     }
 
     Keyboard.prototype.createAndSetBackgroundSize = function createAndSetBackgroundSize() {
@@ -95,12 +102,13 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.popupGroup.x = this.keyboardGroup.x;
             this.popupGroup.y = this.keyboardGroup.y;
             this.newsprite = this.popupGroup.create(this.sprite.x, this.sprite.y - this.popupDistance, this.backgroundSprite);
-            this.newsprite.alpha = 0;
+            this.newsprite.alpha = 1;
             this.newsprite.scale.x = this.newsprite.scale.y = 1.8;
             this.newsprite.anchor.x = 0.8/4;
-            var appeare = this.game.add.tween(this.newsprite).to({alpha: 1}, 100, 'Linear', false, 0, 0);
-            var still = this.game.add.tween(this.newsprite).to({alpha: 1}, 400, 'Linear', false, 0, 0);
-            var disappeare = this.game.add.tween(this.newsprite).to({alpha: 0}, 100, 'Linear', false, 0, 0);
+            this.popupGroup.alpha = 0;
+            var appeare = this.game.add.tween(this.popupGroup._container).to({alpha: 1}, 100, 'Linear', false, 0, 0);
+            var still = this.game.add.tween(this.popupGroup._container).to({alpha: 1}, 400, 'Linear', false, 0, 0);
+            var disappeare = this.game.add.tween(this.popupGroup._container).to({alpha: 0}, 100, 'Linear', false, 0, 0);
             appeare.chain(still);
             still.chain(disappeare);
             disappeare.onComplete.add(function(){

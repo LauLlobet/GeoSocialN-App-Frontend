@@ -8,7 +8,9 @@ define(["phaser"], function (phaser) {
     function PhaserGame(callback, gestureObserver) //noinspection JSLint
     {
             this.gestureObserver = gestureObserver;
-            this.scale = 0.4;
+            this.scale = 0.4; // temporal, it gets updated in this.resizeUpdate()
+            this.virtualWidth = targetW;
+            this.virtualHeight = targetH;
             callbackFunct = callback;
             var element = document.getElementById("canvasBg");
             element.parentNode.removeChild(element);

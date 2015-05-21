@@ -4,16 +4,18 @@ define([ ], function () {
     'use strict';
     var h = 1280 / 2,
         w = 720 / 2,
-        xinit = -450,
-        yinit =  300,
-        keySize = 30;
+        yinit =  260,
+        keySize = 30,
+        margin = 5,
+        distanceBetweenKeys = 5,
+        distanceBetweenLines = 5;
     return {
-        xinit: xinit,
         yinit: yinit,
-        width: -xinit + w,
-        height: h - yinit,
+        width: 10.5 * (keySize + distanceBetweenKeys),
+        height: 4 * (keySize + distanceBetweenLines),
         keySize: keySize,
-        distanceBetweenKeys: keySize + 5,
+        margin: margin,
+        distanceBetweenKeys: keySize + distanceBetweenKeys,
         distanceBetweenLines: keySize + 5,
         fontSize: 20,
         keysOccupiedBySpace: 4,
