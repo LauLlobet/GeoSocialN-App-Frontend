@@ -11,7 +11,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.setSizeAndPositionToKeyboardAcordingToScreenResolution();
             //this.createAndSetBackgroundSize();
             this.addCharacters();
-            //this.hideAndDisable();
+            this.hideAndDisable();
     }
     Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
         var scale,
@@ -79,7 +79,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
 
     Keyboard.prototype.createChar = function (position, char) {
             var sprite = this.addKeyBackground(position, char, "keyBackground");
-            this.addKeyChar(char, sprite);
+            this.addKeyChar(char, sprite, 0.2,this.keyboardGroup);
     };
 
     Keyboard.prototype.addKeyBackground = function (position, char, background) {
@@ -92,43 +92,74 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             char : char,
             popupDistance : KeyboardDescriptor.popupDistance,
             keyboardGroup : this.keyboardGroup,
-            backgroundSprite : background
+            backgroundSprite : background,
+            keyboard : this
         };
         sprite.events.onInputDown.add(function () {
             if ("vibrate" in navigator) {
                 navigator.vibrate(100);
             }
-            this.popupGroup = this.game.add.group();
-            this.popupGroup.x = this.keyboardGroup.x;
-            this.popupGroup.y = this.keyboardGroup.y;
-            this.newsprite = this.popupGroup.create(this.sprite.x, this.sprite.y - this.popupDistance, this.backgroundSprite);
-            this.newsprite.alpha = 1;
-            this.newsprite.scale.x = this.newsprite.scale.y = 1.8;
-            this.newsprite.anchor.x = 0.8/4;
-            this.popupGroup.alpha = 0;
-            var appeare = this.game.add.tween(this.popupGroup._container).to({alpha: 1}, 100, 'Linear', false, 0, 0);
-            var still = this.game.add.tween(this.popupGroup._container).to({alpha: 1}, 400, 'Linear', false, 0, 0);
-            var disappeare = this.game.add.tween(this.popupGroup._container).to({alpha: 0}, 100, 'Linear', false, 0, 0);
-            appeare.chain(still);
-            still.chain(disappeare);
-            disappeare.onComplete.add(function(){
-                console.log("remove sprite");
-            },this)
+            this.keyboard.createPopupGroup(this);
+            this.keyboard.createPopupBackgroundSprite(this,75,200,75);
+            this.keyboard.createPopupCharSprite(this,75,200,75);
             this.observer.clickedOnKey(this.char);
-            appeare.start();
         }, context);
         sprite.alive = true;
         return sprite;
     };
-    Keyboard.prototype.addKeyChar = function (char, sprite) {
+
+
+    Keyboard.prototype.createPopupGroup = function createPopupGroup(context) {
+        context.popupGroup = this.game.add.group();
+        context.popupGroup.x = this.keyboardGroup.x;
+        context.popupGroup.y = this.keyboardGroup.y;
+    }
+
+    Keyboard.prototype.createPopupBackgroundSprite = function createPopupBackgroundSprite (context, appeareT,stillT,disappeareT) {
+        context.newsprite = context.popupGroup.create(context.sprite.x, context.sprite.y - context.popupDistance, context.backgroundSprite);
+        context.newsprite.alpha = 1;
+        context.newsprite.scale.x = context.newsprite.scale.y = 1.8;
+        context.newsprite.z = 40;
+
+
+        var appeare = context.game.add.tween(context.newsprite).to({alpha: 1}, appeareT, 'Linear', false, 0, 0);
+        var still = context.game.add.tween(context.newsprite ).to({alpha: 1}, stillT, 'Linear', false, 0, 0);
+        var disappeare = context.game.add.tween(context.newsprite ).to({alpha: 0}, disappeareT, 'Linear', false, 0, 0);
+        appeare.chain(still);
+        still.chain(disappeare);
+        disappeare.onComplete.add(function(){
+            this.destroy();
+        },context.newsprite);
+        appeare.start();
+    }
+
+
+    Keyboard.prototype.createPopupCharSprite = function createPopupCharSprite (context, appeareT,stillT,disappeareT) {
+        var characterImage = context.keyboard.addKeyChar(context.char, context.newsprite, 0.3,context.popupGroup);
+        characterImage.z = 50;
+        var kappeare = context.game.add.tween(characterImage).to({alpha: 1}, appeareT, 'Linear', false, 0, 0);
+        var kstill = context.game.add.tween(characterImage ).to({alpha: 1}, stillT, 'Linear', false, 0, 0);
+        var kdisappeare = context.game.add.tween(characterImage ).to({alpha: 0}, disappeareT, 'Linear', false, 0, 0);
+        kappeare.chain(kstill);
+        kstill.chain(kdisappeare);
+        kdisappeare.onComplete.add(function(){
+            console.log("remove sprite");
+            this.destroy();
+        },characterImage);
+        kappeare.start();
+
+    }
+
+    Keyboard.prototype.addKeyChar = function (char, sprite, scale, group) {
         var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^Ñ#0123456789",
             font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
-            i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, this.keyboardGroup);
+            i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, group);
         font.setText(char.toUpperCase(), false, 0, 0 , 0, 0);
         i.alive = false;
         i.anchor.set(0.5)
-        i.scale.x = 0.2;
-        i.scale.y = 0.2;
+        i.scale.x = scale;
+        i.scale.y = scale;
+        return i;
     };
     Keyboard.prototype.createBackwards = function (charPos) {
         this.addKeyBackground(charPos," ","keyBackwards");
@@ -138,7 +169,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     };
     Keyboard.prototype.createEnter = function (charPos) {
         var background = this.addKeyBackground(charPos,"enter","keyEnter");
-        this.addKeyChar("enter",background);
+        this.addKeyChar("ok",background,0.2,this.keyboardGroup);
     };
     Keyboard.prototype.showOnScene = function () {
         this.showAndEnable();
