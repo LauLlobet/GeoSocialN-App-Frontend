@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loadingWhileRequireAnimation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Keyboard.js" afterPath="$PROJECT_DIR$/js/Keyboard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -65,18 +63,18 @@
       <file leaf-file-name="avoidDraggingAndSelecting.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/avoidDraggingAndSelecting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="825">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
               <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="1035">
-              <caret line="21" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.06788991" vertical-offset="23" max-vertical-offset="1035">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,10 +112,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadingWhileRequireAnimation.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loadingWhileRequireAnimation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loadingWhileRequireAnimation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.94495416" vertical-offset="430" max-vertical-offset="1050">
+            <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1050">
               <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="e#1442#1482#0" expanded="false" />
@@ -192,9 +190,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/PhaserGame.js" />
         <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
-        <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
         <option value="$PROJECT_DIR$/js/Keyboard.js" />
         <option value="$PROJECT_DIR$/loadingWhileRequireAnimation.js" />
+        <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
       </list>
     </option>
   </component>
@@ -707,7 +705,7 @@
       <workItem from="1427876985263" duration="34939000" />
       <workItem from="1431349945423" duration="25219000" />
       <workItem from="1431945224241" duration="334000" />
-      <workItem from="1431945591221" duration="23339000" />
+      <workItem from="1431945591221" duration="23398000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -943,11 +941,17 @@
       <option name="project" value="LOCAL" />
       <updated>1432133586681</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="teclant millorantse, tecles en pop up">
+      <created>1432221528526</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1432221528526</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318712000" />
+    <option name="totallyTimeSpent" value="318771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="44" width="1440" height="746" extended-state="0" />
@@ -968,7 +972,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24305555" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1536189" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1536189" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -999,7 +1003,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="escenes importades del spreadsheet" />
     <MESSAGE value="es pot fer swipe de les escenes" />
     <MESSAGE value="swipe corretgit i refactoritzat" />
     <MESSAGE value="texte incrustat" />
@@ -1024,7 +1027,8 @@
     <MESSAGE value="teclat millorat , oncpomplete fade out when enter arreglat i tecles de la retro font , fondos cambiats per estetica temporal" />
     <MESSAGE value="teclant millorantse, popup sprite&#10;" />
     <MESSAGE value="teclant millorantse, teclat s'ajusta a la resolucio de pantalla&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="teclant millorantse, teclat s'ajusta a la resolucio de pantalla&#10;" />
+    <MESSAGE value="teclant millorantse, tecles en pop up" />
+    <option name="LAST_COMMIT_MESSAGE" value="teclant millorantse, tecles en pop up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1338,14 +1342,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/avoidDraggingAndSelecting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="825">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="982" max-vertical-offset="2385">
@@ -1406,21 +1402,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="1035">
-          <caret line="21" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loadingWhileRequireAnimation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94495416" vertical-offset="430" max-vertical-offset="1050">
+        <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1050">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="e#1442#1482#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avoidDraggingAndSelecting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="825">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06788991" vertical-offset="23" max-vertical-offset="1035">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
