@@ -121,11 +121,16 @@ define(["phaser"], function (phaser) {
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree4.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
+
         this.game.load.image('keyboardBackground', '/OurTreeWeb/assets/fondoTeclat.png');
         this.game.load.image('keyBackground', '/OurTreeWeb/assets/keyBackground.png');
         this.game.load.image('keySpace', '/OurTreeWeb/assets/spaceKey.png');
         this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
         this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
+        this.game.load.image('keyOk', '/OurTreeWeb/assets/keyOk.png');
+        this.game.load.image('keyCancel', '/OurTreeWeb/assets/keyCancel.png');
+        this.game.load.image('keySwitchKeyboard', '/OurTreeWeb/assets/keySwitchKeyboard.png');
+
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
     };
     PhaserGame.prototype.create = function create() {

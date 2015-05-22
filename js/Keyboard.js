@@ -9,8 +9,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.gestureObserver = gestureObserver;
             this.keyboardGroup = this.game.add.group();
             this.setSizeAndPositionToKeyboardAcordingToScreenResolution();
-            //this.createAndSetBackgroundSize();
-            this.addCharacters();
+            this.addCharacters(true);
             this.hideAndDisable();
     }
     Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
@@ -21,58 +20,33 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.keyboardGroup.scale.y = scale;
     }
 
-    Keyboard.prototype.createAndSetBackgroundSize = function createAndSetBackgroundSize() {
-        var background = this.keyboardGroup.create(0, 0, "keyboardBackground"),
-            cellPhoneScale = this.phaserGame.scale,
-            scaleX,
-            scaleY;
-        scaleX = cellPhoneScale * (KeyboardDescriptor.width / background.width );
-        scaleY = cellPhoneScale * (KeyboardDescriptor.height / background.height );
-        background.scale.setTo(scaleX, scaleY);
-    };
-
-    Keyboard.prototype.hideAndDisable = function () {
-        this.keyboardGroup.alpha = 0;
-        this.keyboardGroup.setAll("visible", false);
-        this.keyboardGroup.setAll("exists", false);
-        this.keyboardGroup.setAll("inputEnabled", false);
-        this.keyboardGroup.setAll("useHandCursor", false);
-    }
-
-    Keyboard.prototype.showAndEnable = function () {
-        this.keyboardGroup.setAll("visible", true);
-        this.keyboardGroup.setAll("exists", true);
-        this.keyboardGroup.forEachAlive(function (sprite) {sprite.inputEnabled=true});
-        this.keyboardGroup.forEachAlive(function (sprite) {sprite.useHandCursor=true});
-    }
-
-    Keyboard.prototype.addCharacters = function () {
+    Keyboard.prototype.addCharacters = function (special) {
         var row = 0,
             charPos = 0,
             position,
-            char;
-        for (row = 0; row < KeyboardDescriptor.keys.length; row += 1) {
-            for (charPos = 0; charPos < KeyboardDescriptor.keys[row].length; charPos += 1) {
-                char = KeyboardDescriptor.keys[row][charPos];
-                position = this.calculatePosition(row, charPos);
+            char,
+            keys = KeyboardDescriptor.keys;
+        if(special == true){
+            keys = KeyboardDescriptor.specialKeys;
+        }
+        for (row = 0; row < keys.length; row += 1) {
+            for (charPos = 0; charPos < keys[row].length; charPos += 1) {
+                char = keys[row][charPos];
+                position = this.calculatePosition(row, charPos, true);
                 this.createChar(position, char);
             }
         }
-        position = this.calculatePosition(row - 1, charPos);
+        position = this.calculatePosition(row - 1, charPos, true);
         this.createBackwards(position);
-        position = this.calculatePosition(row, 0);
-        this.createSpace(position);
-        position = this.calculatePosition(row, KeyboardDescriptor.keysOccupiedBySpace);
+        position = this.calculatePosition(row, 0, false);
         this.createEnter(position);
-    };
+        position = this.calculatePosition(row, 2, false);
+        this.createSpace(position);
+        position = this.calculatePosition(row, 2 + KeyboardDescriptor.keysOccupiedBySpace, false);
+        this.createCancel(position);
+        position = this.calculatePosition(row, 2 + 2 + KeyboardDescriptor.keysOccupiedBySpace, false);
+        this.createSwitchKeyboard(position);
 
-    Keyboard.prototype.calculatePosition = function (row, charPos) {
-        var x = KeyboardDescriptor.distanceBetweenKeys  * charPos + row * 15,
-            y = KeyboardDescriptor.distanceBetweenLines * row;
-        return {
-            x: x,
-            y: y
-        };
     };
 
     Keyboard.prototype.createChar = function (position, char) {
@@ -82,8 +56,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
 
     Keyboard.prototype.addKeyBackground = function (position, char, background) {
         var sprite = this.keyboardGroup.create(position.x, position.y, background),
-            context;
-        context = {
+            context = {
             observer : this.gestureObserver,
             sprite : sprite,
             game : this.game,
@@ -99,11 +72,26 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             }
             this.keyboard.createPopupGroup(this);
             this.keyboard.createPopupBackgroundSprite(this,75,200,75);
-            this.keyboard.createPopupCharSprite(this,75,200,75);
+            if(this.sprite.hasCharacterWrittenOnImage !== undefined){
+               this.keyboard.createPopupCharSprite(this,75,200,75);
+            }
             this.observer.clickedOnKey(this.char);
         }, context);
         sprite.alive = true;
         return sprite;
+    };
+
+    Keyboard.prototype.addKeyChar = function (char, sprite, scale, group) {
+        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^Ñ#0123456789",
+            font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
+            i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, group);
+        font.setText(char , false, 0, 0 , 0, 0);
+        i.alive = false;
+        i.anchor.set(0.5)
+        i.scale.x = scale;
+        i.scale.y = scale;
+        sprite.hasCharacterWrittenOnImage = true;
+        return i;
     };
 
 
@@ -111,7 +99,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         context.popupGroup = this.game.add.group();
         context.popupGroup.x = this.keyboardGroup.x;
         context.popupGroup.y = this.keyboardGroup.y;
-    }
+    };
 
     Keyboard.prototype.createPopupBackgroundSprite = function createPopupBackgroundSprite (context, appeareT,stillT,disappeareT) {
         context.newsprite = context.popupGroup.create(context.sprite.x, context.sprite.y - context.popupDistance, context.backgroundSprite);
@@ -129,7 +117,7 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.destroy();
         },context.newsprite);
         appeare.start();
-    }
+    };
 
 
     Keyboard.prototype.createPopupCharSprite = function createPopupCharSprite (context, appeareT,stillT,disappeareT) {
@@ -146,19 +134,18 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         },characterImage);
         kappeare.start();
 
-    }
-
-    Keyboard.prototype.addKeyChar = function (char, sprite, scale, group) {
-        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^Ñ#0123456789",
-            font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
-            i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, group);
-        font.setText(char.toUpperCase(), false, 0, 0 , 0, 0);
-        i.alive = false;
-        i.anchor.set(0.5)
-        i.scale.x = scale;
-        i.scale.y = scale;
-        return i;
     };
+
+    Keyboard.prototype.calculatePosition = function (row, charPos, isIncrementBegginingOfLineAsRowIncreases) {
+        var incrementOfBegginingOfLine = isIncrementBegginingOfLineAsRowIncreases ?  row * 15 : 15,
+            x = KeyboardDescriptor.distanceBetweenKeys  * charPos + incrementOfBegginingOfLine,
+            y = KeyboardDescriptor.distanceBetweenLines * row;
+        return {
+            x: x,
+            y: y
+        };
+    };
+
     Keyboard.prototype.createBackwards = function (charPos) {
         this.addKeyBackground(charPos," ","keyBackwards");
     };
@@ -166,9 +153,15 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.addKeyBackground(charPos,"backward","keySpace");
     };
     Keyboard.prototype.createEnter = function (charPos) {
-        var background = this.addKeyBackground(charPos,"enter","keyEnter");
-        this.addKeyChar("ok",background,0.2,this.keyboardGroup);
+        this.addKeyBackground(charPos,"ok","keyOk");
     };
+    Keyboard.prototype.createCancel = function (charPos) {
+        this.addKeyBackground(charPos,"cancel","keyCancel");
+    };
+    Keyboard.prototype.createSwitchKeyboard = function (charPos) {
+        this.addKeyBackground(charPos,"switch","keySwitchKeyboard");
+    };
+
     Keyboard.prototype.showOnScene = function () {
         this.showAndEnable();
         this.keyboardGroup.parent.bringToTop(this.keyboardGroup);
@@ -181,6 +174,21 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
              this.hideAndDisable();
         },this)
     };
+
+    Keyboard.prototype.hideAndDisable = function () {
+        this.keyboardGroup.alpha = 0;
+        this.keyboardGroup.setAll("visible", false);
+        this.keyboardGroup.setAll("exists", false);
+        this.keyboardGroup.setAll("inputEnabled", false);
+        this.keyboardGroup.setAll("useHandCursor", false);
+    }
+
+    Keyboard.prototype.showAndEnable = function () {
+        this.keyboardGroup.setAll("visible", true);
+        this.keyboardGroup.setAll("exists", true);
+        this.keyboardGroup.forEachAlive(function (sprite) {sprite.inputEnabled=true});
+        this.keyboardGroup.forEachAlive(function (sprite) {sprite.useHandCursor=true});
+    }
 
 
     return Keyboard;

@@ -26,7 +26,7 @@ define([], function () {
     };
 
     SingleTreeGroupFactory.prototype.setText = function setText(text) {
-        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}ç|'`=\"+^*#0123456789",
+        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^*#0123456789",
             font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
             i = this.game.add.image(0, 60, font),
             formatedText;
