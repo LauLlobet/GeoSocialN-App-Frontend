@@ -32,9 +32,14 @@ define([], function () {
 
     UserInterfaceBussinesController.prototype.clickedOnKey = function (char) {
         console.log("char: " + char);
-        if (char === "enter") {
+        if (char === "ok") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
+        } else if (this.state === WRITTING && char === "cancel"){
+            this.state = NAVIGATE;
+            this.keyboardInterface.hideOnScene();
+        } else if (this.state === WRITTING) {
+            //var tree = this.sceneLoaderInterface.getTreeWithFinalPosition("1c");
         }
     }
     return UserInterfaceBussinesController;
