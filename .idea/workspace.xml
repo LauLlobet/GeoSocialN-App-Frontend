@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -673,7 +672,7 @@
       <workItem from="1431349945423" duration="25219000" />
       <workItem from="1431945224241" duration="334000" />
       <workItem from="1431945591221" duration="29033000" />
-      <workItem from="1432308490254" duration="1485000" />
+      <workItem from="1432308490254" duration="1492000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -939,11 +938,17 @@
       <option name="project" value="LOCAL" />
       <updated>1432566650575</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="el teclat canvia, error ideintificant els swipes, peta en mobils ajenos">
+      <created>1432566784602</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1432566784602</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325891000" />
+    <option name="totallyTimeSpent" value="325898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1280" height="1024" extended-state="6" />
