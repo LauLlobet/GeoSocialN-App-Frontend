@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SceneLoader.js" afterPath="$PROJECT_DIR$/js/SceneLoader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/SingleTreeGroupFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" afterPath="$PROJECT_DIR$/js/SpriteManagerPhaserApi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -36,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/js/SingleTreeGroupFactory.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.32245922" vertical-offset="328" max-vertical-offset="1800">
-              <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+              <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -676,7 +673,7 @@
       <workItem from="1431349945423" duration="25219000" />
       <workItem from="1431945224241" duration="334000" />
       <workItem from="1431945591221" duration="29033000" />
-      <workItem from="1432308490254" duration="9529000" />
+      <workItem from="1432308490254" duration="9609000" />
     </task>
     <task id="LOCAL-00001" summary="errors solved ready to resize &#10;">
       <created>1424454299873</created>
@@ -954,11 +951,17 @@
       <option name="project" value="LOCAL" />
       <updated>1432566790805</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="set text refactorized without this">
+      <created>1432632668898</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1432632668899</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333935000" />
+    <option name="totallyTimeSpent" value="334015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1280" height="1024" extended-state="6" />
@@ -1010,7 +1013,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="NotInterestingCommit &#10;&#10;treballant en arbres buits i botons desde les 16:30" />
     <MESSAGE value="refactoring code falta centrar els sprites i no els grups&#10;" />
     <MESSAGE value="refactoring done , ara s'afegeixen grups en comptes d'sprites permetent afegir boto als arbres buits&#10;" />
     <MESSAGE value="refactoring extra ara hi ha un factory de grups &#10;horari normal -1.5h" />
@@ -1035,7 +1037,8 @@
     <MESSAGE value="prova de commit sense coses" />
     <MESSAGE value="tecles de cancelar de ok i de canvi de teclat" />
     <MESSAGE value="el teclat canvia, error ideintificant els swipes, peta en mobils ajenos" />
-    <option name="LAST_COMMIT_MESSAGE" value="el teclat canvia, error ideintificant els swipes, peta en mobils ajenos" />
+    <MESSAGE value="set text refactorized without this" />
+    <option name="LAST_COMMIT_MESSAGE" value="set text refactorized without this" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1428,7 +1431,7 @@
     <entry file="file://$PROJECT_DIR$/js/SingleTreeGroupFactory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32245922" vertical-offset="328" max-vertical-offset="1800">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

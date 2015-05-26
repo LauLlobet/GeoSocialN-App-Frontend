@@ -36,8 +36,8 @@ define([], function () {
             text = "";
         }
         this.group.add(image);
-        this.setTextUpdateFunctionsToGroup(this.group, this.fontText, this.keymap);
-        this.group.setText(text);
+       // this.setTextUpdateFunctionsToGroup(this.group, this.fontText, this.keymap);
+        //this.group.setText(text);
     };
 
    /*
@@ -45,7 +45,7 @@ define([], function () {
 
 
     };*/
-
+/*
     SingleTreeGroupFactory.prototype.setTextUpdateFunctionsToGroup = function setTextUpdateFunctionsToGroup(group, fontText, keymap) {
         group.fontText = fontText;
         group.keymap = keymap;
@@ -69,7 +69,7 @@ define([], function () {
             textreturned += text.substring(j) + "\n";
             return textreturned;
         };
-    };
+    };*/
 
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
         var prespectiveScale = tree.w / this.sprite.width,
