@@ -35,11 +35,13 @@ define([], function () {
         if (char === "ok") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
-        } else if (this.state === WRITTING && char === "cancel"){
+        } else if (this.state === WRITTING && char === "cancel") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
         } else if (this.state === WRITTING) {
-            //var tree = this.sceneLoaderInterface.getTreeWithFinalPosition("1c");
+            var tableentrytree = this.sceneLoaderInterface.getTreeWithFinalPosition("1c");
+            var tree = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.findTreeSpriteGroupByName(tableentrytree.id);
+            tree.addChar(char);
         }
     }
     return UserInterfaceBussinesController;

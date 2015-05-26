@@ -130,25 +130,6 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
     SpriteManagerPhaserApi.prototype.existsId = function existsId(id) {
         return this.findTreeSpriteGroupByName(id) !== null;
     };
-    SpriteManagerPhaserApi.prototype.displayScreenSizeTest = function displayScreenSizeTest() {
-        var point, point2, point3, point4, point5;
-        point = this.game.add.sprite(this.phaserGame.coordX(0), this.phaserGame.coordY(0), 'point');
-        point.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point);
-        point2 = this.game.add.sprite(this.phaserGame.coordX(360), this.phaserGame.coordY(640), 'point');
-        point2.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point2);
-        point3 = this.game.add.sprite(this.phaserGame.coordX(-360), this.phaserGame.coordY(640), 'point');
-        point3.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point3);
-        point4 = this.game.add.sprite(this.phaserGame.coordX(360), this.phaserGame.coordY(-640), 'point');
-        point4.anchor.set(0.5);
-        this.phaserGame.resizeSprite(point4);
-        point5 = this.game.add.sprite(this.phaserGame.coordX(-360), this.phaserGame.coordY(-640), 'point');
-        this.phaserGame.resizeSpriteToSize(point5, 360, 360);
-
-        this.game.camera.x = this.game.world.centerX - this.game.camera.width / 2;
-        this.game.camera.y = this.game.world.centerY - this.game.camera.height / 2;
-    };
+  
     return SpriteManagerPhaserApi;
 });

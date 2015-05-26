@@ -22,33 +22,53 @@ define([], function () {
         this.setScalePropertiesToNewGroup(tree);
         this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
-        this.setText(tree.text);
+        this.createText(tree.text);
     };
 
-    SingleTreeGroupFactory.prototype.setText = function setText(text) {
-        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^*#0123456789",
-            font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
-            i = this.game.add.image(0, 60, font),
-            formatedText;
+    SingleTreeGroupFactory.prototype.createText = function createText(text) {
+        var image;
+        this.keymap =  ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^*#0123456789";
+        this.fontText =  this.game.add.retroFont('carved', 120, 120, this.keymap, 5, 0, 0, 0, 0);
+        image = this.game.add.image(0, 60, this.fontText);
+        image.scale.x = 0.27 * 0.5;
+        image.scale.y = 0.27 * 0.5;
         if (text === undefined) {
-            return;
+            text = "";
         }
-        formatedText =  this.formatText(text);
-        i.scale.x = 0.27 * 0.5;
-        i.scale.y = 0.27 * 0.5;
-        font.setText(formatedText, true, -30, 15, keymap, 10);
-        this.group.add(i);
+        this.group.add(image);
+        this.setTextUpdateFunctionsToGroup(this.group, this.fontText, this.keymap);
+        this.group.setText(text);
     };
-    SingleTreeGroupFactory.prototype.formatText = function (text) {
-        var textreturned = "",
-            length =  TEXTLENGTH,
-            j;
-        text = text.toUpperCase();
-        for (j = 0; j < text.length; j = j + length) {
-            textreturned += text.substring(j, j + length) + "\n";
-        }
-        textreturned += text.substring(j) + "\n";
-        return textreturned;
+
+   /*
+        this.group.add(image);
+
+
+    };*/
+
+    SingleTreeGroupFactory.prototype.setTextUpdateFunctionsToGroup = function setTextUpdateFunctionsToGroup(group, fontText, keymap) {
+        group.fontText = fontText;
+        group.keymap = keymap;
+        group.setText = function setText(text) {
+            var formatedText =  this.formatText(text);
+            this.fontText.setText(formatedText, true, -30, 15, this.keymap, 10);
+            this.plainText = text;
+
+        };
+        group.addChar = function addChar(char) {
+            this.setText(this.plainText + char);
+        };
+        group.formatText = function (text) {
+            var textreturned = "",
+                length =  TEXTLENGTH,
+                j;
+            text = text.toUpperCase();
+            for (j = 0; j < text.length; j = j + length) {
+                textreturned += text.substring(j, j + length) + "\n";
+            }
+            textreturned += text.substring(j) + "\n";
+            return textreturned;
+        };
     };
 
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {

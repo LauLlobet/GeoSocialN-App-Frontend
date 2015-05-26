@@ -66,13 +66,13 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
         };
     };
 
-    SceneLoader.prototype.deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType = function deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType(initialPosition, tableentry) {
+    SceneLoader.prototype.deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType = function deleteIfExistSameFinalPostionEntryAndCopyHisTextAndType(initialPosition, newTreetableentry) {
         var toSubstituteTreeEntry,
             toSubstituteIndex = this.findIndexOfOldTreeWithFinalPosition(initialPosition);
         toSubstituteTreeEntry = this.sceneObjectsTable[toSubstituteIndex];
         if (toSubstituteIndex >= 0) {
             this.sceneObjectsTable.splice(toSubstituteIndex, 1);
-            this.copyValuesFromOldTreeToNewOne(toSubstituteTreeEntry, tableentry);
+            this.copyValuesFromOldTreeToNewOne(toSubstituteTreeEntry, newTreetableentry);
         }
 
     };
