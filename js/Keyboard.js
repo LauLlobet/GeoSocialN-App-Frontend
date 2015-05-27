@@ -179,10 +179,10 @@ define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     };
 
     Keyboard.prototype.createBackwards = function (charPos) {
-        this.addKeyBackground(charPos, " " , "keyBackwards");
+        this.addKeyBackground(charPos, "backwards", "keyBackwards");
     };
     Keyboard.prototype.createSpace = function (charPos) {
-        this.addKeyBackground(charPos, "backward", "keySpace");
+        this.addKeyBackground(charPos, " ", "keySpace");
     };
     Keyboard.prototype.createEnter = function (charPos) {
         this.addKeyBackground(charPos, "ok", "keyOk");

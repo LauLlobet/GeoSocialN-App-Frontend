@@ -1,20 +1,27 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"], function (_, forestSwipeRight, forestSwipeLeft) {
+define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft", 'StackOfScenes'], function (_, forestSwipeRight, forestSwipeLeft, StackOfScenes) {
     "use strict";
     function SceneLoader(spriteManagerPhaserApiInterface) //noinspection JSLint
     {
             this.idCounter = 0;
             this.spriteManagerPhaserApiInterface = spriteManagerPhaserApiInterface;
             this.sceneObjectsTable = [];
+            this.stackOfScenes = new StackOfScenes(this);
     }
-    SceneLoader.prototype.loadScene = function loadScene(sceneType, text) {
+    SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, text) {
+        this.stackOfScenes.stackLoadScene(sceneType, text);
+    };
+    SceneLoader.prototype.playAllStackedScenes = function playAllStackedScenes(){
+        this.stackOfScenes.playAllStackedScenes();
+    };
+    SceneLoader.prototype.loadScene = function loadScene(sceneType, texts, context, callback) {
         this.cleanToDelete();
         var scene = this.loadSceneFromScenes(sceneType),
             i = 0;
         _.each(scene.trees, function (entry) {
             if (entry.initialPosition.charAt(0) === '3' || entry.text === "%initial") {
-                entry.text = text[i];
+                entry.text = texts[i];
                 i += 1;
             }
         }, this);
@@ -26,8 +33,14 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
         }, this); // bind to table
         this.setAllToOld();
         this.spriteManagerPhaserApiInterface.tellAllActiveSpritesSoItCanUpdateIt(this.getAllActiveIds());
+        this.callCallbackAfterTween(context, callback, scene.lengthInTime);
     };
 
+    SceneLoader.prototype.callCallbackAfterTween = function callCallbackAfterTween(context, callback, sceneLengthInTime){
+        if (callback !== undefined) {
+            setTimeout(function () {callback(context); }, sceneLengthInTime);
+        }
+    };
     SceneLoader.prototype.bindTreeAndTweenToTable = function bindTreeAndTweenToTable(tree) {
         var tableentry;
         tableentry = this.createTableEntry(tree);
@@ -123,6 +136,23 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft"]
             return JSON.parse(JSON.stringify(forestSwipeRight));
         }
         return JSON.parse(JSON.stringify(forestSwipeLeft));
+    };
+
+    SceneLoader.prototype.setIsTyping = function setIsTyping(isTyping) {
+        var tableentrytree = this.getTreeWithFinalPosition("1c");
+        this.spriteManagerPhaserApiInterface.setIsTyping(isTyping, tableentrytree.id);
+    };
+
+    SceneLoader.prototype.addChar = function addChar(character) {
+        var tableentrytree = this.getTreeWithFinalPosition("1c"),
+            text = this.spriteManagerPhaserApiInterface.addChar(tableentrytree.id, character);
+        tableentrytree.tree.text = text;
+    };
+
+    SceneLoader.prototype.removeChar = function removeChar() {
+        var tableentrytree = this.getTreeWithFinalPosition("1c"),
+            text = this.spriteManagerPhaserApiInterface.removeChar(tableentrytree.id, character);
+        tableentrytree.tree.text = text;
     };
 
 

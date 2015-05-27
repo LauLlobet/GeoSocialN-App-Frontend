@@ -53,7 +53,8 @@ define(["phaser"], function (phaser) {
     };
 
     PhaserGame.prototype.handleDesktop = function handleDesktop() {
-        document.getElementById("desktopWarning").style.display = "block";
+        //document.getElementById("desktopWarning").style.display = "block";
+        document.getElementById("desktopWarning").style.display = "none";
     };
 
     PhaserGame.prototype.handleMobile = function handleMobile() {
@@ -136,7 +137,6 @@ define(["phaser"], function (phaser) {
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),
             restOfTheTime = this.game.mapZoomTotalMilliseconds - elapsedTimeSinceStartZoomingMap;
-        console.log(restOfTheTime);
         setTimeout(this.game.parent.afterMapZoomStartGame, restOfTheTime, this);
     };
     PhaserGame.prototype.afterMapZoomStartGame = function afterMapZoomStartGame(parent) {
