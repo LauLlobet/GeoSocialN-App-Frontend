@@ -3,6 +3,7 @@ var angle = 90;
 var canvasBg = document.getElementById('canvasBg');
 var ctxBg = canvasBg.getContext('2d');
 //
+alert("hola");
 var requestAnimFrame = window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
     window.mozRequestAnimationFrame ||
@@ -50,12 +51,13 @@ function loop(){
     drawColoredCircle();
     requestAnimFrame(loop);
 }
-
+/*
 function GetLocation(location) {
     latitude = location.coords.latitude;
     longitude = location.coords.longitude;
 }
 navigator.geolocation.getCurrentPosition(GetLocation);
+*/
 
 loop();
 var latitude;

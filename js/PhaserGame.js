@@ -1,6 +1,6 @@
 /*global define, require, module, window, Phaser, setTimeout*/
 //noinspection JSLint
-define(["phaser"], function (phaser) {
+define(["phaser",'GpsBrowserBlockChecker'], function (phaser,GpsBrowserBlockChecker) {
     "use strict";
     //noinspection JSLint
     var windowObj = window, callbackFunct, targetW = 720, targetH = 1280;
@@ -94,6 +94,24 @@ define(["phaser"], function (phaser) {
         this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.map = map;
     };
+    PhaserGame.prototype.setUpCheckerOfGps = function (){
+        var loadingTimeLineToTellToContinue = {
+                gpsIsEnabledAndWorking : function gpsIsEnabledAndWorking() {
+                    alert("gpsIsEnabledAndWorking");
+                }
+            },
+            gpsErrorMessageDisplayerInterface = {
+                displayAcceptRequestMessage : function displayAcceptRequestMessage() {
+                    alert("Acepta la request!");
+                },
+                displayUnblockGpsMessage : function displayUnblockGpsMessage() {
+                    alert("Unblock gps on this site");
+                }
+            },
+            geolocation = navigator.geolocation,
+            gpsBrowserBlockChecker = new GpsBrowserBlockChecker(geolocation , loadingTimeLineToTellToContinue,gpsErrorMessageDisplayerInterface);
+        gpsBrowserBlockChecker.start();
+    }
     PhaserGame.prototype.preload = function preload() {
         this.game.stage.backgroundColor = '#99b4cf';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
@@ -114,9 +132,9 @@ define(["phaser"], function (phaser) {
         this.game.scale.refresh();
         this.game.parent.resizeUpdate();
         this.game.loading = loading;
+
+        this.game.parent.setUpCheckerOfGps();
     };
-
-
     PhaserGame.prototype.loadImages = function loadImages(){
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
