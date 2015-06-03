@@ -55,55 +55,9 @@
 <body id="mainId">
 <div id = "turn"></div>
 <div id = "desktopWarning"></div>
-<button id="button">Try</button>
-<div id="nudge">unblock gps please</div>
 <canvas id="canvasBg" width="800" height="498"></canvas>
-<script>
-
-    var button = document.getElementById("button");
-    var nudge = document.getElementById("nudge");
-    nudge.style.display = "none";
-
-
-    button.onclick = function() {
-        var startPos;
-       /* var nudge = document.getElementById("nudge");
-
-        var showNudgeBanner = function () {
-            nudge.style.display = "block";
-        };
-
-        var hideNudgeBanner = function () {
-            nudge.style.display = "none";
-        };
-*/
-        //var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
-
-        var geoSuccess = function (position) {
-           // hideNudgeBanner();
-            // We have the location, don't display banner
-           // clearTimeout(nudgeTimeoutId);
-
-            // Do magic with location
-            var startPos = position;
-            alert("longlat" + startPos.coords.longitude);
-        };
-        var geoError = function (error) {
-            //switch (error.code) {
-               // case error.TIMEOUT:
-                    // The user didn't accept the callout
-                        alert("unable");
-              //      showNudgeBanner();
-                 //   break;
-            }
-            ;
-
-            navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-        };
-
-</script>
-<!---script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
+<script type="text/javascript" src="avoidDraggingAndSelecting.js"></script>
 <script type="text/javascript" src="spinningCircleOnLoading.js"></script>
 <script data-main="js/phaser" src="js/phaser.js"></script>
-<script data-main="js/requireBootstrap" src="js/require.js"></script--->
+<script data-main="js/requireBootstrap" src="js/require.js"></script>
 </body>
