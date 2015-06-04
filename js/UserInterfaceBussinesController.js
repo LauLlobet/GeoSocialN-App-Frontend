@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define([], function () {
+define(["GpsMovmentTrigger"], function (GpsMovmentTrigger) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -8,6 +8,7 @@ define([], function () {
     {
             this.sceneLoaderInterface = sceneLoaderInterface;
             this.state = NAVIGATE;
+            this.gpsMovmentTrigger = new GpsMovmentTrigger(this);
     }
 
     //MAIN INPUT FUNCTION
@@ -33,13 +34,12 @@ define([], function () {
         }
     };
 
-    UserInterfaceBussinesController.prototype.clickedOnKey = function (char) {
+    UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
         console.log("char: " + char);
         if (char === "ok") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
             this.sceneLoaderInterface.setIsTyping(false);
-
         } else if (this.state === WRITTING && char === "cancel") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
@@ -49,6 +49,12 @@ define([], function () {
         } else if (this.state === WRITTING) {
             this.sceneLoaderInterface.addChar(char);
         }
+    };
+
+    UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [' ...', undefined, '...']);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [' ...', undefined, '...']);
+        this.sceneLoaderInterface.playAllStackedScenes();
     }
     return UserInterfaceBussinesController;
 });
