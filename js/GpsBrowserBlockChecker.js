@@ -37,12 +37,8 @@ define(["underscore", "CookieManager"], function (underscore, CookieManager) {
         this.cookieManager.setCookie("gpsOn", "true");
     };
     GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback() {
-        this.showGpsErrorMessageDependingOnTheDelay();
         this.cookieManager.setCookie("gpsOn", "test");
         this.reloadInterface.reload();
-    };
-    GpsBrowserBlockChecker.prototype.showGpsErrorMessageDependingOnTheDelay = function showGpsErrorMessageDependingOnTheDelay(){
-
     };
     return GpsBrowserBlockChecker;
 });

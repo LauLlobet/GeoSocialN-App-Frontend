@@ -42,7 +42,7 @@ define(["phaser",'GpsBrowserBlockChecker'], function (phaser,GpsBrowserBlockChec
     };
     PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
         //if (!this.game.device.desktop) {
-           // document.getElementById("turn").style.display = "block";
+            document.getElementById("turn").style.display = "block";
         //}
     };
 
@@ -54,7 +54,7 @@ define(["phaser",'GpsBrowserBlockChecker'], function (phaser,GpsBrowserBlockChec
 
     PhaserGame.prototype.handleDesktop = function handleDesktop() {
         //document.getElementById("desktopWarning").style.display = "block";
-        document.getElementById("desktopWarning").style.display = "none";
+        document.getElementById("desktopWarning").style.display = "block";
     };
 
     PhaserGame.prototype.handleMobile = function handleMobile() {
