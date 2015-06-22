@@ -3,7 +3,6 @@ var angle = 90;
 var canvasBg = document.getElementById('canvasBg');
 var ctxBg = canvasBg.getContext('2d');
 //
-alert("hola");
 var requestAnimFrame = window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
     window.mozRequestAnimationFrame ||
@@ -58,6 +57,31 @@ function loop(){
         ///
 
                ///
+var underscore = _;
+function CookieManager() {
+}
+
+CookieManager.prototype.setCookie = function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+CookieManager.prototype.getCookie = function (cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+CookieManager.prototype.deleteCookie = function (cname) {
+    this.setCookie(cname,"",-100);
+}
 
 function GpsBrowserBlockChecker(gpsInterface, reloadInterface, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface) {
     this.gpsInterface = gpsInterface;
@@ -73,28 +97,31 @@ GpsBrowserBlockChecker.prototype.start = function start() {
             break;
         case "test":
             this.gpsErrorMessageDisplayerInterface.displayUnblockGpsMessage();
-            setTimeout(underscore.bind(this.testGps, this), 4000);
+            setTimeout(underscore.bind(this.testGps, this), 10000);
             break;
         case "":
             this.gpsErrorMessageDisplayerInterface.displayAcceptRequestMessage();
-            setTimeout(underscore.bind(this.testGps, this), 4000);
+            setTimeout(underscore.bind(this.testGps, this), 10000);
             break;
     }
 };
 
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { timeout: 5000, enableHighAccuracy: false };
+    if(!navigator.geolocation){
+        this.gpsErrorMessageDisplayerInterface.displayNotSupportedBrowser();
+    }
     this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
         properties);
-
 }
-GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback() {
+GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback(location) {
+    latitude = location.coords.latitude;
+    longitude = location.coords.longitude;
     this.loadingTimeLineToTellToContinue.gpsIsEnabledAndWorking();
     this.cookieManager.setCookie("gpsOn", "true");
 };
 GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback() {
-    this.showGpsErrorMessageDependingOnTheDelay();
     this.cookieManager.setCookie("gpsOn", "test");
     this.reloadInterface.reload();
 };
@@ -107,46 +134,32 @@ var loadingTimeLineToTellToContinue = {
     gpsIsEnabledAndWorkingCalled : false,
     gpsIsEnabledAndWorking : function gpsIsEnabledAndWorking() {
         this.gpsIsEnabledAndWorkingCalled = true;
+        document.getElementById("acceptGPS").style.display = "none";
+        document.getElementById("unblockGPS").style.display = "none";
     }
 };
 var gpsErrorMessageDisplayerInterface = {
     displayAcceptRequestMessage : function displayAcceptRequestMessage() {
         this.displayAcceptRequestMessageCalled = true;
-        alert("T apareixera un dialeg de acceptar el GPS, acceptal per a que poguem trobar missatges entremaliats");
+        document.getElementById("acceptGPS").style.display = "block";
     },
     displayAcceptRequestMessageCalled: false,
     displayUnblockGpsMessage : function displayUnblockGpsMessage() {
         this.displayUnblockGpsMessageCalled = true;
-        alert("Has de fer un click llarg a la barra de direccions per habilitar el GPS, acceptal per a que poguem trobar missatges entremaliats");
+        document.getElementById("unblockGPS").style.display = "block";
     },
-    displayUnblockGpsMessageCalled: false
+    displayUnblockGpsMessageCalled: false,
+    displayNotSupportedBrowser : function displayNotSupportedBrowser(){
+        alert("Your device don't support GPS thus this app won't work.\nTu telefono no permite GPS via web, esta aplicacion no funcionara.");
+    }
 };
 
 var gpsManager = new GpsBrowserBlockChecker(navigator.geolocation, location, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface);
 
-gpsManager.start();
-
-/*
-function GetLocation(location) {
-    latitude = location.coords.latitude;
-    longitude = location.coords.longitude;
-}
-navigator.geolocation.getCurrentPosition(GetLocation);
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-loop();
+document.getElementById("unblockGPS").style.display = "none";
+document.getElementById("acceptGPS").style.display = "none";
 var latitude;
 var longitude;
+gpsManager.start();
+loop();
 
