@@ -5,73 +5,120 @@
 define([], function () {
     'use strict';
     module('RestApi Test On Server');
-
-    function createRequest() {
-        var result = null;
-        if (window.XMLHttpRequest) {
-            // FireFox, Safari, etc.
-            result = new XMLHttpRequest();
-            if (typeof result.overrideMimeType != 'undefined') {
-                result.overrideMimeType('text/xml'); // Or anything else
-            }
-        }
-        else if (window.ActiveXObject) {
-            // MSIE
-            result = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        else {
-            // No known mechanism -- consider aborting the application
-        }
-        return result;
-    }
-
    /* asyncTest('Get empty list of trees', function () {
-        require([], function () {
+        require(["../lib/restful"], function (restful) {
+            var api = restful('52.26.137.110')
+                .header("Accept", "application/json") // set global header
+                .prefixUrl('YOUR_PATH')
+                .port(8080);
 
-            var req = createRequest(); // defined above
-
-            req.onreadystatechange = function () {
-                if (req.readyState !== 4) return; // Not there yet
-                if (req.status != 200) {
-                    // Handle request failure here...
-                    return;
-                }
-                // Request successful, read the response
-                var resp = req.responseText;
-                console.log(resp);
-                equal(5, 3, 'empty trees');
+            var treeList = api.oneUrl('articles', 'http://52.26.137.110:8080/YOUR_PATH/trees?dontInclude=%5B%5D&x=12&y=10');
+            treeList.get().then(function (response) {
+                var articleEntity = response.body();
+                var article = articleEntity.data();
+                console.log(article.emptyTrees); // hello, world!
+                equal(5, article.emptyTrees, 'empty trees');
                 QUnit.start();
-                // ... and use it as needed by your app.
-            }
-
-            req.open("GET", "http://52.26.137.110:8080/YOUR_PATH/trees", true);
-            req.send();
-        });
-    });*/
-
-
-    asyncTest('Get empty list of trees', function () {
-        require([], function () {
-
-            var req = createRequest(); // defined above
-
-            req.onreadystatechange = function () {
-                if (req.readyState !== 4) return; // Not there yet
-                if (req.status != 200) {
-                    // Handle request failure here...
-                    return;
-                }
-                // Request successful, read the response
-                var resp = req.responseText;
-                console.log(resp);
-                equal(5, 3, 'empty trees');
-                QUnit.start();
-                // ... and use it as needed by your app.
-            }
-
-            req.open("PUT", "http://52.26.137.110:8080/YOUR_PATH/trees?x=40&Y=50", true);
-            req.send("{\"text\":\"primer\",\"metersToHide\":3}");
+            });
         });
     });
+
+    asyncTest('Raw Put a tree', function () {
+        require(["../lib/restful"], function (restful) {
+            var tree = {};
+            tree.text = "first tree in town";
+            tree.metersToHide = 3;
+            tree.x = 42;
+            tree.y = 33;
+            var api = restful('52.26.137.110')
+                .header("Accept", "application/json") // set global header
+                .prefixUrl('YOUR_PATH')
+                .port(8080);
+            var treeApi = api.oneUrl('articles', 'http://52.26.137.110:8080/YOUR_PATH/trees');
+            treeApi.put(tree).then(function (response) {
+                var articleEntity = response.body();
+                equal(articleEntity.treeContent.x, 42, "x");
+                QUnit.start();
+            });
+        });
+    });
+
+    asyncTest('Api Put a tree', function () {
+        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient();
+            tree.text = "first tree in town";
+            tree.metersToHide = 3;
+            tree.x = 12;
+            tree.y = 35;
+
+            treeRestClient.put(tree).then(
+                function (ansObj) {
+                    equal(ansObj.treeContent.x, 35, "x");
+                    notEqual(ansObj.treeContent.ip, "");
+                    console.log("promised is ok");
+                    QUnit.start();
+                },
+                function (ansObj) {
+                    QUnit.fail();
+                }
+            );
+        });
+    });
+
+*/
+    asyncTest('Api Put a tree', function () {
+        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient();
+            tree.text = "first tree in town";
+            tree.metersToHide = 3;
+            tree.x = 15.2;
+            tree.y = 35;
+
+            treeRestClient.put(tree).then(function (val) {
+                console.log("emptyTrees:" + val.emptyTrees);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                console.log("emptyTrees:" + val.emptyTrees);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                console.log("emptyTrees:" + val.emptyTrees);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                console.log("emptyTrees:" + val.emptyTrees);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                console.log("emptyTrees:" + val.emptyTrees);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                console.log("emptyTrees:" + val.emptyTrees);
+                return treeRestClient.put(tree);
+            }).catch(function (error) {
+                equal(2, 3);
+                QUnit.start();
+                console.log("Failed!", error);
+            })
+        });
+    });
+/*
+    asyncTest('Api Get a trees', function () {
+        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient();
+            tree.text = "1";
+            tree.metersToHide = 3;
+            tree.x = 42;
+            tree.y = 35;
+            var emptyCallback = function (ansObj) {}
+            treeRestClient.put(tree,emptyCallback);
+            tree.text = "2";
+            treeRestClient.put(tree,emptyCallback);
+            tree.text = "2";
+            treeRestClient.put(tree,emptyCallback);
+            tree.text = "2";
+            treeRestClient.put(tree,emptyCallback);
+        });
+    });*/
 
 });

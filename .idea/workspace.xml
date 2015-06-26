@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/RestApi.test.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/otjavabackend-1.0.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/otjavabackend-2.0.war" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/all.test.html" afterPath="$PROJECT_DIR$/test/all.test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/TreeRestClient.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/YOUR_PROJECT_server.war" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/RestApi.test.js" afterPath="$PROJECT_DIR$/test/js/RestApi.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -57,8 +56,18 @@
       <file leaf-file-name="RestApi.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/js/RestApi.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7382199" vertical-offset="597" max-vertical-offset="1215">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="72" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.2408377" vertical-offset="957" max-vertical-offset="1920">
+              <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreeRestClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/TreeRestClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -84,18 +93,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneLoader.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/SceneLoader.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="606" max-vertical-offset="4035">
-              <caret line="63" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/js/StackOfScenes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -119,7 +116,7 @@
       <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="2475">
+            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="2475">
               <caret line="114" column="18" selection-start-line="106" selection-start-column="0" selection-end-line="114" selection-end-column="18" />
               <folding />
             </state>
@@ -144,8 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scripts/main.js" />
-        <option value="$PROJECT_DIR$/test/js/controller.test.js" />
         <option value="$PROJECT_DIR$/scripts/tests/TetsSpriteManagerPhaserApi.js" />
         <option value="$PROJECT_DIR$/scripts/SpriteManagerPhaserApi.js" />
         <option value="$PROJECT_DIR$/test/TetsSpriteManagerPhaserApi.js" />
@@ -194,6 +189,8 @@
         <option value="$PROJECT_DIR$/js/GpsMovmentTrigger.js" />
         <option value="$PROJECT_DIR$/test/all.test.html" />
         <option value="$PROJECT_DIR$/lib/restful.js" />
+        <option value="$PROJECT_DIR$/test/js/TreeRestClient.js" />
+        <option value="$PROJECT_DIR$/js/TreeRestClient.js" />
         <option value="$PROJECT_DIR$/test/js/RestApi.test.js" />
       </list>
     </option>
@@ -202,7 +199,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="26" />
+    <option name="y" value="65" />
     <option name="width" value="1440" />
     <option name="height" value="790" />
   </component>
@@ -765,7 +763,7 @@
       <workItem from="1432633070522" duration="32484000" />
       <workItem from="1432912505809" duration="311000" />
       <workItem from="1432912853025" duration="31997000" />
-      <workItem from="1435056133676" duration="11261000" />
+      <workItem from="1435056133676" duration="18397000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1065,10 +1063,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="401951000" />
+    <option name="totallyTimeSpent" value="409087000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="790" extended-state="6" />
+    <frame x="26" y="65" width="1440" height="790" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1366,6 +1364,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1373,6 +1372,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
           <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1458,7 +1458,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="606" max-vertical-offset="4035">
           <caret line="63" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1516,7 +1516,7 @@
     <entry file="file://$PROJECT_DIR$/js/StackOfScenes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1529,10 +1529,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/TreeRestClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/RestApi.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7382199" vertical-offset="597" max-vertical-offset="1215">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="72" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.2408377" vertical-offset="957" max-vertical-offset="1920">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
           <folding />
         </state>
       </provider>
