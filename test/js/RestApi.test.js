@@ -2,55 +2,37 @@
  * Created by quest on 23/06/15.
  */
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
-define([], function () {
+define(["TreeRestClient"], function (TreeRestClient) {
     'use strict';
     module('RestApi Test On Server');
-   /* asyncTest('Get empty list of trees', function () {
-        require(["../lib/restful"], function (restful) {
-            var api = restful('52.26.137.110')
-                .header("Accept", "application/json") // set global header
-                .prefixUrl('YOUR_PATH')
-                .port(8080);
-
-            var treeList = api.oneUrl('articles', 'http://52.26.137.110:8080/YOUR_PATH/trees?dontInclude=%5B%5D&x=12&y=10');
-            treeList.get().then(function (response) {
-                var articleEntity = response.body();
-                var article = articleEntity.data();
-                console.log(article.emptyTrees); // hello, world!
-                equal(5, article.emptyTrees, 'empty trees');
-                QUnit.start();
-            });
+    QUnit.testStart(function( details ) {
+        var treeRestClient = new TreeRestClient();
+        treeRestClient.deleteAll();
+    });
+/*
+    asyncTest('test list builder', function () {
+        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+            var treeRestClient = new TreeRestClient(),
+                dontIncludeList = [],
+                ans;
+            dontIncludeList.push({id: 1});
+            dontIncludeList.push({id: 2});
+            dontIncludeList.push({id: 3});
+            dontIncludeList.push({id: 4});
+            ans = treeRestClient.buildDontIncludeString(dontIncludeList);
+            equal(ans, "%5B1,2,3,4%5D");
+            QUnit.start();
         });
     });
 
-    asyncTest('Raw Put a tree', function () {
-        require(["../lib/restful"], function (restful) {
-            var tree = {};
-            tree.text = "first tree in town";
-            tree.metersToHide = 3;
-            tree.x = 42;
-            tree.y = 33;
-            var api = restful('52.26.137.110')
-                .header("Accept", "application/json") // set global header
-                .prefixUrl('YOUR_PATH')
-                .port(8080);
-            var treeApi = api.oneUrl('articles', 'http://52.26.137.110:8080/YOUR_PATH/trees');
-            treeApi.put(tree).then(function (response) {
-                var articleEntity = response.body();
-                equal(articleEntity.treeContent.x, 42, "x");
-                QUnit.start();
-            });
-        });
-    });
-
-    asyncTest('Api Put a tree', function () {
+    asyncTest('Api Put a single tree', function () {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
             tree.text = "first tree in town";
             tree.metersToHide = 3;
-            tree.x = 12;
-            tree.y = 35;
+            tree.x = 35;
+            tree.y = 35.333;
 
             treeRestClient.put(tree).then(
                 function (ansObj) {
@@ -66,15 +48,15 @@ define([], function () {
         });
     });
 
-*/
+
     asyncTest('Api Put a tree', function () {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
             tree.text = "first tree in town";
             tree.metersToHide = 3;
-            tree.x = 15.2;
-            tree.y = 35;
+            tree.x = 15.27;
+            tree.y = 35.1;
 
             treeRestClient.put(tree).then(function (val) {
                 console.log("emptyTrees:" + val.emptyTrees);
@@ -87,38 +69,71 @@ define([], function () {
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 console.log("emptyTrees:" + val.emptyTrees);
+                equal(val.emptyTrees, 2);
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 console.log("emptyTrees:" + val.emptyTrees);
+                equal(val.emptyTrees, 1);
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 console.log("emptyTrees:" + val.emptyTrees);
-                return treeRestClient.put(tree);
+                equal(val.emptyTrees, 0);
+                QUnit.start();
             }).catch(function (error) {
-                equal(2, 3);
+                QUnit.fail();
                 QUnit.start();
                 console.log("Failed!", error);
-            })
+            });
         });
     });
-/*
-    asyncTest('Api Get a trees', function () {
+*/
+    asyncTest('Api get a tree', function () {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
-                treeRestClient = new TreeRestClient();
-            tree.text = "1";
+                treeRestClient = new TreeRestClient(),
+                answerIdList = [],
+                dontIncludeList = [];
+            tree.text = "first tree in town";
             tree.metersToHide = 3;
-            tree.x = 42;
-            tree.y = 35;
-            var emptyCallback = function (ansObj) {}
-            treeRestClient.put(tree,emptyCallback);
-            tree.text = "2";
-            treeRestClient.put(tree,emptyCallback);
-            tree.text = "2";
-            treeRestClient.put(tree,emptyCallback);
-            tree.text = "2";
-            treeRestClient.put(tree,emptyCallback);
+            tree.x = 15.21;
+            tree.y = 35.11;
+
+            treeRestClient.put(tree).then(function (val) {
+                answerIdList.push(val.treeContent);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                dontIncludeList.push(val.treeContent);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                dontIncludeList.push(val.treeContent);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                answerIdList.push(val.treeContent);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                answerIdList.push(val.treeContent);
+                return treeRestClient.get(tree.x, tree.y, dontIncludeList);
+            }).then(function (val) {
+                var expectedAns = [],
+                    answerAns = [];
+                val.treeContent.forEach(function (val) {
+                    answerAns.push(val.id);
+                });
+                answerIdList.forEach(function (val) {
+                    expectedAns.push(val.id);
+                });
+                deepEqual(answerAns, expectedAns, "list of ids");
+                QUnit.start();
+            }).catch(function (error) {
+                equal(2, 0);
+                QUnit.start();
+                console.log("Failed!", error);
+            });
+           // equal(2, 0);
+           // QUnit.start();
         });
-    });*/
+    });
+
+
 
 });
