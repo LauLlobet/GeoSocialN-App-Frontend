@@ -14,14 +14,14 @@ define(["GpsMovmentTrigger"], function (GpsMovmentTrigger) {
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         if (this.state === NAVIGATE) {
-            this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [' Menudo fieston     monto aqui        felix      the house cat!                     30/10/2014     Pau y Joan   la liaron parda!', undefined, 'En este bar sirven la cerveza poco fria !!Ojo!!']);
+            this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{text : ' Menudo fieston     monto aqui        felix      the house cat!                     30/10/2014     Pau y Joan   la liaron parda!'}, {text :  undefined}, {text :  'En este bar sirven la cerveza poco fria !!Ojo!!'}]);
             this.sceneLoaderInterface.playAllStackedScenes();
         }
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
         if (this.state === NAVIGATE) {
-            this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", ['Esta parte de barcelona esta genial, despues de este local siempre nos dejamos caer en el Cafe Royal', ' Aga and Hanna     from poland   where here', undefined]);
+            this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [ {text : 'Esta parte de barcelona esta genial, despues de este local siempre nos dejamos caer en el Cafe Royal'}, {text : ' Aga and Hanna     from poland   where here'}, {text : undefined}]);
             this.sceneLoaderInterface.playAllStackedScenes();
         }
     };
@@ -52,8 +52,8 @@ define(["GpsMovmentTrigger"], function (GpsMovmentTrigger) {
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [' ...', undefined, '...']);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [' ...', undefined, '...']);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [ {text : ' ...'}, {text : undefined}, {text : '...'}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [ {text : ' ...'}, {text : undefined}, {text : '...'}]);
         this.sceneLoaderInterface.playAllStackedScenes();
     }
     return UserInterfaceBussinesController;

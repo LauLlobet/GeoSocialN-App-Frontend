@@ -212,9 +212,9 @@ define([], function () {
                     isOk : function () { return this.isOkFlag; }
                 };
             sceneLoader = new SceneLoader(mockSpriteManagerApi);
-            sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+            sceneLoader.loadScene('forestSwipeLeft', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
             tree = sceneLoader.getTreeFromId(1);
-            equal(-687, tree.x);
+            equal(-695, tree.x);
             equal(true, mockSpriteManagerApi.isOk());
             QUnit.start();
         });
@@ -230,7 +230,7 @@ define([], function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
                     spriteManagerApi.sceneLoaderInterface = sceneLoader;
-                    sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+                    sceneLoader.loadScene('forestSwipeLeft', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
                     //sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
                     deepEqual(sceneLoader.getAllActiveIds(), [1, 2, 3, 4, 5], 'all ids');
                     QUnit.start();
@@ -248,9 +248,9 @@ define([], function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
                     spriteManagerApi.sceneLoaderInterface = sceneLoader;
-                    sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
-                    sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
-                    deepEqual(sceneLoader.getAllActiveIds(), [6, 7, 8, 9, 10], 'all ids');
+                    sceneLoader.loadScene('forestSwipeLeft', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
+                    sceneLoader.loadScene('forestSwipeRight', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
+                    deepEqual(sceneLoader.getAllActiveIds(), [6, 7, 8, 9, 10, 11], 'all ids');
                     equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'text2');
                     equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'text2');
                     equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'text1');

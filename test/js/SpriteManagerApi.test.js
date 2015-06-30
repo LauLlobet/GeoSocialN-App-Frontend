@@ -183,7 +183,8 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
                      updatePointer: function () {}
                 },
             phaserGame = new PhaserGame(function () {
-                    spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
+                    spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, undefined);
+                    spriteManagerPhaserApi.sceneLoaderInterface = sceneLoaderMockSpy;
                     spriteManagerPhaserApi.createTreeSpriteGroup({
                         x: 0,
                         y: 0,
@@ -208,51 +209,6 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
     });
 
 
-    asyncTest('tween animation', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
-          /*  var spriteManagerPhaserApi,
-                phaserGame,
-                fakeGestureObserver = {
-                    updatePointer: function () {}
-                },
-                phaserGame = new PhaserGame(function () {
-                    spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame);
-                    spriteManagerPhaserApi.createTreeSpriteGroup({
-                        x: 360,
-                        y: 640,
-                        w: 50,
-                        h: 50,
-                        type: "debugTree"
-                    }, 32);
-                    spriteManagerPhaserApi.createTreeSpriteGroup({
-                        x: 360 - 50,
-                        y: 640 - 50,
-                        w: 50,
-                        h: 50,
-                        type: "point"
-                    }, 45);
-                    var sprite32 = spriteManagerPhaserApi.findTreeSpriteById(32);
-                    var xinit = sprite32.x;
-                    spriteManagerPhaserApi.tweenStprite(32, {
-                        x: -360,
-                        y: -640,
-                        w: 720,
-                        t: 1000
-                    });
-                    setTimeout(function f() {
-                        notEqual(xinit, sprite32.x, 'name');
-                        QUnit.start();
-                    }, 1000);
-                }, fakeGestureObserver);
-           */
-            equal("commented", "do uncomment", 'name');
-            QUnit.start();
-        });
-
-    });
-
-
-
     asyncTest('compare lists of id and delete unexistant', function () {
         require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             //noinspection JSLint
@@ -272,7 +228,8 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
                                 y: -640,
                                 w: 360,
                                 t: 15000
-                            }
+                            },
+                            button: {}
                         };
                     },
                     getNumCalls : function getNumCalls () {
@@ -283,7 +240,8 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
                     updatePointer: function () {}
                 };
             phaserGame = new PhaserGame(function () {
-                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, undefined);
+                spriteManagerPhaserApi.sceneLoaderInterface = sceneLoaderMockSpy;
                 spriteManagerPhaserApi.createTreeSpriteGroup({
                     x: 0,
                     y: 0,
@@ -339,9 +297,10 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
                     updatePointer: function () {}
                 };
             phaserGame = new PhaserGame(function () {
-                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, sceneLoaderMockSpy);
+                spriteManagerPhaserApi = new SpriteManagerPhaserApi(phaserGame, undefined);
+                spriteManagerPhaserApi.sceneLoaderInterface = sceneLoaderMockSpy;
                 spriteManagerPhaserApi.tellAllActiveSpritesSoItCanUpdateIt([45]);
-                equal(spriteManagerPhaserApi.findTreeSpriteGroupByName(45).length, 2, '2 elements in treeGroups that are empty');
+                equal(spriteManagerPhaserApi.findTreeSpriteGroupByName(45).length, 3, '3 elements in treeGroups that are empty');
                 QUnit.start();
             }, fakeGestureObserver);
 

@@ -5,13 +5,14 @@
 define(["TreeRestClient"], function (TreeRestClient) {
     'use strict';
     module('RestApi Test On Server');
-    QUnit.testStart(function( details ) {
+    var deleteAll = function( ) {
         var treeRestClient = new TreeRestClient();
         treeRestClient.deleteAll();
-    });
-/*
+    }
+
     asyncTest('test list builder', function () {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+            deleteAll();
             var treeRestClient = new TreeRestClient(),
                 dontIncludeList = [],
                 ans;
@@ -20,7 +21,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
             dontIncludeList.push({id: 3});
             dontIncludeList.push({id: 4});
             ans = treeRestClient.buildDontIncludeString(dontIncludeList);
-            equal(ans, "%5B1,2,3,4%5D");
+            equal(ans, "[1,2,3,4]");
             QUnit.start();
         });
     });
@@ -29,6 +30,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
+            deleteAll();
             tree.text = "first tree in town";
             tree.metersToHide = 3;
             tree.x = 35;
@@ -53,6 +55,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
+            deleteAll();
             tree.text = "first tree in town";
             tree.metersToHide = 3;
             tree.x = 15.27;
@@ -86,7 +89,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
             });
         });
     });
-*/
+
     asyncTest('Api get a tree', function () {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
@@ -97,6 +100,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
             tree.metersToHide = 3;
             tree.x = 15.21;
             tree.y = 35.11;
+            deleteAll();
 
             treeRestClient.put(tree).then(function (val) {
                 answerIdList.push(val.treeContent);
@@ -125,7 +129,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
                 deepEqual(answerAns, expectedAns, "list of ids");
                 QUnit.start();
             }).catch(function (error) {
-                equal(2, 0);
+                equal(2, 0,"exception thrown");
                 QUnit.start();
                 console.log("Failed!", error);
             });

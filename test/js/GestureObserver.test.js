@@ -2,7 +2,8 @@
 define([], function () {
     'use strict';
     module('Gesture Observer');
-
+/*
+MANUAL TEST NOT FOR AUTOMATE TESTING
     asyncTest('Swipe right and left', function () {
         require([ "PhaserGame", "GestureObserver"], function (PhaserGame, GestureObserver) {
             var gestureObserver = new GestureObserver({
@@ -14,5 +15,5 @@ define([], function () {
                     QUnit.start();
                 }, gestureObserver);
         });
-    });
+    });*/
 });

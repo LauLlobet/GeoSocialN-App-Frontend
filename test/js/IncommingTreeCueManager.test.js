@@ -66,7 +66,7 @@ define([], function () {
     });
 
 
-    asyncTest('Test with zero empty and three discarded', function () {
+    asyncTest('Test with zero empty and three discarded33', function () {
         require(["IncommingTreeCueManager"], function (IncommingTreeCueManager) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 0,
@@ -74,6 +74,8 @@ define([], function () {
                 incommingTreeCueManager = new IncommingTreeCueManager(incommingList),
                 ans = incommingTreeCueManager.getToLoadAtBackgroundTrees(discarded, emptyTrees);
 
+
+            console.log(ans);
             var isequal = _.all(ans, function (v) {
                 return _.include([12, 11, 13], v);
             });
@@ -83,14 +85,14 @@ define([], function () {
         });
     });
 
-    asyncTest('Test with zero empty and three discarded', function () {
+    asyncTest('Test with one empty one discarded and one from the list', function () {
         require(["IncommingTreeCueManager"], function (IncommingTreeCueManager) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 1,
-                discarded = [11, 12, undefined , 13],
+                discarded = [11, undefined],
                 incommingTreeCueManager = new IncommingTreeCueManager(incommingList),
                 ans = incommingTreeCueManager.getToLoadAtBackgroundTrees(discarded, emptyTrees);
-
+            console.log(ans);
             var isequal = _.all(ans, function (v) {
                 return _.include([1, 11, undefined], v);
             });

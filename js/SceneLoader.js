@@ -9,20 +9,24 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
             this.sceneObjectsTable = [];
             this.stackOfScenes = new StackOfScenes(this);
     }
-    SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, text) {
-        this.stackOfScenes.stackLoadScene(sceneType, text);
+    SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, newTrees) {
+        this.stackOfScenes.stackLoadScene(sceneType, newTrees);
     };
     SceneLoader.prototype.playAllStackedScenes = function playAllStackedScenes(){
         this.stackOfScenes.playAllStackedScenes();
     };
-    SceneLoader.prototype.loadScene = function loadScene(sceneType, texts, context, callback) {
+    SceneLoader.prototype.loadScene = function loadScene(sceneType, newTrees, context, callback) {
         this.cleanToDelete();
         var scene = this.loadSceneFromScenes(sceneType),
             i = 0;
         _.each(scene.trees, function (entry) {
             if (entry.initialPosition.charAt(0) === '3' || entry.text === "%initial") {
-                entry.text = texts[i];
-                i += 1;
+                if (newTrees[i] !== undefined) {
+                    entry.text = newTrees[i].text;
+                    i += 1;
+                }else{
+                    entry.text = "not provided";
+                }
             }
         }, this);
         _.each(scene.trees, function (entry) {
@@ -57,7 +61,7 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
     };
 
     SceneLoader.prototype.getTreeFromId = function getTreeFromId(id){
-        var treesWithId = _.filter(this.sceneObjectsTable,function(entry){
+        var treesWithId = _.filter(this.sceneObjectsTable, function (entry) {
             return entry.id === id;
         });
         return treesWithId[0].tree;
