@@ -8,27 +8,38 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
             this.spriteManagerPhaserApiInterface = spriteManagerPhaserApiInterface;
             this.sceneObjectsTable = [];
             this.stackOfScenes = new StackOfScenes(this);
+            this.initial = true;
     }
     SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, newTrees) {
         this.stackOfScenes.stackLoadScene(sceneType, newTrees);
     };
     SceneLoader.prototype.playAllStackedScenes = function playAllStackedScenes(){
-        this.stackOfScenes.playAllStackedScenes();
+        return this.stackOfScenes.playAllStackedScenes();
     };
+
     SceneLoader.prototype.loadScene = function loadScene(sceneType, newTrees, context, callback) {
         this.cleanToDelete();
         var scene = this.loadSceneFromScenes(sceneType),
             i = 0;
         _.each(scene.trees, function (entry) {
-            if (entry.initialPosition.charAt(0) === '3' || entry.text === "%initial") {
+            if (entry.initialPosition.charAt(0) === '3' || (this.initial === true && entry.text === "%initial")) {
                 if (newTrees[i] !== undefined) {
                     entry.text = newTrees[i].text;
+                    if (typeof newTrees[i].id !== 'undefined') {
+                        entry.treeid = newTrees[i].id; // this treeid is the one from backend
+                    }
                     i += 1;
-                }else{
-                    entry.text = "not provided";
+                } else if (newTrees.length < i) { // the array is less than 2 ( no empty trees nor full ones )
+                    entry.text = "You've seen all the written trees in the whole world, and you are in a place which trees are full, move to find empty trees and post!";
+                    entry.treeid = -1;
+                } else if (newTrees[i] === undefined) {
+                    entry.text = undefined;
+                    entry.treeid = undefined;
+                    i += 1;
                 }
             }
         }, this);
+        this.initial = false;
         _.each(scene.trees, function (entry) {
             if (entry.nocreate === true && this.findIndexOfOldTreeWithFinalPosition(entry.initialPosition) < 0) {
                 return;
@@ -37,7 +48,7 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         }, this); // bind to table
         this.setAllToOld();
         this.spriteManagerPhaserApiInterface.tellAllActiveSpritesSoItCanUpdateIt(this.getAllActiveIds());
-        this.callCallbackAfterTween(context, callback, scene.lengthInTime);
+        return this.callCallbackAfterTween(context, callback, scene.lengthInTime);
     };
 
     SceneLoader.prototype.callCallbackAfterTween = function callCallbackAfterTween(context, callback, sceneLengthInTime){
@@ -79,6 +90,7 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         return {
             tree: tree,
             finalPosition: tree.finalPosition,
+            initialPosition: tree.initialPosition,
             id: this.idCounter
         };
     };
@@ -97,6 +109,11 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
     SceneLoader.prototype.copyValuesFromOldTreeToNewOne = function copyValuesFromOldTreeToNewOne(oldTree, newTree) {
         newTree.tree.text = oldTree.tree.text;
         newTree.tree.type = oldTree.tree.type;
+        if (typeof oldTree.tree.id !== 'undefined') {
+            newTree.tree.treeid = oldTree.tree.treeid;
+        } else {
+            newTree.tree.treeid = undefined;
+        }
     };
 
     SceneLoader.prototype.findIndexOfOldTreeWithFinalPosition = function findIndexOfOldTreeWithFinalPosition(position) {
@@ -127,7 +144,18 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         return null;
     };
 
+    SceneLoader.prototype.getTreeDiscardedWhenSwipeLeft = function getTreeDiscardedWhenSwipeLeft(position) {
+        var tree = this.getTreeWithFinalPosition('2r');
+        return tree.tree.treeid;
+    }
 
+    SceneLoader.prototype.getTreeDiscardedWhenSwipeRight = function getTreeDiscardedWhenSwipeRight(position) {
+        return this.getTreeWithFinalPosition('2l').tree.treeid;
+    }
+
+    SceneLoader.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed(position) {
+        return this.getTreeWithFinalPosition('1c').tree.treeid;
+    }
 
     SceneLoader.prototype.cleanToDelete = function cleanToDelete(){
         this.sceneObjectsTable = _.filter(this.sceneObjectsTable, function (entry) {

@@ -7,26 +7,42 @@ define(['underscore'], function (_) {
     }
     IncommingTreeCueManager.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded, emptyTrees) {
         var loadToBackgroundList = [],
-            emptyCount = 0;
-        if (emptyTrees >= 1) {
-            emptyCount = 1;
-        }
-        if (emptyTrees >= 3) {
-            emptyCount = 2;
+            chance = 0;
+        switch (emptyTrees) {
+            case 6:
+                return [undefined, undefined];
+                break;
+            case 5:
+                chance = 3 / 4;
+                break;
+            case 4:
+                chance = 1 / 2;
+                break;
+            case 3:
+                chance = 1 / 8;
+                break;
+            case 2:
+                chance = 1 / 10;
+                break;
+            case 1:
+                chance = 1 / 40;
+                break;
+
         }
 
-        discarded = discarded.filter(Number)
-
-        while (loadToBackgroundList.length < 3 && emptyCount > 0) {
-            emptyCount -= 1;
+        if(Math.random() < chance) {
+            loadToBackgroundList.push(undefined);
+        }
+        if(Math.random() < chance) {
             loadToBackgroundList.push(undefined);
         }
 
-        while (loadToBackgroundList.length < 3 && discarded.length > 0) {
+        discarded = discarded.filter(Number);
+        while (loadToBackgroundList.length < 2 && discarded.length > 0) {
             loadToBackgroundList.push(discarded.shift());
         }
 
-        while (loadToBackgroundList.length < 3) {
+        while (loadToBackgroundList.length < 2  && this.incommingList.length > 0) {
             loadToBackgroundList.push(this.incommingList.shift());
         }
         return loadToBackgroundList;
