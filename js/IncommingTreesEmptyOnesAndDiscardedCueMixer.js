@@ -2,10 +2,10 @@
 /*jslint todo: true */
 define(['underscore'], function (_) {
     "use strict";
-    function IncommingTreeCueManager(incommingList) {
+    function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList) {
         this.incommingList = incommingList;
     }
-    IncommingTreeCueManager.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded, emptyTrees) {
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded, emptyTrees) {
         var loadToBackgroundList = [],
             chance = 0;
         switch (emptyTrees) {
@@ -48,5 +48,5 @@ define(['underscore'], function (_) {
         return loadToBackgroundList;
     };
 
-    return IncommingTreeCueManager;
+    return IncommingTreesEmptyOnesAndDiscardedCueMixer;
 });
