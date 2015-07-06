@@ -7,10 +7,12 @@ var createIncommingListFromListLength = function createIncommingListFromListLeng
         i;
     ans.mapOfTreesById = {};
     ans.incommingList = [];
-    for (i = 1; i < length+1; i += 1) {
+    for (i = 1; i < length + 1; i += 1) {
         ans.mapOfTreesById[i] = { id: i, text: i.toString() };
         ans.incommingList.push(i);
     }
+    ans.mapOfTreesById[-1] = { id: -1, text: '-1' };
+    ans.incommingList.push(i);
     return ans;
 }
 
@@ -163,7 +165,7 @@ define([], function () {
 
         });
     });
-*/
+
     asyncTest('alreadyDisplayedList is increased by one when swiped left and right when all full ', function () {
         require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
@@ -189,7 +191,7 @@ define([], function () {
                         treeLoaderToSceneLoaderFromLists.init(0).then(function () {
                             return treeLoaderToSceneLoaderFromLists.swipeLeft();
                         }).then(function (){
-                            deepEqual(alreadyDisplayedList,[3,1]);
+                            deepEqual(alreadyDisplayedList,[3, 1]);
                             QUnit.start();
                         })
                     }, fakeGestureObserver
@@ -197,10 +199,46 @@ define([], function () {
 
         });
     });
-
-    /* full integrated
-     5 empty trees
-     0 empty trees
-     empty incomming list + 0 empty trees
+*/
+    /*
+     empty incomming list + 0 empty trees exeptions
      */
+
+
+    // INIT
+
+    asyncTest('init at all undefined ', function () {
+        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+            var fakeGestureObserver = {
+                    updatePointer: function () {}
+                },
+                phaserGame = new PhaserGame(
+                    function () {
+                        var spriteManagerApi = new SpriteManagerPhaserApi(phaserGame),
+                            sceneLoader = new SceneLoader(spriteManagerApi),
+                            incommingListLength = 10,
+                            alreadyDisplayedList = [],
+                            createIncommingListPackAns = createIncommingListFromListLength(incommingListLength),
+                            mapOfTreesById = createIncommingListPackAns.mapOfTreesById,
+                            incommingListAndCurrentEmptyTrees = [],
+                            treeLoaderToSceneLoaderFromLists = new TreeLoaderToSceneLoaderFromLists(
+                                sceneLoader,
+                                incommingListAndCurrentEmptyTrees,
+                                alreadyDisplayedList,
+                                mapOfTreesById);
+                        incommingListAndCurrentEmptyTrees.emptyTrees = 0;
+                        spriteManagerApi.sceneLoaderInterface = sceneLoader;
+                        treeLoaderToSceneLoaderFromLists.init(0).then(function(){
+                            deepEqual(treeLoaderToSceneLoaderFromLists.initializedWithTrees, true, 'init flag');
+                            equal(sceneLoader.getTreeAlreadyDisplayed(),-1,"front one is undefined");
+                            equal(sceneLoader.getTreeDiscardedWhenSwipeLeft(),-1,"rigth one is undefined");
+                            equal(sceneLoader.getTreeDiscardedWhenSwipeRight(),-1,"left one is undefined");
+                            QUnit.start();
+                        })
+                    },fakeGestureObserver
+                )
+        });
+    });
+
+
 });

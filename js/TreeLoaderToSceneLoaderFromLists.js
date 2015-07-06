@@ -36,9 +36,9 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
 
     TreeLoaderToSceneLoaderFromLists.prototype.init = function init(undefTrees) {
         var that = this,
-            third = undefTrees >= 1 ? undefined : this.incommingListAndCurrentEmptyTrees.shift(),
-            second = undefTrees >= 2 ? undefined :  this.incommingListAndCurrentEmptyTrees.shift(),
-            first = undefTrees >= 3 ? undefined :  this.incommingListAndCurrentEmptyTrees.shift(),
+            third = undefTrees >= 1 ? undefined : (this.incommingListAndCurrentEmptyTrees[0] !== undefined ? this.incommingListAndCurrentEmptyTrees[0].shift() : -1),
+            second = undefTrees >= 2 ? undefined : (this.incommingListAndCurrentEmptyTrees[0] !== undefined ? this.incommingListAndCurrentEmptyTrees[0].shift() : -1),
+            first = undefTrees >= 3 ? undefined : (this.incommingListAndCurrentEmptyTrees[0] !== undefined ? this.incommingListAndCurrentEmptyTrees[0].shift() : -1),
             promise = new Promise(function (resolve, reject) {
                 that.initializedWithTrees = true;
                 that.resolve = resolve;
