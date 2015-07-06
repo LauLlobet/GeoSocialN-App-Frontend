@@ -22,14 +22,14 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         var scene = this.loadSceneFromScenes(sceneType),
             i = 0;
         _.each(scene.trees, function (entry) {
-            if (entry.initialPosition.charAt(0) === '3' || (this.initial === true && entry.text === "%initial")) {
-                if (newTrees[i] !== undefined) {
+            if ( entry.initialPosition.charAt(0) === '3' || (this.initial === true && entry.text === "%initial")) {
+                if (newTrees[i] !== undefined && newTrees[i].id !== -1) {
                     entry.text = newTrees[i].text;
                     if (typeof newTrees[i].id !== 'undefined') {
                         entry.treeid = newTrees[i].id; // this treeid is the one from backend
                     }
                     i += 1;
-                } else if (newTrees.length < i) { // the array is less than 2 ( no empty trees nor full ones )
+                } else if (newTrees[i] !== undefined && (newTrees.length < i || newTrees[i].id === -1)) { // the array is less than 2 ( no empty trees nor full ones )
                     entry.text = "You've seen all the written trees in the whole world, and you are in a place which trees are full, move to find empty trees and post!";
                     entry.treeid = -1;
                 } else if (newTrees[i] === undefined) {

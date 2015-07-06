@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js" afterPath="$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js" afterPath="$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/SceneLoader.js" afterPath="$PROJECT_DIR$/js/SceneLoader.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,20 +98,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="3000">
-              <caret line="62" column="48" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.35785288" vertical-offset="195" max-vertical-offset="3000">
+              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeLoaderToSceneLoaderFromLists.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TreeLoaderToSceneLoaderFromLists.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.3109245" vertical-offset="3109" max-vertical-offset="3705">
+            <state vertical-scroll-proportion="111.25926" vertical-offset="3109" max-vertical-offset="3705">
               <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
@@ -177,9 +176,9 @@
         <option value="$PROJECT_DIR$/test/all.test.html" />
         <option value="$PROJECT_DIR$/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" />
         <option value="$PROJECT_DIR$/js/StackOfScenes.js" />
-        <option value="$PROJECT_DIR$/js/SceneLoader.js" />
         <option value="$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js" />
         <option value="$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js" />
+        <option value="$PROJECT_DIR$/js/SceneLoader.js" />
       </list>
     </option>
   </component>
@@ -704,7 +703,7 @@
       <workItem from="1432633070522" duration="32484000" />
       <workItem from="1432912505809" duration="311000" />
       <workItem from="1432912853025" duration="31997000" />
-      <workItem from="1435056133676" duration="95744000" />
+      <workItem from="1435056133676" duration="96760000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1004,7 +1003,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="486434000" />
+    <option name="totallyTimeSpent" value="487450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="22" width="1440" height="790" extended-state="0" />
@@ -1475,14 +1474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="3000">
-          <caret line="62" column="48" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="975">
@@ -1493,11 +1484,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3109245" vertical-offset="3109" max-vertical-offset="3705">
+        <state vertical-scroll-proportion="111.25926" vertical-offset="3109" max-vertical-offset="3705">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35785288" vertical-offset="195" max-vertical-offset="3000">
+          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
