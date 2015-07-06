@@ -99,6 +99,9 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         var toSubstituteTreeEntry,
             toSubstituteIndex = this.findIndexOfOldTreeWithFinalPosition(initialPosition);
         toSubstituteTreeEntry = this.sceneObjectsTable[toSubstituteIndex];
+        if (toSubstituteIndex.text === '1') {
+            console.log('HOLA');
+        }
         if (toSubstituteIndex >= 0) {
             this.sceneObjectsTable.splice(toSubstituteIndex, 1);
             this.copyValuesFromOldTreeToNewOne(toSubstituteTreeEntry, newTreetableentry);
@@ -109,7 +112,7 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
     SceneLoader.prototype.copyValuesFromOldTreeToNewOne = function copyValuesFromOldTreeToNewOne(oldTree, newTree) {
         newTree.tree.text = oldTree.tree.text;
         newTree.tree.type = oldTree.tree.type;
-        if (typeof oldTree.tree.id !== 'undefined') {
+        if (typeof oldTree.tree.treeid !== 'undefined') {
             newTree.tree.treeid = oldTree.tree.treeid;
         } else {
             newTree.tree.treeid = undefined;
@@ -144,16 +147,16 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         return null;
     };
 
-    SceneLoader.prototype.getTreeDiscardedWhenSwipeLeft = function getTreeDiscardedWhenSwipeLeft(position) {
+    SceneLoader.prototype.getTreeDiscardedWhenSwipeLeft = function getTreeDiscardedWhenSwipeLeft() {
         var tree = this.getTreeWithFinalPosition('2r');
         return tree.tree.treeid;
     }
 
-    SceneLoader.prototype.getTreeDiscardedWhenSwipeRight = function getTreeDiscardedWhenSwipeRight(position) {
+    SceneLoader.prototype.getTreeDiscardedWhenSwipeRight = function getTreeDiscardedWhenSwipeRight() {
         return this.getTreeWithFinalPosition('2l').tree.treeid;
     }
 
-    SceneLoader.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed(position) {
+    SceneLoader.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed() {
         return this.getTreeWithFinalPosition('1c').tree.treeid;
     }
 

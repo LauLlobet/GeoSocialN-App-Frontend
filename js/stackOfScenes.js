@@ -17,7 +17,6 @@ define(['underscore', "../lib/rsvp"], function (_, rspv) {
             this.playItemOfScenesArray(this);
             return this.deferred.promise;
         }
-        this.deferred.reject();
         return this.deferred.promise;
     };
     StackOfScenes.prototype.playItemOfScenesArray = function playItemOfScenesArray(ctxt) {

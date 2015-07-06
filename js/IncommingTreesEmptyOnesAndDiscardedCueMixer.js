@@ -5,6 +5,7 @@ define(['underscore'], function (_) {
     function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList) {
         this.incommingList = incommingList;
     }
+
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded, emptyTrees) {
         var loadToBackgroundList = [],
             chance = 0;
