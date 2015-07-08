@@ -10,7 +10,7 @@ define(["underscore","TreeRestClient"], function (underscore,TreeRestClient) {
     NearbyTreesFromServerToIncommingTreeList.prototype.userHasMovedTo = function (coords) {
         var i = 0,
             that = this;
-        return this.treeRestClient.get(coords.x, coords.y, []).then(function (ans) {
+        return this.treeRestClient.get(coords.x, coords.y, this.alreadyDisplayed).then(function (ans) {
             that.incommingList.length = 0;
             if (ans.treeContent === null){
                 throw "no trees in a get, got a null as ans" + coords.x + " " + coords.y;
