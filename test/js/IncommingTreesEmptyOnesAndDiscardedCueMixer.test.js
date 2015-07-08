@@ -45,7 +45,7 @@ define([], function () {
                 discarded = [undefined],
                 incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList),
                 ans = incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, emptyTrees);
-            deepEqual(ans, [], 'size');
+            deepEqual(ans, [-1, -1], 'size');
             QUnit.start();
         });
     });

@@ -25,7 +25,7 @@ define([], function () {
     'use strict';
     module('TreeLoaderToSceneLoaderFromListss test');
 
-   /* asyncTest('init at all undefined ', function () {
+    asyncTest('init at all undefined ', function () {
         require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {}
@@ -81,9 +81,9 @@ define([], function () {
                     spriteManagerApi.sceneLoaderInterface = sceneLoader;
                     treeLoaderToSceneLoaderFromLists.init(0).then(function(){
                         deepEqual(treeLoaderToSceneLoaderFromLists.initializedWithTrees, true, 'init flag');
-                        equal(sceneLoader.getTreeAlreadyDisplayed(),2,"front one is the third");
-                        equal(sceneLoader.getTreeDiscardedWhenSwipeLeft(),1,"rigth one is the second");
-                        equal(sceneLoader.getTreeDiscardedWhenSwipeRight(),0,"left one is the third");
+                        equal(sceneLoader.getTreeAlreadyDisplayed(),3,"front one is the third");
+                        equal(sceneLoader.getTreeDiscardedWhenSwipeLeft(),2,"rigth one is the second");
+                        equal(sceneLoader.getTreeDiscardedWhenSwipeRight(),1,"left one is the third");
                         QUnit.start();
                     })
                 },fakeGestureObserver
@@ -199,15 +199,9 @@ define([], function () {
 
         });
     });
-*/
-    /*
-     empty incomming list + 0 empty trees exeptions
-     */
 
 
-    // INIT
-
-    asyncTest('init at all undefined ', function () {
+    asyncTest('init with 0 empty trees and incomming list empty', function () {
         require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {}
@@ -241,4 +235,38 @@ define([], function () {
     });
 
 
+
+    asyncTest('swipe left with 0 empty trees and incomming list empty', function () {
+        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+            var fakeGestureObserver = {
+                    updatePointer: function () {}
+                },
+                phaserGame = new PhaserGame(
+                    function () {
+                        var spriteManagerApi = new SpriteManagerPhaserApi(phaserGame),
+                            sceneLoader = new SceneLoader(spriteManagerApi),
+                            incommingListLength = 10,
+                            alreadyDisplayedList = [],
+                            createIncommingListPackAns = createIncommingListFromListLength(incommingListLength),
+                            mapOfTreesById = createIncommingListPackAns.mapOfTreesById,
+                            incommingListAndCurrentEmptyTrees = [],
+                            treeLoaderToSceneLoaderFromLists = new TreeLoaderToSceneLoaderFromLists(
+                                sceneLoader,
+                                incommingListAndCurrentEmptyTrees,
+                                alreadyDisplayedList,
+                                mapOfTreesById);
+                        incommingListAndCurrentEmptyTrees.emptyTrees = 0;
+                        spriteManagerApi.sceneLoaderInterface = sceneLoader;
+                        treeLoaderToSceneLoaderFromLists.init(3).then(function() {
+                            return treeLoaderToSceneLoaderFromLists.swipeLeft();
+                        }).then(function(ans){
+                            deepEqual(treeLoaderToSceneLoaderFromLists.initializedWithTrees, true, 'init flag');
+                            equal(sceneLoader.getTreeDiscardedWhenSwipeLeft(),-1,"rigth one is undefined");
+                            equal(sceneLoader.getTreeDiscardedWhenSwipeRight(),-1,"left one is undefined");
+                            QUnit.start();
+                        })
+                    },fakeGestureObserver
+                )
+        });
+    });
 });

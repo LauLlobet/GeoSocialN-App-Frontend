@@ -46,6 +46,10 @@ define(['underscore'], function (_) {
         while (loadToBackgroundList.length < 2  && this.incommingList.length > 0) {
             loadToBackgroundList.push(this.incommingList.shift());
         }
+
+        while (loadToBackgroundList.length < 2) {
+            loadToBackgroundList.push(-1);
+        }
         return loadToBackgroundList;
     };
 
