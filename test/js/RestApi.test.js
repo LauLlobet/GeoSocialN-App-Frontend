@@ -16,10 +16,10 @@ define(["TreeRestClient"], function (TreeRestClient) {
             var treeRestClient = new TreeRestClient(),
                 dontIncludeList = [],
                 ans;
-            dontIncludeList.push({id: 1});
-            dontIncludeList.push({id: 2});
-            dontIncludeList.push({id: 3});
-            dontIncludeList.push({id: 4});
+            dontIncludeList.push(1);
+            dontIncludeList.push(2);
+            dontIncludeList.push(3);
+            dontIncludeList.push(4);
             ans = treeRestClient.buildDontIncludeString(dontIncludeList);
             equal(ans, "[1,2,3,4]");
             QUnit.start();
@@ -106,10 +106,10 @@ define(["TreeRestClient"], function (TreeRestClient) {
                 answerIdList.push(val.treeContent);
                 return treeRestClient.put(tree);
             }).then(function (val) {
-                dontIncludeList.push(val.treeContent);
+                dontIncludeList.push(val.treeContent.id);
                 return treeRestClient.put(tree);
             }).then(function (val) {
-                dontIncludeList.push(val.treeContent);
+                dontIncludeList.push(val.treeContent.id);
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 answerIdList.push(val.treeContent);

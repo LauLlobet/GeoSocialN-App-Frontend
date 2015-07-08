@@ -33,15 +33,19 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
 
     TreeRestClient.prototype.buildDontIncludeString = function (dontInclude){
         var string = '[';
-        dontInclude.forEach(function(tree){
-            string += tree.id + ',';
-        })
+        if (dontInclude.length === 0) {
+            return "[]";
+        }
+        dontInclude.forEach(function (tree) {
+            string += tree + ',';
+        });
         return string.substr(0, string.length - 1) + ']';
     }
 
     TreeRestClient.prototype.get = function (x, y, dontInclude) {
         var dontIncludeString = this.buildDontIncludeString(dontInclude);
         this.treeApi = this.api.allUrl('articles', 'http://52.26.137.110:8080/YOUR_PATH/trees');
+        console.log("dis:" + dontIncludeString);
         var that = this;
         return new Promise(function (resolve, reject) {
             that.treeApi.getAll({x:x,y:y,dontInclude:dontIncludeString}).then(function (response) {
