@@ -36,15 +36,9 @@ define(["TreeRestClient"], function (TreeRestClient) {
                 tree.x = 5;
                 return treeRestClient.put(tree);
             }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                return nearbyTreesFromServerToIncommingTreeList.userHasMoved({x: tree.x, y: tree.y})
+                answerIdList.unshift(val.treeContent.id);
+                return nearbyTreesFromServerToIncommingTreeList.userHasMovedTo({x: tree.x, y: tree.y})
             }).then(function (val) {
-                var expectedAns = [],
-                    answerAns = [];
-                incommingList.treeContent.forEach(function (val) {
-                    answerAns.push(val.id);
-                    console.log("got:" + val.id)
-                });
                 deepEqual(answerIdList, incommingList, "list of ids");
                 QUnit.start();
             }).catch(function (error) {
