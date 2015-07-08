@@ -1,28 +1,40 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(["GpsMovmentTrigger"], function (GpsMovmentTrigger) {
+define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLoaderToSceneLoaderFromLists", "TreeRestClient"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList, TreeLoaderToSceneLoaderFromLists, TreeRestClient) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
-    function UserInterfaceBussinesController(sceneLoaderInterface) //noinspection JSLint
+    function UserInterfaceBussinesController() //noinspection JSLint
     {
-            this.sceneLoaderInterface = sceneLoaderInterface;
             this.state = NAVIGATE;
             this.gpsMovmentTrigger = new GpsMovmentTrigger(this);
+            this.incommingList = [];
+            this.alreadyDisplayed = [];
+            this.mapOfTreesById = {};
+            this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById);
+
+    }
+
+    UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
+        this.sceneLoaderInterface = sceneLoaderInterface;
+        this.treeLoaderToSceneLoaderFromLists = new TreeLoaderToSceneLoaderFromLists(
+            this.sceneLoaderInterface,
+            this.incommingList,
+            this.alreadyDisplayed,
+            this.mapOfTreesById
+        );
     }
 
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         if (this.state === NAVIGATE) {
-            this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{text : ' Menudo fieston     monto aqui        felix      the house cat!                     30/10/2014     Pau y Joan   la liaron parda!'}, {text :  undefined}, {text :  'En este bar sirven la cerveza poco fria !!Ojo!!'}]);
-            this.sceneLoaderInterface.playAllStackedScenes();
+            this.treeLoaderToSceneLoaderFromLists.swipeLeft();
         }
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
         if (this.state === NAVIGATE) {
-            this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [ {text : 'Esta parte de barcelona esta genial, despues de este local siempre nos dejamos caer en el Cafe Royal'}, {text : ' Aga and Hanna     from poland   where here'}, {text : undefined}]);
-            this.sceneLoaderInterface.playAllStackedScenes();
+            this.treeLoaderToSceneLoaderFromLists.swipeRight();
         }
     };
 
@@ -34,12 +46,23 @@ define(["GpsMovmentTrigger"], function (GpsMovmentTrigger) {
         }
     };
 
+    UserInterfaceBussinesController.prototype.putTreeOnServer = function(){
+        var text = this.sceneLoaderInterface.getEditedTreeText(),
+            coords = this.gpsMovmentTrigger.actualCoordinates,
+            treeRestClient = new TreeRestClient(),
+            tree ={  text: text, metersToHide: 10, x: coords.x, y: coords.y};
+        treeRestClient.put(tree).then(function() {
+            alert("tree penjat");
+        });
+    }
+
     UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
         console.log("char: " + char);
         if (char === "ok") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
             this.sceneLoaderInterface.setIsTyping(false);
+            this.putTreeOnServer();
         } else if (this.state === WRITTING && char === "cancel") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
@@ -52,9 +75,9 @@ define(["GpsMovmentTrigger"], function (GpsMovmentTrigger) {
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [ {text : ' ...'}, {text : undefined}, {text : '...'}]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [ {text : ' ...'}, {text : undefined}, {text : '...'}]);
-        this.sceneLoaderInterface.playAllStackedScenes();
+        this.nearbyTreesFromServerToIncommingTreeList.userHasMoved(coords);
     }
+
+
     return UserInterfaceBussinesController;
 });

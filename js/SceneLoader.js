@@ -184,6 +184,11 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         tableentrytree.tree.text = text;
     };
 
+    SceneLoader.prototype.getEditedTreeText = function addChar() {
+        var tableentrytree = this.getTreeWithFinalPosition("1c");
+        return tableentrytree.tree.text;
+    };
+
     SceneLoader.prototype.removeChar = function removeChar() {
         var tableentrytree = this.getTreeWithFinalPosition("1c"),
             text = this.spriteManagerPhaserApiInterface.removeChar(tableentrytree.id, character);

@@ -10,17 +10,26 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         this.initializedWithTrees = false;
         this.incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingListAndCurrentEmptyTrees);
     }
-    TreeLoaderToSceneLoaderFromLists.prototype.swipeLeft = function swipeLeft() {
+    TreeLoaderToSceneLoaderFromLists.prototype.swipe = function swipe(leftOrRigthText) {
         var discarded = [ this.sceneLoader.getTreeDiscardedWhenSwipeLeft() ],
             toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees),
             that = this;
         toLoad = _.map(toLoad, function (value) {
             return that.mapOfTreesById[value];
         });
-        this.sceneLoader.stackLoadScene('forestSwipeLeft', toLoad);
+        this.sceneLoader.stackLoadScene(leftOrRigthText, toLoad);
         return this.sceneLoader.playAllStackedScenes().then(function () {
             that.addCurrentlyDisplayedToAlreadyDisplayed();
         });
+    };
+
+    TreeLoaderToSceneLoaderFromLists.prototype.swipeLeft =  function swipeLeft() {
+        this.swipe('forestSwipeLeft');
+    };
+
+
+    TreeLoaderToSceneLoaderFromLists.prototype.swipeRight =  function swipeRight() {
+        this.swipe('forestSwipeRight');
     };
 
     TreeLoaderToSceneLoaderFromLists.prototype.addCurrentlyDisplayedToAlreadyDisplayed = function addCurrentlyDisplayedToAlreadyDisplayed() {
@@ -28,10 +37,6 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         if (treeid !== undefined) {
             this.alreadyDisplayed.push(treeid);
         }
-    };
-
-    TreeLoaderToSceneLoaderFromLists.prototype.swipeRight = function swipeRight() {
-
     };
 
     TreeLoaderToSceneLoaderFromLists.prototype.init = function init(undefTrees) {

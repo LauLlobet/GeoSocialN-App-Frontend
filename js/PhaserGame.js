@@ -59,7 +59,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
 
     PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
         //if (!this.game.device.desktop) {
-        blockElement("turn");
+        //blockElement("turn");
         //}
     };
 
