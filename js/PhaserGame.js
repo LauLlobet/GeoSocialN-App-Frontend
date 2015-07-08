@@ -1,6 +1,6 @@
 /*global define, require, module, window, Phaser, setTimeout*/
 //noinspection JSLint
-define(["phaser"], function (phaser) {
+define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
     "use strict";
     //noinspection JSLint
     var windowObj = window, callbackFunct, targetW = 720, targetH = 1280;
@@ -13,7 +13,9 @@ define(["phaser"], function (phaser) {
             this.virtualHeight = targetH;
             callbackFunct = callback;
             var element = document.getElementById("canvasBg");
-            element.parentNode.removeChild(element);
+            if (element !== null) {
+                element.parentNode.removeChild(element);
+            }
             this.game = new Phaser.Game(windowObj.innerWidth, windowObj.innerHeight, Phaser.CANVAS, this);
             this.gameState = { preload: this.preload, create: this.create, update: this.update, render: this.render  };
             this.bootState = {  preload: function bootPreload() {
@@ -40,25 +42,42 @@ define(["phaser"], function (phaser) {
             this.game.scale.setGameSize(window.innerWidth, window.innerHeight);
         }
     };
+
+    var blockElement = function (element) {
+        var elem = document.getElementById(element);
+        if (elem !== null) {
+            elem.style.display = "block";
+        }
+    };
+
+    var displayNoneElement = function (element) {
+        var elem = document.getElementById(element);
+        if (elem !== null) {
+            elem.style.display = "none";
+        }
+    };
+
     PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
         //if (!this.game.device.desktop) {
-           // document.getElementById("turn").style.display = "block";
+        blockElement("turn");
         //}
     };
 
     PhaserGame.prototype.handleCorrect = function handleCorrect() {
         //if (!this.game.device.desktop) {
-           document.getElementById("turn").style.display = "none";
+        displayNoneElement("turn");
         //}
     };
 
     PhaserGame.prototype.handleDesktop = function handleDesktop() {
-        document.getElementById("desktopWarning").style.display = "block";
+        //document.getElementById("desktopWarning").style.display = "block";
+        blockElement("desktopWarning");
     };
 
     PhaserGame.prototype.handleMobile = function handleMobile() {
-        document.getElementById("desktopWarning").style.display = "none";
+        displayNoneElement("desktopWarning");
     };
+
 
     PhaserGame.prototype.setZoomMap = function setZoomMap() {
         var mapWidth = 1100,
@@ -72,9 +91,15 @@ define(["phaser"], function (phaser) {
 
         var scale = windowObj.innerWidth / mapWidth;
 
-        var lat = latitude;
-        var long = longitude;
-
+        if (typeof latitude !== 'undefined') {
+            var lat = latitude;
+            var long = longitude;
+            this.game.mapZoomTotalMilliseconds = 500;
+        } else {
+            var lat = 34;
+            var long = 12;
+            this.game.mapZoomTotalMilliseconds = 1;
+        }
         var x = (long+180)*(mapWidth/365);
         var latRad = lat*Math.PI/180;
         var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2)));
@@ -87,12 +112,13 @@ define(["phaser"], function (phaser) {
         map.scale.y = scale;
 
         this.game.zoomStartedMillieconds = (new Date()).getTime();
-        this.game.mapZoomTotalMilliseconds = 500;
+
 
         this.game.add.tween(map.scale).to({x : 49, y : 49}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.map = map;
     };
+
     PhaserGame.prototype.preload = function preload() {
         this.game.stage.backgroundColor = '#99b4cf';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
@@ -114,8 +140,6 @@ define(["phaser"], function (phaser) {
         this.game.parent.resizeUpdate();
         this.game.loading = loading;
     };
-
-
     PhaserGame.prototype.loadImages = function loadImages(){
         this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
         this.game.load.image('point', '/OurTreeWeb/assets/point.png');
@@ -136,7 +160,6 @@ define(["phaser"], function (phaser) {
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),
             restOfTheTime = this.game.mapZoomTotalMilliseconds - elapsedTimeSinceStartZoomingMap;
-        console.log(restOfTheTime);
         setTimeout(this.game.parent.afterMapZoomStartGame, restOfTheTime, this);
     };
     PhaserGame.prototype.afterMapZoomStartGame = function afterMapZoomStartGame(parent) {

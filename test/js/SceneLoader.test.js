@@ -212,9 +212,9 @@ define([], function () {
                     isOk : function () { return this.isOkFlag; }
                 };
             sceneLoader = new SceneLoader(mockSpriteManagerApi);
-            sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+            sceneLoader.loadScene('forestSwipeLeft', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
             tree = sceneLoader.getTreeFromId(1);
-            equal(-687, tree.x);
+            equal(-695, tree.x);
             equal(true, mockSpriteManagerApi.isOk());
             QUnit.start();
         });
@@ -230,7 +230,7 @@ define([], function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
                     spriteManagerApi.sceneLoaderInterface = sceneLoader;
-                    sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
+                    sceneLoader.loadScene('forestSwipeLeft', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
                     //sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
                     deepEqual(sceneLoader.getAllActiveIds(), [1, 2, 3, 4, 5], 'all ids');
                     QUnit.start();
@@ -248,9 +248,9 @@ define([], function () {
                     spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
                     sceneLoader = new SceneLoader(spriteManagerApi);
                     spriteManagerApi.sceneLoaderInterface = sceneLoader;
-                    sceneLoader.loadScene('forestSwipeLeft', ["text1", "text2", "text3", "text4"]);
-                    sceneLoader.loadScene('forestSwipeRight', ["text1", "text2", "text3", "text4"]);
-                    deepEqual(sceneLoader.getAllActiveIds(), [6, 7, 8, 9, 10], 'all ids');
+                    sceneLoader.loadScene('forestSwipeLeft', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
+                    sceneLoader.loadScene('forestSwipeRight', [{text: "text1"}, {text: "text2"}, {text: "text3"}, {text: "text4"}]);
+                    deepEqual(sceneLoader.getAllActiveIds(), [6, 7, 8, 9, 10, 11], 'all ids');
                     equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'text2');
                     equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'text2');
                     equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'text1');
@@ -259,5 +259,63 @@ define([], function () {
         });
     });
 
+    asyncTest('when swipping left left entries disapear', function () {
+        require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+            var sceneLoader, spriteManagerApi,
+                fakeGestureObserver = {
+                    updatePointer: function () {}
+                },
+                phaserGame = new PhaserGame(
+                    function () {
+                        spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
+                        sceneLoader = new SceneLoader(spriteManagerApi);
+                        spriteManagerApi.sceneLoaderInterface = sceneLoader;
+                        sceneLoader.loadScene('forestSwipeLeft', [{text: "nothing"}, {text: "nothing"}, {text: "nothing"}, {text: "nothing"}]);
+                        sceneLoader.stackLoadScene('forestSwipeLeft', [{text: "g2t1", id: 1}, {text: "g2t2", id: 2}]);
+                        sceneLoader.playAllStackedScenes().then(function () {
+                            equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'nothing');
+                            equal(sceneLoader.getTreeWithFinalPosition('2l').tree.text, 'g2t1');
+                            equal(sceneLoader.getTreeWithFinalPosition('2r').tree.text, 'g2t2');
+                            equal(sceneLoader.getTreeWithFinalPosition('2l').tree.treeid, 1);
+                            sceneLoader.stackLoadScene('forestSwipeLeft', [{text: "g3t1", id: 1}, {text: "g3t2", id: 2}]);
+                            return sceneLoader.playAllStackedScenes();
+                        }).then(function () {
+                            equal(sceneLoader.getTreeWithFinalPosition('1c').tree.text, 'g2t1');//g2t2 was removed in the previos swipe
+                                                                                                //thus previously to swipe left '2r' positions are the ones that are going to be discarded
+                            QUnit.start();
+                        });
+                    },
+                    fakeGestureObserver
+                );
+        });
+    });
+
+    asyncTest('getTreeDiscardedWhenSwipeLeft', function () {
+        require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+            var sceneLoader, spriteManagerApi,
+                fakeGestureObserver = {
+                    updatePointer: function () {}
+                },
+                phaserGame = new PhaserGame(
+                    function () {
+                        spriteManagerApi = new SpriteManagerPhaserApi(phaserGame);
+                        sceneLoader = new SceneLoader(spriteManagerApi);
+                        spriteManagerApi.sceneLoaderInterface = sceneLoader;
+                        sceneLoader.loadScene('forestSwipeLeft', [{text: "nothing"}, {text: "nothing"}, {text: "nothing"}, {text: "nothing"}]);
+                        sceneLoader.stackLoadScene('forestSwipeLeft', [undefined, {text: "g2t2", id: 233}]);
+                        sceneLoader.playAllStackedScenes().then(function () {
+                            equal(sceneLoader.getTreeDiscardedWhenSwipeLeft(), 233);
+                            sceneLoader.stackLoadScene('forestSwipeLeft', [{text: "g3t1", id: 1}, {text: "g3t2", id: 2}]);
+                            return sceneLoader.playAllStackedScenes();
+                        }).then(function () {
+                            equal(sceneLoader.getTreeWithFinalPosition('1c').tree.id, undefined);//g2t2 was removed in the previos swipe
+                            //thus previously to swipe left '2r' positions are the ones that are going to be discarded
+                            QUnit.start();
+                        });
+                    },
+                    fakeGestureObserver
+                );
+        });
+    });
 });
 

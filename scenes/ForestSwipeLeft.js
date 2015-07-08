@@ -4,9 +4,9 @@ define([ "../scenes/WriteButton"], function (writteButton) {
     'use strict';
     var time = 1000,
         widthFactor = 400 / 200;
-
     return {
         title: "ForestSwipeLeft",
+        lengthInTime : time,
         trees: [
             {
                 initialPosition: "3l",

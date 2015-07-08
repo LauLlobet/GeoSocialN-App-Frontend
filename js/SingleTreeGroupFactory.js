@@ -27,7 +27,7 @@ define([], function () {
 
     SingleTreeGroupFactory.prototype.createText = function createText(text) {
         var image;
-        this.keymap =  ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^*#0123456789";
+        this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^Ñ#0123456789";
         this.fontText =  this.game.add.retroFont('carved', 120, 120, this.keymap, 5, 0, 0, 0, 0);
         image = this.game.add.image(0, 60, this.fontText);
         image.scale.x = 0.27 * 0.5;
@@ -36,40 +36,50 @@ define([], function () {
             text = "";
         }
         this.group.add(image);
-       // this.setTextUpdateFunctionsToGroup(this.group, this.fontText, this.keymap);
-        //this.group.setText(text);
+        this.setTextUpdateFunctionsToGroup(this.group, this.fontText, this.keymap);
+        this.group.setText(text);
     };
 
-   /*
-        this.group.add(image);
-
-
-    };*/
-/*
     SingleTreeGroupFactory.prototype.setTextUpdateFunctionsToGroup = function setTextUpdateFunctionsToGroup(group, fontText, keymap) {
         group.fontText = fontText;
         group.keymap = keymap;
         group.setText = function setText(text) {
-            var formatedText =  this.formatText(text);
-            this.fontText.setText(formatedText, true, -30, 15, this.keymap, 10);
-            this.plainText = text;
-
+            var formatedText =  group.formatText(text);
+            group.fontText.setText(formatedText, true, -30, 15, group.keymap, 10);
+            group.text = text;
         };
         group.addChar = function addChar(char) {
-            this.setText(this.plainText + char);
+            group.editing = true;
+            group.setText(group.text + char);
         };
+        group.removeChar = function removeChar() {
+            group.setText(group.text.substring(0, group.text.length - 1));
+        };
+        group.startTyping = function startTyping() {
+            group.editing = true;
+            group.setText(group.text);
+        }
+        group.stopTyping = function stopTyping(){
+            group.editing = false;
+            group.setText(group.text)
+        }
         group.formatText = function (text) {
             var textreturned = "",
                 length =  TEXTLENGTH,
                 j;
             text = text.toUpperCase();
+            if (group.editing === true) {
+                text = text + "}"; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
+            } else {
+                text = text + " "; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
+            }
             for (j = 0; j < text.length; j = j + length) {
                 textreturned += text.substring(j, j + length) + "\n";
             }
             textreturned += text.substring(j) + "\n";
             return textreturned;
         };
-    };*/
+    };
 
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
         var prespectiveScale = tree.w / this.sprite.width,

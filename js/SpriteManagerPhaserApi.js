@@ -130,6 +130,24 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
     SpriteManagerPhaserApi.prototype.existsId = function existsId(id) {
         return this.findTreeSpriteGroupByName(id) !== null;
     };
-  
+    SpriteManagerPhaserApi.prototype.setIsTyping = function setIsTyping(isTyping, tableEntryId) {
+        var tree = this.findTreeSpriteGroupByName(tableEntryId);
+        if (isTyping) {
+            tree.startTyping();
+        } else {
+            tree.stopTyping();
+        }
+    };
+    SpriteManagerPhaserApi.prototype.addChar = function addChar(tableEntryId, char) {
+        var tree = this.findTreeSpriteGroupByName(tableEntryId);
+        tree.addChar(char);
+        return tree.text;
+    };
+    SpriteManagerPhaserApi.prototype.removeChar = function removeChar(tableEntryId) {
+        var tree = this.findTreeSpriteGroupByName(tableEntryId);
+        tree.removeChar();
+        return tree.text;
+    };
+
     return SpriteManagerPhaserApi;
 });
