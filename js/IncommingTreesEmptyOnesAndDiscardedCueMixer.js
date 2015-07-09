@@ -50,6 +50,9 @@ define(['underscore'], function (_) {
         while (loadToBackgroundList.length < 2) {
             loadToBackgroundList.push(-1);
         }
+        while (discarded.length > 0) {
+            this.incommingList.unshift(discarded.shift());
+        }
         return loadToBackgroundList;
     };
 

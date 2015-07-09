@@ -23,18 +23,25 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.alreadyDisplayed,
             this.mapOfTreesById
         );
+        this.gpsMovmentTrigger.init();
     }
 
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         if (this.state === NAVIGATE) {
             this.treeLoaderToSceneLoaderFromLists.swipeLeft();
+            console.log("----SL----");
+            console.log("incomming: " +  this.incommingList);
+            console.log("already: " +  this.alreadyDisplayed);
         }
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
         if (this.state === NAVIGATE) {
             this.treeLoaderToSceneLoaderFromLists.swipeRight();
+            console.log("----SR----");
+            console.log("incomming: " +  this.incommingList);
+            console.log("already: " +  this.alreadyDisplayed);
         }
     };
 
@@ -75,7 +82,8 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
-        this.nearbyTreesFromServerToIncommingTreeList.userHasMoved(coords);
+        this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(coords);
+        console.log("user has moved");
     }
 
 

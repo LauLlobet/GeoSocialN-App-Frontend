@@ -37,5 +37,14 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
     GpsMovmentTrigger.prototype.errorCallback = function errorCallback() {
         alert("error tracking coordinates");
     };
+
+    GpsMovmentTrigger.prototype.init = function init() {
+        navigator.geolocation.getCurrentPosition(
+            underscore.bind(this.updateFunction, this),
+            underscore.bind(this.errorCallback, this),
+            this.options
+        );
+    }
+
     return GpsMovmentTrigger;
 });

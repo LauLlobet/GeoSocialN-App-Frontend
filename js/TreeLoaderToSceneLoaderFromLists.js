@@ -11,9 +11,12 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         this.incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingListAndCurrentEmptyTrees);
     }
     TreeLoaderToSceneLoaderFromLists.prototype.swipe = function swipe(leftOrRigthText) {
-        var discarded = [ this.sceneLoader.getTreeDiscardedWhenSwipeLeft() ],
-            toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees),
+        var discarded,
+            toLoad,
             that = this;
+        discarded =  leftOrRigthText === 'forestSwipeLeft' ? [ this.sceneLoader.getTreeDiscardedWhenSwipeLeft() ] : [ this.sceneLoader.getTreeDiscardedWhenSwipeRight() ];
+        console.log("discarded:" + discarded);
+        toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees);
         toLoad = _.map(toLoad, function (value) {
             return that.mapOfTreesById[value];
         });

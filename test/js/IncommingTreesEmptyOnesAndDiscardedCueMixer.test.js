@@ -50,7 +50,32 @@ define([], function () {
         });
     });
 
-    asyncTest('Test with equal', function () {
+
+
+    asyncTest('Test discarded are keept in the wheel', function () {
+        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+            var incommingList = [1, 2, 3, 4, 5],
+                emptyTrees = 5,
+                discarded = [99],
+                incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList),
+                ans = [],
+                i,
+                discardedIsNotLost = true,
+                attempts = 100;
+            for (i = 0; i < attempts; i += 1) {
+                incommingList = [1, 2, 3, 4, 5];
+                incommingTreesEmptyOnesAndDiscardedCueMixer.incommingList = incommingList;
+                var ans = incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, emptyTrees);
+                var inAns = _.contains(ans, 99);
+                var inIncomming = _.contains(incommingList, 99);
+                discardedIsNotLost = discardedIsNotLost && (inAns || inIncomming);
+            }
+            equal(true, discardedIsNotLost);
+            QUnit.start();
+        });
+    });
+
+    asyncTest('Test with equal 5t', function () {
         require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 5,
@@ -83,7 +108,7 @@ define([], function () {
     });
 
 
-    asyncTest('Test with equal', function () {
+    asyncTest('Test with equal 4t', function () {
         require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 4,
@@ -115,7 +140,7 @@ define([], function () {
         });
     });
 
-    asyncTest('Test with equal', function () {
+    asyncTest('Test with equal 3t', function () {
         require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 3,
@@ -148,7 +173,7 @@ define([], function () {
     });
 
 
-    asyncTest('Test with equal', function () {
+    asyncTest('Test with equal 2t', function () {
         require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 2,
@@ -180,7 +205,7 @@ define([], function () {
         });
     });
 
-    asyncTest('Test with equal', function () {
+    asyncTest('Test with equal 1t', function () {
         require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 1,
