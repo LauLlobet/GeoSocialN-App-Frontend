@@ -135,6 +135,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
             });
            // equal(2, 0);
            // QUnit.start();
+            deleteAll();
         });
     });
 

@@ -11,6 +11,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.incommingList = [];
             this.alreadyDisplayed = [];
             this.mapOfTreesById = {};
+            this.mapOfTreesById[-1] = { id: -1, text: '-1' };
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById);
 
     }
@@ -23,7 +24,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.alreadyDisplayed,
             this.mapOfTreesById
         );
-        this.gpsMovmentTrigger.init();
+        this.gpsMovmentTrigger.forceUpdate();
     }
 
     //MAIN INPUT FUNCTION
@@ -57,9 +58,11 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
         var text = this.sceneLoaderInterface.getEditedTreeText(),
             coords = this.gpsMovmentTrigger.actualCoordinates,
             treeRestClient = new TreeRestClient(),
-            tree ={  text: text, metersToHide: 10, x: coords.x, y: coords.y};
+            tree ={  text: text, metersToHide: 10, x: coords.longitude, y: coords.latitude},
+            that = this;
         treeRestClient.put(tree).then(function() {
             alert("tree penjat");
+            that.gpsMovmentTrigger.forceUpdate();
         });
     }
 
@@ -82,8 +85,8 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
-        this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(coords);
-        console.log("user has moved");
+        var coordxy = {x:coords.longitude, y:coords.latitude};
+        this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(coordxy);
     }
 
 

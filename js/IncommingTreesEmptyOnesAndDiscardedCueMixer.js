@@ -9,6 +9,7 @@ define(['underscore'], function (_) {
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded, emptyTrees) {
         var loadToBackgroundList = [],
             chance = 0;
+        console.log("empty trees inside:" + emptyTrees);
         switch (emptyTrees) {
             case 6:
                 return [undefined, undefined];

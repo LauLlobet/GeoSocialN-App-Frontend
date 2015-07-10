@@ -21,6 +21,9 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
                 that.mapOfTreesById[ans.treeContent[i].id] = ans.treeContent[i];
             }
             that.incommingList.emptyTrees = ans.emptyTrees;
+            console.log("emptyTrees:" + that.incommingList.emptyTrees);
+        }).catch(function (err) {
+            console.log("no connection " + err);
         });
     };
     return NearbyTreesFromServerToIncommingTreeList;

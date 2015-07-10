@@ -16,15 +16,29 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
         this.setUpUpdate();
     }
     GpsMovmentTrigger.prototype.setUpUpdate = function () {
-        navigator.geolocation.watchPosition(underscore.bind(this.updateFunction, this),
+        navigator.geolocation.watchPosition(underscore.bind(this.userHasMovedUpdateFunction, this),
                                             underscore.bind(this.errorCallback, this),
                                             this.options);
+    };
+
+
+    GpsMovmentTrigger.prototype.userHasMovedUpdateFunction = function userHasMovedUpdateFunction(position) {
+        this.updateFunction(position);
+    };
+
+    GpsMovmentTrigger.prototype.forceUpdateFunction = function forceUpdateFunction(position) {
+        console.log("forcedupdateoftrees");
+        this.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position);
+        this.actualCoordinates = position.coords;
+        this.bussinesController.userHasMoved(position.coords);
+        this.lastMoveCoordinates = position.coords;
     };
     GpsMovmentTrigger.prototype.updateFunction = function updateFunction(position) {
         this.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position);
         var distance = this.coordinatesCalculator.distanceBetweenCoordinates(position.coords, this.lastMoveCoordinates);
         this.actualCoordinates = position.coords;
         if (distance > this.metersToTrigger) {
+            console.log("userhasmoved");
             this.bussinesController.userHasMoved(position.coords);
             this.lastMoveCoordinates = position.coords;
         }
@@ -38,9 +52,9 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
         alert("error tracking coordinates");
     };
 
-    GpsMovmentTrigger.prototype.init = function init() {
+    GpsMovmentTrigger.prototype.forceUpdate = function forceUpdate() {
         navigator.geolocation.getCurrentPosition(
-            underscore.bind(this.updateFunction, this),
+            underscore.bind(this.forceUpdateFunction, this),
             underscore.bind(this.errorCallback, this),
             this.options
         );
