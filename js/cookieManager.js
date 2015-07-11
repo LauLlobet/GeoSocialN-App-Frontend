@@ -2,13 +2,14 @@
     /*jslint todo: true */
 define(["underscore"], function (underscore) {
     "use strict";
-    function CookieManager() {
+    function CookieManager(){
     }
 
     CookieManager.prototype.setCookie = function setCookie(cname, cvalue, exdays) {
         var d = new Date();
+        exdays = exdays === undefined ? 10000 : exdays;
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = "expires="+d.toUTCString();
+        var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + "; " + expires;
     }
 
@@ -24,7 +25,7 @@ define(["underscore"], function (underscore) {
     }
 
     CookieManager.prototype.deleteCookie = function (cname) {
-        this.setCookie(cname,"",-100);
+        this.setCookie(cname,"");
     }
     return CookieManager;
 });

@@ -95,15 +95,17 @@ define(["TreeRestClient"], function (TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
-                dontIncludeList = [];
+                dontIncludeList = [],
+                originalX = 15.21;
             tree.text = "first tree in town";
             tree.metersToHide = 3;
-            tree.x = 15.21;
+            tree.x = originalX;
             tree.y = 35.11;
             deleteAll();
 
             treeRestClient.put(tree).then(function (val) {
                 answerIdList.push(val.treeContent);
+                tree.x = 15.22;
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 dontIncludeList.push(val.treeContent.id);
@@ -113,10 +115,11 @@ define(["TreeRestClient"], function (TreeRestClient) {
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 answerIdList.push(val.treeContent);
+                tree.x = 15.23;
                 return treeRestClient.put(tree);
             }).then(function (val) {
                 answerIdList.push(val.treeContent);
-                return treeRestClient.get(tree.x, tree.y, dontIncludeList);
+                return treeRestClient.get(originalX, tree.y, dontIncludeList);
             }).then(function (val) {
                 var expectedAns = [],
                     answerAns = [];

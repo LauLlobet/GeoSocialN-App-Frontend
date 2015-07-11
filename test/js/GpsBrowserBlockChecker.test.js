@@ -3,6 +3,24 @@ define([], function () {
     'use strict';
     module('GpsBrowserBlockChecker test');
 
+
+
+    asyncTest('test cookie manager', function () {
+        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+            var cookieManager = new CookieManager();
+
+            cookieManager.setCookie("gpsOn", "true");
+            equal(cookieManager.getCookie("gpsOn"), "true", 'true');
+            cookieManager.setCookie("gpsOn", "test");
+            equal(cookieManager.getCookie("gpsOn"), "test", 'test');
+            cookieManager.deleteCookie("gpsOn");
+            equal(cookieManager.getCookie("gpsOn"), "", 'none');
+
+            QUnit.start();
+        });
+    });
+
+
     asyncTest('ok cookie and gps is enabled', function () {
         require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
