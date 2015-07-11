@@ -11,7 +11,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.incommingList = [];
             this.alreadyDisplayed = [];
             this.mapOfTreesById = {};
-            this.mapOfTreesById[-1] = { id: -1, text: '-1' };
+           // this.mapOfTreesById[-1] = { id: -1, text: '-1' };
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById);
 
     }

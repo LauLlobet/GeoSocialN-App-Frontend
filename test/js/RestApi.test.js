@@ -128,14 +128,16 @@ define(["TreeRestClient"], function (TreeRestClient) {
                 });
                 deepEqual(answerAns, expectedAns, "list of ids");
                 QUnit.start();
+                deleteAll();
             }).catch(function (error) {
                 equal(2, 0,"exception thrown");
                 QUnit.start();
                 console.log("Failed!", error);
+                deleteAll();
             });
            // equal(2, 0);
            // QUnit.start();
-            deleteAll();
+
         });
     });
 

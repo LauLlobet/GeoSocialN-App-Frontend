@@ -22,17 +22,17 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         });
         this.sceneLoader.stackLoadScene(leftOrRigthText, toLoad);
         return this.sceneLoader.playAllStackedScenes().then(function () {
-            that.addCurrentlyDisplayedToAlreadyDisplayed();
+            return that.addCurrentlyDisplayedToAlreadyDisplayed();
         });
     };
 
     TreeLoaderToSceneLoaderFromLists.prototype.swipeLeft =  function swipeLeft() {
-        this.swipe('forestSwipeLeft');
+        return this.swipe('forestSwipeLeft');
     };
 
 
     TreeLoaderToSceneLoaderFromLists.prototype.swipeRight =  function swipeRight() {
-        this.swipe('forestSwipeRight');
+        return this.swipe('forestSwipeRight');
     };
 
     TreeLoaderToSceneLoaderFromLists.prototype.addCurrentlyDisplayedToAlreadyDisplayed = function addCurrentlyDisplayedToAlreadyDisplayed() {
