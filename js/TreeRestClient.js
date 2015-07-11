@@ -3,7 +3,7 @@
 define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rsvp) {
     "use strict";
     function TreeRestClient() {
-        this.api = restful('52.26.137.110')
+        this.api = restful( location.host.split(':')[0])
                 .header("Accept", "application/json") // set global header
                 .prefixUrl('YOUR_PATH')
                 .port(8080);
