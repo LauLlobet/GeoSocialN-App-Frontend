@@ -7,16 +7,18 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
                 .header("Accept", "application/json") // set global header
                 .prefixUrl('YOUR_PATH')
                 .port(8080);
+        var host = location.host.split(':')[0] === 'localhost' ? '52.26.137.110:8080' : location.host;
+        this.path = 'http://' + host + '/YOUR_PATH/trees';
     }
     TreeRestClient.prototype.deleteAll = function () {
-        this.treeApi = this.api.oneUrl('articles', 'http://'+location.host+'/YOUR_PATH/trees');
+        this.treeApi = this.api.oneUrl('articles', this.path);
         console.log("delete");
         this.treeApi.delete();
     };
 
 
     TreeRestClient.prototype.put = function (tree) {
-        this.treeApi = this.api.oneUrl('articles', 'http://'+location.host+'/YOUR_PATH/trees');
+        this.treeApi = this.api.oneUrl('articles', this.path);
         var that = this;
         return new Promise(function (resolve, reject) {
             that.treeApi.put(tree).then(function (response) {
@@ -44,7 +46,7 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
 
     TreeRestClient.prototype.get = function (x, y, dontInclude) {
         var dontIncludeString = this.buildDontIncludeString(dontInclude);
-        this.treeApi = this.api.allUrl('articles', 'http://'+location.host+'/YOUR_PATH/trees');
+        this.treeApi = this.api.allUrl('articles', this.path);
         console.log("dis:" + dontIncludeString);
         var that = this;
         return new Promise(function (resolve, reject) {
