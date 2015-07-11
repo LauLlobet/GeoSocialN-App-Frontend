@@ -48,11 +48,19 @@ define(['underscore'], function (_) {
             loadToBackgroundList.push(this.incommingList.shift());
         }
 
-        while (loadToBackgroundList.length < 2) {
-            loadToBackgroundList.push(-1);
+        if (emptyTrees === 0) {
+            while (loadToBackgroundList.length < 2) {
+                loadToBackgroundList.push(-1);
+            }
+        } else {
+            while (loadToBackgroundList.length < 2) {
+                loadToBackgroundList.push(undefined);
+            }
         }
         while (discarded.length > 0) {
-            this.incommingList.unshift(discarded.shift());
+            if (discarded !== -1) {
+                this.incommingList.unshift(discarded.shift());
+            }
         }
         return loadToBackgroundList;
     };

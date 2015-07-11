@@ -11,7 +11,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.incommingList = [];
             this.alreadyDisplayed = [];
             this.mapOfTreesById = {};
-           // this.mapOfTreesById[-1] = { id: -1, text: '-1' };
+            this.mapOfTreesById[-1] = { id: -1, text: '-1' };
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById);
 
     }
@@ -25,6 +25,9 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.mapOfTreesById
         );
         this.gpsMovmentTrigger.forceUpdate();
+        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Wellcome/Bienvenido! Swipe left or right to find messages leaved at your actual location"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
+        this.swipeLeft();
+
     }
 
     //MAIN INPUT FUNCTION
