@@ -120,7 +120,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
     };
 
     PhaserGame.prototype.preload = function preload() {
-        this.game.stage.backgroundColor = '#e1fdec';
+        this.game.stage.backgroundColor = '#99b4cf';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
         this.game.parent.setZoomMap();
@@ -166,7 +166,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
         parent.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
         parent.game.input.addPointer();
         setTimeout(callbackFunct(parent), 0);
-        parent.game.stage.backgroundColor = '#095712';
+        parent.game.stage.backgroundColor = '#e1fdec';
         parent.game.world.remove(parent.game.loading);
         parent.game.world.remove(parent.game.map);
     };
