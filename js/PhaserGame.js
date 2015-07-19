@@ -120,7 +120,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
     };
 
     PhaserGame.prototype.preload = function preload() {
-        this.game.stage.backgroundColor = '#99b4cf';
+        this.game.stage.backgroundColor = '#e1fdec';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
         this.game.parent.setZoomMap();
