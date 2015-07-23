@@ -114,7 +114,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
         this.game.zoomStartedMillieconds = (new Date()).getTime();
 
 
-        this.game.add.tween(map.scale).to({x : 49, y : 49}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
+        this.game.add.tween(map.scale).to({x : 30, y : 30}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.map = map;
     };

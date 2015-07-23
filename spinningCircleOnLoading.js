@@ -83,6 +83,11 @@ CookieManager.prototype.getCookie = function (cname) {
 CookieManager.prototype.deleteCookie = function (cname) {
     this.setCookie(cname,"");
 }
+
+var latitude = 40;
+var longitude = 40;
+
+
 function GpsBrowserBlockChecker(gpsInterface, reloadInterface, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface) {
     this.gpsInterface = gpsInterface;
     this.loadingTimeLineToTellToContinue = loadingTimeLineToTellToContinue;
@@ -113,9 +118,11 @@ GpsBrowserBlockChecker.prototype.testGps = function test() {
         properties);
 
 }
-GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback() {
+GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback(position) {
     this.loadingTimeLineToTellToContinue.gpsIsEnabledAndWorking();
     this.cookieManager.setCookie("gpsOn", "true");
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
 };
 GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback() {
     this.cookieManager.setCookie("gpsOn", "test");
@@ -154,8 +161,7 @@ var gpsManager = new GpsBrowserBlockChecker(navigator.geolocation, location, loa
 
 document.getElementById("unblockGPS").style.display = "none";
 document.getElementById("acceptGPS").style.display = "none";
-var latitude;
-var longitude;
+
 gpsManager.start();
 loop();
 
