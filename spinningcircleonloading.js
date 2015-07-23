@@ -58,13 +58,14 @@ function loop(){
 
                ///
 var underscore = _;
-function CookieManager() {
+function CookieManager(){
 }
 
 CookieManager.prototype.setCookie = function setCookie(cname, cvalue, exdays) {
     var d = new Date();
+    exdays = exdays === undefined ? 10000 : exdays;
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
+    var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
 
@@ -80,9 +81,8 @@ CookieManager.prototype.getCookie = function (cname) {
 }
 
 CookieManager.prototype.deleteCookie = function (cname) {
-    this.setCookie(cname,"",-100);
+    this.setCookie(cname,"");
 }
-
 function GpsBrowserBlockChecker(gpsInterface, reloadInterface, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface) {
     this.gpsInterface = gpsInterface;
     this.loadingTimeLineToTellToContinue = loadingTimeLineToTellToContinue;
@@ -97,27 +97,23 @@ GpsBrowserBlockChecker.prototype.start = function start() {
             break;
         case "test":
             this.gpsErrorMessageDisplayerInterface.displayUnblockGpsMessage();
-            setTimeout(underscore.bind(this.testGps, this), 10000);
+            setTimeout(underscore.bind(this.testGps, this), 4000);
             break;
         case "":
             this.gpsErrorMessageDisplayerInterface.displayAcceptRequestMessage();
-            setTimeout(underscore.bind(this.testGps, this), 10000);
+            setTimeout(underscore.bind(this.testGps, this), 4000);
             break;
     }
 };
 
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { timeout: 5000, enableHighAccuracy: false };
-    if(!navigator.geolocation){
-        this.gpsErrorMessageDisplayerInterface.displayNotSupportedBrowser();
-    }
     this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
         properties);
+
 }
-GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback(location) {
-    latitude = location.coords.latitude;
-    longitude = location.coords.longitude;
+GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback() {
     this.loadingTimeLineToTellToContinue.gpsIsEnabledAndWorking();
     this.cookieManager.setCookie("gpsOn", "true");
 };
