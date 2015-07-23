@@ -94,7 +94,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
         if (typeof latitude !== 'undefined') {
             var lat = latitude;
             var long = longitude;
-            this.game.mapZoomTotalMilliseconds = 500;
+            this.game.mapZoomTotalMilliseconds = 2500;
         } else {
             var lat = 34;
             var long = 12;
@@ -166,7 +166,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
         parent.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
         parent.game.input.addPointer();
         setTimeout(callbackFunct(parent), 0);
-        parent.game.stage.backgroundColor = '#e1fdec';
+        parent.game.stage.backgroundColor = '#93fbbc';
         parent.game.world.remove(parent.game.loading);
         parent.game.world.remove(parent.game.map);
     };
