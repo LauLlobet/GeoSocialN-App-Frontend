@@ -104,6 +104,9 @@ GpsBrowserBlockChecker.prototype.start = function start() {
             this.gpsErrorMessageDisplayerInterface.displayUnblockGpsMessage();
             setTimeout(underscore.bind(this.testGps, this), 4000);
             break;
+        case "positionunavaliable":
+            this.gpsErrorMessageDisplayerInterface.displayPositionUnavaliableMessage();
+            break;
         case "":
             this.gpsErrorMessageDisplayerInterface.displayAcceptRequestMessage();
             setTimeout(underscore.bind(this.testGps, this), 4000);
@@ -124,8 +127,13 @@ GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallba
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 };
-GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback() {
-    this.cookieManager.setCookie("gpsOn", "test");
+GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
+    var PERMISSION_DENIED = 1;
+    if(error.code === PERMISSION_DENIED){
+        this.cookieManager.setCookie("gpsOn", "test");
+    }else{
+        this.cookieManager.setCookie("gpsOn", "positionunavaliable");
+    }
     this.reloadInterface.reload();
 };
 /// --------------------
@@ -150,6 +158,9 @@ var gpsErrorMessageDisplayerInterface = {
     displayUnblockGpsMessage : function displayUnblockGpsMessage() {
         this.displayUnblockGpsMessageCalled = true;
         document.getElementById("unblockGPS").style.display = "block";
+    },
+    displayPositionUnavaliableMessage : function displayPositionUnavaliableMessage() {
+        alert("El teu gps no acaba de trobar la posicio, espera una mica");
     },
     displayUnblockGpsMessageCalled: false,
     displayNotSupportedBrowser : function displayNotSupportedBrowser(){
