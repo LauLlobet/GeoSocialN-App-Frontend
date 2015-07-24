@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/alphabet doble.psd" afterPath="$PROJECT_DIR$/assets/alphabet doble.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/realDimensionTree5.psd" afterPath="$PROJECT_DIR$/assets/realDimensionTree5.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js" afterPath="$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/all.test.html" afterPath="$PROJECT_DIR$/test/all.test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js" afterPath="$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js" afterPath="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FillerOfIncommingListIfItGetsEmpty.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FillerOfIncommingListIfItGetsEmpty.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3267974" vertical-offset="0" max-vertical-offset="459">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -77,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FillerOfIncommingListIfItGetsEmpty.test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FillerOfIncommingListIfItGetsEmpty.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="945">
-              <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.1633987" vertical-offset="0" max-vertical-offset="1155">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding>
                 <element signature="e#40#139#0" expanded="false" />
               </folding>
@@ -122,7 +116,7 @@
       <file leaf-file-name="TreeLoaderToSceneLoaderFromLists.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="4125">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="4125">
               <caret line="191" column="72" selection-start-line="191" selection-start-column="72" selection-end-line="191" selection-end-column="72" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
@@ -198,8 +192,8 @@
         <option value="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/test/js/StackOfScenes.test.js" />
         <option value="$PROJECT_DIR$/test/all.test.html" />
-        <option value="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js" />
         <option value="$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js" />
+        <option value="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js" />
       </list>
     </option>
   </component>
@@ -711,7 +705,7 @@
       <workItem from="1432912505809" duration="311000" />
       <workItem from="1432912853025" duration="31997000" />
       <workItem from="1435056133676" duration="98468000" />
-      <workItem from="1436343204899" duration="46739000" />
+      <workItem from="1436343204899" duration="47875000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1011,7 +1005,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="535897000" />
+    <option name="totallyTimeSpent" value="537033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1440" height="746" extended-state="0" />
@@ -1474,6 +1468,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4125">
@@ -1486,19 +1488,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="945">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.1633987" vertical-offset="0" max-vertical-offset="1155">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
             <element signature="e#40#139#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3267974" vertical-offset="0" max-vertical-offset="459">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
