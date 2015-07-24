@@ -13,13 +13,14 @@ define(["underscore"], function (underscore) {
         setInterval(underscore.bind(this.checkIfEmptyAndFill, this), 1000);
     };
     FillerOfIncommingListIfItGetsEmpty.prototype.checkIfEmptyAndFill = function f() {
-        if (this.incommingList.length === 0 && !this.stopAskingForTrees ) {
+        if (this.incommingList.length === 0 && !this.stopAskingForTrees) {
             this.updaterOfListInterface.updateWithoutMoving();
         }
     };
 
     FillerOfIncommingListIfItGetsEmpty.prototype.treesFromServerAreOver = function treesFromServerAreOver() {
         this.stopAskingForTrees = true;
+        console.log("trees form server are over");
     };
 
     return FillerOfIncommingListIfItGetsEmpty;

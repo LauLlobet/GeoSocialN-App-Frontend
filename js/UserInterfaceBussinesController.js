@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLoaderToSceneLoaderFromLists", "TreeRestClient"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList, TreeLoaderToSceneLoaderFromLists, TreeRestClient) {
+define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLoaderToSceneLoaderFromLists", "TreeRestClient","FillerOfIncommingListIfItGetsEmpty"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList, TreeLoaderToSceneLoaderFromLists, TreeRestClient, FillerOfIncommingListIfItGetsEmpty) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -12,9 +12,9 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.alreadyDisplayed = [];
             this.mapOfTreesById = {};
             this.mapOfTreesById[-1] = { id: -1, text: '-1' };
-            this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById);
+            this.fillerOfIncommingListIfItGetsEmpty = new FillerOfIncommingListIfItGetsEmpty(this.incommingList, this);
+            this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById, this.fillerOfIncommingListIfItGetsEmpty);
             this.lastKnownCoords = undefined;
-
     }
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
@@ -28,7 +28,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
         this.gpsMovmentTrigger.forceUpdate();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Wellcome/Bienvenido! Swipe left or right to find messages leaved at your actual location"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
         this.swipeLeft();
-
+        this.fillerOfIncommingListIfItGetsEmpty.start();
     }
 
     //MAIN INPUT FUNCTION
