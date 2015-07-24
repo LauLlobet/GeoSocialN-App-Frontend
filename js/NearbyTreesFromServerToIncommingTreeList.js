@@ -11,6 +11,9 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
     NearbyTreesFromServerToIncommingTreeList.prototype.userHasMovedTo = function (coords) {
         var i = 0,
             that = this;
+        if (coords === undefined) {
+            return;
+        }
         return this.treeRestClient.get(coords.x, coords.y, this.alreadyDisplayed).then(function (ans) {
             that.incommingList.length = 0;
             if (ans.treeContent === null) {

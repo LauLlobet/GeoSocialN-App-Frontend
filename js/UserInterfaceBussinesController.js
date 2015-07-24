@@ -13,6 +13,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.mapOfTreesById = {};
             this.mapOfTreesById[-1] = { id: -1, text: '-1' };
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById);
+            this.lastKnownCoords = undefined;
 
     }
 
@@ -88,10 +89,15 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
-        var coordxy = {x:coords.longitude, y:coords.latitude};
-        this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(coordxy);
-    }
+        if(coords !== undefined){
+            this.lastKnownCoords = {x:coords.longitude, y:coords.latitude};
+        }
+        this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(this.lastKnownCoords);
+    };
 
+    UserInterfaceBussinesController.prototype.updateWithoutMoving = function updateWithoutMoving() {
+        this.userHasMoved(undefined);
+    };
 
     return UserInterfaceBussinesController;
 });
