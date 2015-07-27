@@ -17,13 +17,14 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         discarded =  leftOrRigthText === 'forestSwipeLeft' ? [ this.sceneLoader.getTreeDiscardedWhenSwipeLeft() ] : [ this.sceneLoader.getTreeDiscardedWhenSwipeRight() ];
         console.log("discarded:" + discarded);
         toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees);
+        _.each(toLoad, function (treeToLoadToScene) {
+            that.alreadyDisplayed.push(treeToLoadToScene);
+        });
         toLoad = _.map(toLoad, function (value) {
             return that.mapOfTreesById[value];
         });
         this.sceneLoader.stackLoadScene(leftOrRigthText, toLoad);
-        return this.sceneLoader.playAllStackedScenes().then(function () {
-            return that.addCurrentlyDisplayedToAlreadyDisplayed();
-        });
+        return this.sceneLoader.playAllStackedScenes();
     };
 
     TreeLoaderToSceneLoaderFromLists.prototype.swipeLeft =  function swipeLeft() {
@@ -33,13 +34,6 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
 
     TreeLoaderToSceneLoaderFromLists.prototype.swipeRight =  function swipeRight() {
         return this.swipe('forestSwipeRight');
-    };
-
-    TreeLoaderToSceneLoaderFromLists.prototype.addCurrentlyDisplayedToAlreadyDisplayed = function addCurrentlyDisplayedToAlreadyDisplayed() {
-        var treeid = this.sceneLoader.getTreeAlreadyDisplayed();
-        if (treeid !== undefined) {
-            this.alreadyDisplayed.push(treeid);
-        }
     };
 
     TreeLoaderToSceneLoaderFromLists.prototype.init = function init(undefTrees) {
