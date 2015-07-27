@@ -191,7 +191,7 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
 
     SceneLoader.prototype.removeChar = function removeChar() {
         var tableentrytree = this.getTreeWithFinalPosition("1c"),
-            text = this.spriteManagerPhaserApiInterface.removeChar(tableentrytree.id, character);
+            text = this.spriteManagerPhaserApiInterface.removeChar(tableentrytree.id);
         tableentrytree.tree.text = text;
     };
 
