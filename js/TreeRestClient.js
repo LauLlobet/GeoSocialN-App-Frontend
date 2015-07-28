@@ -47,7 +47,6 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
     TreeRestClient.prototype.get = function (x, y, dontInclude) {
         var dontIncludeString = this.buildDontIncludeString(dontInclude);
         this.treeApi = this.api.allUrl('articles', this.path);
-        console.log("dis:" + dontIncludeString);
         var that = this;
         return new Promise(function (resolve, reject) {
             that.treeApi.getAll({x:x,y:y,dontInclude:dontIncludeString}).then(function (response) {
@@ -58,6 +57,8 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
                     console.log("entity is null");
                     reject("entity is null");
                 }
+            }).catch(function f(exception){
+                console.log("impossible to do a get, no internet connection");
             });
         });
     };

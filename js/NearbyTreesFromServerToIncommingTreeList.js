@@ -12,10 +12,15 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
     }
     NearbyTreesFromServerToIncommingTreeList.prototype.userHasMovedTo = function (coords) {
         var i = 0,
-            that = this;
+            that = this,
+            newAlreadyDisplayed;
         if (coords === undefined) {
             return;
         }
+        newAlreadyDisplayed = underscore.difference(this.alreadyDisplayed, this.incommingList); // this is to handle trees inside the scent that could be discarded -> re instrted in incomming list AND present on already displayed
+        this.alreadyDisplayed.splice(0, this.alreadyDisplayed.length);
+        this.alreadyDisplayed.push.apply(newAlreadyDisplayed);
+
         return this.treeRestClient.get(coords.x, coords.y, this.alreadyDisplayed).then(function (ans) {
             that.incommingList.length = 0;
             if (ans.treeContent === null) {
@@ -29,7 +34,7 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
                 that.mapOfTreesById[ans.treeContent[i].id] = ans.treeContent[i];
             }
             that.incommingList.emptyTrees = ans.emptyTrees;
-            console.log("emptyTrees:" + that.incommingList.emptyTrees);
+            console.log("Fetched trees from internet, emptyTrees:" + that.incommingList.emptyTrees);
         }).catch(function (err) {
             console.log("no connection " + err);
         });

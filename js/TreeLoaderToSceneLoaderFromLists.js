@@ -18,7 +18,9 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         console.log("discarded:" + discarded);
         toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees);
         _.each(toLoad, function (treeToLoadToScene) {
-            that.alreadyDisplayed.push(treeToLoadToScene);
+            if (treeToLoadToScene !== undefined) {
+                that.alreadyDisplayed.push(treeToLoadToScene);
+            }
         });
         toLoad = _.map(toLoad, function (value) {
             return that.mapOfTreesById[value];
