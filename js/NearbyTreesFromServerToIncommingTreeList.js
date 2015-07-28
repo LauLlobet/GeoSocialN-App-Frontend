@@ -19,7 +19,9 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
         }
         newAlreadyDisplayed = underscore.difference(this.alreadyDisplayed, this.incommingList); // this is to handle trees inside the scent that could be discarded -> re instrted in incomming list AND present on already displayed
         this.alreadyDisplayed.splice(0, this.alreadyDisplayed.length);
-        this.alreadyDisplayed.push.apply(newAlreadyDisplayed);
+        newAlreadyDisplayed.forEach(function(newAlreadyDisplayed){
+            that.alreadyDisplayed.push(newAlreadyDisplayed);
+        });
 
         return this.treeRestClient.get(coords.x, coords.y, this.alreadyDisplayed).then(function (ans) {
             that.incommingList.length = 0;

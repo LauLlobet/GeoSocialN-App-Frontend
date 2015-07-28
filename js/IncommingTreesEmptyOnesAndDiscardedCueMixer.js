@@ -59,7 +59,7 @@ define(['underscore'], function (_) {
         }
         while (discarded.length > 0) {
             if (discarded !== -1) {
-                alert("pushing tree to incomming list");
+                console.log("pushing tree to incomming list");
                 this.incommingList.unshift(discarded.shift());
             }
         }

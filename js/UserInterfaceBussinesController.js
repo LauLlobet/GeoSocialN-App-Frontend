@@ -72,8 +72,14 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             treeRestClient = new TreeRestClient(),
             tree ={  text: text, metersToHide: 10, x: coords.longitude, y: coords.latitude},
             that = this;
-        treeRestClient.put(tree).then(function() {
-            alert("tree penjat");
+        treeRestClient.put(tree).then(function (ans) {
+            if(ans.treeContent === null) {
+                alert("error posting tree");
+                throw "error";
+            }
+            return ans;
+        }).then(function(ans) {
+            that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
             that.gpsMovmentTrigger.forceUpdate();
         });
     }

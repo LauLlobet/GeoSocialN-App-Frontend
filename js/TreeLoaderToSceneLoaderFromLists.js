@@ -68,7 +68,7 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         return this.swipe('forestSwipeRight');
     };
 
-    TreeLoaderToSceneLoaderFromLists.prototype.init = function init(undefTrees) {
+    TreeLoaderToSceneLoaderFromLists.prototype.init = function init(undefTrees) { // nomes es fa servir en els tests
         var that = this,
             third = undefTrees >= 1 ? undefined : (this.incommingListAndCurrentEmptyTrees[0] !== undefined ? this.incommingListAndCurrentEmptyTrees.shift() : -1),
             second = undefTrees >= 2 ? undefined : (this.incommingListAndCurrentEmptyTrees[0] !== undefined ? this.incommingListAndCurrentEmptyTrees.shift() : -1),
@@ -83,8 +83,10 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
                         that.mapOfTreesById[first]],
                     that,
                     function (context) {
-                        that.addCurrentlyDisplayedToAlreadyDisplayed();
                         context.resolve();
+                        that.alreadyDisplayed.push(first);
+                        that.alreadyDisplayed.push(second);
+                        that.alreadyDisplayed.push(third);
                     }
                     );
             });

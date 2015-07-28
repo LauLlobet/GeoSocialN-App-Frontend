@@ -191,7 +191,7 @@ define([], function () {
                         treeLoaderToSceneLoaderFromLists.init(0).then(function () {
                             return treeLoaderToSceneLoaderFromLists.swipeLeft();
                         }).then(function (){
-                            deepEqual(alreadyDisplayedList,[3, 1]);
+                            deepEqual(alreadyDisplayedList,[3,2,1,2,4]);
                             QUnit.start();
                         })
                     }, fakeGestureObserver

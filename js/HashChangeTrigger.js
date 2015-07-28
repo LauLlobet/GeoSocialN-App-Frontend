@@ -17,6 +17,11 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
         location.hash = newHash;
     };
 
+    HashChangeTrigger.prototype.setHashAtUrlAndIgnoreUpdatingProcess = function (newHash) {
+        this.ignoreNextUpdate();
+        location.hash = newHash;
+    };
+
     HashChangeTrigger.prototype.triggerIfHashIsNotEmpty = function () {
         if (location.hash !== "") {
             this.update();
@@ -25,8 +30,16 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
 
 
     HashChangeTrigger.prototype.update = function () {
+        if (this.ignoreNextUpdateFlag) {
+            this.ignoreNextUpdateFlag = false;
+            return;
+        }
         this.bussinesController.hashHasBeenUpdated(location.hash.substr(1));
     };
+
+    HashChangeTrigger.prototype.ignoreNextUpdate = function() {
+        this.ignoreNextUpdateFlag = true;
+    }
 
     return HashChangeTrigger;
 });
