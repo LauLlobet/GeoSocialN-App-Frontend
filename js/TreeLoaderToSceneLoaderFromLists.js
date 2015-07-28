@@ -14,8 +14,7 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
         var discarded,
             toLoad,
             that = this;
-        discarded =  leftOrRigthText === 'forestSwipeLeft' ? [ this.sceneLoader.getTreeDiscardedWhenSwipeLeft() ] : [ this.sceneLoader.getTreeDiscardedWhenSwipeRight() ];
-        console.log("discarded:" + discarded);
+        discarded = this.getDiscarded(leftOrRigthText);
         toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees);
         _.each(toLoad, function (treeToLoadToScene) {
             if (treeToLoadToScene !== undefined) {
@@ -26,6 +25,37 @@ define(['underscore', "../lib/rsvp", "IncommingTreesEmptyOnesAndDiscardedCueMixe
             return that.mapOfTreesById[value];
         });
         this.sceneLoader.stackLoadScene(leftOrRigthText, toLoad);
+        return this.sceneLoader.playAllStackedScenes();
+    };
+
+    TreeLoaderToSceneLoaderFromLists.prototype.getDiscarded = function getDiscarded(leftOrRigthText) { //forestSwipeLeft //forestSwipeRight //both
+        var discarded = [];
+        if (leftOrRigthText === "both") {
+            discarded.push(this.sceneLoader.getTreeDiscardedWhenSwipeLeft());
+            discarded.push(this.sceneLoader.getTreeDiscardedWhenSwipeRight());
+        } else {
+            discarded =  leftOrRigthText === 'forestSwipeLeft' ? [ this.sceneLoader.getTreeDiscardedWhenSwipeLeft() ] : [ this.sceneLoader.getTreeDiscardedWhenSwipeRight() ];
+        }
+        return discarded;
+    };
+
+    TreeLoaderToSceneLoaderFromLists.prototype.swipeToSpecificTree = function (treeId) {
+        var discarded,
+            toLoad,
+            that = this,
+            emptySetofTrees = [undefined, undefined];
+        discarded = this.getDiscarded("both");
+        _.each(discarded, function (discardedReturned) {
+            that.incommingListAndCurrentEmptyTrees.push(discardedReturned);
+        });
+        toLoad = [ undefined, treeId];
+        toLoad = _.map(toLoad, function (value) {
+            return that.mapOfTreesById[value];
+        });
+        this.sceneLoader.stackLoadScene("forestSwipeRight", emptySetofTrees);
+        this.sceneLoader.stackLoadScene("forestSwipeLeft", emptySetofTrees);
+        this.sceneLoader.stackLoadScene("forestSwipeRight", toLoad);
+        this.sceneLoader.stackLoadScene("forestSwipeLeft", emptySetofTrees);
         return this.sceneLoader.playAllStackedScenes();
     };
 

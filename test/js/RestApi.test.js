@@ -90,6 +90,37 @@ define(["TreeRestClient"], function (TreeRestClient) {
         });
     });
 
+    /*
+
+     require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+     var tree = {},
+     treeRestClient = new TreeRestClient();
+     tree.text = "first tree in town";
+     tree.metersToHide = 3;
+     tree.x = 15.27;
+     tree.y = 35.1;
+
+     treeRestClient.put(tree).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     equal(val.emptyTrees, 2);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     equal(val.emptyTrees, 1);
+     return treeRestClient.put(tree);
+     });
+     });
+     */
+
     asyncTest('Api get a tree', function () {
         require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
@@ -144,6 +175,55 @@ define(["TreeRestClient"], function (TreeRestClient) {
         });
     });
 
+
+
+
+    asyncTest('Api get a tree by Id', function () {
+        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient(),
+                answerIdList = [],
+                dontIncludeList = [],
+                originalX = 15.21,
+                concreteTree;
+            tree.text = "first tree in town";
+            tree.metersToHide = 3;
+            tree.x = originalX;
+            tree.y = 35.11,
+            deleteAll();
+
+            treeRestClient.put(tree).then(function (val) {
+                answerIdList.push(val.treeContent);
+                tree.x = 15.22;
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                dontIncludeList.push(val.treeContent.id);
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                dontIncludeList.push(val.treeContent.id);
+                tree.text = "target";
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                answerIdList.push(val.treeContent);
+                concreteTree = val.treeContent;
+                tree.x = 15.23;
+                tree.text = "not target";
+                return treeRestClient.put(tree);
+            }).then(function (val) {
+                answerIdList.push(val.treeContent);
+                return treeRestClient.getSpecificTree(concreteTree.id);
+            }).then(function (val) {
+                deepEqual(concreteTree, val.treeContent, "list of ids");
+                QUnit.start();
+                deleteAll();
+            }).catch(function (error) {
+                equal(2, 0,"exception thrown");
+                QUnit.start();
+                console.log("Failed!", error);
+                deleteAll();
+            });
+        });
+    });
 
 
 });

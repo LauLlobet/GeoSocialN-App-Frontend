@@ -63,5 +63,26 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
         });
     };
 
+    TreeRestClient.prototype.getSpecificTree = function (treeId) {
+        this.treeApi = this.api.allUrl('articles', this.path + "/"+treeId);
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            that.treeApi.getAll({id:treeId, x:0, y:0}).then(function (response) {
+                var entity = response.body();
+                if (entity !== null) {
+                    resolve(entity.data());
+                } else {
+                    console.log("entity is null");
+                    reject("entity is null");
+                }
+            }).catch(function f(exception){
+                console.log("impossible to do a get, no internet connection");
+            });
+        });
+    };
+
+
+
+
     return TreeRestClient;
 });

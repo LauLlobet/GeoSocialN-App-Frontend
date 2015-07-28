@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLoaderToSceneLoaderFromLists", "TreeRestClient","FillerOfIncommingListIfItGetsEmpty"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList, TreeLoaderToSceneLoaderFromLists, TreeRestClient, FillerOfIncommingListIfItGetsEmpty) {
+define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLoaderToSceneLoaderFromLists", "TreeRestClient", "FillerOfIncommingListIfItGetsEmpty", "HashChangeTrigger"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList, TreeLoaderToSceneLoaderFromLists, TreeRestClient, FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -15,9 +15,11 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.fillerOfIncommingListIfItGetsEmpty = new FillerOfIncommingListIfItGetsEmpty(this.incommingList, this);
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById, this.fillerOfIncommingListIfItGetsEmpty);
             this.lastKnownCoords = undefined;
+            this.hashChangeTrigger = new HashChangeTrigger(this);
     }
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
+        var that = this;
         this.sceneLoaderInterface = sceneLoaderInterface;
         this.treeLoaderToSceneLoaderFromLists = new TreeLoaderToSceneLoaderFromLists(
             this.sceneLoaderInterface,
@@ -27,26 +29,32 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
         );
         this.gpsMovmentTrigger.forceUpdate();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Wellcome/Bienvenido! Swipe left or right to find messages leaved at your actual location"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
-        this.swipeLeft();
+        this.swipeLeft().then(function () {
+            that.hashChangeTrigger.triggerIfHashIsNotEmpty();
+        });
         this.fillerOfIncommingListIfItGetsEmpty.start();
     }
 
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
+        var that = this;
         if (this.state === NAVIGATE) {
-            this.treeLoaderToSceneLoaderFromLists.swipeLeft();
-            console.log("----SL----");
-            console.log("incomming: " +  this.incommingList);
-            console.log("already: " +  this.alreadyDisplayed);
+            return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function () {
+                console.log("----SL----");
+                console.log("incomming: " +  that.incommingList);
+                console.log("already: " +  that.alreadyDisplayed);
+            });
         }
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
+        var that = this;
         if (this.state === NAVIGATE) {
-            this.treeLoaderToSceneLoaderFromLists.swipeRight();
-            console.log("----SR----");
-            console.log("incomming: " +  this.incommingList);
-            console.log("already: " +  this.alreadyDisplayed);
+            return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function () {
+                console.log("----SR----");
+                console.log("incomming: " +  that.incommingList);
+                console.log("already: " +  that.alreadyDisplayed);
+            });
         }
     };
 
@@ -99,5 +107,11 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
         this.userHasMoved(undefined);
     };
 
+    UserInterfaceBussinesController.prototype.hashHasBeenUpdated = function ( treeId ){
+        var that = this;
+        this.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(treeId).then(function(){
+            that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId);
+        });
+    }
     return UserInterfaceBussinesController;
 });

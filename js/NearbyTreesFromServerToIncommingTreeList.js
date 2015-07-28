@@ -39,5 +39,12 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
             console.log("no connection " + err);
         });
     };
+
+    NearbyTreesFromServerToIncommingTreeList.prototype.loadSpecificTreeToHash = function (treeId) {
+        var that = this;
+        return this.treeRestClient.getSpecificTree(treeId).then( function (ans) {
+            that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;
+        });
+    }
     return NearbyTreesFromServerToIncommingTreeList;
 });

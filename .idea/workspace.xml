@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/HashChangeTrigger.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js" afterPath="$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/RestApi.test.js" afterPath="$PROJECT_DIR$/test/js/RestApi.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js" afterPath="$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/TreeRestClient.js" afterPath="$PROJECT_DIR$/js/TreeRestClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/all.test.html" afterPath="$PROJECT_DIR$/test/all.test.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -31,53 +35,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="all.test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/all.test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="135" max-vertical-offset="690">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1407" max-vertical-offset="2760">
+              <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TreeLoaderToSceneLoaderFromLists.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889" vertical-offset="60" max-vertical-offset="1035">
-              <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+            <state vertical-scroll-proportion="-9.888889" vertical-offset="1053" max-vertical-offset="1485">
+              <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FillerOfIncommingListIfItGetsEmpty.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js">
+      <file leaf-file-name="GpsBrowserBlockChecker.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/GpsBrowserBlockChecker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="480">
-              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="735">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FillerOfIncommingListIfItGetsEmpty.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js">
+      <file leaf-file-name="HashChangeTrigger.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/HashChangeTrigger.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="1155">
-              <caret line="63" column="124" selection-start-line="52" selection-start-column="28" selection-end-line="63" selection-end-column="124" />
-              <folding>
-                <element signature="e#40#139#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GpsMovmentTrigger.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/GpsMovmentTrigger.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1035">
-              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpriteManagerPhaserApi.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.777778" vertical-offset="1938" max-vertical-offset="2370">
-              <caret line="145" column="44" selection-start-line="145" selection-start-column="37" selection-end-line="145" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="555">
+              <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -86,18 +88,8 @@
       <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1161" max-vertical-offset="1620">
-              <caret line="94" column="58" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SceneLoader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/SceneLoader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2616" max-vertical-offset="3075">
-              <caret line="193" column="84" selection-start-line="193" selection-start-column="84" selection-end-line="193" selection-end-column="84" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="876" max-vertical-offset="1830">
+              <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -106,18 +98,18 @@
       <file leaf-file-name="IncommingTreesEmptyOnesAndDiscardedCueMixer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.111111" vertical-offset="678" max-vertical-offset="1125">
+            <state vertical-scroll-proportion="-28.222221" vertical-offset="243" max-vertical-offset="1125">
               <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearbyTreesFromServerToIncommingTreeList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NearbyTreesFromServerToIncommingTreeList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.627451" vertical-offset="27" max-vertical-offset="720">
-              <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="366" max-vertical-offset="825">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -126,9 +118,21 @@
       <file leaf-file-name="TreeRestClient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/TreeRestClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="1095">
-              <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1410">
+              <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestApi.test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/js/RestApi.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.13071896" vertical-offset="1350" max-vertical-offset="3525">
+              <caret line="94" column="2" selection-start-line="94" selection-start-column="2" selection-end-line="120" selection-end-column="8" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/loadingWhileRequireAnimation.js" />
         <option value="$PROJECT_DIR$/borram.js" />
         <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
         <option value="$PROJECT_DIR$/js/Keyboard.js" />
@@ -174,7 +177,6 @@
         <option value="$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js" />
         <option value="$PROJECT_DIR$/test/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.test.js" />
         <option value="$PROJECT_DIR$/js/GpsMovmentTrigger.js" />
-        <option value="$PROJECT_DIR$/test/js/RestApi.test.js" />
         <option value="$PROJECT_DIR$/test/js/NearbyTreesFromServerToIncommingTreeList.test.js" />
         <option value="$PROJECT_DIR$/test/js/GpsBrowserBlockChecker.test.js" />
         <option value="$PROJECT_DIR$/js/CookieManager.js" />
@@ -183,15 +185,17 @@
         <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
         <option value="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.js" />
         <option value="$PROJECT_DIR$/test/js/StackOfScenes.test.js" />
-        <option value="$PROJECT_DIR$/test/all.test.html" />
         <option value="$PROJECT_DIR$/test/js/FillerOfIncommingListIfItGetsEmpty.test.js" />
-        <option value="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/js/FillerOfIncommingListIfItGetsEmpty.js" />
         <option value="$PROJECT_DIR$/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" />
         <option value="$PROJECT_DIR$/js/SceneLoader.js" />
-        <option value="$PROJECT_DIR$/js/TreeRestClient.js" />
+        <option value="$PROJECT_DIR$/js/HashChangeTrigger.js" />
         <option value="$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js" />
         <option value="$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js" />
+        <option value="$PROJECT_DIR$/js/TreeRestClient.js" />
+        <option value="$PROJECT_DIR$/test/all.test.html" />
+        <option value="$PROJECT_DIR$/js/UserInterfaceBussinesController.js" />
+        <option value="$PROJECT_DIR$/test/js/RestApi.test.js" />
       </list>
     </option>
   </component>
@@ -199,8 +203,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="52" />
-    <option name="y" value="83" />
+    <option name="x" value="15" />
+    <option name="y" value="111" />
     <option name="width" value="1440" />
     <option name="height" value="746" />
   </component>
@@ -703,7 +707,7 @@
       <workItem from="1432912505809" duration="311000" />
       <workItem from="1432912853025" duration="31997000" />
       <workItem from="1435056133676" duration="98468000" />
-      <workItem from="1436343204899" duration="53641000" />
+      <workItem from="1436343204899" duration="60695000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1003,10 +1007,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="542799000" />
+    <option name="totallyTimeSpent" value="549853000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="83" width="1440" height="746" extended-state="0" />
+    <frame x="15" y="111" width="1440" height="746" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1093,13 +1097,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="510">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/require.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31335">
@@ -1326,24 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/RestApi.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2325">
-          <caret line="121" column="51" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/GpsBrowserBlockChecker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="735">
-          <caret line="41" column="6" selection-start-line="4" selection-start-column="0" selection-end-line="41" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/GpsBrowserBlockChecker.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="5250">
@@ -1368,14 +1347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.777778" vertical-offset="2058" max-vertical-offset="2760">
-          <caret line="162" column="75" selection-start-line="162" selection-start-column="75" selection-end-line="162" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/StackOfScenes.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
@@ -1383,14 +1354,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/all.test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375" vertical-offset="90" max-vertical-offset="690">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1430,14 +1393,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.111111" vertical-offset="678" max-vertical-offset="1125">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/SpriteManagerPhaserApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.777778" vertical-offset="1938" max-vertical-offset="2370">
@@ -1454,43 +1409,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js">
+    <entry file="file://$PROJECT_DIR$/js/GpsMovmentTrigger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889" vertical-offset="60" max-vertical-offset="1035">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
+          <caret line="18" column="3" selection-start-line="2" selection-start-column="0" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.222221" vertical-offset="243" max-vertical-offset="1125">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/GpsBrowserBlockChecker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="735">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1407" max-vertical-offset="2760">
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/HashChangeTrigger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="555">
+          <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/TreeRestClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="606" max-vertical-offset="1095">
-          <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1410">
+          <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/GpsMovmentTrigger.js">
+    <entry file="file://$PROJECT_DIR$/test/all.test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1035">
-          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+        <state vertical-scroll-proportion="-10.0" vertical-offset="135" max-vertical-offset="690">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/UserInterfaceBussinesController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1161" max-vertical-offset="1620">
-          <caret line="94" column="58" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="876" max-vertical-offset="1830">
+          <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/TreeLoaderToSceneLoaderFromLists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.888889" vertical-offset="1053" max-vertical-offset="1485">
+          <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/NearbyTreesFromServerToIncommingTreeList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.627451" vertical-offset="27" max-vertical-offset="720">
-          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="366" max-vertical-offset="825">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/RestApi.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13071896" vertical-offset="1350" max-vertical-offset="3525">
+          <caret line="94" column="2" selection-start-line="94" selection-start-column="2" selection-end-line="120" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
