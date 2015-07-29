@@ -9,6 +9,7 @@ define([], function () {
             this.phaserGame = phaserGame;
             this.mainGroup = mainGroup;
             this.gestureObserver = gestureObserver;
+            this.textImage = undefined;
     }
 
     SingleTreeGroupFactory.prototype.createTreeSpriteGroup = function createTreeSpriteGroup(tree, id) {
@@ -29,22 +30,83 @@ define([], function () {
         var image;
         this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^Ñ#0123456789";
         this.fontText =  this.game.add.retroFont('carved', 120, 120, this.keymap, 5, 0, 0, 0, 0);
-        image = this.game.add.image(0, 60, this.fontText);
-        image.scale.x = 0.27 * 0.5;
-        image.scale.y = 0.27 * 0.5;
+        this.textImage = this.game.add.image(0, 60, this.fontText);
+        this.textImage.scale.x = 0.27 * 0.5;
+        this.textImage.scale.y = 0.27 * 0.5;
         if (text === undefined) {
             text = "";
         }
-        this.group.add(image);
+        this.group.add(this.textImage);
         this.setTextUpdateFunctionsToGroup(this.group, this.fontText, this.keymap);
         this.group.setText(text);
     };
 
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    SingleTreeGroupFactory.prototype.setInteractiveLinksToRetroText = function (group, formatedText){
+        var initCharposX = 1,//this.textImage.x,
+            charposX = initCharposX,
+            charposY = 60,//this.textImage.y,
+            charposXInc = 12.5,
+            charposYInc = 18.5,
+            tmp,
+            currentLink = "",
+            currentLinkCells = [],
+            isPartOfTheAdress = false,
+            linklayers = [],
+            links = [];
+
+        for (var x = 0, c=''; c = formatedText.charAt(x); x++){
+            if(c === '#' && isPartOfTheAdress === false){
+                isPartOfTheAdress = true;
+            } else if( isPartOfTheAdress && !isNumeric(c)){
+                isPartOfTheAdress = false;
+                linklayers.push( currentLinkCells );
+                currentLinkCells = [];
+                links.push(parseInt(currentLink));
+                currentLink = "";
+            }
+
+            if(isPartOfTheAdress){
+                tmp = this.group.create(charposX, charposY, 'linkLayer');
+                tmp.scale.x = tmp.scale.y = 1.2;
+                currentLinkCells.push(tmp);
+                if(isNumeric(c)){
+                    currentLink = currentLink + c;
+                }
+            }
+            if(c === '\n'){
+                charposY += charposYInc;
+                charposX = initCharposX;
+            }else {
+                charposX += charposXInc;
+            }
+        }
+
+        for(var i = 0; i < linklayers.length; i++ ){
+            for(var j = 0 ; j < linklayers[i].length ; j++){
+                linklayers[i][j].inputEnabled = true;
+                linklayers[i][j].input.priorityID = 1;
+                linklayers[i][j].useHandCursor = true;
+                linklayers[i][j].events.onInputDown.add(function () {
+                    this.gestureObserver.linkClicked(this.id);
+                    console.log("clicked");
+                }, {id:links[i],
+                    gestureObserver:this.gestureObserver});
+            }
+        }
+    };
+
+
     SingleTreeGroupFactory.prototype.setTextUpdateFunctionsToGroup = function setTextUpdateFunctionsToGroup(group, fontText, keymap) {
+        var that = this;
         group.fontText = fontText;
         group.keymap = keymap;
         group.setText = function setText(text) {
             var formatedText =  group.formatText(text);
+            that.setInteractiveLinksToRetroText(group,formatedText);
             group.fontText.setText(formatedText, true, -30, 15, group.keymap, 10);
             group.text = text;
         };

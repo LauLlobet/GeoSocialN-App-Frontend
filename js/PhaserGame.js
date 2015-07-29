@@ -156,6 +156,7 @@ define(['GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
         this.game.load.image('keySwitchKeyboard', '/OurTreeWeb/assets/keySwitchKeyboard.png');
 
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
+        this.game.load.image('linkLayer', '/OurTreeWeb/assets/linkLayer.png');
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),

@@ -16,6 +16,11 @@ define(['underscore'], function (_) {
         }
 
     };
+
+    GestureObserver.prototype.linkClicked = function (treeid) {
+        this.bussinesInput.linkClicked(treeid);
+    }
+
     GestureObserver.prototype.detectSwipe = function detectSwipe(activePointer) {
         var isSwipe;
         this.lastSwipeElapsed = Date.now() - this.lastSwipeTime;

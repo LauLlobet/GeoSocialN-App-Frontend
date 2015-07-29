@@ -95,7 +95,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
      require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
      var tree = {},
      treeRestClient = new TreeRestClient();
-     tree.text = "first tree in town";
+     tree.text = "more and more trees in da town";
      tree.metersToHide = 3;
      tree.x = 15.27;
      tree.y = 35.1;

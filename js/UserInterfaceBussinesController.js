@@ -28,7 +28,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.mapOfTreesById
         );
         this.gpsMovmentTrigger.forceUpdate();
-        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Wellcome/Bienvenido! Swipe left or right to find messages leaved at your actual location"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
+        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "AWAlAcAmA/AiAnAeAiAoA Swipe left or #3611 to find messages leaved at #3610 actual location"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
         this.swipeLeft().then(function () {
             that.hashChangeTrigger.triggerIfHashIsNotEmpty();
         });
@@ -67,6 +67,10 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.hashChangeTrigger.removeHash();
         }
     };
+
+    UserInterfaceBussinesController.prototype.linkClicked = function (treeid){
+        this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
+    }
 
     UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
         if (this.state === NAVIGATE) {
