@@ -28,7 +28,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.mapOfTreesById
         );
         this.gpsMovmentTrigger.forceUpdate();
-        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
+        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
         this.swipeLeft().then(function () {
             that.hashChangeTrigger.triggerIfHashIsNotEmpty();
         });
