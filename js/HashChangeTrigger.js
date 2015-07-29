@@ -28,6 +28,14 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
         }
     };
 
+    HashChangeTrigger.prototype.removeHash = function removeHash() {
+        var loc = window.location;
+        if ("pushState" in history)
+            history.pushState("", document.title, loc.pathname + loc.search);
+        else {
+            loc.hash = "";
+        }
+    }
 
     HashChangeTrigger.prototype.update = function () {
         if (this.ignoreNextUpdateFlag) {

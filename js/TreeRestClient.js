@@ -13,7 +13,7 @@ define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rs
     TreeRestClient.prototype.deleteAll = function () {
         this.treeApi = this.api.oneUrl('articles', this.path);
         console.log("delete");
-        this.treeApi.delete();
+        return this.treeApi.delete();
     };
 
 

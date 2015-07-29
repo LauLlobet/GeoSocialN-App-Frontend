@@ -25,7 +25,12 @@ define([], function () {
     asyncTest('Test pop', function () {
         require(["StackOfScenes"], function (StackOfScenes) {
             var stackOfScenes;
-            stackOfScenes = new StackOfScenes();
+            var sceneLoaderMock = {
+                getTreeAlreadyDisplayed: function () {
+                    return 3;
+                }
+            };
+            stackOfScenes = new StackOfScenes(sceneLoaderMock);
             stackOfScenes.stackLoadScene("1", [{text : 'Esta parte'}, {text : ' Aga and Hanna'}, {text : undefined}]);
             stackOfScenes.stackLoadScene("2", [{text : 'Esta parte2'}, {text : ' Aga and Hanna2}'}, {text : undefined}]);
             stackOfScenes.stackLoadScene("3", [{text : 'Esta parte3'}, {text : ' Aga and Hanna3'}, {text : undefined}]);
@@ -42,6 +47,9 @@ define([], function () {
                 loadScene: function (type, texts, ctxt, funct){
                     this.loaded += 1;
                     funct(ctxt);
+                },
+                getTreeAlreadyDisplayed: function(){
+                    return 3;
                 },
                 loaded : 0
             };

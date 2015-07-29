@@ -3,7 +3,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
     module('Stack of Scenes test');
     var deleteAll = function( ) {
         var treeRestClient = new TreeRestClient();
-        treeRestClient.deleteAll();
+        return treeRestClient.deleteAll();
     }
     asyncTest('Incomming list gets fulled with new trees', function () {
         require(["NearbyTreesFromServerToIncommingTreeList","TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
@@ -20,39 +20,37 @@ define(["TreeRestClient"], function (TreeRestClient) {
             tree.text = "first tree in town";
             tree.metersToHide = 3;
 
-
             tree.x = 11;
             tree.y = 35.11;
-            deleteAll();
-
-            treeRestClient.put(tree).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.x = 99;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                alreadyDisplayed.push(val.treeContent.id);
-                tree.x = 12;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.x = 13;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.x = 10;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.unshift(val.treeContent.id);
-                return nearbyTreesFromServerToIncommingTreeList.userHasMovedTo({x: 10, y: tree.y})
-            }).then(function (val) {
-                deepEqual(incommingList, answerIdList, "list of ids");
-                QUnit.start();
-            }).catch(function (error) {
-                equal(2, 0, "exception thrown");
-                QUnit.start();
-                console.log("Failed!", error);
+            deleteAll().then( function(){
+                treeRestClient.put(tree).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.x = 99;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    alreadyDisplayed.push(val.treeContent.id);
+                    tree.x = 12;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.x = 13;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.x = 10;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.unshift(val.treeContent.id);
+                    return nearbyTreesFromServerToIncommingTreeList.userHasMovedTo({x: 10, y: tree.y})
+                }).then(function (val) {
+                    deepEqual(incommingList, answerIdList, "list of ids");
+                    QUnit.start();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                });
             });
-
         });
     });
 
@@ -70,43 +68,44 @@ define(["TreeRestClient"], function (TreeRestClient) {
             tree.metersToHide = 3;
             tree.x = 11;
             tree.y = 35.11;
-            deleteAll();
+            deleteAll().then( function() {
 
-            treeRestClient.put(tree).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.text = "2";
-                tree.x = 12;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.text = "3";
-                tree.x = 13;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.text = "4";
-                tree.x = 14;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                tree.text = "5";
-                tree.x = 15;
-                tree.x = 5;
-                return treeRestClient.put(tree);
-            }).then(function (val) {
-                answerIdList.push(val.treeContent.id);
-                return nearbyTreesFromServerToIncommingTreeList.userHasMovedTo({x: 10, y: tree.y})
-            }).then(function (val) {
-                var i = 1;
-                answerIdList.forEach(function(val){
-                    equal(mapOfTreesById[val].text, ""+i);
-                    i += 1;
-                })
-                QUnit.start();
-            }).catch(function (error) {
-                equal(2, 0,"exception thrown");
-                QUnit.start();
-                console.log("Failed!", error);
+                treeRestClient.put(tree).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.text = "2";
+                    tree.x = 12;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.text = "3";
+                    tree.x = 13;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.text = "4";
+                    tree.x = 14;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    tree.text = "5";
+                    tree.x = 15;
+                    tree.x = 5;
+                    return treeRestClient.put(tree);
+                }).then(function (val) {
+                    answerIdList.push(val.treeContent.id);
+                    return nearbyTreesFromServerToIncommingTreeList.userHasMovedTo({x: 10, y: tree.y})
+                }).then(function (val) {
+                    var i = 1;
+                    answerIdList.forEach(function (val) {
+                        equal(mapOfTreesById[val].text, "" + i);
+                        i += 1;
+                    })
+                    QUnit.start();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                });
             });
         });
     });

@@ -20,9 +20,11 @@ define(['underscore', "../lib/rsvp"], function (_, rspv) {
         return this.deferred.promise;
     };
     StackOfScenes.prototype.playItemOfScenesArray = function playItemOfScenesArray(ctxt) {
+        var id;
         if (ctxt.stackedScenesArray.length === 0) {
             ctxt.alreadyPlaying = false;
-            ctxt.deferred.resolve();
+            id = ctxt.sceneLoaderInterface.getTreeAlreadyDisplayed();
+            ctxt.deferred.resolve(id); // return the id of the final tree
             return;
         }
         var sceneAndTexts = ctxt.stackedScenesArray.shift();

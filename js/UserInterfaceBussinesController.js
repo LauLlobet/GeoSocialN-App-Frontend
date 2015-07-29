@@ -39,10 +39,11 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         var that = this;
         if (this.state === NAVIGATE) {
-            return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function () {
+            return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function (ans) {
                 console.log("----SL----");
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
+                that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans)
             });
         }
     };
@@ -50,11 +51,20 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
         var that = this;
         if (this.state === NAVIGATE) {
-            return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function () {
+            return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function (ans) {
                 console.log("----SR----");
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
+                that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans)
             });
+        }
+    };
+
+    UserInterfaceBussinesController.prototype.setHashUrlAndIgnoreUpdatingIfNotUndefined = function (id) {
+        if( id !== undefined){
+            this.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(id);
+        } else {
+            this.hashChangeTrigger.removeHash();
         }
     };
 
