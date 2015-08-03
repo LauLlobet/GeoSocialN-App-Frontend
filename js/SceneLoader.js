@@ -172,29 +172,5 @@ define(['underscore', "../scenes/ForestSwipeRight", "../scenes/ForestSwipeLeft",
         }
         return JSON.parse(JSON.stringify(forestSwipeLeft));
     };
-
-    SceneLoader.prototype.setIsTyping = function setIsTyping(isTyping) {
-        var tableentrytree = this.getTreeWithFinalPosition("1c");
-        this.spriteManagerPhaserApiInterface.setIsTyping(isTyping, tableentrytree.id);
-    };
-
-    SceneLoader.prototype.addChar = function addChar(character) {
-        var tableentrytree = this.getTreeWithFinalPosition("1c"),
-            text = this.spriteManagerPhaserApiInterface.addChar(tableentrytree.id, character);
-        tableentrytree.tree.text = text;
-    };
-
-    SceneLoader.prototype.getEditedTreeText = function addChar() {
-        var tableentrytree = this.getTreeWithFinalPosition("1c");
-        return tableentrytree.tree.text;
-    };
-
-    SceneLoader.prototype.removeChar = function removeChar() {
-        var tableentrytree = this.getTreeWithFinalPosition("1c"),
-            text = this.spriteManagerPhaserApiInterface.removeChar(tableentrytree.id);
-        tableentrytree.tree.text = text;
-    };
-
-
     return SceneLoader;
 });

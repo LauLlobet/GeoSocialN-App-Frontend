@@ -1,6 +1,11 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLoaderToSceneLoaderFromLists", "TreeRestClient", "FillerOfIncommingListIfItGetsEmpty", "HashChangeTrigger"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList, TreeLoaderToSceneLoaderFromLists, TreeRestClient, FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger) {
+define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList",
+    "TreeLoaderToSceneLoaderFromLists", "TreeRestClient", "FillerOfIncommingListIfItGetsEmpty",
+    "HashChangeTrigger", "SceneTreeTextSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+                                                           TreeLoaderToSceneLoaderFromLists, TreeRestClient,
+                                                           FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
+                                                           SceneTreeTextSetter) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -27,6 +32,7 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
             this.alreadyDisplayed,
             this.mapOfTreesById
         );
+        this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface);
         this.gpsMovmentTrigger.forceUpdate();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
         this.swipeLeft().then(function () {
@@ -76,12 +82,12 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
         if (this.state === NAVIGATE) {
             this.state = WRITTING;
             this.keyboardInterface.showOnScene();
-            this.sceneLoaderInterface.setIsTyping(true);
+            this.sceneTreeTextSetterInterface.setIsTyping(true);
         }
     };
 
     UserInterfaceBussinesController.prototype.putTreeOnServer = function(){
-        var text = this.sceneLoaderInterface.getEditedTreeText(),
+        var text = this.sceneTreeTextSetterInterface.getEditedTreeText(),
             coords = this.gpsMovmentTrigger.actualCoordinates,
             treeRestClient = new TreeRestClient(),
             tree ={  text: text, metersToHide: 10, x: coords.longitude, y: coords.latitude},
@@ -103,16 +109,16 @@ define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList", "TreeLo
         if (char === "ok") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
-            this.sceneLoaderInterface.setIsTyping(false);
+            this.sceneTreeTextSetterInterface.setIsTyping(false);
             this.putTreeOnServer();
         } else if (this.state === WRITTING && char === "cancel") {
             this.state = NAVIGATE;
             this.keyboardInterface.hideOnScene();
-            this.sceneLoaderInterface.setIsTyping(false);
+            this.sceneTreeTextSetterInterface.setIsTyping(false);
         } else if (this.state === WRITTING && char === "backwards") {
-            this.sceneLoaderInterface.removeChar();
+            this.sceneTreeTextSetterInterface.removeChar();
         } else if (this.state === WRITTING) {
-            this.sceneLoaderInterface.addChar(char);
+            this.sceneTreeTextSetterInterface.addChar(char);
         }
     };
 

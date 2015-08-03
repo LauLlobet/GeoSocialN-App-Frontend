@@ -44,7 +44,7 @@ define(["SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
         for (i = 0; i < groupLength; i += 1) {
             nameInGroup = this.allSpritesGroup.getAt(i).name;
             found = false;
-            for (j in list) {
+            for (j in list) { //TODO: es extrany el j in list i despres list[j]
                 if (list.hasOwnProperty(j)) {
                     if (list[j] === nameInGroup) {
                         found = true;
