@@ -1,6 +1,6 @@
-/*global define, require, module, Phaser, Group, console, underscore,setTimeout */
+/*global define, require, module, Phaser, Group, console, _,setTimeout */
 /*jslint todo: true */
-define(["underscore", "CookieManager"], function (underscore, CookieManager) {
+define(["../lib/underscore", "InputOutput/CookieManager"], function (underscore, CookieManager) {
     "use strict";
     function GpsBrowserBlockChecker(gpsInterface, reloadInterface, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface) {
         this.gpsInterface = gpsInterface;
@@ -16,19 +16,19 @@ define(["underscore", "CookieManager"], function (underscore, CookieManager) {
                 break;
             case "test":
                 this.gpsErrorMessageDisplayerInterface.displayUnblockGpsMessage();
-                setTimeout(underscore.bind(this.testGps, this), 4000);
+                setTimeout(_.bind(this.testGps, this), 4000);
                 break;
             case "":
                 this.gpsErrorMessageDisplayerInterface.displayAcceptRequestMessage();
-                setTimeout(underscore.bind(this.testGps, this), 4000);
+                setTimeout(_.bind(this.testGps, this), 4000);
                 break;
         }
     };
 
     GpsBrowserBlockChecker.prototype.testGps = function test() {
         var properties = { timeout: 5000, enableHighAccuracy: false };
-        this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
-                                                underscore.bind(this.errorCallback, this),
+        this.gpsInterface.getCurrentPosition(_.bind(this.succesfullCallback, this),
+                                                _.bind(this.errorCallback, this),
                                                 properties);
 
     }

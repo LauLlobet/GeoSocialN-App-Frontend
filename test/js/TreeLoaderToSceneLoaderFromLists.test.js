@@ -26,7 +26,7 @@ define([], function () {
     module('TreeLoaderToSceneLoaderFromListss test');
 
     asyncTest('init at all undefined ', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {}
                 },
@@ -59,7 +59,7 @@ define([], function () {
     });
 
     asyncTest('TreeLoaderToSceneLoaderFromLists intialize ', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {}
                 },
@@ -92,7 +92,7 @@ define([], function () {
     });
 
     asyncTest(' incomming list is NOT shifted by two when empty trees are 0 and initialized normally ', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {
                     }
@@ -130,7 +130,7 @@ define([], function () {
 
 
     asyncTest(' incomming list is shifted by two when empty trees are 0 and initialized with three undefined ', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {
                     }
@@ -167,7 +167,7 @@ define([], function () {
     });
 
     asyncTest('alreadyDisplayedList is increased by one when swiped left and right when all full ', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {
                     }
@@ -202,7 +202,7 @@ define([], function () {
 
 
     asyncTest('init with 0 empty trees and incomming list empty', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {}
                 },
@@ -237,7 +237,7 @@ define([], function () {
 
 
     asyncTest('swipe left with 0 empty trees and incomming list empty', function () {
-        require(["../js/TreeLoaderToSceneLoaderFromLists", "SceneLoader", "SpriteManagerPhaserApi", "PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/Controll/TreeLoaderToSceneLoaderFromLists", "../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (TreeLoaderToSceneLoaderFromLists, SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var fakeGestureObserver = {
                     updatePointer: function () {}
                 },

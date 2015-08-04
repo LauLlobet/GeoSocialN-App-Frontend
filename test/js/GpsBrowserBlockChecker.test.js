@@ -6,7 +6,7 @@ define([], function () {
 
 
     asyncTest('test cookie manager', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var cookieManager = new CookieManager();
 
             cookieManager.setCookie("gpsOn", "true");
@@ -22,7 +22,7 @@ define([], function () {
 
 
     asyncTest('ok cookie and gps is enabled', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
                 gpsInterface = { //the OSgpssimulator calls the succes function once getPosition is executed
                     called : false,
@@ -69,7 +69,7 @@ define([], function () {
     });
 
     asyncTest('ok cookie but gps is disabled', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
                 gpsInterface = { //the OSgpssimulator calls the succes function once getPosition is executed
                     called : false,
@@ -112,7 +112,7 @@ define([], function () {
     });
 
     asyncTest('test cookie and gps is enabled', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
                 gpsInterface = { //the OSgpssimulator calls the succes function once getPosition is executed
                     called : false,
@@ -167,7 +167,7 @@ define([], function () {
     });
 
     asyncTest('test cookie but gps is disabled', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
                 gpsInterface = { //the OSgpssimulator calls the succes function once getPosition is executed
                     called : false,
@@ -215,7 +215,7 @@ define([], function () {
     });
 
     asyncTest('no cookie and gps is enabled', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
                 gpsInterface = { //the OSgpssimulator calls the succes function once getPosition is executed
                     called : false,
@@ -270,7 +270,7 @@ define([], function () {
     });
 
     asyncTest('no cookie but gps is disabled', function () {
-        require(["GpsBrowserBlockChecker", "CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
+        require(["../../js/InputOutput/GpsBrowserBlockChecker", "../../js/InputOutput/CookieManager"], function (GpsBrowserBlockChecker, CookieManager) {
             var gpsBrowserBlockChecker,
                 gpsInterface = { //the OSgpssimulator calls the succes function once getPosition is executed
                     called : false,

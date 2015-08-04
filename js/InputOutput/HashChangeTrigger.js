@@ -1,4 +1,4 @@
-define(["underscore", "util/CoordinatesCalculator"], function (underscore, CoordinatesCalculator) {
+define(["util/CoordinatesCalculator", "../lib/underscore"], function (CoordinatesCalculator, undersocre) {
     "use strict";
     function HashChangeTrigger(bussinesController) {
         this.bussinesController = bussinesController;
@@ -7,7 +7,7 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
 
     HashChangeTrigger.prototype.setUpUpdate = function () {
         if ( "onhashchange" in window ) {
-            window.onhashchange = underscore.bind(this.update, this);
+            window.onhashchange = _.bind(this.update, this);
         } else {
             alert(" APP will not work in this browser because it doesent support hashcange");
         }

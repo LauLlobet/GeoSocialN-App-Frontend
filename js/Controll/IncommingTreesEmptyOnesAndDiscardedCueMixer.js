@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['underscore'], function (_) {
+define(['../lib/underscore'], function (underscore) {
     "use strict";
     function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList) {
         this.incommingList = incommingList;

@@ -1,6 +1,6 @@
-/*global define, require, module,navigator, Phaser, Group, console, underscore,setTimeout */
+/*global define, require, module,navigator, Phaser, Group, console, _,setTimeout */
 /*jslint todo: true */
-define(["underscore", "util/CoordinatesCalculator"], function (underscore, CoordinatesCalculator) {
+define(["../lib/underscore", "util/CoordinatesCalculator"], function (underscore, CoordinatesCalculator) {
     "use strict";
     function GpsMovmentTrigger(bussinesController) {
         this.metersToTrigger = 10;
@@ -16,10 +16,10 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
         this.setUpUpdate();
     }
     GpsMovmentTrigger.prototype.setUpUpdate = function () {
-        navigator.geolocation.watchPosition(underscore.bind(this.userHasMovedUpdateFunction, this),
-                                            underscore.bind(this.errorCallback, this),
+        navigator.geolocation.watchPosition(_.bind(this.userHasMovedUpdateFunction, this),
+                                            _.bind(this.errorCallback, this),
                                             this.options);
-    };
+      };
 
 
     GpsMovmentTrigger.prototype.userHasMovedUpdateFunction = function userHasMovedUpdateFunction(position) {
@@ -54,8 +54,8 @@ define(["underscore", "util/CoordinatesCalculator"], function (underscore, Coord
 
     GpsMovmentTrigger.prototype.forceUpdate = function forceUpdate() {
         navigator.geolocation.getCurrentPosition(
-            underscore.bind(this.forceUpdateFunction, this),
-            underscore.bind(this.errorCallback, this),
+            _.bind(this.forceUpdateFunction, this),
+            _.bind(this.errorCallback, this),
             this.options
         );
     }

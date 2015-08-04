@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['underscore', "../lib/rsvp"], function (_, rspv) {
+define(['../../lib/underscore', "../../lib/rsvp"], function (underscore, rspv) {
     "use strict";
     function SceneTreeTextSetter(sceneLoader) {
         this.sceneLoader = sceneLoader;

@@ -1,4 +1,4 @@
-define(["TreeRestClient"], function (TreeRestClient) {
+define(["../../js/Model/TreeRestClient"], function (TreeRestClient) {
     'use strict';
     module('Stack of Scenes test');
     var deleteAll = function( ) {
@@ -6,7 +6,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
         return treeRestClient.deleteAll();
     }
     asyncTest('Incomming list gets fulled with new trees', function () {
-        require(["NearbyTreesFromServerToIncommingTreeList","TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
+        require(["../../js/Controll/NearbyTreesFromServerToIncommingTreeList","../../js/Model/TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
@@ -55,7 +55,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
     });
 
     asyncTest('Map gets filled from incomming trees', function () {
-        require(["NearbyTreesFromServerToIncommingTreeList","TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
+        require(["../../js/Controll/NearbyTreesFromServerToIncommingTreeList","../../js/Model/TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],

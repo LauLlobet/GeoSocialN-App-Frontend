@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group, console, underscore,setTimeout */
 /*jslint todo: true */
-define(["underscore"], function (underscore) {
+define(["../lib/underscore"], function (underscore) {
     "use strict";
     function FillerOfIncommingListIfItGetsEmpty(incommingList, updaterOfListInterface) {
         this.incommingList = incommingList;
@@ -10,7 +10,7 @@ define(["underscore"], function (underscore) {
 
     FillerOfIncommingListIfItGetsEmpty.prototype.start = function () {
         this.checkIfEmptyAndFill();
-        setInterval(underscore.bind(this.checkIfEmptyAndFill, this), 1000);
+        setInterval(_.bind(this.checkIfEmptyAndFill, this), 1000);
     };
     FillerOfIncommingListIfItGetsEmpty.prototype.checkIfEmptyAndFill = function f() {
         if (this.incommingList.length === 0 && !this.stopAskingForTrees) {

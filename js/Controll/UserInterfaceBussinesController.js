@@ -1,8 +1,8 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(["GpsMovmentTrigger", "NearbyTreesFromServerToIncommingTreeList",
-    "TreeLoaderToSceneLoaderFromLists", "TreeRestClient", "FillerOfIncommingListIfItGetsEmpty",
-    "HashChangeTrigger", "SceneTreeTextSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+define(["../InputOutput/GpsMovmentTrigger", "./NearbyTreesFromServerToIncommingTreeList",
+    "./TreeLoaderToSceneLoaderFromLists", "../Model/TreeRestClient", "./FillerOfIncommingListIfItGetsEmpty",
+    "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter) {

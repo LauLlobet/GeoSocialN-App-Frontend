@@ -2,7 +2,7 @@
  * Created by quest on 23/06/15.
  */
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
-define(["TreeRestClient"], function (TreeRestClient) {
+define(["../../js/Model/TreeRestClient"], function (TreeRestClient) {
     'use strict';
     module('RestApi Test On Server');
     var deleteAll = function( ) {
@@ -11,7 +11,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
     }
 
     asyncTest('test list builder', function () {
-        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+        require(["../../js/lib/restful", "../../js/Model/TreeRestClient"], function (restful, TreeRestClient) {
             deleteAll();
             var treeRestClient = new TreeRestClient(),
                 dontIncludeList = [],
@@ -27,7 +27,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
     });
 
     asyncTest('Api Put a single tree', function () {
-        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+        require(["../../js/lib/restful", "../../js/Model/TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
             deleteAll();
@@ -52,7 +52,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
 
 
     asyncTest('Api Put a tree', function () {
-        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+        require(["../../js/lib/restful", "../../js/Model/TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
             deleteAll();
@@ -92,7 +92,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
 
     /*
 
-     require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+     require(["../../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
      var tree = {},
      treeRestClient = new TreeRestClient();
      tree.text = "more and more trees in da town";
@@ -122,7 +122,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
      */
 
     asyncTest('Api get a tree', function () {
-        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+        require(["../../js/lib/restful", "../../js/Model/TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
@@ -179,7 +179,7 @@ define(["TreeRestClient"], function (TreeRestClient) {
 
 
     asyncTest('Api get a tree by Id', function () {
-        require(["../lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+        require(["../../js/lib/restful", "../../js/Model/TreeRestClient"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],

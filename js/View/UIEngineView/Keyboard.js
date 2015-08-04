@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
+define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     "use strict";
     var LETTERS = "letters",
         ASCII = "ascii",

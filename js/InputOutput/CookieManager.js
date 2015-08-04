@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group, console, underscore,setTimeout */
     /*jslint todo: true */
-define(["underscore"], function (underscore) {
+define(["../lib/underscore"], function (underscore) {
     "use strict";
     function CookieManager(){
     }

@@ -1,4 +1,4 @@
-define(['underscore'], function (_) {
+define(['../lib/underscore'], function (underscore) {
     "use strict";
     function GestureObserver(bussinesInput) //noinspection JSLint
     {

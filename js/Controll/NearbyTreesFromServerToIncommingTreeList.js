@@ -1,6 +1,6 @@
 /*global define, require, module,navigator, Phaser, Group, console, underscore,setTimeout */
 /*jslint todo: true */
-define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
+define(["../lib/underscore", "Model/TreeRestClient"], function (underscore, TreeRestClient) {
     "use strict";
     function NearbyTreesFromServerToIncommingTreeList(incommingList, alreadyDisplayed, mapOfTreesById, fillerOfIncommingListIfItGetsEmpty) {
         this.incommingList = incommingList;
@@ -17,7 +17,7 @@ define(["underscore", "TreeRestClient"], function (underscore, TreeRestClient) {
         if (coords === undefined) {
             return;
         }
-        newAlreadyDisplayed = underscore.difference(this.alreadyDisplayed, this.incommingList); // this is to handle trees inside the scent that could be discarded -> re instrted in incomming list AND present on already displayed
+        newAlreadyDisplayed = _.difference(this.alreadyDisplayed, this.incommingList); // this is to handle trees inside the scent that could be discarded -> re instrted in incomming list AND present on already displayed
         this.alreadyDisplayed.splice(0, this.alreadyDisplayed.length);
         newAlreadyDisplayed.forEach(function(newAlreadyDisplayed){
             that.alreadyDisplayed.push(newAlreadyDisplayed);

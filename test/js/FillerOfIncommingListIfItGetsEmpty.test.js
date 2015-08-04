@@ -6,7 +6,7 @@ define([], function () {
     module('FillerOfIncommingListIfItGetsEmpty.test');
 
     asyncTest('FillerOfIncommingListIfItGetsEmpty list starts empty', function () {
-        require(["FillerOfIncommingListIfItGetsEmpty"], function (FillerOfIncommingListIfItGetsEmpty) {
+        require(["../../js/Controll/FillerOfIncommingListIfItGetsEmpty"], function (FillerOfIncommingListIfItGetsEmpty) {
             var fillerOfIncommingListIfItGetsEmpty,
                 incommingList = [],
                 updateListInterface = {
@@ -22,7 +22,7 @@ define([], function () {
     });
 
     asyncTest('FillerOfIncommingListIfItGetsEmpty list gets empty', function () {
-        require(["FillerOfIncommingListIfItGetsEmpty"], function (FillerOfIncommingListIfItGetsEmpty) {
+        require(["../../js/Controll/FillerOfIncommingListIfItGetsEmpty"], function (FillerOfIncommingListIfItGetsEmpty) {
             var fillerOfIncommingListIfItGetsEmpty,
                 incommingList = [ 3 ],
                 updateListInterface = {
@@ -41,7 +41,7 @@ define([], function () {
     });
 
     asyncTest('FillerOfIncommingListIfItGetsEmpty incomming trees are over', function () {
-        require(["FillerOfIncommingListIfItGetsEmpty"], function (FillerOfIncommingListIfItGetsEmpty) {
+        require(["../../js/Controll/FillerOfIncommingListIfItGetsEmpty"], function (FillerOfIncommingListIfItGetsEmpty) {
             var fillerOfIncommingListIfItGetsEmpty,
                 incommingList = [ ],
                 updateListInterface = {

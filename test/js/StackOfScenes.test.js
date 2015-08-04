@@ -4,7 +4,7 @@ define([], function () {
     module('Stack of Scenes test');
 
     asyncTest('Test empty stack', function () {
-        require(["StackOfScenes"], function (StackOfScenes) {
+        require(["../../js/View/SceneLoaderLevel/StackOfScenes"], function (StackOfScenes) {
             var stackOfScenes;
             stackOfScenes = new StackOfScenes();
             equal(stackOfScenes.stackedScenesArray.length, 0, 'size');
@@ -12,7 +12,7 @@ define([], function () {
         });
     });
     asyncTest('Test to stack', function () {
-        require(["StackOfScenes"], function (StackOfScenes) {
+        require(["../../js/View/SceneLoaderLevel/StackOfScenes"], function (StackOfScenes) {
             var stackOfScenes;
             stackOfScenes = new StackOfScenes();
             stackOfScenes.stackLoadScene("forestSwipeRight", [{text : 'Esta parte'}, {text : ' Aga and Hanna'}, {text : undefined}]);
@@ -23,7 +23,7 @@ define([], function () {
         });
     });
     asyncTest('Test pop', function () {
-        require(["StackOfScenes"], function (StackOfScenes) {
+        require(["../../js/View/SceneLoaderLevel/StackOfScenes"], function (StackOfScenes) {
             var stackOfScenes;
             var sceneLoaderMock = {
                 getTreeAlreadyDisplayed: function () {
@@ -41,7 +41,7 @@ define([], function () {
         });
     });
     asyncTest('Test isplaying', function () {
-        require(["StackOfScenes"], function (StackOfScenes) {
+        require(["../../js/View/SceneLoaderLevel/StackOfScenes"], function (StackOfScenes) {
             var stackOfScenes;
             var sceneLoaderMock = {
                 loadScene: function (type, texts, ctxt, funct){

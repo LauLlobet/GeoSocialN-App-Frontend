@@ -1,5 +1,5 @@
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
-require(["SceneLoader", "SpriteManagerPhaserApi", "PhaserGame", "GestureObserver", "UserInterfaceBussinesController", "Keyboard"],
+require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPhaserApi", "View/UIEngineView/PhaserGame", "InputOutput/GestureObserver", "Controll/UserInterfaceBussinesController", "View/UIEngineView/Keyboard"],
     function (SceneLoader, SpriteManagerPhaserApi, PhaserGame, GestureObserver, UserInterfaceBussinesController, Keyboard) {
         "use strict";
         var sceneLoader, spriteManagerApi, keyboard,

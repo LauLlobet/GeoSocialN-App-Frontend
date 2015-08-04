@@ -3,7 +3,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
     'use strict';
     module('SpriteManagerPhaserApi with real PhaserGame');
     asyncTest('add sprites and get it\'s length', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             var phaserGame, spriteManagerPhaserApi,
                 fakeGestureObserver = {
                     updatePointer: function () {}
@@ -40,7 +40,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
     });
 
     asyncTest('delete sprites', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             var phaserGame,
                 spriteManagerPhaserApi,
                 fakeGestureObserver = {
@@ -78,7 +78,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
 
 
     asyncTest('delete sprites', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             var phaserGame, spriteManagerPhaserApi,
                 fakeGestureObserver = {
                     updatePointer: function () {}
@@ -115,7 +115,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
     });
 
     asyncTest('compare lists of id and delete unexistant', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             var phaserGame,
                 spriteManagerPhaserApi,
                 fakeGestureObserver = {
@@ -160,7 +160,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
     });
 
     asyncTest('compare lists of id and delete unexistant', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             //noinspection JSLint
             var phaserGame, spriteManagerPhaserApi,
                 sceneLoaderMockSpy = {
@@ -210,7 +210,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
 
 
     asyncTest('compare lists of id and delete unexistant', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             //noinspection JSLint
             var phaserGame, spriteManagerPhaserApi,
                 sceneLoaderMockSpy = {
@@ -267,7 +267,7 @@ define([ "../../scenes/WriteButton"], function (writeButton) {
 
 
     asyncTest('compare lists of id and delete unexistant', function () {
-        require(["SpriteManagerPhaserApi", "PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
+        require(["../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SpriteManagerPhaserApi, PhaserGame) {
             //noinspection JSLint
             var phaserGame, spriteManagerPhaserApi,
                 sceneLoaderMockSpy = {

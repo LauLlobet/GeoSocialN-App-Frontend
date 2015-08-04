@@ -2,7 +2,7 @@
 require.config({
     paths: {
     //    jquery: '../lib/jquery'
-        underscore : '../lib/underscore'
+        underscore : 'lib/underscore'
     },
     shim: {
     //    jquery : { exports: '$'}

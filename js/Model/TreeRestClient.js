@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['underscore', "../lib/restful", "../lib/rsvp"], function (_, restful, rsvp) {
+define(['../lib/underscore', "../lib/restful", "../lib/rsvp"], function (underscore, restful, rsvp) {
     "use strict";
     function TreeRestClient() {
         this.api = restful( location.host.split(':')[0])

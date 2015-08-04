@@ -3,7 +3,7 @@ define([], function () {
     module('Stack of Scenes test');
 
     asyncTest('Test full grid and non discarded', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 0,
                 discarded = [undefined],
@@ -15,7 +15,7 @@ define([], function () {
     });
 
     asyncTest('Test full grid and 1 discarded ', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 0,
                 discarded = [11],
@@ -27,7 +27,7 @@ define([], function () {
     });
 
     asyncTest('Test with empty grid, 5 free trees', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 6,
                 discarded = [undefined],
@@ -39,7 +39,7 @@ define([], function () {
     });
 
     asyncTest('Test all empty', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [],
                 emptyTrees = 0,
                 discarded = [undefined],
@@ -53,7 +53,7 @@ define([], function () {
 
 
     asyncTest('Test discarded are keept in the wheel', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 5,
                 discarded = [99],
@@ -76,7 +76,7 @@ define([], function () {
     });
 
     asyncTest('Test with equal 5t', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 5,
                 expectedProportion = 3 / 4,
@@ -109,7 +109,7 @@ define([], function () {
 
 
     asyncTest('Test with equal 4t', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 4,
                 expectedProportion = 1 / 2,
@@ -141,7 +141,7 @@ define([], function () {
     });
 
     asyncTest('Test with equal 3t', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 3,
                 expectedProportion = 1 / 8,
@@ -174,7 +174,7 @@ define([], function () {
 
 
     asyncTest('Test with equal 2t', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 2,
                 expectedProportion = 1 / 10,
@@ -206,7 +206,7 @@ define([], function () {
     });
 
     asyncTest('Test with equal 1t', function () {
-        require(["../js/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+        require(["../../js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (IncommingTreesEmptyOnesAndDiscardedCueMixer) {
             var incommingList = [1, 2, 3, 4, 5],
                 emptyTrees = 1,
                 expectedProportion = 1 / 40,
