@@ -2,10 +2,11 @@
 /*jslint todo: true */
 define(["../InputOutput/GpsMovmentTrigger", "./NearbyTreesFromServerToIncommingTreeList",
     "./TreeLoaderToSceneLoaderFromLists", "../Model/TreeRestClient", "./FillerOfIncommingListIfItGetsEmpty",
-    "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
+    "../View/SpriteLevel/SpriteTreeTextSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
-                                                           SceneTreeTextSetter) {
+                                                           SceneTreeTextSetter, SpriteTreeTextSetter) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -24,7 +25,8 @@ define(["../InputOutput/GpsMovmentTrigger", "./NearbyTreesFromServerToIncommingT
     }
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
-        var that = this;
+        var that = this,
+            tmp;
         this.sceneLoaderInterface = sceneLoaderInterface;
         this.treeLoaderToSceneLoaderFromLists = new TreeLoaderToSceneLoaderFromLists(
             this.sceneLoaderInterface,
@@ -32,7 +34,8 @@ define(["../InputOutput/GpsMovmentTrigger", "./NearbyTreesFromServerToIncommingT
             this.alreadyDisplayed,
             this.mapOfTreesById
         );
-        this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface);
+        tmp = new SpriteTreeTextSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
+        this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface, tmp);
         this.gpsMovmentTrigger.forceUpdate();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
         this.swipeLeft().then(function () {
