@@ -28,12 +28,12 @@ define(["../lib/underscore", "Model/TreeRestClient"], function (underscore, Tree
             if (ans.treeContent === null) {
                 throw "no trees in a get, got a null as ans" + coords.x + " " + coords.y;
             }
-            if (ans.treeContent.length === 0 ) {
+            if (ans.treeContent.length === 0) {
                 that.fillerOfIncommingListIfItGetsEmpty.treesFromServerAreOver();
             }
             for (i = 0; i < ans.treeContent.length; i += 1) {
                 that.incommingList.push(ans.treeContent[i].id);
-                that.mapOfTreesById[ans.treeContent[i].id] = ans.treeContent[i];
+                that.loadTreeToHash(ans.treeContent[i]);
             }
             that.incommingList.emptyTrees = ans.emptyTrees;
             console.log("Fetched trees from internet, emptyTrees:" + that.incommingList.emptyTrees);
@@ -45,8 +45,22 @@ define(["../lib/underscore", "Model/TreeRestClient"], function (underscore, Tree
     NearbyTreesFromServerToIncommingTreeList.prototype.loadSpecificTreeToHash = function (treeId) {
         var that = this;
         return this.treeRestClient.getSpecificTree(treeId).then( function (ans) {
+            if (ans.treeContent.text === null){
+                ans.treeContent.text = "this tree is null";
+            }
             that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;
         });
+    };
+
+
+    NearbyTreesFromServerToIncommingTreeList.prototype.loadTreeToHash = function (tree) {
+        if (tree.text === null){
+            tree.text = "this tree is null";
+        }
+        console.log("loaded tree with text:" + tree.text);
+        this.mapOfTreesById[tree.id] = tree;
     }
+
+
     return NearbyTreesFromServerToIncommingTreeList;
 });

@@ -7,22 +7,26 @@ define(['../../lib/underscore', "../../lib/rsvp"], function (undercore, rspv) {
     }
 
     SpriteTreeTextSetter.prototype.setIsTyping = function setIsTyping(isTyping, tableEntryId) {
-        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId);
+        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId),
+            spriteTreeTextSetter = tree.textSetter;
         if (isTyping) {
-            tree.startTyping();
+            spriteTreeTextSetter.startTyping();
         } else {
-            tree.stopTyping();
+            spriteTreeTextSetter.stopTyping();
         }
     };
     SpriteTreeTextSetter.prototype.addChar = function addChar(tableEntryId, char) {
-        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId);
-        tree.addChar(char);
-        return tree.text;
+        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId),
+            spriteTreeTextSetter = tree.textSetter;
+        spriteTreeTextSetter.addChar(char);
+        return spriteTreeTextSetter.text;
     };
+
     SpriteTreeTextSetter.prototype.removeChar = function removeChar(tableEntryId) {
-        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId);
-        tree.removeChar();
-        return tree.text;
+        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId),
+            spriteTreeTextSetter = tree.textSetter;
+        spriteTreeTextSetter.removeChar();
+        return spriteTreeTextSetter.text;
     };
 
     return SpriteTreeTextSetter;
