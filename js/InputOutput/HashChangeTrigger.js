@@ -22,12 +22,24 @@ define(["util/CoordinatesCalculator", "../lib/underscore"], function (Coordinate
         location.hash = newHash;
     };
 
-    HashChangeTrigger.prototype.triggerIfHashIsNotEmpty = function () {
-        if (location.hash !== "") {
-            this.update();
+    HashChangeTrigger.prototype.storeActualHash = function () {
+        this.storedHash = location.hash;
+    };
+
+
+    HashChangeTrigger.prototype.restoreStoredHash = function () {
+        location.hash = this.storedHash;
+    };
+
+    HashChangeTrigger.prototype.triggerIfStoredHashWasNotEmpty = function () {
+        if (!this.isStoredHashEmpty()) {
+            this.restoreStoredHash();
         }
     };
 
+    HashChangeTrigger.prototype.isStoredHashEmpty = function () {
+        return this.storedHash === "";
+    };
     HashChangeTrigger.prototype.removeHash = function removeHash() {
         var loc = window.location;
         if ("pushState" in history)
@@ -35,7 +47,7 @@ define(["util/CoordinatesCalculator", "../lib/underscore"], function (Coordinate
         else {
             loc.hash = "";
         }
-    }
+    };
 
     HashChangeTrigger.prototype.update = function () {
         if (this.ignoreNextUpdateFlag) {

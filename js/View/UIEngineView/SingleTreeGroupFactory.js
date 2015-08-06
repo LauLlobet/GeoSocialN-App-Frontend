@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define([], function () {
+define(["./TreeSpriteGroupTextSetter"], function (TreeSpriteGroupTextSetter) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -23,7 +23,9 @@ define([], function () {
         this.setScalePropertiesToNewGroup(tree);
         this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
-        this.createText(tree.text);
+        this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game);
+        this.group.textSetter.tmp = this;
+        this.group.textSetter.createText(tree.text);
     };
 
     SingleTreeGroupFactory.prototype.createText = function createText(text) {

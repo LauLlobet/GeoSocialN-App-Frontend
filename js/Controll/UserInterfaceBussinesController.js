@@ -37,9 +37,10 @@ define(["../InputOutput/GpsMovmentTrigger", "./NearbyTreesFromServerToIncommingT
         tmp = new SpriteTreeTextSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface, tmp);
         this.gpsMovmentTrigger.forceUpdate();
+        this.hashChangeTrigger.storeActualHash();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
         this.swipeLeft().then(function () {
-            that.hashChangeTrigger.triggerIfHashIsNotEmpty();
+            that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
         });
         this.fillerOfIncommingListIfItGetsEmpty.start();
     }
