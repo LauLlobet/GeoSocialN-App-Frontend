@@ -4,7 +4,7 @@ define([], function () {
     module('Scene Loader independent tests');
 
     asyncTest('Scane loader add tree and bind a new one on it', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
             var treeentry, sceneLoader;
             sceneLoader = new SceneLoader();
             sceneLoader.bindTreeAndTweenToTable({
@@ -63,7 +63,7 @@ define([], function () {
     });
 
     asyncTest('getAllActiveIds', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
             var sceneLoader;
             sceneLoader = new SceneLoader();
             sceneLoader.bindTreeAndTweenToTable({
@@ -133,7 +133,7 @@ define([], function () {
     });
 
     asyncTest('getAllActiveIds overriding one trees', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
             var sceneLoader;
             sceneLoader = new SceneLoader();
             sceneLoader.bindTreeAndTweenToTable({
@@ -204,7 +204,7 @@ define([], function () {
     });
 
     asyncTest('Load full scene with mock', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader"], function (SceneLoader) {
             var sceneLoader, tree,
                 mockSpriteManagerApi = {
                     isOkFlag : false,
@@ -221,7 +221,7 @@ define([], function () {
     });
 
     asyncTest('Load full scene with full equip', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader", "../js/View/SpriteLevel/SpriteManagerPhaserApi", "../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var sceneLoader, spriteManagerApi,
                 fakeGestureObserver = {
                     updatePointer: function () {}
@@ -239,7 +239,7 @@ define([], function () {
     });
 
     asyncTest('Load two full scenes with full equip', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader", "../js/View/SpriteLevel/SpriteManagerPhaserApi", "../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var sceneLoader, spriteManagerApi,
                 fakeGestureObserver = {
                     updatePointer: function () {}
@@ -260,7 +260,7 @@ define([], function () {
     });
 
     asyncTest('when swipping left left entries disapear', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader", "../js/View/SpriteLevel/SpriteManagerPhaserApi", "../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var sceneLoader, spriteManagerApi,
                 fakeGestureObserver = {
                     updatePointer: function () {}
@@ -291,7 +291,7 @@ define([], function () {
     });
 
     asyncTest('getTreeDiscardedWhenSwipeLeft', function () {
-        require(["../../js/View/SceneLoaderLevel/SceneLoader", "../../js/View/SpriteLevel/SpriteManagerPhaserApi", "../../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
+        require(["../js/View/SceneLoaderLevel/SceneLoader", "../js/View/SpriteLevel/SpriteManagerPhaserApi", "../js/View/UIEngineView/PhaserGame"], function (SceneLoader, SpriteManagerPhaserApi, PhaserGame) {
             var sceneLoader, spriteManagerApi,
                 fakeGestureObserver = {
                     updatePointer: function () {}

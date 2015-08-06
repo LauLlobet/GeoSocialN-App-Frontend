@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore', "../lib/rsvp", "Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (underscore, rsvp, IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+define(['../lib/underscore', "../lib/rsvp", "./IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (underscore, rsvp, IncommingTreesEmptyOnesAndDiscardedCueMixer) {
     "use strict";
     function TreeLoaderToSceneLoaderFromLists(sceneLoader, incommingListAndCurrentEmptyTrees, alreadyDisplayedList, mapOfTreesById, arrayListOrderRandomizer) {
         this.incommingListAndCurrentEmptyTrees = incommingListAndCurrentEmptyTrees;

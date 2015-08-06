@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group, console, _,setTimeout */
 /*jslint todo: true */
-define(["../lib/underscore", "InputOutput/CookieManager"], function (underscore, CookieManager) {
+define(["../lib/underscore", "./CookieManager"], function (underscore, CookieManager) {
     "use strict";
     function GpsBrowserBlockChecker(gpsInterface, reloadInterface, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface) {
         this.gpsInterface = gpsInterface;

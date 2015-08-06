@@ -1,12 +1,12 @@
-define(["../../js/Model/TreeRestClient"], function (TreeRestClient) {
+define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     'use strict';
     module('Stack of Scenes test');
     var deleteAll = function( ) {
         var treeRestClient = new TreeRestClient();
         return treeRestClient.deleteAll();
     }
-    asyncTest('Incomming list gets fulled with new trees', function () {
-        require(["../../js/Controll/NearbyTreesFromServerToIncommingTreeList","../../js/Model/TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
+   asyncTest('Incomming list gets fulled with new trees', function () {
+        require(["/OurTreeWeb/js/Controll/NearbyTreesFromServerToIncommingTreeList.js"], function (NearbyTreesFromServerToIncommingTreeList) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
@@ -55,7 +55,7 @@ define(["../../js/Model/TreeRestClient"], function (TreeRestClient) {
     });
 
     asyncTest('Map gets filled from incomming trees', function () {
-        require(["../../js/Controll/NearbyTreesFromServerToIncommingTreeList","../../js/Model/TreeRestClient"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
+        require(["/OurTreeWeb/js/Controll/NearbyTreesFromServerToIncommingTreeList.js","/OurTreeWeb/js/Model/TreeRestClient.js"], function (NearbyTreesFromServerToIncommingTreeList, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
@@ -109,4 +109,5 @@ define(["../../js/Model/TreeRestClient"], function (TreeRestClient) {
             });
         });
     });
+
 });
