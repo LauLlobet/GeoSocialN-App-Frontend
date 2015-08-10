@@ -3,10 +3,12 @@
 define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerToIncommingTreeList",
     "./TreeLoaderToSceneLoaderFromLists", "../Model/TreeRestClient", "./FillerOfIncommingListIfItGetsEmpty",
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
-    "../View/SpriteLevel/SpriteTreeTextSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
+    "../View/SpriteLevel/SpriteTreeKmCounterSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
-                                                           SceneTreeTextSetter, SpriteTreeTextSetter) {
+                                                           SceneTreeTextSetter, SpriteTreeTextSetter,
+                                                           SceneTreeKmSetter, SpriteTreeKmCounterSetter) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -36,6 +38,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         );
         tmp = new SpriteTreeTextSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface, tmp);
+        tmp = new SpriteTreeKmCounterSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
+        this.sceneTreeTextKmInterface = new SceneTreeKmSetter(sceneLoaderInterface, tmp);
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
@@ -53,7 +57,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("----SL----");
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
-                that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans)
+                that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
+                that.sceneTreeTextKmInterface.setDistance(231233);
             });
         }
     };
@@ -65,7 +70,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("----SR----");
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
-                that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans)
+                that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
+                that.sceneTreeTextKmInterface.setDistance(82487);
             });
         }
     };

@@ -20,7 +20,6 @@ define([], function () {
             text = "";
         }
         this.treeSpriteGroup.add(this.textImage);
-        this.tmp.fontText = this.fontText;
         this.treeSpriteGroup.fontText = this.fontText;
         this.treeSpriteGroup.keymap = this.keymap;
         this.setText(text);

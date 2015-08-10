@@ -96,7 +96,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
 
     /*
 
-     require(["/OurTreeWeb/lib/restful", "TreeRestClient"], function (restful, TreeRestClient) {
+     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
      var tree = {},
      treeRestClient = new TreeRestClient();
      tree.text = "more and more trees in da town";

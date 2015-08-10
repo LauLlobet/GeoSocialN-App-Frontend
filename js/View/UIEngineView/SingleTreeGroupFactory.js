@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter"], function (TreeSpriteGroupTextSetter) {
+define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -24,8 +24,11 @@ define(["./TreeSpriteGroupTextSetter"], function (TreeSpriteGroupTextSetter) {
         this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
         this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game, this.gestureObserver);
-        this.group.textSetter.tmp = this;
         this.group.textSetter.createText(tree.text);
+        if (this.isNotAnEmptyTree(tree)) {
+            this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
+        }
+        //this.group.kmSetter.createText(tree.text);
     };
 
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
@@ -35,9 +38,13 @@ define(["./TreeSpriteGroupTextSetter"], function (TreeSpriteGroupTextSetter) {
         this.group.scale.setTo(finalScale, finalScale);
     };
 
+    SingleTreeGroupFactory.prototype.isNotAnEmptyTree = function (tree) {
+        return (tree.text !== undefined || tree.button === undefined);
+    }
+
     SingleTreeGroupFactory.prototype.ifEmptyTreeSetWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
         var button, context, tween;
-        if (tree.text !== undefined || tree.button === undefined) {
+        if (this.isNotAnEmptyTree(tree)) {
             return;
         }
         button = this.group.create(tree.button.x, tree.button.y, 'punzon');

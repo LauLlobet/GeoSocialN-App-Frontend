@@ -160,7 +160,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         var kdisappeare = context.game.add.tween(characterImage ).to({alpha: 0}, disappeareT, 'Linear', false, 0, 0);
         kappeare.chain(kstill);
         kstill.chain(kdisappeare);
-        kdisappeare.onComplete.add(function(){
+        kdisappeare.onComplete.add(function() {
             console.log("remove sprite");
             this.destroy();
         },characterImage);

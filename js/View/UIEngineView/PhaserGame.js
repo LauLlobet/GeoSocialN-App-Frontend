@@ -157,6 +157,16 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
 
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
         this.game.load.image('linkLayer', '/OurTreeWeb/assets/linkLayer.png');
+        var i;
+        for(i=0; i<10; i= i+1){
+            this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+        }
+        i = 'n';
+        this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+        i = 'm';
+        this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+        i = 'k';
+        this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),
