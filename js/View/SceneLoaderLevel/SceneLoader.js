@@ -2,13 +2,14 @@
 /*jslint todo: true */
 define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../scenes/ForestSwipeLeft", './StackOfScenes'], function (underscore, forestSwipeRight, forestSwipeLeft, StackOfScenes) {
     "use strict";
-    function SceneLoader(spriteManagerPhaserApiInterface) //noinspection JSLint
+    function SceneLoader(spriteManagerPhaserApiInterface, newlyPresentedTreeSubjectNotifier) //noinspection JSLint
     {
             this.idCounter = 0;
             this.spriteManagerPhaserApiInterface = spriteManagerPhaserApiInterface;
             this.sceneObjectsTable = [];
             this.stackOfScenes = new StackOfScenes(this);
             this.initial = true;
+            this.newlyPresentedTreeSubjectNotifier = newlyPresentedTreeSubjectNotifier;
     }
     SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, newTrees) {
         this.stackOfScenes.stackLoadScene(sceneType, newTrees);
@@ -48,6 +49,7 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
         }, this); // bind to table
         this.setAllToOld();
         this.spriteManagerPhaserApiInterface.tellAllActiveSpritesSoItCanUpdateIt(this.getAllActiveIds());
+        this.newlyPresentedTreeSubjectNotifier.newlyPresentedTree(this.getTreeAlreadyDisplayed());
         return this.callCallbackAfterTween(context, callback, scene.lengthInTime);
     };
 

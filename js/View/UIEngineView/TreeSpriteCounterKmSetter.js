@@ -12,7 +12,7 @@ define(["../UIEngineView/TreeSpriteKmDigit"], function (TreeSpriteKmDigit) {
         this.counterGroup = this.phaserGame.add.group();
         this.treeSpriteGroup.add(this.counterGroup);
         this.digits = {};
-        this.loadDigits(7);
+        this.loadDigits(9);
     }
 
     TreeSpriteGroupTextSetter.prototype.loadDigits = function loadDigits(digits) {

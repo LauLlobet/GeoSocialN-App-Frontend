@@ -2,18 +2,24 @@
 require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPhaserApi",
         "View/UIEngineView/PhaserGame", "InputOutput/GestureObserver",
         "Controll/UserInterfaceBussinesController", "View/UIEngineView/Keyboard",
-        ],
+        "Controll/NewlyPresentedTreeSubjectNotifier"
+    ],
     function (SceneLoader, SpriteManagerPhaserApi, PhaserGame, GestureObserver,
-              UserInterfaceBussinesController, Keyboard) {
+              UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier) {
         "use strict";
         var sceneLoader, spriteManagerApi, keyboard,
             userInterfaceBussinesController = new UserInterfaceBussinesController(),
             gestureObserver = new GestureObserver(userInterfaceBussinesController),
+            newlyPresentedTreeSubjectNotifier = new NewlyPresentedTreeSubjectNotifier(),
             phaserGame = new PhaserGame(function (phaserGameContext) {
                 keyboard = new Keyboard(phaserGame, gestureObserver);
                 userInterfaceBussinesController.keyboardInterface = keyboard;
                 spriteManagerApi = new SpriteManagerPhaserApi(phaserGame, gestureObserver);
-                sceneLoader = new SceneLoader(spriteManagerApi);
+                var observer1 =   {
+                    onNewlyPresentedTree: function (treeid) { console.log("observer:" + treeid )}
+                };
+                newlyPresentedTreeSubjectNotifier.addObserver(observer1);
+                sceneLoader = new SceneLoader(spriteManagerApi, newlyPresentedTreeSubjectNotifier);
                 spriteManagerApi.sceneLoaderInterface = sceneLoader;
                 userInterfaceBussinesController.init(sceneLoader);
                 return sceneLoader;

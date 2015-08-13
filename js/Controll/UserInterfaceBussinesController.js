@@ -5,12 +5,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
-    "../View/SpriteLevel/SpriteTreeCompassSetter" ], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
-                                                           SceneTreeCompassSetter, SpriteTreeCompassSetter) {
+                                                           SceneTreeCompassSetter, SpriteTreeCompassSetter,
+                                                           RelativeLocationCalculator) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -44,6 +45,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneTreeTextKmInterface = new SceneTreeKmSetter(sceneLoaderInterface, tmp);
         tmp = new SpriteTreeCompassSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeCompassInterface = new SceneTreeCompassSetter(sceneLoaderInterface, tmp);
+        this.relativeLocationCalculator = new RelativeLocationCalculator(this.mapOfTreesById, this.sceneTreeTextKmInterface);
+        this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.relativeLocationCalculator);
+        this.gpsMovmentTrigger.init(this.relativeLocationCalculator);//no treure el subject de obserer del scene loader sino del build time
 
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
@@ -63,7 +67,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
-                that.sceneTreeTextKmInterface.setDistance(231233);
+             //   that.sceneTreeTextKmInterface.setDistance(231233);
                 that.sceneTreeCompassInterface.setAngle(30);
             });
         }
@@ -77,7 +81,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
-                that.sceneTreeTextKmInterface.setDistance(82487);
+               // that.sceneTreeTextKmInterface.setDistance(82487);
                 that.sceneTreeCompassInterface.setAngle(170);
             });
         }

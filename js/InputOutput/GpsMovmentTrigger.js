@@ -1,6 +1,6 @@
 /*global define, require, module,navigator, Phaser, Group, console, _,setTimeout */
 /*jslint todo: true */
-define(["../lib/underscore", "util/CoordinatesCalculator"], function (underscore, CoordinatesCalculator) {
+define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], function (underscore, CoordinatesCalculator) {
     "use strict";
     function GpsMovmentTrigger(bussinesController) {
         this.metersToTrigger = 10;
@@ -19,8 +19,11 @@ define(["../lib/underscore", "util/CoordinatesCalculator"], function (underscore
         navigator.geolocation.watchPosition(_.bind(this.userHasMovedUpdateFunction, this),
                                             _.bind(this.errorCallback, this),
                                             this.options);
-      };
+    };
 
+    GpsMovmentTrigger.prototype.init = function init(relativeLocationCalculator){
+        this.relativeLocationCalculator = relativeLocationCalculator;
+    };
 
     GpsMovmentTrigger.prototype.userHasMovedUpdateFunction = function userHasMovedUpdateFunction(position) {
         this.updateFunction(position);
@@ -34,12 +37,17 @@ define(["../lib/underscore", "util/CoordinatesCalculator"], function (underscore
         this.lastMoveCoordinates = position.coords;
     };
     GpsMovmentTrigger.prototype.updateFunction = function updateFunction(position) {
+        console.log("acuracy" + position.coords.accuracy);
+        if (position.coords.accuracy > 10) {
+            return;
+        }
         this.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position);
         var distance = this.coordinatesCalculator.distanceBetweenCoordinates(position.coords, this.lastMoveCoordinates);
         this.actualCoordinates = position.coords;
         if (distance > this.metersToTrigger) {
             console.log("userhasmoved");
             this.bussinesController.userHasMoved(position.coords);
+            this.relativeLocationCalculator !== undefined ? this.relativeLocationCalculator.onNewlyLocationOfTheCellPhone(position.coords) : console.log("relativeLocationCalculator Not Set Yet") ;
             this.lastMoveCoordinates = position.coords;
         }
     };
