@@ -1,7 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompas"],
-    function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompas) {
+define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompassSetter"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -26,11 +25,10 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         this.setTreeGroupIntoAllSpritesGroup(id);
         this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game, this.gestureObserver);
         this.group.textSetter.createText(tree.text);
-        if (this.isNotAnEmptyTree(tree)) {
+        if (this.isNotAnEmptyTree(tree) && this.isNotInstructionTree(tree) ) {
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
-            this.group.compassSetter = new TreeSpriteCompas(this.group, this.game);
+            this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
         }
-        //this.group.kmSetter.createText(tree.text);
     };
 
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
@@ -42,6 +40,10 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
 
     SingleTreeGroupFactory.prototype.isNotAnEmptyTree = function (tree) {
         return (tree.text !== undefined || tree.button === undefined);
+    }
+
+    SingleTreeGroupFactory.prototype.isNotInstructionTree = function (tree) {
+        return (tree.treeid !== 1);
     }
 
     SingleTreeGroupFactory.prototype.ifEmptyTreeSetWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {

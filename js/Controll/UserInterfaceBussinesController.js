@@ -4,11 +4,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "./TreeLoaderToSceneLoaderFromLists", "../Model/TreeRestClient", "./FillerOfIncommingListIfItGetsEmpty",
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
-    "../View/SpriteLevel/SpriteTreeKmCounterSetter" ], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
+    "../View/SpriteLevel/SpriteTreeCompassSetter" ], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
-                                                           SceneTreeKmSetter, SpriteTreeKmCounterSetter) {
+                                                           SceneTreeKmSetter, SpriteTreeKmCounterSetter,
+                                                           SceneTreeCompassSetter, SpriteTreeCompassSetter) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -40,6 +42,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface, tmp);
         tmp = new SpriteTreeKmCounterSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeTextKmInterface = new SceneTreeKmSetter(sceneLoaderInterface, tmp);
+        tmp = new SpriteTreeCompassSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
+        this.sceneTreeCompassInterface = new SceneTreeCompassSetter(sceneLoaderInterface, tmp);
+
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
@@ -59,6 +64,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.sceneTreeTextKmInterface.setDistance(231233);
+                that.sceneTreeCompassInterface.setAngle(30);
             });
         }
     };
@@ -72,6 +78,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.sceneTreeTextKmInterface.setDistance(82487);
+                that.sceneTreeCompassInterface.setAngle(170);
             });
         }
     };
