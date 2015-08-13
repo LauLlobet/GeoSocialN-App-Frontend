@@ -4,7 +4,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "./TreeLoaderToSceneLoaderFromLists", "../Model/TreeRestClient", "./FillerOfIncommingListIfItGetsEmpty",
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
-    "../View/SpriteLevel/SpriteTreeKmCounterSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeKmCounterSetter" ], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,

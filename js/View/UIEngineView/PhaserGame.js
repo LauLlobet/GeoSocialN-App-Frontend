@@ -167,6 +167,9 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
         i = 'k';
         this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+
+        this.game.load.image('compasBg', '/OurTreeWeb/assets/compasBg.png');
+        this.game.load.image('needle', '/OurTreeWeb/assets/needle.png');
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),

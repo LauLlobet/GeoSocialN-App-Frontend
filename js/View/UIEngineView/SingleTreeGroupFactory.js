@@ -1,6 +1,7 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter) {
+define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompas"],
+    function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompas) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -27,6 +28,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter"], function 
         this.group.textSetter.createText(tree.text);
         if (this.isNotAnEmptyTree(tree)) {
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
+            this.group.compassSetter = new TreeSpriteCompas(this.group, this.game);
         }
         //this.group.kmSetter.createText(tree.text);
     };
