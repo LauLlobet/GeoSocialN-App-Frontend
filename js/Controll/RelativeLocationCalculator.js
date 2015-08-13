@@ -18,8 +18,8 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
             return;
         }
         tree = this.treeHashIdToTree[treeid];
-        this.currentTargetCoordinates.latitude = tree.x;
-        this.currentTargetCoordinates.longitude = tree.y;
+        this.currentTargetCoordinates.longitude = tree.x;
+        this.currentTargetCoordinates.latitude = tree.y;
 
         this.calculateAndSendLocationTips();
     }
