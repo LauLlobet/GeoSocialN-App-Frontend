@@ -38,9 +38,6 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
     };
     GpsMovmentTrigger.prototype.updateFunction = function updateFunction(position) {
         console.log("acuracy" + position.coords.accuracy);
-        if (position.coords.accuracy > 10) {
-            return;
-        }
         this.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position);
         var distance = this.coordinatesCalculator.distanceBetweenCoordinates(position.coords, this.lastMoveCoordinates);
         this.actualCoordinates = position.coords;

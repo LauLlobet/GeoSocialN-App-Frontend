@@ -37,7 +37,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         var metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
-        this.sceneKmSetter.setDistance(Math.round(metersFromCellPhoneToTargetTree));
+        this.sceneKmSetter.setDistance(Math.round(this.currentCellPhoneCoordinates.accuracy));//metersFromCellPhoneToTargetTree));
     }
 
     return RelativeLocationCalculator;
