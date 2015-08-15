@@ -36,7 +36,7 @@ define(["underscore"], function (underscore) {
         return degrees;
     }
 
-    //prova 
+    //prova
 
     return CoordinatesCalculator;
 });
