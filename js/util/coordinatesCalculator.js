@@ -21,5 +21,20 @@ define(["underscore"], function (underscore) {
         return d * 1000; // meters
     };
 
+    CoordinatesCalculator.prototype.angleWithBetweenCoords = function angleWithBetweenCoords(coordinate1, coordinate2){
+        var lon1 = coordinate1.longitude,
+            lat1 = coordinate1.latitude,
+            lon2 = coordinate2.longitude,
+            lat2 = coordinate2.latitude;
+
+        var dy = lat2 - lat1;
+        var dx = Math.cos(Math.PI / 180 * lat1) * (lon2 - lon1);
+        var angle = Math.atan2(dy, dx);
+
+        var degrees = angle * (180 / Math.PI);
+
+        return degrees;
+    }
+
     return CoordinatesCalculator;
 });
