@@ -41,12 +41,12 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         this.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position);
         var distance = this.coordinatesCalculator.distanceBetweenCoordinates(position.coords, this.lastMoveCoordinates);
         this.actualCoordinates = position.coords;
-        if (distance > this.metersToTrigger) {
+        //if (distance > this.metersToTrigger) {
             console.log("userhasmoved");
             this.bussinesController.userHasMoved(position.coords);
             this.relativeLocationCalculator !== undefined ? this.relativeLocationCalculator.onNewlyLocationOfTheCellPhone(position.coords) : console.log("relativeLocationCalculator Not Set Yet") ;
             this.lastMoveCoordinates = position.coords;
-        }
+        //}
     };
     GpsMovmentTrigger.prototype.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined = function handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position) {
         if (this.lastMoveCoordinates === undefined) {
