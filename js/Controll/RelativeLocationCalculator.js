@@ -16,6 +16,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         this.orientationNord = 0;
         window.addEventListener('deviceorientation', function (event) {
             that.orientationNord = event.alpha;
+            that.calculateAndSendCompassOrientationToTreeTip();
         }, false);
     }
     RelativeLocationCalculator.prototype.onNewlyPresentedTree = function onNewlyPresentedTree (treeid) {
