@@ -2,15 +2,21 @@
 /*jslint todo: true */
 define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], function (underscore, CoordinatesCalculator) {
     "use strict";
-    function RelativeLocationCalculator(treeHash, sceneKmSetter) {
+    function RelativeLocationCalculator(treeHash, sceneKmSetter, compassSetter) {
+        var that = this;
         this.treeHashIdToTree = treeHash;
         this.sceneKmSetter = sceneKmSetter;
+        this.compassSetter = compassSetter;
 
         this.currentTargetCoordinates = undefined;
         this.currentCellPhoneCoordinates = undefined;
         this.currentTargetCoordinates = {};
 
         this.coordinatesCalculator = new CoordinatesCalculator();
+        this.orientationNord = 0;
+        /*window.addEventListener('deviceorientation', function (event) {
+            that.orientationNord = event.alpha;
+        }, false);*/
     }
     RelativeLocationCalculator.prototype.onNewlyPresentedTree = function onNewlyPresentedTree (treeid) {
         var tree;
@@ -34,10 +40,20 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         if ( this.currentCellPhoneCoordinates === undefined) {
             return;
         }
+        this.calculateAndSendMetersToTreeTip();
+        //this.calculateAndSendCompassOrientationToTreeTip();
+    }
+
+    RelativeLocationCalculator.prototype.calculateAndSendMetersToTreeTip = function calculateAndSendMetersToTreeTip() {
         var metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
-        this.sceneKmSetter.setDistance(Math.round(this.currentCellPhoneCoordinates.accuracy));//metersFromCellPhoneToTargetTree));
+        this.sceneKmSetter.setDistance(Math.round(metersFromCellPhoneToTargetTree));//metersFromCellPhoneToTargetTree));
+    }
+
+
+    RelativeLocationCalculator.prototype.calculateAndSendCompassOrientationToTreeTip = function calculateAndSendCompassOrientationToTreeTip() {
+        this.compassSetter.setAngle(this.orientationNord);
     }
 
     return RelativeLocationCalculator;

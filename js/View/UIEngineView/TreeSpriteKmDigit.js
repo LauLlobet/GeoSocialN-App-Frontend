@@ -9,7 +9,7 @@ define([], function () {
         this.createSpritesAndGroup(phaserGame);
         this.setDigit('n');
         this.setXY(x, y);
-        this.setScale(0.75);
+        this.setScale(0.55);
     }
     TreeSpriteKmDigit.prototype.createSpritesAndGroup = function createSpriteAndGroup(phaserGame) {
         this.game = phaserGame.game;

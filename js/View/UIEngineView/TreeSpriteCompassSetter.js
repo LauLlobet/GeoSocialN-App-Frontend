@@ -1,7 +1,7 @@
 define(["./TreeSpriteCompas"], function (TreeSpriteCompas) {
     "use strict";
-    var groupx = 67,
-        groupy = 230;
+    var groupx = 79,
+        groupy = 288;
 
 
     function TreeCompasTextSetter(parentGroup, game) //noinspection JSLint

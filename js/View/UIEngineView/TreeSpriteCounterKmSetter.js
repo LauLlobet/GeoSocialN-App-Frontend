@@ -1,8 +1,8 @@
 define(["../UIEngineView/TreeSpriteKmDigit"], function (TreeSpriteKmDigit) {
     "use strict";
-    var groupx = 5,
-        inc = 26,
-        groupy = 300;
+    var groupx = 13,
+        inc = 20,
+        groupy = 340;
 
 
     function TreeSpriteGroupTextSetter(treeSpriteGroup, game) //noinspection JSLint

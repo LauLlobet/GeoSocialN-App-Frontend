@@ -7,7 +7,7 @@ define([], function () {
     {
             this.parentGroup = parentGroup;
             this.createSpritesAndGroup(phaserGame);
-            this.setScale(0.75);
+            this.setScale(0.50);
             this.centerNeedle();
             this.setXY(x, y);
     }
