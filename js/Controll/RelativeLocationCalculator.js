@@ -14,9 +14,9 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
 
         this.coordinatesCalculator = new CoordinatesCalculator();
         this.orientationNord = 0;
-        /*window.addEventListener('deviceorientation', function (event) {
+        window.addEventListener('deviceorientation', function (event) {
             that.orientationNord = event.alpha;
-        }, false);*/
+        }, false);
     }
     RelativeLocationCalculator.prototype.onNewlyPresentedTree = function onNewlyPresentedTree (treeid) {
         var tree;
@@ -41,7 +41,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
             return;
         }
         this.calculateAndSendMetersToTreeTip();
-        //this.calculateAndSendCompassOrientationToTreeTip();
+        this.calculateAndSendCompassOrientationToTreeTip();
     }
 
     RelativeLocationCalculator.prototype.calculateAndSendMetersToTreeTip = function calculateAndSendMetersToTreeTip() {
