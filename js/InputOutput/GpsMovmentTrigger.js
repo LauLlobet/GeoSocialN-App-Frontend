@@ -9,7 +9,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         this.actualCoordinates = undefined;
         this.coordinatesCalculator = new CoordinatesCalculator();
         this.options = {
-            enableHighAccuracy: true,
+            enableHighAccuracy: false,
             timeout: Infinity,
             maximumAge: Infinity
         };
