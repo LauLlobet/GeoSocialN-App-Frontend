@@ -77,7 +77,24 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     PhaserGame.prototype.handleMobile = function handleMobile() {
         displayNoneElement("desktopWarning");
     };
-
+    PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision) {
+        displayNoneElement("calibratingGPS0");
+        displayNoneElement("calibratingGPS2");
+        displayNoneElement("calibratingGPS5");
+        displayNoneElement("calibratingGPS7");
+        displayNoneElement("calibratingGPS9");
+        if (precision === 0) {
+            blockElement("calibratingGPS0");
+        } else if (precision < 3) {
+            blockElement("calibratingGPS2");
+        } else if (precision < 6) {
+            blockElement("calibratingGPS5");
+        } else if (precision < 8) {
+            blockElement("calibratingGPS7");
+        } else if (precision < 10) {
+            blockElement("calibratingGPS9");
+        }
+    };
 
     PhaserGame.prototype.setZoomMap = function setZoomMap() {
         var mapWidth = 1100,

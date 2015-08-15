@@ -2,7 +2,7 @@
 /*jslint todo: true */
 define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], function (underscore, CoordinatesCalculator) {
     "use strict";
-    function GpsMovmentTrigger(bussinesController) {
+    function GpsMovmentTrigger(bussinesController, phaserGame) {
         this.metersToTrigger = 10;
         this.bussinesController = bussinesController;
         this.lastMoveCoordinates = undefined;
@@ -14,6 +14,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             maximumAge: Infinity
         };
         this.setUpUpdate();
+        this.phaserGame = phaserGame;
     }
     GpsMovmentTrigger.prototype.setUpUpdate = function () {
         navigator.geolocation.watchPosition(_.bind(this.userHasMovedUpdateFunction, this),
@@ -46,6 +47,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             this.bussinesController.userHasMoved(position.coords);
             this.relativeLocationCalculator !== undefined ? this.relativeLocationCalculator.onNewlyLocationOfTheCellPhone(position.coords) : console.log("relativeLocationCalculator Not Set Yet") ;
             this.lastMoveCoordinates = position.coords;
+            this.handlePrecision(position.coords.accuracy);
         //}
     };
     GpsMovmentTrigger.prototype.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined = function handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position) {
@@ -63,6 +65,24 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             _.bind(this.errorCallback, this),
             this.options
         );
+    }
+
+    GpsMovmentTrigger.prototype.handlePrecision = function handlePrecision(precision) {
+        var precisionInMeters = precision,
+            precisionOneToTen = 0;
+
+        if (precisionInMeters < 35){
+            precisionOneToTen = 2;
+        } if (precisionInMeters < 20){
+            precisionOneToTen = 5;
+        } if (precisionInMeters < 18 ){
+            precisionOneToTen = 7;
+        } if (precisionInMeters < 16){
+            precisionOneToTen = 9;
+        } if (precisionInMeters < 14){
+            precisionOneToTen = 10;
+        }
+        this.phaserGame.handlePrecisionGps(precisionOneToTen);
     }
 
     return GpsMovmentTrigger;

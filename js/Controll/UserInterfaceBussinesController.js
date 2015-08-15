@@ -18,7 +18,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     function UserInterfaceBussinesController() //noinspection JSLint
     {
             this.state = NAVIGATE;
-            this.gpsMovmentTrigger = new GpsMovmentTrigger(this);
             this.incommingList = [];
             this.alreadyDisplayed = [];
             this.mapOfTreesById = {};
@@ -32,6 +31,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
         var that = this,
             tmp;
+        this.gpsMovmentTrigger = new GpsMovmentTrigger(this, sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
         this.sceneLoaderInterface = sceneLoaderInterface;
         this.treeLoaderToSceneLoaderFromLists = new TreeLoaderToSceneLoaderFromLists(
             this.sceneLoaderInterface,
