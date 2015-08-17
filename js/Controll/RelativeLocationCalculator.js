@@ -55,8 +55,8 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
 
     RelativeLocationCalculator.prototype.calculateAndSendCompassOrientationToTreeTip = function calculateAndSendCompassOrientationToTreeTip() {
         var angle = this.coordinatesCalculator.angleWithBetweenCoords(
-            this.currentTargetCoordinates,
-            this.currentCellPhoneCoordinates
+            this.currentCellPhoneCoordinates,
+            this.currentTargetCoordinates
             );
         angle = angle + this.orientationNord;
         this.compassSetter.setAngle(angle);
