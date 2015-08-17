@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group, console, underscore,setTimeout */
 /*jslint todo: true */
-define(["underscore"], function (underscore) {
+define(["/OurTreeWeb/js/lib/underscore.js"], function (underscore) {
     "use strict";
     function CoordinatesCalculator() {
     }
@@ -22,10 +22,10 @@ define(["underscore"], function (underscore) {
     };
 
     CoordinatesCalculator.prototype.angleWithBetweenCoords = function angleWithBetweenCoords(coordinate1, coordinate2){
-        var lon1 = coordinate1.longitude,
-            lat1 = coordinate1.latitude,
-            lon2 = coordinate2.longitude,
-            lat2 = coordinate2.latitude;
+        var lon1 = coordinate2.longitude,
+            lat1 = coordinate2.latitude,
+            lon2 = coordinate1.longitude,
+            lat2 = coordinate1.latitude;
 
         var dy = lat2 - lat1;
         var dx = Math.cos(Math.PI / 180 * lat1) * (lon2 - lon1);
@@ -33,7 +33,7 @@ define(["underscore"], function (underscore) {
 
         var degrees = angle * (180 / Math.PI);
 
-        return degrees;
+        return degrees * -1 - 90;
     }
 
     //prova
