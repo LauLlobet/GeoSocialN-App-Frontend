@@ -160,5 +160,18 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId);
         });
     }
+
+    UserInterfaceBussinesController.prototype.buriedLayerEvent = function ( buryLayerId ){
+        var treeid,
+            tree;
+        this.sceneTreeTextSetterInterface.unBury(buryLayerId);
+        treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed();
+        tree = this.mapOfTreesById[treeid];
+        if( tree.unburiedLayers === undefined ){
+            tree.unburiedLayers = {};
+        }
+        tree.unburiedLayers[buryLayerId] = true;
+    }
+
     return UserInterfaceBussinesController;
 });

@@ -61,5 +61,10 @@ define(['../lib/underscore'], function (underscore) {
     GestureObserver.prototype.clickedOnKey = function (char) {
         this.bussinesInput.clickedOnKey(char);
     }
+
+    GestureObserver.prototype.buriedLayerEvent = function buriedLayerEvent(event) {
+        this.bussinesInput.buriedLayerEvent(event);
+    }
+
     return GestureObserver;
 });

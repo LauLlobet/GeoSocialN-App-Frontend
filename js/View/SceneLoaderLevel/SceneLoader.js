@@ -114,6 +114,7 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
     SceneLoader.prototype.copyValuesFromOldTreeToNewOne = function copyValuesFromOldTreeToNewOne(oldTree, newTree) {
         newTree.tree.text = oldTree.tree.text;
         newTree.tree.type = oldTree.tree.type;
+        newTree.tree.unburiedLayers = oldTree.tree.unburiedLayers;
         if (typeof oldTree.tree.treeid !== 'undefined') {
             newTree.tree.treeid = oldTree.tree.treeid;
         } else {

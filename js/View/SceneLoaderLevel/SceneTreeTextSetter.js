@@ -29,5 +29,11 @@ define(['../../lib/underscore', "../../lib/rsvp", "../SpriteLevel/SpriteTreeText
         tableentrytree.tree.text = text;
     };
 
+    SceneTreeTextSetter.prototype.unBury = function unBury(burylayerId) {
+        var tableentrytree = this.sceneLoader.getTreeWithFinalPosition("1c");
+        this.spriteTreeTextSetter.unBury(tableentrytree.id, burylayerId);
+    };
+
+
     return SceneTreeTextSetter;
 });

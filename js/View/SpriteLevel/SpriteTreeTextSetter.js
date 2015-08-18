@@ -29,5 +29,12 @@ define(['../../lib/underscore', "../../lib/rsvp"], function (undercore, rspv) {
         return spriteTreeTextSetter.text;
     };
 
+    SpriteTreeTextSetter.prototype.unBury = function unBury(tableEntryId, buryLayerId) {
+        var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId),
+            spriteTreeTextSetter = tree.textSetter;
+        spriteTreeTextSetter.unBury(buryLayerId);
+        return spriteTreeTextSetter.text;
+    };
+
     return SpriteTreeTextSetter;
 });

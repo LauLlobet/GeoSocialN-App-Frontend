@@ -23,9 +23,12 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         this.setScalePropertiesToNewGroup(tree);
         this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
+        if (tree.unburiedLayers === undefined) {
+            tree.unburiedLayers = {};
+        }
         this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game, this.gestureObserver);
-        this.group.textSetter.createText(tree.text);
-        if (this.isNotAnEmptyTree(tree) && this.isNotInstructionTree(tree) ) {
+        this.group.textSetter.createText(tree.text, tree.unburiedLayers);
+        if (this.isNotAnEmptyTree(tree) && this.isNotInstructionTree(tree)) {
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
             this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
         }
