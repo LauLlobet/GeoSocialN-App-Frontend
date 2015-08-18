@@ -140,6 +140,14 @@
         background-position: center center;
         display:none;
     }
+
+    #buttonIgnorePrecision{
+        width:100%;
+        height:100%;
+        position:fixed;
+        top:80%;
+        left:50%;
+    }
 </style>
 
 <body id="mainId">
@@ -147,12 +155,16 @@
 <div id = "desktopWarning"></div>
 <div id = "unblockGPS"></div>
 <div id = "acceptGPS"></div>
-<div id = "calibratingGPS0"></div>
-<div id = "calibratingGPS2"></div>
-<div id = "calibratingGPS5"></div>
-<div id = "calibratingGPS7"></div>
-<div id = "calibratingGPS9"></div>
-
+<div id = "calibratingGPS0"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
+<div id = "calibratingGPS2"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
+<div id = "calibratingGPS5"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
+<div id = "calibratingGPS7"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
+<div id = "calibratingGPS9"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
+<script>
+    ignorePrecision = function (){
+        phaserGameGlobal.ignorePrecisionGps();
+    }
+</script>
 <canvas id="canvasBg" width="800" height="498"></canvas>
 <!--script type="text/javascript" src="avoidDraggingAndSelecting.js"></script-->
 <script type="text/javascript" src="js/lib/underscore.js"></script>

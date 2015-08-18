@@ -84,7 +84,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         }
 
         if (precisionInMeters === 150){
-            precisionOneToTen = 10;
+           precisionOneToTen = 10;
         }
 
         this.phaserGame.handlePrecisionGps(precisionOneToTen);

@@ -1,4 +1,5 @@
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
+var phaserGameGlobal = undefined;
 require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPhaserApi",
         "View/UIEngineView/PhaserGame", "InputOutput/GestureObserver",
         "Controll/UserInterfaceBussinesController", "View/UIEngineView/Keyboard",
@@ -24,4 +25,6 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
                 userInterfaceBussinesController.init(sceneLoader);
                 return sceneLoader;
             }, gestureObserver);
+
+        phaserGameGlobal = phaserGame;
 });

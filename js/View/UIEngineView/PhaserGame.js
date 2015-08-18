@@ -29,6 +29,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             this.game.state.add('GameState', this.gameState);
             this.lastSwipeTime = Date.now();
             this.game.state.start('Boot');
+            this.ignorePrecision = false;
+
 
     }
 
@@ -77,12 +79,23 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     PhaserGame.prototype.handleMobile = function handleMobile() {
         displayNoneElement("desktopWarning");
     };
+    PhaserGame.prototype.ignorePrecisionGps = function ignorePrecisionGps() {
+        this.ignorePrecision = true;
+        displayNoneElement("calibratingGPS0");
+        displayNoneElement("calibratingGPS2");
+        displayNoneElement("calibratingGPS5");
+        displayNoneElement("calibratingGPS7");
+        displayNoneElement("calibratingGPS9");
+    };
     PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision) {
         displayNoneElement("calibratingGPS0");
         displayNoneElement("calibratingGPS2");
         displayNoneElement("calibratingGPS5");
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
+        if (this.ignorePrecision) {
+            return;
+        }
         if (precision === 0) {
             blockElement("calibratingGPS0");
         } else if (precision < 3) {
