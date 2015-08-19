@@ -125,6 +125,15 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
      });
      */
 
+
+    /*
+
+
+     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+     var trc = new TreeRestClient();
+     trc.deleteAll();
+     });
+     */
     asyncTest('Api get a tree', function () {
         require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},

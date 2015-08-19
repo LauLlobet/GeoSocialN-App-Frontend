@@ -185,6 +185,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.load.image('keyCancel', '/OurTreeWeb/assets/keyCancel.png');
         this.game.load.image('keySwitchKeyboard', '/OurTreeWeb/assets/keySwitchKeyboard.png');
         this.game.load.image('lock', '/OurTreeWeb/assets/lock.png');
+        this.game.load.image('lockpick', '/OurTreeWeb/assets/lockpick.png');
 
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
         this.game.load.image('linkLayer', '/OurTreeWeb/assets/linkLayer.png');

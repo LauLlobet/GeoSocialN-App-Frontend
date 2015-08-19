@@ -30,8 +30,11 @@ define([], function () {
         this.setInteractiveLinksToRetroText(this.treeSpriteGroup, formatedText);
         this.fontText.setText(formatedText, true, -30, 15, this.keymap, 10);
         this.text = text;
-        if (!this.editing) {
-            this.buryMessageIfNecesary();
+        this.buryMessageIfNecesary();
+        if ( this.editing) {
+            this.setBuryLayersToAlpha();
+        } else {
+            this.setBuryLayersToSolid();
         }
     };
     TreeSpriteGroupTextSetter.prototype.addChar = function addChar(char) {
@@ -129,32 +132,85 @@ define([], function () {
         }
     };
     TreeSpriteGroupTextSetter.prototype.unBury = function (buryLayerId) {
-        this[buryLayerId].alpha = 0;
+        this[buryLayerId].destroy();
+        if (this[buryLayerId + "pick"] !== undefined) {
+            this[buryLayerId + "pick"].destroy();
+        }
         this.unburiedLayers[buryLayerId] = true;
     };
     TreeSpriteGroupTextSetter.prototype.buryMessageFromLine = function (group, lineNo, spritename, buryLayerId){
-        var charposX = -10,//this.textImage.x,
+        var charposX = -10,
             charposY = 52 + 17.2 * lineNo,
-            tmp; //this.textImage.y,
+            tmp,
+            scale = 1.3;
         tmp = group.create(charposX, charposY, spritename);
-        tmp.scale.x = tmp.scale.y = 1.3;
+        tmp.scale.x = tmp.scale.y = scale;
+        if (spritename === "lock") {
+            this.setLockPick(group, tmp.x, tmp.y, tmp.scale.x);
+        }
+        this[buryLayerId] = tmp;
+    };
+
+    TreeSpriteGroupTextSetter.prototype.setLockPick = function (group, x, y, scale) {
+        var charposX = x + 60,
+            charposY = y + 50,
+            tmp;
+        tmp = group.create(charposX, charposY, "lockpick");
+        tmp.scale.x = tmp.scale.y = scale;
         tmp.inputEnabled = true;
         tmp.input.priorityID = 1;
         tmp.useHandCursor = true;
         tmp.events.onInputDown.add(function () {
             this.gestureObserver.buriedLayerEvent(this.eventId);
-        }, {eventId : buryLayerId,
+        }, {eventId : "lock",
             gestureObserver : this.gestureObserver
-           });
-        this[buryLayerId] = tmp;
-    };
+            });
+        this["lockpick"] = tmp;
+    }
 
-    TreeSpriteGroupTextSetter.prototype.buryMessageIfNecesary  = function () {
+    TreeSpriteGroupTextSetter.prototype.buryMessageIfNecesary  = function buryMessageIfNecesary() {
         var line = this.findLineOfCharacterInText('$');
-        if (line !== -1 && (this.unburiedLayers === undefined || this.unburiedLayers['lock'] === undefined)) {
+        if ( this.lineWithThatCharExistsOnText(line) &&
+            this.hasntBeenUnburied('lock') &&
+            this.buryLayerNotAlreadyExists('lock') ) {
             this.buryMessageFromLine(this.treeSpriteGroup, line, 'lock', 'lock');
         }
     };
+
+    TreeSpriteGroupTextSetter.prototype.hasntBeenUnburied = function hasntBeenUnBuried(id) {
+        return this.unburiedLayers === undefined || this.unburiedLayers[id] === undefined ;
+    }
+
+    TreeSpriteGroupTextSetter.prototype.lineWithThatCharExistsOnText = function lineWithThatCharExistsOnText(line) {
+        return line !== -1;
+    }
+
+    TreeSpriteGroupTextSetter.prototype.setBuryLayersToAlpha  = function setBuryLayersToAlpha() {
+        if(this.buryLayerAlreadyExists("lockpick")){
+            this["lockpick"].alpha = 0
+        }
+        if(this.buryLayerAlreadyExists("lock")){
+            this["lock"].alpha = 0.2;
+        }
+    };
+
+    TreeSpriteGroupTextSetter.prototype.setBuryLayersToSolid  = function setBuryLayersToSolid() {
+        if(this.buryLayerAlreadyExists("lockpick")){
+            this["lockpick"].alpha = 1
+        }
+        if(this.buryLayerAlreadyExists("lock")){
+            this["lock"].alpha = 1;
+        }
+    };
+
+    TreeSpriteGroupTextSetter.prototype.buryLayerAlreadyExists = function (buryLayerName) {
+        return this[buryLayerName] !== undefined;
+    }
+
+    TreeSpriteGroupTextSetter.prototype.buryLayerNotAlreadyExists = function (buryLayerName) {
+        return !this.buryLayerAlreadyExists(buryLayerName);
+    }
+
     TreeSpriteGroupTextSetter.prototype.findLineOfCharacterInText = function (char) {
         var x, c;
         for (x = 0, c = ''; c = this.text.charAt(x); x = x + 1) {
