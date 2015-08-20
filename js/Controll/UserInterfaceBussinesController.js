@@ -5,16 +5,17 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
-    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/TextDialogHtml"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
-                                                           RelativeLocationCalculator, TextDialogHtml) {
+                                                           RelativeLocationCalculator, PasswordDialog) {
     "use strict";
     var NAVIGATE = "navigate",
-        WRITTING = "writting";
+        WRITTING = "writting",
+        PASSWORD = "password";
     function UserInterfaceBussinesController() //noinspection JSLint
     {
             this.state = NAVIGATE;
@@ -50,7 +51,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.relativeLocationCalculator);
         this.gpsMovmentTrigger.init(this.relativeLocationCalculator);//no treure el subject de obserer del scene loader sino del build time
 
-        this.textDialogHtml = new TextDialogHtml(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
+        this.passwordDialog = new PasswordDialog(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
 
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
@@ -127,27 +128,44 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
         console.log("char: " + char);
-        if (char === "ok") {
-            this.state = NAVIGATE;
-            this.keyboardInterface.hideOnScene();
-            this.sceneTreeTextSetterInterface.setIsTyping(false);
-            this.putTreeOnServer();
-        } else if (this.state === WRITTING && char === "cancel") {
-            this.state = NAVIGATE;
-            this.keyboardInterface.hideOnScene();
-            this.sceneTreeTextSetterInterface.setIsTyping(false);
-        } else if (this.state === WRITTING && char === "backwards") {
-            this.sceneTreeTextSetterInterface.removeChar();
-        } else if (this.state === WRITTING) {
-            this.sceneTreeTextSetterInterface.addChar(char);
-            this.textDialogHtml.show(Math.random() * 100, Math.random() * 100, 30, 30);
-            //this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.blockElement("desktopWarning");
+        if (this.state === WRITTING) {
+            if (char === "ok") {
+                this.state = NAVIGATE;
+                this.keyboardInterface.hideOnScene();
+                this.sceneTreeTextSetterInterface.setIsTyping(false);
+                this.putTreeOnServer();
+            } else if (char === "cancel") {
+                this.state = NAVIGATE;
+                this.keyboardInterface.hideOnScene();
+                this.sceneTreeTextSetterInterface.setIsTyping(false);
+            } else if (char === "backwards") {
+                this.sceneTreeTextSetterInterface.removeChar();
+            } else {
+                this.sceneTreeTextSetterInterface.addChar(char);
+            }
+        } else if (this.state === PASSWORD) {
+            if (char === "ok") {
+                if (this.passwordDialog.getText() === this.getPasswordFromLockedTree() ) {
+                    this.unBuryLayer("lock");
+                }
+                this.passwordDialog.hideAndSetNoText();
+                this.keyboardInterface.hideOnScene();
+                this.state = NAVIGATE;
+            } else if (char === "cancel") {
+                this.keyboardInterface.hideAndSetNoText();
+                this.keyboardInterface.hideOnScene();
+                this.state = NAVIGATE;
+            } else if (char === "backwards") {
+                this.passwordDialog.removeChar();
+            } else {
+                this.passwordDialog.addChar(char);
+            }
         }
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
         if (coords !== undefined) {
-            this.lastKnownCoords = {x:coords.longitude, y:coords.latitude};
+            this.lastKnownCoords = {x : coords.longitude, y : coords.latitude};
         }
         this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(this.lastKnownCoords);
     };
@@ -164,18 +182,40 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             }
         );
     };
-
-    UserInterfaceBussinesController.prototype.buriedLayerEvent = function ( buryLayerId ){
-        var treeid,
-            tree;
+    UserInterfaceBussinesController.prototype.buriedLayerEvent = function (buryLayerId) {
+        if (buryLayerId === 'lock') {
+            this.passwordDialog.show();
+            this.state = PASSWORD;
+            this.keyboardInterface.showOnScene();
+        }
+    };
+    UserInterfaceBussinesController.prototype.unBuryLayer = function (buryLayerId) {
+        var tree = this.getTreeAlreadyDisplayed();
         this.sceneTreeTextSetterInterface.unBury(buryLayerId);
-        treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed();
-        tree = this.mapOfTreesById[treeid];
         if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
         tree.unburiedLayers[buryLayerId] = true;
+    };
+    UserInterfaceBussinesController.prototype.getPasswordFromLockedTree = function getPasswordFromLockedTree() {
+        var tree = this.getTreeAlreadyDisplayed(),
+            password,
+            rightHalfOfTextFromLockSymbol,
+            nextSpace;
+        rightHalfOfTextFromLockSymbol = tree.text.substring(tree.text.indexOf('$') + 1, tree.text.length);
+        nextSpace = rightHalfOfTextFromLockSymbol.indexOf(' ');
+        if (nextSpace !== -1) {
+            password = rightHalfOfTextFromLockSymbol.substring(0, nextSpace);
+        }else{
+            password = rightHalfOfTextFromLockSymbol;
+        }
+        console.log("pwd:" + password);
+        return password;
     }
-
+    UserInterfaceBussinesController.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed() {
+        var treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed(),
+            tree = this.mapOfTreesById[treeid];
+        return tree;
+    };
     return UserInterfaceBussinesController;
 });
