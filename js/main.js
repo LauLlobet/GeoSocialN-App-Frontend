@@ -3,10 +3,10 @@ var phaserGameGlobal = undefined;
 require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPhaserApi",
         "View/UIEngineView/PhaserGame", "InputOutput/GestureObserver",
         "Controll/UserInterfaceBussinesController", "View/UIEngineView/Keyboard",
-        "Controll/NewlyPresentedTreeSubjectNotifier"
+        "Controll/NewlyPresentedTreeSubjectNotifier","View/UIEngineView/TextDialogHtml"
     ],
     function (SceneLoader, SpriteManagerPhaserApi, PhaserGame, GestureObserver,
-              UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier) {
+              UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier,TextDialogHtml) {
         "use strict";
         var sceneLoader, spriteManagerApi, keyboard,
             userInterfaceBussinesController = new UserInterfaceBussinesController(),

@@ -31,7 +31,7 @@ define([], function () {
         this.fontText.setText(formatedText, true, -30, 15, this.keymap, 10);
         this.text = text;
         this.buryMessageIfNecesary();
-        if ( this.editing) {
+        if (this.editing) {
             this.setBuryLayersToAlpha();
         } else {
             this.setBuryLayersToSolid();

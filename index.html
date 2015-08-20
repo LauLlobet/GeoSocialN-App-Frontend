@@ -1,174 +1,197 @@
 
 <!doctype html>
 <head>
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <!-- http://www.w3.org/TR/html5/browsers.html#manifests   META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"-->
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+    <title>OurTreeWeb</title>
+    <style>
+        /*noinspection ALL*/
+        image, canvas {
+            user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-drag: none;
+        }
+        @font-face {
+            font-family: 'Graublau Web';
+            src: url('GraublauWeb.eot');
+            src: local('☺︎'),
+            url('GraublauWeb.otf') format('opentype');
+        }
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        #turn{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/playportrait.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+        #desktopWarning{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/playmobile.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+        #acceptGPS{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/acceptGPS.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+        #unblockGPS{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/unblockGPS.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+
+        #calibratingGPS0{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/calibratingGPS0.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+        #calibratingGPS2{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/calibratingGPS2.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+        #calibratingGPS5{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/calibratingGPS5.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+        #calibratingGPS7{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/calibratingGPS7.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+        #calibratingGPS9{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/calibratingGPS9.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            display:none;
+        }
+
+        .buttonIgnorePrecision{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:80%;
+            left:50%;
+        }
+
+    </style>
 </head>
-<style>
-    /*noinspection ALL*/
-    image, canvas {
-        user-select: none;
-        -ms-user-select: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -webkit-touch-callout: none;
-        -webkit-user-drag: none;
-    }
-    @font-face {
-        font-family: 'Graublau Web';
-        src: url('GraublauWeb.eot');
-        src: local('☺︎'),
-        url('GraublauWeb.otf') format('opentype');
-    }
-     html,body{
-         margin: 0;
-         padding: 0;
-     }
-    #turn{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/playportrait.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
 
-    #desktopWarning{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/playmobile.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-    #acceptGPS{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/acceptGPS.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-    #unblockGPS{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/unblockGPS.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-
-
-    #calibratingGPS0{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/calibratingGPS0.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-
-    #calibratingGPS2{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/calibratingGPS2.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-
-    #calibratingGPS5{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/calibratingGPS5.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-
-    #calibratingGPS7{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/calibratingGPS7.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-
-    #calibratingGPS9{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0px;
-        left:0px;
-        background-color:white;
-        background-image:url('assets/calibratingGPS9.png');
-        background-repeat:no-repeat;
-        background-position: center center;
-        display:none;
-    }
-
-    #buttonIgnorePrecision{
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:80%;
-        left:50%;
-    }
-</style>
 
 <body id="mainId">
-<div id = "turn"></div>
-<div id = "desktopWarning"></div>
-<div id = "unblockGPS"></div>
-<div id = "acceptGPS"></div>
-<div id = "calibratingGPS0"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
-<div id = "calibratingGPS2"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
-<div id = "calibratingGPS5"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
-<div id = "calibratingGPS7"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
-<div id = "calibratingGPS9"><div id = "buttonIgnorePrecision"><img src="assets/ignorePrecision.png" onclick="ignorePrecision()"/><div></div>
-<script>
-    ignorePrecision = function (){
-        phaserGameGlobal.ignorePrecisionGps();
-    }
-</script>
-<canvas id="canvasBg" width="800" height="498"></canvas>
-<!--script type="text/javascript" src="avoidDraggingAndSelecting.js"></script-->
-<script type="text/javascript" src="js/lib/underscore.js"></script>
-<script type="text/javascript" src="spinningCircleOnLoading.js"></script>
-<script data-main="js/phaser" src="js/View/UIEngineView/phaser.js"></script>
-<script data-main="js/requireBootstrap" src="js/require.js"></script>
+    <div id = "turn"></div>
+    <div id = "desktopWarning"></div>
+    <div id = "unblockGPS"></div>
+    <div id = "acceptGPS"></div>
+    <div id = "calibratingGPS0">
+        <div class = "buttonIgnorePrecision">
+            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt=""/>
+        </div>
+    </div>
+    <div id = "calibratingGPS2">
+        <div class = "buttonIgnorePrecision">
+            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt="" />
+        </div>
+    </div>
+    <div id = "calibratingGPS5">
+        <div class = "buttonIgnorePrecision"><img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
+        </div>
+    </div>
+    <div id = "calibratingGPS7">
+        <div class = "buttonIgnorePrecision">
+            <img src="assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
+        </div>
+    </div>
+    <div id = "calibratingGPS9">
+        <div class = "buttonIgnorePrecision">
+            <img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
+        </div>
+    </div>
+
+    <script>
+        ignorePrecision = function (){
+            phaserGameGlobal.ignorePrecisionGps();
+        }
+    </script>
+    <canvas id="canvasBg" width="800" height="498"></canvas>
+    <!--script type="text/javascript" src="avoidDraggingAndSelecting.js"></script-->
+    <script type="text/javascript" src="js/lib/underscore.js"></script>
+    <script type="text/javascript" src="spinningCircleOnLoading.js"></script>
+    <script data-main="js/phaser" src="js/View/UIEngineView/phaser.js"></script>
+    <script data-main="js/requireBootstrap" src="js/require.js"></script>
 </body>

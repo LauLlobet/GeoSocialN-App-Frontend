@@ -5,13 +5,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
-    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/TextDialogHtml"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
-                                                           RelativeLocationCalculator) {
+                                                           RelativeLocationCalculator, TextDialogHtml) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting";
@@ -26,6 +26,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById, this.fillerOfIncommingListIfItGetsEmpty);
             this.lastKnownCoords = undefined;
             this.hashChangeTrigger = new HashChangeTrigger(this);
+
     }
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
@@ -49,6 +50,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.relativeLocationCalculator);
         this.gpsMovmentTrigger.init(this.relativeLocationCalculator);//no treure el subject de obserer del scene loader sino del build time
 
+        this.textDialogHtml = new TextDialogHtml(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
+
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
         this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
@@ -56,8 +59,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
         });
         this.fillerOfIncommingListIfItGetsEmpty.start();
-    }
-
+    };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         var that = this;
@@ -67,7 +69,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
-             //   that.sceneTreeTextKmInterface.setDistance(231233);
                 that.sceneTreeCompassInterface.setAngle(30);
             });
         }
@@ -81,7 +82,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
-               // that.sceneTreeTextKmInterface.setDistance(82487);
                 that.sceneTreeCompassInterface.setAngle(170);
             });
         }
@@ -97,7 +97,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.linkClicked = function (treeid){
         this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
-    }
+    };
 
     UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
         if (this.state === NAVIGATE) {
@@ -123,7 +123,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
             that.gpsMovmentTrigger.forceUpdate();
         });
-    }
+    };
 
     UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
         console.log("char: " + char);
@@ -140,11 +140,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             this.sceneTreeTextSetterInterface.removeChar();
         } else if (this.state === WRITTING) {
             this.sceneTreeTextSetterInterface.addChar(char);
+            this.textDialogHtml.show(Math.random() * 100, Math.random() * 100, 30, 30);
+            //this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.blockElement("desktopWarning");
         }
     };
 
     UserInterfaceBussinesController.prototype.userHasMoved = function userHasMoved(coords) {
-        if(coords !== undefined){
+        if (coords !== undefined) {
             this.lastKnownCoords = {x:coords.longitude, y:coords.latitude};
         }
         this.nearbyTreesFromServerToIncommingTreeList.userHasMovedTo(this.lastKnownCoords);
@@ -154,12 +156,14 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.userHasMoved(undefined);
     };
 
-    UserInterfaceBussinesController.prototype.hashHasBeenUpdated = function ( treeId ){
+    UserInterfaceBussinesController.prototype.hashHasBeenUpdated = function (treeId) {
         var that = this;
-        this.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(treeId).then(function(){
-            that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId);
-        });
-    }
+        this.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(treeId).then(
+            function () {
+                that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId);
+            }
+        );
+    };
 
     UserInterfaceBussinesController.prototype.buriedLayerEvent = function ( buryLayerId ){
         var treeid,
@@ -167,7 +171,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneTreeTextSetterInterface.unBury(buryLayerId);
         treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed();
         tree = this.mapOfTreesById[treeid];
-        if( tree.unburiedLayers === undefined ){
+        if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
         tree.unburiedLayers[buryLayerId] = true;

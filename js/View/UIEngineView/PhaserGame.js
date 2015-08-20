@@ -30,10 +30,19 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             this.lastSwipeTime = Date.now();
             this.game.state.start('Boot');
             this.ignorePrecision = false;
-
-
-    }
-
+    };
+    PhaserGame.prototype.blockElement = function (element) {
+        var elem = document.getElementById(element);
+        if (elem !== null) {
+            elem.style.display = "block";
+        }
+    };
+    PhaserGame.prototype.displayNoneElement = function (element) {
+        var elem = document.getElementById(element);
+        if (elem !== null) {
+            elem.style.display = "none";
+        }
+    };
     PhaserGame.prototype.resizeUpdate = function resizeUpdate() {
         if (window.innerWidth / window.innerHeight > targetW / targetH) {
             this.scale = window.innerHeight / targetH;
@@ -44,7 +53,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             this.game.scale.setGameSize(window.innerWidth, window.innerHeight);
         }
     };
-
     var blockElement = function (element) {
         var elem = document.getElementById(element);
         if (elem !== null) {
@@ -124,7 +132,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         if (typeof latitude !== 'undefined') {
             var lat = latitude;
             var long = longitude;
-            this.game.mapZoomTotalMilliseconds = 2500;
+            this.game.mapZoomTotalMilliseconds = 300;
         } else {
             var lat = 34;
             var long = 12;
@@ -189,6 +197,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
 
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
         this.game.load.image('linkLayer', '/OurTreeWeb/assets/linkLayer.png');
+        this.game.load.image('passwordBox', '/OurTreeWeb/assets/passwordBox.png');
+
         var i;
         for(i=0; i<10; i= i+1){
             this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
