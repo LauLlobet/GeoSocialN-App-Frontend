@@ -2,14 +2,16 @@
 /*jslint todo: true */
 define([], function () {
     "use strict";
-    var x = 200,
-        y = 300;
+    var x = 92,
+        y = 100,
+        textOffsetx = 9,
+        textOffsety = 60;
+
     function TextDialogHtml(phaserGame) {
         this.initSpriteGroupInPhaserEngine(phaserGame);
-        this.createText();
-        //this.setNoText();
-        this.setText("halo");
         this.createBackground();
+        this.createText();
+        this.setNoText();
         this.show();
     }
     TextDialogHtml.prototype.initSpriteGroupInPhaserEngine = function initSpriteGroupInPhaserEngine(phaserGame) {
@@ -22,10 +24,10 @@ define([], function () {
     TextDialogHtml.prototype.createText = function createText() {
         this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^$#0123456789";
         this.fontText = this.game.add.retroFont('carved', 120, 120, this.keymap, 5, 0, 0, 0, 0);
-        this.textImage = this.game.add.image(this.game.world.centerX, 6 + 3 * 32, this.fontText);
+        this.textImage = this.game.add.image(x + textOffsetx, y + textOffsety, this.fontText);
+        this.displayGroup.add(this.textImage);
         this.textImage.scale.x = 0.27 * 0.5;
         this.textImage.scale.y = 0.27 * 0.5;
-        this.displayGroup.add(this.textImage);
     };
     TextDialogHtml.prototype.show = function show() {
         this.displayGroup.setAll("true", false);
