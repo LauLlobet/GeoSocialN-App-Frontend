@@ -46,10 +46,10 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
     }
 
     RelativeLocationCalculator.prototype.calculateAndSendMetersToTreeTip = function calculateAndSendMetersToTreeTip() {
-        var metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
+        this.metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
-        this.sceneKmSetter.setDistance(Math.round(metersFromCellPhoneToTargetTree));//metersFromCellPhoneToTargetTree));
+        this.sceneKmSetter.setDistance(Math.round(this.metersFromCellPhoneToTargetTree));//metersFromCellPhoneToTargetTree));
     }
 
 

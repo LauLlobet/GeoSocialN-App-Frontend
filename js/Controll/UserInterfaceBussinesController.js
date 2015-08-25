@@ -5,13 +5,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
-    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog", "./leafPileUnburier"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
-                                                           RelativeLocationCalculator, PasswordDialog) {
+                                                           RelativeLocationCalculator, PasswordDialog, LeafPileUnburier) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -48,8 +48,10 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         tmp = new SpriteTreeCompassSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeCompassInterface = new SceneTreeCompassSetter(sceneLoaderInterface, tmp);
         this.relativeLocationCalculator = new RelativeLocationCalculator(this.mapOfTreesById, this.sceneTreeTextKmInterface, this.sceneTreeCompassInterface );
+        this.leafPileUnburier = new LeafPileUnburier(this.mapOfTreesById, this);
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.relativeLocationCalculator);
-        this.gpsMovmentTrigger.init(this.relativeLocationCalculator);//no treure el subject de obserer del scene loader sino del build time
+        this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.leafPileUnburier);
+        this.gpsMovmentTrigger.init(this.relativeLocationCalculator, this.leafPileUnburier);
 
         this.passwordDialog = new PasswordDialog(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
 
@@ -145,7 +147,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             }
         } else if (this.state === PASSWORD) {
             if (char === "ok") {
-                if (this.passwordDialog.getText() === this.getPasswordFromLockedTree() ) {
+                if (this.passwordDialog.getText() === this.getPasswordFromLockedTree()) {
                     this.unBuryLayer("lock");
                 }
                 this.passwordDialog.hideAndSetNoText();
@@ -209,9 +211,16 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }else{
             password = rightHalfOfTextFromLockSymbol;
         }
+        password = this.firstNcharcters(password, 11);
         console.log("pwd:" + password);
         return password;
-    }
+    };
+    UserInterfaceBussinesController.prototype.firstNcharcters = function firstNcharcters(string, n){
+        if(string.length < n){
+            return string;
+        }
+        return string.substr(0,n);
+    };
     UserInterfaceBussinesController.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed() {
         var treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed(),
             tree = this.mapOfTreesById[treeid];

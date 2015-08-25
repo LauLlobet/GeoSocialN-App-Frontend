@@ -195,6 +195,10 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.load.image('lock', '/OurTreeWeb/assets/lock.png');
         this.game.load.image('lockpick', '/OurTreeWeb/assets/lockpick.png');
 
+
+        this.game.load.image('leafs', '/OurTreeWeb/assets/pileOfLeafs.png');
+        this.game.load.image('leafspick', '/OurTreeWeb/assets/leaf.png');
+
         this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
         this.game.load.image('linkLayer', '/OurTreeWeb/assets/linkLayer.png');
         this.game.load.image('passwordBox', '/OurTreeWeb/assets/passwordBox.png');

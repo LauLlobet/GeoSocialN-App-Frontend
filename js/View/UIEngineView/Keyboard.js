@@ -106,7 +106,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     };
 
     Keyboard.prototype.addKeyChar = function (char, sprite, scale, group) {
-        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^$#0123456789",
+        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789",
             font =  this.game.add.retroFont('carved', 120, 120, keymap, 5, 0, 0, 0, 0),
             i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, group);
         font.setText(char , false, 0, 0 , 0, 0);

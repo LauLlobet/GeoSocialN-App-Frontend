@@ -22,8 +22,9 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
                                             this.options);
     };
 
-    GpsMovmentTrigger.prototype.init = function init(relativeLocationCalculator){
+    GpsMovmentTrigger.prototype.init = function init(relativeLocationCalculator, leafPileUnburier){
         this.relativeLocationCalculator = relativeLocationCalculator;
+        this.leafPileUnburier = leafPileUnburier;
     };
 
     GpsMovmentTrigger.prototype.userHasMovedUpdateFunction = function userHasMovedUpdateFunction(position) {
@@ -47,7 +48,8 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             this.bussinesController.userHasMoved(position.coords);
             this.lastMoveCoordinates = position.coords;
         }
-        this.relativeLocationCalculator !== undefined ? this.relativeLocationCalculator.onNewlyLocationOfTheCellPhone(position.coords) : console.log("relativeLocationCalculator Not Set Yet") ;
+        this.relativeLocationCalculator !== undefined ? this.relativeLocationCalculator.onNewlyLocationOfTheCellPhone(position.coords) : console.log("relativeLocationCalculator Not Set Yet");
+        this.relativeLocationCalculator !== undefined ? this.leafPileUnburier.onNewlyLocationOfTheCellPhone(position.coords) : console.log("leafPileUnburier Not Set Yet");
         this.handlePrecisionAlerts(position.coords.accuracy);
     };
     GpsMovmentTrigger.prototype.handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined = function handleBegginingOfTrackingIfLastMoveCoordinatesAreUndefined(position) {
