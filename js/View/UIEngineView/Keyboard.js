@@ -87,7 +87,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         };
         sprite.events.onInputDown.add(function () {
             if ("vibrate" in navigator) {
-                navigator.vibrate(100);
+                //navigator.vibrate(100);
             }
             this.keyboard.createPopupGroup(this);
             this.keyboard.createPopupBackgroundSprite(this, 75, 200, 75);

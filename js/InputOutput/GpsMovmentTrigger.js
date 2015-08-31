@@ -85,7 +85,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             precisionOneToTen = 10;
         }
 
-        if (precisionInMeters === 150){
+        if (precisionInMeters === 150 && navigator.userAgent.match("emulated") !== null){
            precisionOneToTen = 10;
         }
 

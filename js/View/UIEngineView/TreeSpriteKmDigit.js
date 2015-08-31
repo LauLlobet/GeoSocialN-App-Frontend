@@ -7,7 +7,7 @@ define([], function () {
     {
         this.parentGroup = parentGroup;
         this.createSpritesAndGroup(phaserGame);
-        this.setDigit('n');
+        this.setDigitToBlank();
         this.setXY(x, y);
         this.setScale(0.55);
     }
@@ -61,5 +61,8 @@ define([], function () {
         this.sprite.visible = true;
         this.setXYScaleFromSetted();
     };
+    TreeSpriteKmDigit.prototype.setDigitToBlank = function () {
+        this.setDigit('n');
+    }
     return TreeSpriteKmDigit;
 });

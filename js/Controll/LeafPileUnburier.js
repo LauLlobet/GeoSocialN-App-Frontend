@@ -43,7 +43,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         this.metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
-        if(this.metersFromCellPhoneToTargetTree < limitToUnbury) {
+        if(this.metersFromCellPhoneToTargetTree < limitToUnbury &&  this.currentCellPhoneCoordinates.accuracy < 14) {
             this.bussinesController.unBuryLayer("leafs");
         }
     }
