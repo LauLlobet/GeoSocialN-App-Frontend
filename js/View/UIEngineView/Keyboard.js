@@ -86,7 +86,11 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
                 keyboard : this
         };
         sprite.events.onInputDown.add(function () {
-            if (typeof navigator.vibrate  === "undefined") {
+            navigator.vibrate = navigator.vibrate ||
+                                navigator.webkitVibrate ||
+                                navigator.mozVibrate ||
+                                navigator.msVibrate;
+            if (navigator.vibrate) {
                 navigator.vibrate(100);
             }
             this.keyboard.createPopupGroup(this);
