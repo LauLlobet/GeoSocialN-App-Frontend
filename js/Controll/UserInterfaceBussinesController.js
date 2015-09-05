@@ -57,10 +57,41 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
-        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"}, {id: -4, text: ""},  {id: -2, text: ""}, ]);
-        this.swipeLeft().then(function () {
-            that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
+        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"},
+            {id: -4, text: ""},
+            {id: -2, text: ""}]);
+
+        //
+        // PERFORMANCE tEst begins
+        //
+
+        var longtext = "THIS IS A LONG TEXT TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW THIS IS A LONG TEXT TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
+            longtextWithLock = " THIS IS A LONG TEXT WITHA A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A LONG TEXT WITHA * A LOCK TO SEE HOW THE SYSTEM PERFORMS WITH IT",
+            d = new Date(),
+            n = d.getTime();
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1001, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 2.111330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1002, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 1.311330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1003, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 2.111330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1004, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 3.111330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1005, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 2.111330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1006, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 3.111330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1007, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 1.611330986022949 })
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({id: 1008, ip: "87.223.58.75", metersToHide: 10, text: "PIINT", timestamp: 1441013147469, x: 2.111330986022949, y: 1.111330986022949 })
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [ undefined,{id: 1001, text: longtext},]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft",  [{id: 1003, text: "C"}, {id: 1004, text: longtextWithLock}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1006, text: longtext}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft",  [{id: 1007, text: longtextWithLock}, {id: 1008, text: "H"}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1006, text: longtextWithLock}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft",  [{id: 1007, text: "G"}, {id: 1008, text: longtextWithLock}]);
+        this.sceneLoaderInterface.playAllStackedScenes().then(function f() {
+            var d = new Date(),
+                elapsed = d.getTime() - n;
+            var score = ( (12 - (elapsed / 1000)) / 6 ) * 10;
+            alert("Performance test done:" + score);
         });
+        //this.swipeLeft().then(function () {
+            //that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
+        //});
         this.fillerOfIncommingListIfItGetsEmpty.start();
     };
     //MAIN INPUT FUNCTION
@@ -72,7 +103,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
-                that.sceneTreeCompassInterface.setAngle(30);
             });
         }
     };
@@ -85,7 +115,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
-                that.sceneTreeCompassInterface.setAngle(170);
             });
         }
     };
