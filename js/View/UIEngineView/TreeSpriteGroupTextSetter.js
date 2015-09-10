@@ -13,6 +13,7 @@ define([], function () {
         this.gestureObserver = gestureObserver;
     }
     TreeSpriteGroupTextSetter.prototype.createText = function createText(text, unburiedLayers) {
+        this.treeSpriteGroup.fontText = this.fontText;
         this.textImage = this.game.add.image(0, 60, this.fontText);
         this.textImage.scale.x = 0.27 * 0.5;
         this.textImage.scale.y = 0.27 * 0.5;
@@ -21,7 +22,7 @@ define([], function () {
         }
         this.unburiedLayers = unburiedLayers;
         this.treeSpriteGroup.add(this.textImage);
-        this.treeSpriteGroup.fontText = this.fontText;
+
         this.treeSpriteGroup.keymap = this.keymap;
         this.setText(text);
     };

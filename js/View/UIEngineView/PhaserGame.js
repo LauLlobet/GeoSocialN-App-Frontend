@@ -158,6 +158,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     };
 
     PhaserGame.prototype.preload = function preload() {
+        this.game.time.advancedTiming = true;
         this.game.stage.backgroundColor = '#99b4cf';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
@@ -258,6 +259,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         //this.game.debug.inputInfo(16, 16);
          //this.game.debug.pointer(this.game.input.activePointer);
     //    this.game.debug.pointer(this.game.input.pointer1);
+        this.game.debug.text(this.game.time.fps || '--', 2, 14, "#ffff00");
+
     };
 
 

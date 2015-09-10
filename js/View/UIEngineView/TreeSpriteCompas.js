@@ -19,14 +19,14 @@ define([], function () {
         this.createSprites();
     };
     TreeSpriteCompas.prototype.createSprites = function createSprites() {
-        this.background = this.group.create(0, 0, 'compasBg');
-        this.needle = this.group.create(0, 0, 'needle');
+        //this.background = this.group.create(0, 0, 'compasBg');
+        //this.needle = this.group.create(0, 0, 'needle');
     };
     TreeSpriteCompas.prototype.centerNeedle = function centerNeedle() {
 
-        this.needle.x = this.needle.width / 2;
+        /*this.needle.x = this.needle.width / 2;
         this.needle.y = this.needle.width / 2;
-        this.needle.anchor.setTo(0.5, 0.5);
+        this.needle.anchor.setTo(0.5, 0.5);*/
     };
     TreeSpriteCompas.prototype.setXY = function setXY(x,y) {
         this.x = x;
@@ -42,17 +42,17 @@ define([], function () {
         this.setScalefromSetted();
     };
     TreeSpriteCompas.prototype.setScalefromSetted = function setScalefromSetted() {
-        this.needle.scale.x = this.scale;
+        /*this.needle.scale.x = this.scale;
         this.needle.scale.y = this.scale;
         this.background.scale.x = this.scale;
-        this.background.scale.y = this.scale;
+        this.background.scale.y = this.scale;*/
     };
     TreeSpriteCompas.prototype.setXYScaleFromSetted = function setXYScaleFromSetted() {
         this.setXYfromSettedPosition();
         this.setScalefromSetted();
     };
     TreeSpriteCompas.prototype.setAngle = function (angle) {
-        this.needle.angle = angle;
+       // this.needle.angle = angle;
     };
     return TreeSpriteCompas;
 });

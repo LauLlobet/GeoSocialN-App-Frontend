@@ -9,7 +9,9 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
             this.game = phaserGame.game;
             this.phaserGame = phaserGame;
             this.singleTreeGroupFactory = new SingleTreeGroupFactory(phaserGame, this.allSpritesGroup, gestureObserver);
-            phaserGame.scaleToReal(40);
+            phaserGame.scaleToReal(40)
+            this.deletedSpriteGroupsWithText = [];
+            this.deletedSpriteGroupsWithoutText = [];
     }
 
     //MAIN INPUT FUNCTION
@@ -23,7 +25,7 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
             if (list.hasOwnProperty(i)) {
                 if (!this.existsId(list[i])) {
                     tree = this.askForTreeToSceneLoader(list[i]);
-                    this.singleTreeGroupFactory.createTreeSpriteGroup(tree, list[i]);
+                    this.createTreeSpriteGroup(tree, list[i]);
                     if (tree.tween !== undefined) {
                         this.tweenStprite(list[i], tree);
                         this.enableButtonOfSpriteIfItBecomesCentral(list[i], tree);
@@ -66,7 +68,18 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
         return this.sceneLoaderInterface.getTreeFromId(id);
     };
     SpriteManagerPhaserApi.prototype.createTreeSpriteGroup = function createSprite(tree, id) {
-        this.singleTreeGroupFactory.createTreeSpriteGroup(tree, id);
+        var treeSpriteG;
+        if (tree.text) {
+            treeSpriteG = this.deletedSpriteGroupsWithoutText.pop();
+        } else {
+            treeSpriteG = this.deletedSpriteGroupsWithText.pop();
+        }
+        if (treeSpriteG === undefined) {
+            this.singleTreeGroupFactory.createTreeSpriteGroup(tree, id);
+            console.log("ALLOCATED");
+        } else {
+            this.singleTreeGroupFactory.reuseTreeSpriteGroup(tree, id, treeSpriteG);
+        }
     };
     SpriteManagerPhaserApi.prototype.tweenStprite = function tweenStprite(id, tree) {
         var group = this.findTreeSpriteGroupByName(id),
@@ -102,6 +115,9 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
             return;
         }
         button = this.findTreeButtonById(id);
+        if (button === undefined || button === null) {
+            return;
+        }
         if (tree.finalPosition === '1c') {
             button.inputEnabled = true;
         } else {
@@ -114,7 +130,11 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     SpriteManagerPhaserApi.prototype.deleteTreeSpriteGroup = function deleteTreeSpriteGroup(id) {
         var sprite = this.findTreeSpriteGroupByName(id);
         this.allSpritesGroup.remove(sprite);
-        sprite.destroy();
+        if (sprite.buttonSprite) {
+            this.deletedSpriteGroupsWithText.push(sprite);
+        } else {
+            this.deletedSpriteGroupsWithoutText.push(sprite);
+        }
     };
     SpriteManagerPhaserApi.prototype.findTreeSpriteGroupByName = function findTreeSpriteGroupByName(id) {
         return this.allSpritesGroup.iterate('name', id, Phaser.Group.RETURN_CHILD);

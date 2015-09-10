@@ -34,6 +34,22 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }
     };
 
+    SingleTreeGroupFactory.prototype.reuseTreeSpriteGroup = function createTreeSpriteGroup(tree, id, group) {
+        this.group = group;
+        this.sprite.anchor.x = 104 / 400;
+        this.sprite.anchor.y = 172 / 611;
+        this.group.x = this.phaserGame.coordX(tree.x);
+        this.group.y = this.phaserGame.coordY(tree.y);
+        this.setScalePropertiesToNewGroup(tree);
+        this.setTreeGroupIntoAllSpritesGroup(id);
+        if (tree.unburiedLayers === undefined || tree.initialPosition.charAt(0) === '3') {
+            tree.unburiedLayers = {};
+        }
+        if (tree.text !== undefined) {
+            this.group.textSetter.setText(tree.text);
+        }
+    };
+
     SingleTreeGroupFactory.prototype.setScalePropertiesToNewGroup = function setPropertiesToNewGroup(tree) {
         var prespectiveScale = tree.w / this.sprite.width,
             cellPhoneScale = this.phaserGame.scale,
@@ -43,18 +59,17 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
 
     SingleTreeGroupFactory.prototype.isNotAnEmptyTree = function (tree) {
         return (tree.text !== undefined || tree.button === undefined);
-    }
-
+    };
     SingleTreeGroupFactory.prototype.isNotInstructionTree = function (tree) {
         return (tree.treeid !== 1);
-    }
-
+    };
     SingleTreeGroupFactory.prototype.ifEmptyTreeSetWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
         var button, context, tween;
         if (this.isNotAnEmptyTree(tree)) {
             return;
         }
         button = this.group.create(tree.button.x, tree.button.y, 'punzon');
+        this.group.buttonSprite = button;
         button.name = 'button';
         button.height = tree.button.hw;
         button.width = tree.button.hw;
@@ -78,7 +93,10 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }, context);
     };
 
-    SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id) {
+    SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id,treeGroup) {
+        if (treeGroup !== undefined) {
+            this.group = treeGroup;
+        }
         this.group.name = id;
         this.mainGroup.add(this.group);
     };
