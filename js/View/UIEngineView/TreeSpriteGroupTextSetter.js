@@ -9,14 +9,14 @@ define([], function () {
         this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789";
         this.treeSpriteGroup = treeSpriteGroup;
         this.game = game;
-        this.fontText =  this.game.add.retroFont('carved', 120, 120, this.keymap, 5, 0, 0, 0, 0);
+        this.fontText =  this.game.add.retroFont('carved', 20, 20, this.keymap, 5, 0, 0, 0, 0);
         this.gestureObserver = gestureObserver;
     }
     TreeSpriteGroupTextSetter.prototype.createText = function createText(text, unburiedLayers) {
         this.treeSpriteGroup.fontText = this.fontText;
         this.textImage = this.game.add.image(0, 60, this.fontText);
-        this.textImage.scale.x = 0.27 * 0.5;
-        this.textImage.scale.y = 0.27 * 0.5;
+        this.textImage.scale.x = 0.90;
+        this.textImage.scale.y = 0.90;
         if (text === undefined) {
             text = "";
         }
@@ -29,7 +29,7 @@ define([], function () {
     TreeSpriteGroupTextSetter.prototype.setText = function setText(text) {
         var formatedText =  this.formatText(text);
         this.setInteractiveLinksToRetroText(this.treeSpriteGroup, formatedText);
-        this.fontText.setText(formatedText, true, -30, 15, this.keymap, 10);
+        this.fontText.setText(formatedText, true, -7, 10, this.keymap, 10);
         this.text = text;
         this.buryMessageInLayerOrderAccordingToFirstAppearance();
         this.unBuryMessageIfNecesary();

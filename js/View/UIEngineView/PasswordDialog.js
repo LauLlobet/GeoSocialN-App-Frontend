@@ -24,11 +24,11 @@ define([], function () {
     };
     PasswordDialog.prototype.createText = function createText() {
         this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789";
-        this.fontText = this.game.add.retroFont('carved', 120, 120, this.keymap, 5, 0, 0, 0, 0);
+        this.fontText = this.game.add.retroFont('carved', 20, 20, this.keymap, 5, 0, 0, 0, 0);
         this.textImage = this.game.add.image(x + textOffsetx, y + textOffsety, this.fontText);
         this.displayGroup.add(this.textImage);
-        this.textImage.scale.x = 0.27 * 0.5;
-        this.textImage.scale.y = 0.27 * 0.5;
+        this.textImage.scale.x = 0.27 * 2;
+        this.textImage.scale.y = 0.27 * 2;
     };
     PasswordDialog.prototype.show = function show() {
         this.displayGroup.setAll("visible", true);
