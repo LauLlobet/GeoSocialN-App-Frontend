@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/alphabet2.png" afterPath="$PROJECT_DIR$/assets/alphabet2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/PasswordDialog.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/PasswordDialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCounterKmSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCounterKmSetter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spinningCircleOnLoading.js" afterPath="$PROJECT_DIR$/spinningCircleOnLoading.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TreeSpriteGroupTextSetter.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TreeSpriteGroupTextSetter.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="4035">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.625" vertical-offset="115" max-vertical-offset="4140">
+              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -91,7 +84,7 @@
       <file leaf-file-name="TreeSpriteCompas.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="945">
+            <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="945">
               <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               <folding />
             </state>
@@ -118,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49907234" vertical-offset="3001" max-vertical-offset="4110">
-              <caret line="218" column="72" selection-start-line="218" selection-start-column="72" selection-end-line="218" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3031" max-vertical-offset="4140">
+              <caret line="220" column="90" selection-start-line="220" selection-start-column="90" selection-end-line="220" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -195,8 +188,8 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/PasswordDialog.js" />
         <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
       </list>
     </option>
   </component>
@@ -901,7 +894,7 @@
       <workItem from="1436343204899" duration="136703000" />
       <workItem from="1439453475449" duration="91615000" />
       <workItem from="1441010853986" duration="43906000" />
-      <workItem from="1442223210493" duration="1407000" />
+      <workItem from="1442223210493" duration="4154000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1201,7 +1194,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="762789000" />
+    <option name="totallyTimeSpent" value="765536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="22" width="1390" height="878" extended-state="6" />
@@ -1623,14 +1616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1635">
@@ -1663,21 +1648,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="4035">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="945">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49907234" vertical-offset="3001" max-vertical-offset="4110">
-          <caret line="218" column="72" selection-start-line="218" selection-start-column="72" selection-end-line="218" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3031" max-vertical-offset="4140">
+          <caret line="220" column="90" selection-start-line="220" selection-start-column="90" selection-end-line="220" selection-end-column="90" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.625" vertical-offset="115" max-vertical-offset="4140">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

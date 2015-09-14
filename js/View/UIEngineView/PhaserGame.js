@@ -217,6 +217,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
 
         this.game.load.image('compasBg', '/OurTreeWeb/assets/compasBg.png');
         this.game.load.image('needle', '/OurTreeWeb/assets/needle.png');
+
+        this.game.load.bitmapFont('ubuntu', '/OurTreeWeb/assets/ubuntu.png', '/OurTreeWeb/assets/ubuntu.fnt');
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),

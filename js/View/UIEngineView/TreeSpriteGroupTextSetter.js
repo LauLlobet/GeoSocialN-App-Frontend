@@ -6,30 +6,37 @@ define([], function () {
     var TEXTLENGTH = 16;
     function TreeSpriteGroupTextSetter(treeSpriteGroup, game, gestureObserver) //noinspection JSLint
     {
-        this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789";
+        //this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789";
         this.treeSpriteGroup = treeSpriteGroup;
         this.game = game;
-        this.fontText =  this.game.add.retroFont('carved', 20, 20, this.keymap, 5, 0, 0, 0, 0);
+        //this.fontText =  this.game.add.retroFont('carved', 20, 20, this.keymap, 5, 0, 0, 0, 0);
         this.gestureObserver = gestureObserver;
     }
     TreeSpriteGroupTextSetter.prototype.createText = function createText(text, unburiedLayers) {
-        this.treeSpriteGroup.fontText = this.fontText;
-        this.textImage = this.game.add.image(0, 60, this.fontText);
-        this.textImage.scale.x = 0.90;
-        this.textImage.scale.y = 0.90;
-        if (text === undefined) {
-            text = "";
-        }
+        //this.treeSpriteGroup.fontText = this.fontText;
+        //this.textImage = this.game.add.image(0, 60, this.fontText);
         this.unburiedLayers = unburiedLayers;
-        this.treeSpriteGroup.add(this.textImage);
-
-        this.treeSpriteGroup.keymap = this.keymap;
         this.setText(text);
     };
     TreeSpriteGroupTextSetter.prototype.setText = function setText(text) {
+
+        if (text === undefined) {
+            text = "";
+        }
+        if (this.textImage !== undefined) {
+            this.textImage.destroy();
+        }
         var formatedText =  this.formatText(text);
+        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', formatedText, 24);
+        this.textImage =  this.treeSpriteGroup.create(0, 0, tmp.generateTexture());
+        tmp.destroy();
+        this.textImage.scale.x = 0.90;
+        this.textImage.scale.y = 0.90;
+
+        this.treeSpriteGroup.keymap = this.keymap;
+
         this.setInteractiveLinksToRetroText(this.treeSpriteGroup, formatedText);
-        this.fontText.setText(formatedText, true, -7, 10, this.keymap, 10);
+        //this.fontText.setText(formatedText, true, -7, 10, this.keymap, 10);
         this.text = text;
         this.buryMessageInLayerOrderAccordingToFirstAppearance();
         this.unBuryMessageIfNecesary();
