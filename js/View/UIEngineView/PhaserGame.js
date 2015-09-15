@@ -3,12 +3,13 @@
 define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
     "use strict";
     //noinspection JSLint
-    var windowObj = window, callbackFunct, targetW = 720, targetH = 1280;
+    var windowObj = window, callbackFunct, targetW = 360, targetH = 640;
+    //var windowObj = window, callbackFunct, targetW = 720, targetH = 1280;
 
     function PhaserGame(callback, gestureObserver) //noinspection JSLint
     {
             this.gestureObserver = gestureObserver;
-            this.scale = 0.4; // temporal, it gets updated in this.resizeUpdate()
+            this.scale = 0.5; // temporal, it gets updated in this.resizeUpdate()
             this.virtualWidth = targetW;
             this.virtualHeight = targetH;
             callbackFunct = callback;
@@ -16,7 +17,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             if (element !== null) {
                 element.parentNode.removeChild(element);
             }
-            this.game = new Phaser.Game(windowObj.innerWidth, windowObj.innerHeight, Phaser.CANVAS, this);
+            this.game = new Phaser.Game(targetW, targetH, Phaser.CANVAS, this);
             this.gameState = { preload: this.preload, create: this.create, update: this.update, render: this.render  };
             this.bootState = {  preload: function bootPreload() {
                                                           this.game.load.image('aaaa', '/OurTreeWeb/assets/spaceKey.png');
@@ -44,14 +45,14 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         }
     };
     PhaserGame.prototype.resizeUpdate = function resizeUpdate() {
-        if (window.innerWidth / window.innerHeight > targetW / targetH) {
+        /*if (window.innerWidth / window.innerHeight > targetW / targetH) {
             this.scale = window.innerHeight / targetH;
         } else {
             this.scale = window.innerWidth / targetW;
-        }
-        if (this.game.scale !== null) {
-            this.game.scale.setGameSize(window.innerWidth, window.innerHeight);
-        }
+        }*/
+        /* if (this.game.scale !== null) {
+            this.game.scale.setGameSize(targetW, targetH);
+        }*/
     };
     var blockElement = function (element) {
         var elem = document.getElementById(element);
@@ -59,14 +60,12 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             elem.style.display = "block";
         }
     };
-
     var displayNoneElement = function (element) {
         var elem = document.getElementById(element);
         if (elem !== null) {
             elem.style.display = "none";
         }
     };
-
     PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
         //if (!this.game.device.desktop) {
         //blockElement("turn");
@@ -129,7 +128,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
 
         var scale = windowObj.innerWidth / mapWidth;
 
-        if (typeof latitude !== 'undefined') {
+       /* if (typeof latitude !== 'undefined') {
             var lat = latitude;
             var long = longitude;
             this.game.mapZoomTotalMilliseconds = 300;
@@ -142,19 +141,19 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         var latRad = lat*Math.PI/180;
         var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2)));
         var y = (mapHeight/2)-(mapWidth*mercN/(2*Math.PI));
-
-        map.anchor.x = x / mapWidth;
-        map.anchor.y = y / mapHeight;
+        */
+        map.anchor.x = 0.5;
+        map.anchor.y = 0.5;
 
         map.scale.x = scale;
         map.scale.y = scale;
 
-        this.game.zoomStartedMillieconds = (new Date()).getTime();
+  //      this.game.zoomStartedMillieconds = (new Date()).getTime();
 
-
+/*
         this.game.add.tween(map.scale).to({x : 30, y : 30}, this.game.mapZoomTotalMilliseconds, 'Linear').start();
         this.game.add.tween(map).to({ x: windowObj.innerWidth / 2, y : windowObj.innerHeight / 2 }, this.game.mapZoomTotalMilliseconds, 'Linear').start();
-        this.game.map = map;
+        this.game.map = map;*/
     };
 
     PhaserGame.prototype.preload = function preload() {
@@ -162,21 +161,23 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.stage.backgroundColor = '#99b4cf';
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
-        this.game.parent.setZoomMap();
+        //this.game.parent.setZoomMap();
         this.game.parent.loadImages();
-        this.game.scale.parentIsWindow = true;
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
-        this.game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
-        this.game.scale.forceOrientation(false, true);
-        this.game.scale.enterIncorrectOrientation.add(this.game.parent.handleIncorrect);
+        //this.game.scale.parentIsWindow = true;
+        //this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.USER_SCALE;
+        this.game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+        this.game.scale.setUserScale(2, 2, 0, 0);
+        //this.game.scale.forceOrientation(false, true);
+        /*this.game.scale.enterIncorrectOrientation.add(this.game.parent.handleIncorrect);
         this.game.scale.leaveIncorrectOrientation.add(this.game.parent.handleCorrect);
         if (this.game.device.desktop) {
             this.game.parent.handleDesktop();
         }else{
             this.game.parent.handleMobile();
-        }
+        }*/
         this.game.scale.refresh();
-        this.game.parent.resizeUpdate();
+
+        //this.game.parent.resizeUpdate();
         this.game.loading = loading;
     };
     PhaserGame.prototype.loadImages = function loadImages(){
@@ -234,11 +235,11 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         parent.game.world.remove(parent.game.map);
     };
     PhaserGame.prototype.coordX = function coordX(xi) {
-        return xi * this.scale + this.game.world.centerX;
+        return xi * this.scale + targetW / 2;//+ this.game.world.centerX;
     };
 
     PhaserGame.prototype.coordY = function coordY(yi) {
-        return yi * this.scale + this.game.world.centerY;
+        return yi * this.scale + targetH / 2;//+ this.game.world.centerY;
     };
 
     PhaserGame.prototype.scaleToReal = function scaleToRealT(value) {
