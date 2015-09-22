@@ -160,7 +160,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             y: 1.111330986022949
         });
 
-        if (confirm('Start performance test?')) {
+        if (confirm('Start performance test? NOZOOM')) {
 
             var longtext = "THIS IS A LONG TEXT TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS #1234 SLOW THIS IS A LONG TEXT #3456 TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
                 longtextWithLock = " THIS IS A LONG TEXT WITHA A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A $ LONG TEXT WITHA * A LOCK TO SEE  HOW THE SYSTEM PERFORMS WITH IT",
