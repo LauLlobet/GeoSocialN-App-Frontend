@@ -76,7 +76,6 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
         }
         if (treeSpriteG === undefined) {
             this.singleTreeGroupFactory.createTreeSpriteGroup(tree, id);
-            console.log("ALLOCATED");
         } else {
             this.singleTreeGroupFactory.reuseTreeSpriteGroup(tree, id, treeSpriteG);
         }

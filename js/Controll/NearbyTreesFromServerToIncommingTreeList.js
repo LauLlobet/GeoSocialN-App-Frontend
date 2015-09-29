@@ -57,10 +57,7 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
         if (tree.text === null){
             tree.text = "this tree is null";
         }
-        console.log("loaded tree with text:" + tree.text);
         this.mapOfTreesById[tree.id] = tree;
     }
-
-
     return NearbyTreesFromServerToIncommingTreeList;
 });

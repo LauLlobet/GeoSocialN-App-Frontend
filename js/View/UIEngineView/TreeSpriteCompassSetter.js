@@ -14,6 +14,5 @@ define(["./TreeSpriteCompas"], function (TreeSpriteCompas) {
     TreeCompasTextSetter.prototype.setAngle = function setAngle(angle) {
         this.compassSetter.setAngle(angle);
     };
-
     return TreeCompasTextSetter;
 });

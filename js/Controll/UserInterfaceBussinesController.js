@@ -42,10 +42,21 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             id: 1006,
             text: longtextWithLock
         }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: "G"}, {
-            id: 1008,
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1001, text: longtext}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1003, text: "C"}, {
+            id: 1004,
             text: longtextWithLock
         }]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1006, text: longtext}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: longtextWithLock}, undefined]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
+            id: 1006,
+            text: longtextWithLock
+        }]);
+        /*this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: "G"}, {
+            id: 1008,
+            text: longtextWithLock
+        }]);*/
     };
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
@@ -167,101 +178,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 d = new Date(),
                 n = d.getTime();
             this.loadPerformanceTestScenes(longtextWithLock, longtext);
-            this.sceneLoaderInterface.playAllStackedScenes().then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var d = new Date(),
-                    elapsed = d.getTime() - n;
-                var score = ( (12 - (elapsed / 1000)) / 6 ) * 1000;
-                results.push(score);
-                sum = sum + score;
-                d = new Date();
-                n = d.getTime();
-                //alert("Performance test done:" + score);
-            }).then(function f() {
-                that.loadPerformanceTestScenes(longtextWithLock, longtext);
-                return that.sceneLoaderInterface.playAllStackedScenes();
-            }).then(function f() {
-                var a = results.length;
-                average = sum / a;
-                var i = 0, deviation = 0;
-                for (; i < a; i++) {
-                    deviation = deviation + Math.pow(average - results[i], 2)
-                }
-                deviation = Math.sqrt(deviation / a);
-                alert("avg:" + average + " devi:" + deviation);
-            });
-        }else{
+            this.sceneLoaderInterface.playAllStackedScenes();
+
+        } else {
             this.swipeLeft().then(function () {
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
             });

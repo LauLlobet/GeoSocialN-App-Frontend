@@ -6,38 +6,42 @@ define([], function () {
     var TEXTLENGTH = 16;
     function TreeSpriteGroupTextSetter(treeSpriteGroup, game, gestureObserver) //noinspection JSLint
     {
-        //this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789";
         this.treeSpriteGroup = treeSpriteGroup;
         this.game = game;
-        //this.fontText =  this.game.add.retroFont('carved', 20, 20, this.keymap, 5, 0, 0, 0, 0);
         this.gestureObserver = gestureObserver;
     }
     TreeSpriteGroupTextSetter.prototype.createText = function createText(text, unburiedLayers) {
-        //this.treeSpriteGroup.fontText = this.fontText;
-        //this.textImage = this.game.add.image(0, 60, this.fontText);
         this.unburiedLayers = unburiedLayers;
         this.setText(text);
     };
     TreeSpriteGroupTextSetter.prototype.setText = function setText(text) {
-
+        this.rewriteTextAtributeWithNewTextAndFormatIt(text);
+        this.deletePreviousTreesSprites();
+        this.addTextImage();
+        this.setInteractiveLinksToRetroText();
+        this.handleBuringTextCases();
+    };
+    TreeSpriteGroupTextSetter.prototype.rewriteTextAtributeWithNewTextAndFormatIt = function rewriteTextAtributeWithNewTextAndFormatIt(text) {
         if (text === undefined) {
             text = "";
         }
+        this.text = text;
+        this.formatedText =  this.formatText(text);
+    };
+    TreeSpriteGroupTextSetter.prototype.deletePreviousTreesSprites = function deletePreviousTreesSprites() {
         if (this.textImage !== undefined) {
             this.textImage.destroy();
         }
-        var formatedText =  this.formatText(text);
-        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', formatedText, 24);
+        this.removeLinks();
+    };
+    TreeSpriteGroupTextSetter.prototype.addTextImage = function addTextImage() {
+        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', this.formatedText, 24);
         this.textImage =  this.treeSpriteGroup.create(0, 0, tmp.generateTexture());
         tmp.destroy();
         this.textImage.scale.x = 0.90;
         this.textImage.scale.y = 0.90;
-
-        this.treeSpriteGroup.keymap = this.keymap;
-
-        this.setInteractiveLinksToRetroText(this.treeSpriteGroup, formatedText);
-        //this.fontText.setText(formatedText, true, -7, 10, this.keymap, 10);
-        this.text = text;
+    };
+    TreeSpriteGroupTextSetter.prototype.handleBuringTextCases = function handleBuringTextCases() {
         this.buryMessageInLayerOrderAccordingToFirstAppearance();
         this.unBuryMessageIfNecesary();
         if (this.editing) {
@@ -46,7 +50,6 @@ define([], function () {
             this.setBuryLayersToSolid();
         }
     };
-
     TreeSpriteGroupTextSetter.prototype.buryMessageInLayerOrderAccordingToFirstAppearance = function buryMessageInLayerOrderAccordingToFirstAppearance() {
         var lockPosition = this.findLineOfCharacterInText('$'),
             leafPosition = this.findLineOfCharacterInText('*');
@@ -79,7 +82,7 @@ define([], function () {
             j;
         text = text.toUpperCase();
         if (this.editing === true) {
-            text = text + "}"; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
+            text = text + "|"; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
         } else {
             text = text + " "; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
         }
@@ -95,6 +98,7 @@ define([], function () {
     }
 
     TreeSpriteGroupTextSetter.prototype.setInteractiveLinksToRetroText = function (group, formatedText) {
+
         var initCharposX = 1,//this.textImage.x,
             charposX = initCharposX,
             charposY = 60,//this.textImage.y,
@@ -109,7 +113,9 @@ define([], function () {
             x,
             c,
             i,
-            j;
+            j,
+            group = this.treeSpriteGroup,
+            formatedText = this.formatedText;
 
         for (x = 0, c = ''; c = formatedText.charAt(x); x++) {
             if (c === '#' && isPartOfTheAdress === false) {
@@ -149,6 +155,18 @@ define([], function () {
                     id: links[i],
                     gestureObserver: this.gestureObserver
                 });
+            }
+        }
+        this.linklayers = linklayers;
+    };
+    TreeSpriteGroupTextSetter.prototype.removeLinks = function removeLinks() {
+        if (this.linklayers === undefined) {
+            return;
+        }
+        var i, j;
+        for (i = 0; i < this.linklayers.length; i++) {
+            for (j = 0; j < this.linklayers[i].length; j++) {
+                this.linklayers[i][j].destroy();
             }
         }
     };

@@ -28,10 +28,11 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }
         this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game, this.gestureObserver);
         this.group.textSetter.createText(tree.text, tree.unburiedLayers);
-        if (this.isNotAnEmptyTree(tree) && this.isNotInstructionTree(tree)) {
+        if (this.isNotAnEmptyTree(tree)) {
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
             this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
         }
+        console.log("CREATING TREE");
     };
 
     SingleTreeGroupFactory.prototype.reuseTreeSpriteGroup = function createTreeSpriteGroup(tree, id, group) {
