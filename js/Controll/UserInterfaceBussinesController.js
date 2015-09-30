@@ -62,7 +62,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }]);
         this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
             id: 1006,
-            text: "hhh" + longtextWithLock
+            text: "hhh" + longtext
         }]);
         /*this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: "G"}, {
             id: 1008,
@@ -192,8 +192,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         if (confirm('Start performance test? NOZOOM')) {
 
-            var longtext = "ATHIS IS A LONG TEXT TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS #1234 SLOW THIS IS A LONG TEXT #3456 TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
-                longtextWithLock = "A THIS IS A LONG TEXT WITHA A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A  LONG TEXT WITHA  A LOCK TO SEE  HOW THE SYSTEM PERFORMS WITH IT",
+            var longtext = "ATHIS IS A LONG TEXT TO PLACE IN A$ TREE AND SEE IF THE SYSTEM GETS #1234 SLOW THIS IS A LONG TEXT #3456 TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
+                longtextWithLock = "A THIS IS A LONG TEXT$ WITHA * A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A  LONG TEXT WITHA  A LOCK TO SEE  HOW THE SYSTEM PERFORMS WITH IT",
                 d = new Date(),
                 n = d.getTime();
             this.loadPerformanceTestScenes(longtextWithLock, longtext);

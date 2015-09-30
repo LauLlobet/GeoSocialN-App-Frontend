@@ -19,6 +19,7 @@ define(['../lib/underscore'], function (underscore) {
 
     GestureObserver.prototype.linkClicked = function (treeid) {
         this.bussinesInput.linkClicked(treeid);
+        console.log("link clicked");
     }
 
     GestureObserver.prototype.detectSwipe = function detectSwipe(activePointer) {

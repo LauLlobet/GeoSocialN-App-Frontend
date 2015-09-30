@@ -53,9 +53,6 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
             tree.unburiedLayers = {};
         }
         if (tree.text !== undefined) {
-            if (tree.text.charAt(0) === "h") {
-                console.log("FAHA");
-            }
             this.group.textSetter.setText(tree.text);
         }
     };

@@ -9,7 +9,7 @@ define([], function () {
         this.treeSpriteGroup = treeSpriteGroup;
         this.game = game;
         this.gestureObserver = gestureObserver;
-        this.treeBuryGroup = treeSpriteGroup;//treeBuryGroup;
+        this.treeBuryGroup = treeBuryGroup;
     }
     TreeSpriteGroupTextSetter.prototype.createText = function createText(text, unburiedLayers) {
         this.unburiedLayers = unburiedLayers;
@@ -37,9 +37,18 @@ define([], function () {
         this.destroyBuryLayers();
     };
     TreeSpriteGroupTextSetter.prototype.destroyBuryLayers = function destroyBuryLayers() {
-        this.treeBuryGroup.forEach(function (item) {
-            item.destroy();
-        }, this);
+        this.treeBuryGroup.removeAll(true, false);
+        this.destroyLayer("lockpick");
+        this.destroyLayer("lock");
+        this.destroyLayer("leafs");
+    };
+    TreeSpriteGroupTextSetter.prototype.destroyLayer = function destroyLayer(layerName) {
+        var layer = this[layerName];
+        if (layer === undefined) {
+            return;
+        }
+        this[layerName] = undefined;
+        layer.destroy();
     };
     TreeSpriteGroupTextSetter.prototype.addTextImage = function addTextImage() {
         var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', this.formatedText, 24);
@@ -49,9 +58,7 @@ define([], function () {
         this.textImage.scale.y = 0.90;
     };
     TreeSpriteGroupTextSetter.prototype.handleBuringTextCases = function handleBuringTextCases() {
-        this.buryMessageFromLine(this.treeBuryGroup, 3, 'lock', 'lock');
-        /*this.buryMessageInLayerOrderAccordingToFirstAppearance();*/
-        this.unBuryMessageIfNecesary();
+        this.buryMessageInLayerOrderAccordingToFirstAppearance();
         if (this.editing) {
             this.setBuryLayersToAlpha();
         } else {
@@ -59,7 +66,7 @@ define([], function () {
         }
     };
     TreeSpriteGroupTextSetter.prototype.buryMessageInLayerOrderAccordingToFirstAppearance = function buryMessageInLayerOrderAccordingToFirstAppearance() {
-         /*var lockPosition = this.findLineOfCharacterInText('$'),
+         var lockPosition = this.findLineOfCharacterInText('$'),
             leafPosition = this.findLineOfCharacterInText('*');
         if (lockPosition > leafPosition) {
             this.buryMessageIfNecesary();
@@ -67,7 +74,7 @@ define([], function () {
         } else {
             this.buryMessageLeafsIfNecesary();
             this.buryMessageIfNecesary();
-        }*/
+        }
     };
     TreeSpriteGroupTextSetter.prototype.addChar = function addChar(char) {
         this.editing = true;
@@ -202,6 +209,8 @@ define([], function () {
             this.setLockPick(group, tmp.x, tmp.y, tmp.scale.x);
         }
         this[buryLayerId] = tmp;
+        tmp.inputEnabled = true;
+        tmp.input.priorityID = 50;
     };
 
     TreeSpriteGroupTextSetter.prototype.setLockPick = function (group, x, y, scale) {
@@ -211,7 +220,7 @@ define([], function () {
         tmp = group.create(charposX, charposY, "lockpick");
         tmp.scale.x = tmp.scale.y = scale;
         tmp.inputEnabled = true;
-        tmp.input.priorityID = 1;
+        tmp.input.priorityID = 52;
         tmp.useHandCursor = true;
         tmp.events.onInputDown.add(function () {
             this.gestureObserver.buriedLayerEvent(this.eventId);
@@ -219,13 +228,14 @@ define([], function () {
             gestureObserver : this.gestureObserver
             });
         this["lockpick"] = tmp;
+
     };
     TreeSpriteGroupTextSetter.prototype.buryMessageLeafsIfNecesary  = function buryMessageLeafsIfNecesary() {
         var line = this.findLineOfCharacterInText('*');
         if ( this.lineWithThatCharExistsOnText(line) &&
             this.hasntBeenUnburied('leafs') &&
             this.buryLayerNotAlreadyExists('leafs')) {
-            this.buryMessageFromLine(this.treeSpriteGroup, line, 'leafs', 'leafs');
+            this.buryMessageFromLine(this.treeBuryGroup, line, 'leafs', 'leafs');
         }
     };
     TreeSpriteGroupTextSetter.prototype.unBuryMessageIfNecesary  = function unBuryMessageLeafsIfNecesary() {
@@ -240,17 +250,17 @@ define([], function () {
     };
 
     TreeSpriteGroupTextSetter.prototype.buryMessageIfNecesary  = function buryMessageIfNecesary() {
-        /*var line = this.findLineOfCharacterInText('$');
-        if ( this.lineWithThatCharExistsOnText(line) &&
-            this.hasntBeenUnburied('lock') &&
-            this.buryLayerNotAlreadyExists('lock')) {
+        var line = this.findLineOfCharacterInText('$');
+        if (this.lineWithThatCharExistsOnText(line)
+                  && this.hasntBeenUnburied('lock')
+                  && this.buryLayerNotAlreadyExists('lock')
+        ) {
             this.buryMessageFromLine(this.treeBuryGroup, line, 'lock', 'lock');
-        }*/
-        //this.buryMessageFromLine(this.treeBuryGroup, 3, 'lock', 'lock');
+        }
     };
 
     TreeSpriteGroupTextSetter.prototype.hasntBeenUnburied = function hasntBeenUnBuried(id) {
-        return this.unburiedLayers === undefined || this.unburiedLayers[id] === undefined ;
+        return this.unburiedLayers === undefined || this.unburiedLayers[id] === undefined;
     }
 
     TreeSpriteGroupTextSetter.prototype.lineWithThatCharExistsOnText = function lineWithThatCharExistsOnText(line) {
