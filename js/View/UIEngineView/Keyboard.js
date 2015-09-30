@@ -3,13 +3,13 @@
 define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     "use strict";
     var LETTERS = "letters",
+        MAYUSQ = "mayusq",
         ASCII = "ascii",
         NUMBERS = "numbers",
         SWITCH = "switch";
 
     function Keyboard(phaserGame, gestureObserver) //noinspection JSLint
     {
-
             this.game = phaserGame.game;
             this.phaserGame = phaserGame;
             this.gestureObserver = gestureObserver;
@@ -17,14 +17,6 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             this.buildKeyboardFromState();
             this.hideAndDisable();
     }
-
-    Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
-        var scale = screen.width /  KeyboardDescriptor.width;
-        this.keyboardGroup.x = 0 + KeyboardDescriptor.margin;
-        this.keyboardGroup.y = this.phaserGame.coordY(KeyboardDescriptor.yinit);
-        this.keyboardGroup.scale.x = scale;
-        this.keyboardGroup.scale.y = scale;
-    };
 
     Keyboard.prototype.buildKeyboardFromState = function buildKeyboardFromState() {
         if (this.keyboardGroup !== undefined) {
@@ -34,6 +26,14 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.setSizeAndPositionToKeyboardAcordingToScreenResolution();
         this.addCharacters();
         this.showAndEnable();
+    };
+
+    Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
+        var scale = 360 /  KeyboardDescriptor.width;
+        this.keyboardGroup.x = 0 + KeyboardDescriptor.margin;
+        this.keyboardGroup.y = this.phaserGame.coordY(KeyboardDescriptor.yinit);
+        this.keyboardGroup.scale.x = scale;
+        this.keyboardGroup.scale.y = scale;
     };
 
     Keyboard.prototype.addCharacters = function () {
@@ -47,6 +47,9 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         }
         if (this.state === NUMBERS) {
             keys = KeyboardDescriptor.numberKeys;
+        }
+        if (this.state === MAYUSQ) {
+            keys = KeyboardDescriptor.mayusqKeys;
         }
         for (row = 0; row < keys.length; row += 1) {
             for (charPos = 0; charPos < keys[row].length; charPos += 1) {
@@ -70,7 +73,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
 
     Keyboard.prototype.createChar = function (position, char) {
         var sprite = this.addKeyBackground(position, char, "keyBackground");
-        this.addKeyChar(char, sprite, 0.2,this.keyboardGroup);
+        this.addKeyChar(char, sprite, 0.2, this.keyboardGroup);
     };
 
     Keyboard.prototype.addKeyBackground = function (position, char, background) {
@@ -109,21 +112,25 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         return sprite;
     };
 
-    Keyboard.prototype.addKeyChar = function (char, sprite, scale, group) {
-        var keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789",
-            font =  this.game.add.retroFont('carved', 20, 20, keymap, 5, 0, 0, 0, 0),
-            i = this.game.add.image(sprite.x + sprite.width / 2, sprite.y + sprite.height / 2, font, undefined, group);
-        font.setText(char, false, 0, 0 , 0, 0);
-        i.alive = false;
-        i.anchor.set(0.5)
-        i.scale.x = scale;
-        i.scale.y = scale;
+    Keyboard.prototype.addKeyChar = function addKeyChar(char, sprite, scale, group) {
+
+        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', char, 24),
+            textImage =  group.create(0, 0, tmp.generateTexture());
+        tmp.destroy();
+        textImage.scale.x = 0.90;
+        textImage.scale.y = 0.90;
+        textImage.x = sprite.x + sprite.width / 2;
+        textImage.y = sprite.y + sprite.height / 2;
+        textImage.alive = false;
+        textImage.anchor.set(0.5);
         sprite.hasCharacterWrittenOnImage = true;
-        return i;
+        return textImage;
     };
 
     Keyboard.prototype.nextKeyboardState = function nextKeyboardState() {
         if (this.state === LETTERS) {
+            this.state = MAYUSQ;
+        } else if (this.state === MAYUSQ) {
             this.state = NUMBERS;
         } else if (this.state === NUMBERS) {
             this.state = ASCII;

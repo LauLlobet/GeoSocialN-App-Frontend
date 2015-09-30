@@ -3,7 +3,7 @@
 define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
     "use strict";
     //noinspection JSLint
-    var windowObj = window, callbackFunct, targetW = 360, targetH = 640;
+    var windowObj = window, callbackFunct, targetW = 360, targetH = 640; //also refernced in keyboard
     //var windowObj = window, callbackFunct, targetW = 720, targetH = 1280;
 
     function PhaserGame(callback, gestureObserver) //noinspection JSLint
@@ -21,7 +21,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             this.gameState = { preload: this.preload, create: this.create, update: this.update, render: this.render  };
             this.bootState = {  preload: function bootPreload() {
                                                           this.game.load.image('aaaa', '/OurTreeWeb/assets/spaceKey.png');
-                                                          this.game.load.image('mercator', '/OurTreeWeb/assets/mercator.png');
                                         },
                                 create: function () { this.state.start('GameState');
                                         }
@@ -181,8 +180,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.loading = loading;
     };
     PhaserGame.prototype.loadImages = function loadImages(){
-        this.game.load.image('debugTree', '/OurTreeWeb/assets/treeTrunk2.png');
-        this.game.load.image('point', '/OurTreeWeb/assets/point.png');
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree4.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
 
@@ -219,7 +216,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.load.image('compasBg', '/OurTreeWeb/assets/compasBg.png');
         this.game.load.image('needle', '/OurTreeWeb/assets/needle.png');
 
-        this.game.load.bitmapFont('ubuntu', '/OurTreeWeb/assets/ubuntu.png', '/OurTreeWeb/assets/ubuntu.fnt');
+        this.game.load.bitmapFont('ubuntu', '/OurTreeWeb/assets/font.png', '/OurTreeWeb/assets/font.fnt');
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),

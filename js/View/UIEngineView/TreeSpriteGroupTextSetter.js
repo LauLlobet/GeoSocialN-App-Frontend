@@ -95,7 +95,6 @@ define([], function () {
         var textreturned = "",
             length =  TEXTLENGTH,
             j;
-        text = text.toUpperCase();
         if (this.editing === true) {
             text = text + "|"; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
         } else {

@@ -30,46 +30,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     }
 
-    UserInterfaceBussinesController.prototype.loadPerformanceTestScenes = function loadPerformanceTestScenes( longtextWithLock, longtext) {
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
-            id: 1001,
-            text: "aaa"+longtext
-        }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1003, text: "C"}, {
-            id: 1004,
-            text: "bbb"+longtextWithLock
-        }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
-            id: 1006,
-            text: "ccc"+longtext
-        }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{
-            id: 1007,
-            text: "ddd"+longtextWithLock
-            },
-            undefined]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
-            id: 1006,
-            text: "eee"+longtextWithLock
-        }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
-            id: 1001,
-            text: "fff"+longtext
-            }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1003, text: "C"}, {
-            id: 1004,
-            text: "ggg"+longtextWithLock
-        }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
-            id: 1006,
-            text: "hhh" + longtext
-        }]);
-        /*this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: "G"}, {
-            id: 1008,
-            text: longtextWithLock
-        }]);*/
-    };
-
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
         var that = this,
             tmp;
@@ -107,105 +67,11 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
-        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [undefined,undefined,undefined]);
-
-        //
-        // PERFORMANCE tEst begins
-        //
-
-        var a,
-            results = [],
-            sum = 0,
-            average;
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1001,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 2.111330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1002,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 1.311330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1003,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 2.111330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1004,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 3.111330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1005,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 2.111330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1006,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 3.111330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1007,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 1.611330986022949
-        });
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1008,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "PIINT",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 1.111330986022949
-        });
-
-        if (confirm('Start performance test? NOZOOM')) {
-
-            var longtext = "ATHIS IS A LONG TEXT TO PLACE IN A$ TREE AND SEE IF THE SYSTEM GETS #1234 SLOW THIS IS A LONG TEXT #3456 TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
-                longtextWithLock = "A THIS IS A LONG TEXT$ WITHA * A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A  LONG TEXT WITHA  A LOCK TO SEE  HOW THE SYSTEM PERFORMS WITH IT",
-                d = new Date(),
-                n = d.getTime();
-            this.loadPerformanceTestScenes(longtextWithLock, longtext);
-            this.sceneLoaderInterface.playAllStackedScenes();
-
-        } else {
-            this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[{id: 1, text: "Swipe left and right and discover arround you!"},
-                undefined,
-                undefined]);
-            this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[undefined, undefined, undefined]);
-            this.sceneLoaderInterface.playAllStackedScenes();
-        }
+        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[{id: 1, text: "Swipe left and right and discover arround you!"},
+            undefined,
+            undefined]);
+        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[undefined, undefined, undefined]);
+        this.sceneLoaderInterface.playAllStackedScenes();
         this.fillerOfIncommingListIfItGetsEmpty.start();
     };
     //MAIN INPUT FUNCTION
