@@ -3,7 +3,7 @@
 
 define([], function () {
     "use strict";
-    function TreeSpriteCompas(parentGroup, phaserGame, x , y) //noinspection JSLint
+    function TreeSpriteCompas(parentGroup, phaserGame, x, y) //noinspection JSLint
     {
             this.parentGroup = parentGroup;
             this.createSpritesAndGroup(phaserGame);

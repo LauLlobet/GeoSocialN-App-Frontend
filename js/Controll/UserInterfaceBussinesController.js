@@ -31,27 +31,38 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     }
 
     UserInterfaceBussinesController.prototype.loadPerformanceTestScenes = function loadPerformanceTestScenes( longtextWithLock, longtext) {
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1001, text: longtext}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
+            id: 1001,
+            text: "aaa"+longtext
+        }]);
         this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1003, text: "C"}, {
             id: 1004,
-            text: longtextWithLock
+            text: "bbb"+longtextWithLock
         }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1006, text: longtext}]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: longtextWithLock}, undefined]);
         this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
             id: 1006,
-            text: longtextWithLock
+            text: "ccc"+longtext
         }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1001, text: longtext}]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{
+            id: 1007,
+            text: "ddd"+longtextWithLock
+            },
+            undefined]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
+            id: 1006,
+            text: "eee"+longtextWithLock
+        }]);
+        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
+            id: 1001,
+            text: "fff"+longtext
+            }]);
         this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1003, text: "C"}, {
             id: 1004,
-            text: longtextWithLock
+            text: "ggg"+longtextWithLock
         }]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {id: 1006, text: longtext}]);
-        this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: longtextWithLock}, undefined]);
         this.sceneLoaderInterface.stackLoadScene("forestSwipeRight", [undefined, {
             id: 1006,
-            text: longtextWithLock
+            text: "hhh" + longtextWithLock
         }]);
         /*this.sceneLoaderInterface.stackLoadScene("forestSwipeLeft", [{id: 1007, text: "G"}, {
             id: 1008,
@@ -84,11 +95,19 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         this.passwordDialog = new PasswordDialog(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
 
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
+            id: 1,
+            ip: "87.223.58.75",
+            metersToHide: 10,
+            text: "Swipe left and right and discover arround you!",
+            timestamp: 1441013147469,
+            x: 2.111330986022949,
+            y: 2.111330986022949
+        });
+
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
-        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [{id: 1, text: "Swipe left and right and discover arround you!"},
-            {id: -4, text: ""},
-            {id: -2, text: ""}]);
+        this.sceneLoaderInterface.loadScene('forestSwipeLeft', [undefined,undefined,undefined]);
 
         //
         // PERFORMANCE tEst begins
@@ -173,17 +192,19 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         if (confirm('Start performance test? NOZOOM')) {
 
-            var longtext = "THIS IS A LONG TEXT TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS #1234 SLOW THIS IS A LONG TEXT #3456 TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
-                longtextWithLock = " THIS IS A LONG TEXT WITHA A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A $ LONG TEXT WITHA * A LOCK TO SEE  HOW THE SYSTEM PERFORMS WITH IT",
+            var longtext = "ATHIS IS A LONG TEXT TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS #1234 SLOW THIS IS A LONG TEXT #3456 TO PLACE IN A TREE AND SEE IF THE SYSTEM GETS SLOW",
+                longtextWithLock = "A THIS IS A LONG TEXT WITHA A LOCK TO SEE HOW TH $ SYSTEM PERFORMS WITH IT  THIS IS A  LONG TEXT WITHA  A LOCK TO SEE  HOW THE SYSTEM PERFORMS WITH IT",
                 d = new Date(),
                 n = d.getTime();
             this.loadPerformanceTestScenes(longtextWithLock, longtext);
             this.sceneLoaderInterface.playAllStackedScenes();
 
         } else {
-            this.swipeLeft().then(function () {
-                that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
-            });
+            this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[{id: 1, text: "Swipe left and right and discover arround you!"},
+                undefined,
+                undefined]);
+            this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[undefined, undefined, undefined]);
+            this.sceneLoaderInterface.playAllStackedScenes();
         }
         this.fillerOfIncommingListIfItGetsEmpty.start();
     };

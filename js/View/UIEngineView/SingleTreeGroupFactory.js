@@ -14,7 +14,13 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
 
     SingleTreeGroupFactory.prototype.createTreeSpriteGroup = function createTreeSpriteGroup(tree, id) {
         this.group = this.phaserGame.game.add.group();
+        this.textGroup = this.phaserGame.game.add.group();
+        this.buryGroup = this.phaserGame.game.add.group();
+        this.compasAndKmGroup = this.phaserGame.game.add.group();
         this.sprite = this.group.create(0, 0, 'real');
+        this.group.add(this.textGroup);
+        this.group.add(this.buryGroup);
+        this.group.add(this.compasAndKmGroup);
         this.sprite.anchor.x = 104 / 400;
         this.sprite.anchor.y = 172 / 611;
         this.group.x = this.phaserGame.coordX(tree.x);
@@ -26,7 +32,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
-        this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game, this.gestureObserver);
+        this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
         this.group.textSetter.createText(tree.text, tree.unburiedLayers);
         if (this.isNotAnEmptyTree(tree)) {
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
@@ -35,7 +41,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         console.log("CREATING TREE");
     };
 
-    SingleTreeGroupFactory.prototype.reuseTreeSpriteGroup = function createTreeSpriteGroup(tree, id, group) {
+    SingleTreeGroupFactory.prototype.reuseTreeSpriteGroup = function reuseTreeSpriteGroup(tree, id, group) {
         this.group = group;
         this.sprite.anchor.x = 104 / 400;
         this.sprite.anchor.y = 172 / 611;
@@ -47,6 +53,9 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
             tree.unburiedLayers = {};
         }
         if (tree.text !== undefined) {
+            if (tree.text.charAt(0) === "h") {
+                console.log("FAHA");
+            }
             this.group.textSetter.setText(tree.text);
         }
     };
