@@ -172,7 +172,6 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         kappeare.chain(kstill);
         kstill.chain(kdisappeare);
         kdisappeare.onComplete.add(function() {
-            console.log("remove sprite");
             this.destroy();
         },characterImage);
         kappeare.start();

@@ -67,11 +67,17 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
-        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[{id: 1, text: "Swipe left and right and discover arround you!"},
-            undefined,
-            undefined]);
-        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight',[undefined, undefined, undefined]);
-        this.sceneLoaderInterface.playAllStackedScenes();
+        this.sceneLoaderInterface.stackLoadScene('forestSwipeLeft',
+            [
+                undefined,
+                {id: 1, text: "Swipe left and right and discover arround you!"},
+                undefined
+        ]);
+        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [undefined, undefined, undefined]);
+        this.sceneLoaderInterface.playAllStackedScenes().then(function () {
+            that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
+            that.hashChangeTrigger.update();
+        });
         this.fillerOfIncommingListIfItGetsEmpty.start();
     };
     //MAIN INPUT FUNCTION
@@ -138,7 +144,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     };
 
     UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
-        console.log("char: " + char);
         if (this.state === WRITTING) {
             if (char === "ok") {
                 this.state = NAVIGATE;

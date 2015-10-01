@@ -197,9 +197,9 @@ define([], function () {
             this.unburiedLayers[buryLayerId] = true;
         }
     };
-    TreeSpriteGroupTextSetter.prototype.buryMessageFromLine = function (group, lineNo, spritename, buryLayerId){
+    TreeSpriteGroupTextSetter.prototype.buryMessageFromLine = function (group, lineNo, spritename, buryLayerId) {
         var charposX = -10,
-            charposY = 52 + 17.2 * lineNo,
+            charposY = 21.5 * lineNo,
             tmp,
             scale = 1.3;
         tmp = group.create(charposX, charposY, spritename);
@@ -208,10 +208,19 @@ define([], function () {
             this.setLockPick(group, tmp.x, tmp.y, tmp.scale.x);
         }
         this[buryLayerId] = tmp;
-        tmp.inputEnabled = true;
-        tmp.input.priorityID = 50;
     };
-
+    TreeSpriteGroupTextSetter.prototype.setBuryLayersToClickable = function setBuryLayersToClickable(layerSpirte) {
+        this.setSpriteToClickableOrNot(layerSpirte, true);
+    };
+    TreeSpriteGroupTextSetter.prototype.setBuryLayersToNotClickable = function setBuryLayersToClickable(layerSpirte) {
+        this.setSpriteToClickableOrNot(layerSpirte, false);
+    };
+    TreeSpriteGroupTextSetter.prototype.setSpriteToClickableOrNot = function setSpriteToClickavleOrNot(tmp,bool) {
+        tmp.inputEnabled = bool;
+        if (bool) {
+            tmp.input.priorityID = 50;
+        }
+    }
     TreeSpriteGroupTextSetter.prototype.setLockPick = function (group, x, y, scale) {
         var charposX = x + 60,
             charposY = y + 50,
@@ -269,21 +278,30 @@ define([], function () {
     TreeSpriteGroupTextSetter.prototype.setBuryLayersToAlpha  = function setBuryLayersToAlpha() {
         if(this.buryLayerAlreadyExists("lockpick")){
             this["lockpick"].alpha = 0
+            this.setBuryLayersToNotClickable(this["lockpick"]);
         }
         if(this.buryLayerAlreadyExists("lock")){
             this["lock"].alpha = 0.2;
+            this.setBuryLayersToNotClickable(this["lock"]);
         }
         if(this.buryLayerAlreadyExists("leafs")){
             this["leafs"].alpha = 0.2;
+            this.setBuryLayersToNotClickable(this["leafs"]);
         }
     };
 
     TreeSpriteGroupTextSetter.prototype.setBuryLayersToSolid  = function setBuryLayersToSolid() {
         if(this.buryLayerAlreadyExists("lockpick")){
             this["lockpick"].alpha = 1
+            this.setBuryLayersToClickable(this["lockpick"]);
         }
         if(this.buryLayerAlreadyExists("lock")){
             this["lock"].alpha = 1;
+            this.setBuryLayersToClickable(this["lock"]);
+        }
+        if(this.buryLayerAlreadyExists("leafs")){
+            this["leafs"].alpha = 1;
+            this.setBuryLayersToClickable(this["leafs"]);
         }
     };
 
@@ -299,7 +317,7 @@ define([], function () {
         var x, c;
         for (x = 0, c = ''; c = this.text.charAt(x); x = x + 1) {
             if (c === char) {
-                return x / TEXTLENGTH;
+                return Math.floor(x / TEXTLENGTH);
             }
         }
         return -1;
