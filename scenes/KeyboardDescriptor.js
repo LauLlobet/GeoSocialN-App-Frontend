@@ -21,9 +21,9 @@ define([ ], function () {
         keysOccupiedBySpace: 4,
         keysOccupiedByEnter: 3,
         popupDistance: keySize + 30,
-        keys: [
+        mayusqKeys: [
             ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-            ["A", "S", "D", "F", "G", "H", "J", "K", "L", "."],
+            ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"],
             ["Z", "X", "C", "V", "B", "N", "M"]
         ],
         //",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+^Ñ#0123456789",
@@ -36,6 +36,11 @@ define([ ], function () {
             ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
             [",", ".", "?", "!", ":", "|", "'", "`", "=", "\""],
             ["+", "^", "*", "$", "#", "#", "#"]
+        ],
+        keys: [
+            ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+            ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ"],
+            ["z", "x", "c", "v", "b", "n", "m"]
         ]
     };
 });

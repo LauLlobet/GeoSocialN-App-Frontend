@@ -14,7 +14,13 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
 
     SingleTreeGroupFactory.prototype.createTreeSpriteGroup = function createTreeSpriteGroup(tree, id) {
         this.group = this.phaserGame.game.add.group();
+        this.textGroup = this.phaserGame.game.add.group();
+        this.buryGroup = this.phaserGame.game.add.group();
+        this.compasAndKmGroup = this.phaserGame.game.add.group();
         this.sprite = this.group.create(0, 0, 'real');
+        this.group.add(this.textGroup);
+        this.group.add(this.buryGroup);
+        this.group.add(this.compasAndKmGroup);
         this.sprite.anchor.x = 104 / 400;
         this.sprite.anchor.y = 172 / 611;
         this.group.x = this.phaserGame.coordX(tree.x);
@@ -26,11 +32,28 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
-        this.group.textSetter = new TreeSpriteGroupTextSetter(this.group, this.game, this.gestureObserver);
+        this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
         this.group.textSetter.createText(tree.text, tree.unburiedLayers);
-        if (this.isNotAnEmptyTree(tree) && this.isNotInstructionTree(tree)) {
+        if (this.isNotAnEmptyTree(tree)) {
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
             this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
+        }
+        console.log("CREATING TREE");
+    };
+
+    SingleTreeGroupFactory.prototype.reuseTreeSpriteGroup = function reuseTreeSpriteGroup(tree, id, group) {
+        this.group = group;
+        this.sprite.anchor.x = 104 / 400;
+        this.sprite.anchor.y = 172 / 611;
+        this.group.x = this.phaserGame.coordX(tree.x);
+        this.group.y = this.phaserGame.coordY(tree.y);
+        this.setScalePropertiesToNewGroup(tree);
+        this.setTreeGroupIntoAllSpritesGroup(id);
+        if (tree.unburiedLayers === undefined || tree.initialPosition.charAt(0) === '3') {
+            tree.unburiedLayers = {};
+        }
+        if (tree.text !== undefined) {
+            this.group.textSetter.setText(tree.text);
         }
     };
 
@@ -43,18 +66,17 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
 
     SingleTreeGroupFactory.prototype.isNotAnEmptyTree = function (tree) {
         return (tree.text !== undefined || tree.button === undefined);
-    }
-
+    };
     SingleTreeGroupFactory.prototype.isNotInstructionTree = function (tree) {
         return (tree.treeid !== 1);
-    }
-
+    };
     SingleTreeGroupFactory.prototype.ifEmptyTreeSetWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
         var button, context, tween;
         if (this.isNotAnEmptyTree(tree)) {
             return;
         }
         button = this.group.create(tree.button.x, tree.button.y, 'punzon');
+        this.group.buttonSprite = button;
         button.name = 'button';
         button.height = tree.button.hw;
         button.width = tree.button.hw;
@@ -78,7 +100,10 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }, context);
     };
 
-    SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id) {
+    SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id,treeGroup) {
+        if (treeGroup !== undefined) {
+            this.group = treeGroup;
+        }
         this.group.name = id;
         this.mainGroup.add(this.group);
     };

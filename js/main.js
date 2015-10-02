@@ -16,10 +16,6 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
                 keyboard = new Keyboard(phaserGame, gestureObserver);
                 userInterfaceBussinesController.keyboardInterface = keyboard;
                 spriteManagerApi = new SpriteManagerPhaserApi(phaserGame, gestureObserver);
-                var observer1 =   {
-                    onNewlyPresentedTree: function (treeid) { console.log("observer:" + treeid )}
-                };
-                newlyPresentedTreeSubjectNotifier.addObserver(observer1);
                 sceneLoader = new SceneLoader(spriteManagerApi, newlyPresentedTreeSubjectNotifier);
                 spriteManagerApi.sceneLoaderInterface = sceneLoader;
                 userInterfaceBussinesController.init(sceneLoader);
