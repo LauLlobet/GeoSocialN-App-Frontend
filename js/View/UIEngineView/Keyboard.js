@@ -25,7 +25,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.keyboardGroup = this.game.add.group();
         this.setSizeAndPositionToKeyboardAcordingToScreenResolution();
         this.addCharacters();
-        this.showAndEnable();
+        //this.showAndEnable();
     };
 
     Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
@@ -109,8 +109,16 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             }
         }, context);
         sprite.alive = true;
+        this.setSpriteToClickableOrNot(sprite, true);
         return sprite;
     };
+
+    Keyboard.prototype.setSpriteToClickableOrNot = function setSpriteToClickavleOrNot(tmp, bool) {
+        tmp.inputEnabled = bool;
+        if (bool) {
+            tmp.input.priorityID = 54;
+        }
+    }
 
     Keyboard.prototype.addKeyChar = function addKeyChar(char, sprite, scale, group) {
 
@@ -226,6 +234,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     }
 
     Keyboard.prototype.showAndEnable = function () {
+        this.buildKeyboardFromState();
         this.keyboardGroup.setAll("visible", true);
         this.keyboardGroup.setAll("exists", true);
         this.keyboardGroup.forEachAlive(function (sprite) {sprite.inputEnabled=true});

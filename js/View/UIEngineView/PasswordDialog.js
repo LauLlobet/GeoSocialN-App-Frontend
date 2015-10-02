@@ -11,7 +11,6 @@ define([], function () {
     function PasswordDialog(phaserGame) {
         this.initSpriteGroupInPhaserEngine(phaserGame);
         this.createBackground();
-        this.createText();
         this.setNoText();
         this.hide();
     }
@@ -22,14 +21,15 @@ define([], function () {
     PasswordDialog.prototype.createBackground = function () {
         this.background = this.displayGroup.create(x, y, 'passwordBox');
     };
-    PasswordDialog.prototype.createText = function createText() {
-        this.keymap = ",!?ABCDEFGHIJKLMNOPQRSTUVWXYZ./\\()_-[]{}:|'`=\"+*$#0123456789";
-        this.fontText = this.game.add.retroFont('carved', 20, 20, this.keymap, 5, 0, 0, 0, 0);
-        this.textImage = this.game.add.image(x + textOffsetx, y + textOffsety, this.fontText);
-        this.displayGroup.add(this.textImage);
-        this.textImage.scale.x = 0.27 * 2;
-        this.textImage.scale.y = 0.27 * 2;
+
+    PasswordDialog.prototype.addTextImage = function addTextImage(textOffsetx, textOffsety, fontText) {
+        var tmp = this.game.add.bitmapText(0, 0, 'ubuntu', fontText, 24);
+        this.textImage =  this.displayGroup.create(textOffsetx, textOffsety, tmp.generateTexture());
+        tmp.destroy();
+        this.textImage.scale.x = 0.90;
+        this.textImage.scale.y = 0.90;
     };
+
     PasswordDialog.prototype.show = function show() {
         this.displayGroup.setAll("visible", true);
         this.displayGroup.setAll("exists", true);
@@ -42,7 +42,10 @@ define([], function () {
     };
     PasswordDialog.prototype.setText = function setText(text) {
         this.text = text;
-        this.fontText.text = text;
+        if (this.textImage !== undefined) {
+            this.textImage.destroy();
+        }
+        this.addTextImage(x + textOffsetx, y + textOffsety, this.text);
     };
     PasswordDialog.prototype.setNoText = function setNoText() {
         this.setText("");
