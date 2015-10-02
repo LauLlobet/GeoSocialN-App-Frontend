@@ -106,11 +106,12 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
         this.game.parent.loadImages();
-        this.game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
-        this.game.scale.setUserScale(2, 2, 0, 0);
+        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.scale.pageAlignHorizontally = true;
+        this.game.scale.pageAlignVertically = true;
         this.game.scale.forceOrientation(false, true);
-        //this.game.scale.enterIncorrectOrientation.add(this.game.parent.handleIncorrect);
-        //this.game.scale.leaveIncorrectOrientation.add(this.game.parent.handleCorrect);
+        this.game.scale.enterIncorrectOrientation.add(this.game.parent.handleIncorrect);
+        this.game.scale.leaveIncorrectOrientation.add(this.game.parent.handleCorrect);
         if (this.game.device.desktop) {
             this.game.parent.handleDesktop();
         } else {
