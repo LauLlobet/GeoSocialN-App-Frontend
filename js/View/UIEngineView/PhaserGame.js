@@ -57,11 +57,11 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         }
     };
     PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
-        blockElement("turn");
+      //  blockElement("turn");
     };
 
     PhaserGame.prototype.handleCorrect = function handleCorrect() {
-        displayNoneElement("turn");
+        //displayNoneElement("turn");
     };
 
     PhaserGame.prototype.handleDesktop = function handleDesktop() {
@@ -106,7 +106,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         var loading = this.game.add.sprite(50, 50, 'aaaa');
         this.load.setPreloadSprite(loading);
         this.game.parent.loadImages();
-        this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.scale.refresh();
         this.game.scale.pageAlignHorizontally = true;
         this.game.scale.pageAlignVertically = true;
         this.game.scale.forceOrientation(false, true);
@@ -117,7 +118,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         } else {
             this.game.parent.handleMobile();
         }
-        this.game.scale.refresh();
         this.game.loading = loading;
     };
     PhaserGame.prototype.loadImages = function loadImages(){
