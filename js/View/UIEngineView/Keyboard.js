@@ -29,11 +29,10 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     };
 
     Keyboard.prototype.setSizeAndPositionToKeyboardAcordingToScreenResolution = function setSizeAndPositionToKeyboardAcordingToScreenResolution() {
-        var scale = 360 /  KeyboardDescriptor.width;
         this.keyboardGroup.x = 0 + KeyboardDescriptor.margin;
         this.keyboardGroup.y = this.phaserGame.coordY(KeyboardDescriptor.yinit);
-        this.keyboardGroup.scale.x = scale;
-        this.keyboardGroup.scale.y = scale;
+        this.keyboardGroup.scale.x = KeyboardDescriptor.scale;
+        this.keyboardGroup.scale.y = KeyboardDescriptor.scale;
     };
 
     Keyboard.prototype.addCharacters = function () {

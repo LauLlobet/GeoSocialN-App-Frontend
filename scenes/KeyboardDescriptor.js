@@ -3,8 +3,8 @@
 define([ ], function () {
     'use strict';
     var h = 1280 / 2,
-        w = 720 / 2,
-        yinit =  260,
+        w = 480,
+        yinit =  280,
         keySize = 30,
         margin = 5,
         distanceBetweenKeys = 5,
@@ -18,6 +18,7 @@ define([ ], function () {
         distanceBetweenKeys: keySize + distanceBetweenKeys,
         distanceBetweenLines: keySize + 5,
         fontSize: 20,
+        scale: 1.29,
         keysOccupiedBySpace: 4,
         keysOccupiedByEnter: 3,
         popupDistance: keySize + 30,
