@@ -168,7 +168,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 this.keyboardInterface.hideOnScene();
                 this.state = NAVIGATE;
             } else if (char === "cancel") {
-                this.keyboardInterface.hideAndSetNoText();
+                this.passwordDialog.hideAndSetNoText();
                 this.keyboardInterface.hideOnScene();
                 this.state = NAVIGATE;
             } else if (char === "backwards") {
