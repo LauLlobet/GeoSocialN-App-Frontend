@@ -7,6 +7,7 @@ define([], function () {
         separationBetweenButtons = 160;
 
     function VotingPanel(phaserGame, bussinesController) {
+        this.bussinesController = bussinesController;
         this.initSpriteGroupInPhaserEngine(phaserGame);
         this.createButtons(bussinesController);
         this.hide();
@@ -31,6 +32,7 @@ define([], function () {
         button.inputEnabled = true;
         button.input.priorityID = 1;
         button.useHandCursor = true;
+        button.events.onInputDown.removeAll();
         button.events.onInputDown.add(function () {
             this.button.inputEnabled = false;
             this.button.useHandCursor = false;
@@ -41,6 +43,8 @@ define([], function () {
     VotingPanel.prototype.show = function show() {
         this.displayGroup.setAll("visible", true);
         this.displayGroup.setAll("exists", true);
+        this.setAsButton(this.downVote, this.bussinesController, "downVote");
+        this.setAsButton(this.upVote, this.bussinesController, "upVote");
     };
     VotingPanel.prototype.hide = function hide() {
         this.displayGroup.setAll("visible", false);
