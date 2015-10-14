@@ -146,6 +146,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
 
         this.game.load.image('downVote', '/OurTreeWeb/assets/downVote.png');
         this.game.load.image('upVote', '/OurTreeWeb/assets/upVote.png');
+        this.game.load.image('flower', '/OurTreeWeb/assets/flower.png');
 
         var i;
         for(i=0; i<10; i= i+1){

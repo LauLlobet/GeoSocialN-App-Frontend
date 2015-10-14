@@ -23,11 +23,12 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
         var scene = this.loadSceneFromScenes(sceneType),
             i = 0;
         _.each(scene.trees, function (entry) {
-            if ( entry.initialPosition.charAt(0) === '3' || (this.initial === true && entry.text === "%initial")) {
+            if (entry.initialPosition.charAt(0) === '3' || (this.initial === true && entry.text === "%initial")) {
                 if (newTrees[i] !== undefined && newTrees[i].id !== -1) {
                     entry.text = newTrees[i].text;
                     if (typeof newTrees[i].id !== 'undefined') {
                         entry.treeid = newTrees[i].id; // this treeid is the one from backend
+                        entry.metersToHide = newTrees[i].metersToHide;
                     }
                     i += 1;
                 } else if (newTrees[i] !== undefined && (newTrees.length < i || newTrees[i].id === -1)) { // the array is less than 2 ( no empty trees nor full ones )
@@ -117,6 +118,7 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
         newTree.tree.unburiedLayers = oldTree.tree.unburiedLayers;
         if (typeof oldTree.tree.treeid !== 'undefined') {
             newTree.tree.treeid = oldTree.tree.treeid;
+            newTree.tree.metersToHide = oldTree.tree.metersToHide;
         } else {
             newTree.tree.treeid = undefined;
         }

@@ -5,14 +5,15 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
-    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog", "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
+    "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
-                                                           VotingPanel) {
+                                                           VotingPanel, FlowerPanel) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -57,6 +58,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
         this.passwordDialog = new PasswordDialog(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
         this.votingPanel = new VotingPanel(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame, this);
+        this.flowerPanel = new FlowerPanel(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
 
         this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
             id: 1,
@@ -130,26 +132,33 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.voteEmmited(this.getTreeAlreadyDisplayed().id, -1);
     };
     UserInterfaceBussinesController.prototype.voteEmmited = function (treeid, inc) {
-        var treeRestClient = new TreeRestClient();
+        var treeRestClient = new TreeRestClient(),
+            that = this;
         treeRestClient.getSpecificTree(treeid).then(function (val) {
             val.treeContent.metersToHide += inc;
             return treeRestClient.put(val.treeContent);
         }).then(function (val) {
-            alert("you voted ok");
+            var tree = that.getTreeAlreadyDisplayed();
+            if (tree !== undefined) {
+                that.flowerPanel.addNFlowers(tree.id, inc);
+            }
         }).catch(function (error) {
             alert("error in connection voting tree: " + error);
         });
     };
 
     UserInterfaceBussinesController.prototype.justDisplayedATree = function () {
-        if (this.getTreeAlreadyDisplayed().id !== undefined) {
+        var tree = this.getTreeAlreadyDisplayed();
+        if (tree !== undefined) {
             this.votingPanel.show();
+            this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
         }
     };
 
 
     UserInterfaceBussinesController.prototype.justLeftBehindATree = function () {
         this.votingPanel.hide();
+        this.flowerPanel.hide();
     };
 
     UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
@@ -164,7 +173,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         var text = this.sceneTreeTextSetterInterface.getEditedTreeText(),
             coords = this.gpsMovmentTrigger.actualCoordinates,
             treeRestClient = new TreeRestClient(),
-            tree ={  text: text, metersToHide: 10, x: coords.longitude, y: coords.latitude},
+            tree = { text: text, metersToHide: 10, x: coords.longitude, y: coords.latitude},
             that = this;
         treeRestClient.put(tree).then(function (ans) {
             if(ans.treeContent === null) {
