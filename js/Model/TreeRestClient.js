@@ -1,5 +1,8 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
+
+//MANUAL curl http://127.0.0.1/YOUR_PATH/trees
+
 define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/lib/rsvp.js"], function (underscore, restful, rsvp) {
     "use strict";
     function TreeRestClient() {
@@ -7,7 +10,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                 .header("Accept", "application/json") // set global header
                 .prefixUrl('YOUR_PATH')
                 .port(8080);
-        var host = location.host.split(':')[0] === 'localhost' ? '52.26.137.110:8080' : location.host;
+        var host = location.host.split(':')[0] === 'localhost' ? '52.24.21.196:80' : location.host;
         this.path = 'http://' + host + '/YOUR_PATH/trees';
     }
     TreeRestClient.prototype.deleteAll = function () {
@@ -15,8 +18,6 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
         console.log("delete");
         return this.treeApi.delete();
     };
-
-
     TreeRestClient.prototype.put = function (tree) {
         this.treeApi = this.api.oneUrl('articles', this.path);
         var that = this;
@@ -32,7 +33,6 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
             });
         });
     };
-
     TreeRestClient.prototype.buildDontIncludeString = function (dontInclude){
         var string = '[';
         if (dontInclude.length === 0) {
@@ -42,8 +42,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
             string += tree + ',';
         });
         return string.substr(0, string.length - 1) + ']';
-    }
-
+    };
     TreeRestClient.prototype.get = function (x, y, dontInclude) {
         var dontIncludeString = this.buildDontIncludeString(dontInclude);
         this.treeApi = this.api.allUrl('articles', this.path);
@@ -75,14 +74,11 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                     console.log("entity is null");
                     reject("entity is null");
                 }
-            }).catch(function f(exception){
+            }).catch(function f(exception) {
                 console.log("impossible to do a get, no internet connection");
             });
         });
     };
-
-
-
 
     return TreeRestClient;
 });

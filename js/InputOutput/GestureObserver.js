@@ -67,5 +67,12 @@ define(['../lib/underscore'], function (underscore) {
         this.bussinesInput.buriedLayerEvent(event);
     }
 
+    GestureObserver.prototype.upvoteTree = function upvoteTree(event) {
+        this.bussinesInput.voteEmmited(id,inc);
+    }
+
+    GestureObserver.prototype.downvoteTree = function downvoteTree(event) {
+        this.bussinesInput.voteEmmited(id,inc);
+    }
     return GestureObserver;
 });

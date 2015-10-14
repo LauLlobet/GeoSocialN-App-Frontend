@@ -5,13 +5,14 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../InputOutput/HashChangeTrigger", "../View/SceneLoaderLevel/SceneTreeTextSetter",
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
-    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog", "./LeafPileUnburier"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog", "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
-                                                           RelativeLocationCalculator, PasswordDialog, LeafPileUnburier) {
+                                                           RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
+                                                           VotingPanel) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -39,7 +40,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             this.sceneLoaderInterface,
             this.incommingList,
             this.alreadyDisplayed,
-            this.mapOfTreesById
+            this.mapOfTreesById,
+            this.votingPanel
         );
         tmp = new SpriteTreeTextSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface, tmp);
@@ -54,6 +56,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.gpsMovmentTrigger.init(this.relativeLocationCalculator, this.leafPileUnburier);
 
         this.passwordDialog = new PasswordDialog(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
+        this.votingPanel = new VotingPanel(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame, this);
 
         this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
             id: 1,
@@ -84,11 +87,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
         var that = this;
         if (this.state === NAVIGATE) {
+            that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function (ans) {
                 console.log("----SL----");
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
+                that.justDisplayedATree();
             });
         }
     };
@@ -96,11 +101,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
         var that = this;
         if (this.state === NAVIGATE) {
+            that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function (ans) {
                 console.log("----SR----");
                 console.log("incomming: " +  that.incommingList);
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
+                that.justDisplayedATree();
             });
         }
     };
@@ -113,8 +120,36 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }
     };
 
-    UserInterfaceBussinesController.prototype.linkClicked = function (treeid){
+    UserInterfaceBussinesController.prototype.linkClicked = function (treeid) {
         this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
+    };
+    UserInterfaceBussinesController.prototype.upVote = function () {
+        this.voteEmmited(this.getTreeAlreadyDisplayed().id, 1);
+    };
+    UserInterfaceBussinesController.prototype.downVote = function () {
+        this.voteEmmited(this.getTreeAlreadyDisplayed().id, -1);
+    };
+    UserInterfaceBussinesController.prototype.voteEmmited = function (treeid, inc) {
+        var treeRestClient = new TreeRestClient();
+        treeRestClient.getSpecificTree(treeid).then(function (val) {
+            val.treeContent.metersToHide += inc;
+            return treeRestClient.put(val.treeContent);
+        }).then(function (val) {
+            alert("you voted ok");
+        }).catch(function (error) {
+            alert("error in connection voting tree: " + error);
+        });
+    };
+
+    UserInterfaceBussinesController.prototype.justDisplayedATree = function () {
+        if (this.getTreeAlreadyDisplayed().id !== undefined) {
+            this.votingPanel.show();
+        }
+    };
+
+
+    UserInterfaceBussinesController.prototype.justLeftBehindATree = function () {
+        this.votingPanel.hide();
     };
 
     UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
@@ -194,7 +229,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         var that = this;
         this.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(treeId).then(
             function () {
-                that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId);
+                that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId).then(function () {
+                    that.justDisplayedATree();
+                });
             }
         );
     };
@@ -229,11 +266,11 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         console.log("pwd:" + password);
         return password;
     };
-    UserInterfaceBussinesController.prototype.firstNcharcters = function firstNcharcters(string, n){
-        if(string.length < n){
+    UserInterfaceBussinesController.prototype.firstNcharcters = function firstNcharcters(string, n) {
+        if(string.length < n) {
             return string;
         }
-        return string.substr(0,n);
+        return string.substr(0, n);
     };
     UserInterfaceBussinesController.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed() {
         var treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed(),

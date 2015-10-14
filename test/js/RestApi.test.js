@@ -8,7 +8,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     var deleteAll = function( ) {
         var treeRestClient = new TreeRestClient();
         return treeRestClient.deleteAll();
-    }
+    };
 
     asyncTest('test list builder', function () {
         require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
@@ -94,46 +94,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
         });
     });
 
-    /*
 
-     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
-     var tree = {},
-     treeRestClient = new TreeRestClient();
-     tree.text = "more and more trees in da town";
-     tree.metersToHide = 3;
-     tree.x = 15.27;
-     tree.y = 35.1;
-
-     treeRestClient.put(tree).then(function (val) {
-     console.log("emptyTrees:" + val.emptyTrees);
-     return treeRestClient.put(tree);
-     }).then(function (val) {
-     console.log("emptyTrees:" + val.emptyTrees);
-     return treeRestClient.put(tree);
-     }).then(function (val) {
-     console.log("emptyTrees:" + val.emptyTrees);
-     return treeRestClient.put(tree);
-     }).then(function (val) {
-     console.log("emptyTrees:" + val.emptyTrees);
-     equal(val.emptyTrees, 2);
-     return treeRestClient.put(tree);
-     }).then(function (val) {
-     console.log("emptyTrees:" + val.emptyTrees);
-     equal(val.emptyTrees, 1);
-     return treeRestClient.put(tree);
-     });
-     });
-     */
-
-
-    /*
-
-
-     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
-     var trc = new TreeRestClient();
-     trc.deleteAll();
-     });
-     */
     asyncTest('Api get a tree', function () {
         require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
@@ -182,8 +143,6 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
                     console.log("Failed!", error);
                     deleteAll();
                 });
-                // equal(2, 0);
-                // QUnit.start();
             });
         });
     });
@@ -237,7 +196,147 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
                 });
             });
         });
+    asyncTest('Api PUT A TREE AND VOTE IT -1', function () {
+        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient(),
+                originalX = 15.21;
+            tree.text = "first tree in town";
+            tree.metersToHide = 5;
+            tree.x = originalX;
+            tree.y = 35.11;
+
+            deleteAll().then( function () {
+                treeRestClient.put(tree).then(function (val) {
+                    val.treeContent.metersToHide -= 1;
+                    return treeRestClient.put(val.treeContent);
+                }).then(function (val) {
+                    deepEqual(val.treeContent.metersToHide, 4, "meters to hide increased by 1");
+                    QUnit.start();
+                    deleteAll();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                    deleteAll();
+                });
+            });
+        });
     });
 
+    asyncTest('Api PUT A TREE AND VOTE IT +1', function () {
+        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient(),
+                originalX = 15.21;
+            tree.text = "first tree in town";
+            tree.metersToHide = 5;
+            tree.x = originalX;
+            tree.y = 35.11;
+
+            deleteAll().then( function () {
+                treeRestClient.put(tree).then(function (val) {
+                    val.treeContent.metersToHide += 1;
+                    return treeRestClient.put(val.treeContent);
+                }).then(function (val) {
+                    deepEqual(val.treeContent.metersToHide, 6, "meters to hide increased by 1");
+                    QUnit.start();
+                    deleteAll();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                    deleteAll();
+                });
+            });
+        });
+    });
+
+    asyncTest('Api PUT A TREE AND VOTE IT +0', function () {
+        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient(),
+                originalX = 15.21;
+            tree.text = "first tree in town";
+            tree.metersToHide = 5;
+            tree.x = originalX;
+            tree.y = 35.11;
+
+            deleteAll().then( function () {
+                treeRestClient.put(tree).then(function (val) {
+                    return treeRestClient.put(val.treeContent);
+                }).then(function (val) {
+                    deepEqual(val.treeContent.metersToHide, 5, "meters to hide increased by 1");
+                    QUnit.start();
+                    deleteAll();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                    deleteAll();
+                });
+            });
+        });
+    });
+
+    asyncTest('Api PUT A TREE AND VOTE IT +2', function () {
+        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient(),
+                originalX = 15.21;
+            tree.text = "first tree in town";
+            tree.metersToHide = 5;
+            tree.x = originalX;
+            tree.y = 35.11;
+
+            deleteAll().then( function () {
+                treeRestClient.put(tree).then(function (val) {
+                    val.treeContent.metersToHide += 2;
+                    return treeRestClient.put(val.treeContent);
+                }).then(function (val) {
+                    deepEqual(val.treeContent, null, "meters to hide increased by 1");
+                    QUnit.start();
+                    deleteAll();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                    deleteAll();
+                });
+            });
+        });
+    });
+
+
+    asyncTest('Api PUT A TREE AND VOTE IT -2', function () {
+        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+            var tree = {},
+                treeRestClient = new TreeRestClient(),
+                answerIdList = [],
+                dontIncludeList = [],
+                originalX = 15.21;
+            tree.text = "first tree in town";
+            tree.metersToHide = 5;
+            tree.x = originalX;
+            tree.y = 35.11;
+
+            deleteAll().then( function () {
+                treeRestClient.put(tree).then(function (val) {
+                    answerIdList.push(val.treeContent);
+                    val.treeContent.metersToHide -= 2;
+                    return treeRestClient.put(val.treeContent);
+                }).then(function (val) {
+                    deepEqual(val.treeContent, null, "meters to hide increased by 1");
+                    QUnit.start();
+                    deleteAll();
+                }).catch(function (error) {
+                    equal(2, 0, "exception thrown");
+                    QUnit.start();
+                    console.log("Failed!", error);
+                    deleteAll();
+                });
+            });
+        });
+    });
 
 });

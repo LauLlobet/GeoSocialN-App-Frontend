@@ -1,0 +1,40 @@
+   /*
+
+     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+     var tree = {},
+     treeRestClient = new TreeRestClient();
+     tree.text = "more and more trees in da town";
+     tree.metersToHide = 3;
+     tree.x = 15.27;
+     tree.y = 35.1;
+
+     treeRestClient.put(tree).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     equal(val.emptyTrees, 2);
+     return treeRestClient.put(tree);
+     }).then(function (val) {
+     console.log("emptyTrees:" + val.emptyTrees);
+     equal(val.emptyTrees, 1);
+     return treeRestClient.put(tree);
+     });
+     });
+     */
+
+
+    /*
+
+
+     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+     var trc = new TreeRestClient();
+     trc.deleteAll();
+     });
+     */
