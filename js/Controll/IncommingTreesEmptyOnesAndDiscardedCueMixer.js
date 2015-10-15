@@ -2,69 +2,46 @@
 /*jslint todo: true */
 define(['../lib/underscore'], function (underscore) {
     "use strict";
-    function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList) {
+    function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList, mapOfTreesById) {
         this.incommingList = incommingList;
+        this.mapOfTreesById = mapOfTreesById;
+        this.icommingTreesWithItsUnitList = [];
+        this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
     }
-
-    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded, emptyTrees) {
-        var loadToBackgroundList = [],
-            chance = 0;
-        console.log("empty trees inside:" + emptyTrees);
-        switch (emptyTrees) {
-            case 6:
-                return [undefined, undefined];
-                break;
-            case 5:
-                chance = 3 / 4;
-                break;
-            case 4:
-                chance = 1 / 2;
-                break;
-            case 3:
-                chance = 1 / 8;
-                break;
-            case 2:
-                chance = 1 / 10;
-                break;
-            case 1:
-                chance = 1 / 40;
-                break;
-
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded) {
+        var toPushOne,
+            toPushTwo;
+        this.icommingTreesWithItsUnitList = this.orderIncommingListFromFarToNearAndAddDistanceUnits(this.incommingList);
+        toPushOne = this.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt();
+        toPushTwo = this.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt();
+        if (Math.random() > 0.5) {
+            return [toPushOne, toPushTwo];
         }
-
-        if(Math.random() < chance) {
-            loadToBackgroundList.push(undefined);
+        return [toPushTwo, toPushOne];
+    };
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.orderIncommingListFromFarToNearAndAddDistanceUnits = function orderIncommingListFromFarToNearAndAddDistanceUnits(incommingList) {
+        return this.icommingTreesWithItsUnitList;
+    };
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt = function icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt() {
+        var nearestTree = this.icommingTreesWithItsUnitList[0],
+            distanceFromNearestTree;
+        if (nearestTree === undefined) {
+            return -1; // no more trees in list, returning the code of no more trees in the game
         }
-        if(Math.random() < chance) {
-            loadToBackgroundList.push(undefined);
+        distanceFromNearestTree = nearestTree.distanceUnit;
+        if (distanceFromNearestTree - this.exploredDistanceUnitsByWatchingEmptyTrees < 1) {
+            this.deleteTreeFromIncommingList(nearestTree.treeId);
+            this.icommingTreesWithItsUnitList.shift();
+            return nearestTree.treeId;
         }
-
-        discarded = discarded.filter(Number);
-        while (loadToBackgroundList.length < 2 && discarded.length > 0) {
-            loadToBackgroundList.push(discarded.shift());
-        }
-
-        while (loadToBackgroundList.length < 2  && this.incommingList.length > 0) {
-            loadToBackgroundList.push(this.incommingList.shift());
-        }
-
-        if (emptyTrees === 0) {
-            while (loadToBackgroundList.length < 2) {
-                loadToBackgroundList.push(-1);
-            }
-        } else {
-            while (loadToBackgroundList.length < 2) {
-                loadToBackgroundList.push(undefined);
-            }
-        }
-        while (discarded.length > 0) {
-            if (discarded !== -1) {
-                console.log("pushing tree to incomming list");
-                this.incommingList.unshift(discarded.shift());
-            }
-        }
-        return loadToBackgroundList;
+        this.exploredDistanceUnitsByWatchingEmptyTrees += 1;
+        return undefined;
     };
 
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.deleteTreeFromIncommingList = function deleteTreeFromIncommingList(treeId) {
+        var io = this.incommingList.indexOf(treeId);
+        console.log( this.incommingList.splice(io, 1));
+        console.log( this.incommingList);
+    };
     return IncommingTreesEmptyOnesAndDiscardedCueMixer;
 });

@@ -8,7 +8,7 @@ define(['../lib/underscore', "../lib/rsvp", "./IncommingTreesEmptyOnesAndDiscard
         this.alreadyDisplayed = alreadyDisplayedList;
         this.mapOfTreesById = mapOfTreesById;
         this.initializedWithTrees = false;
-        this.incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingListAndCurrentEmptyTrees);
+        this.incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingListAndCurrentEmptyTrees, mapOfTreesById);
     }
     TreeLoaderToSceneLoaderFromLists.prototype.swipe = function swipe(leftOrRigthText) {
         var discarded,
