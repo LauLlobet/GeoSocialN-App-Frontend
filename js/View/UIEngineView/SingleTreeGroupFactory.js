@@ -25,16 +25,15 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         this.sprite.anchor.y = 172 / 611;
         this.group.x = this.phaserGame.coordX(tree.x);
         this.group.y = this.phaserGame.coordY(tree.y);
-        this.ifEmptyTreeSetWriteTextButtonToGroup(tree);
         this.setScalePropertiesToNewGroup(tree);
         this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
         if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
-        this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
-        this.group.textSetter.createText(tree.text, tree.unburiedLayers);
         if (this.isNotAnEmptyTree(tree)) {
+            this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
+            this.group.textSetter.createText(tree.text, tree.unburiedLayers);
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
             this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
         }
@@ -69,35 +68,6 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
     };
     SingleTreeGroupFactory.prototype.isNotInstructionTree = function (tree) {
         return (tree.treeid !== 1);
-    };
-    SingleTreeGroupFactory.prototype.ifEmptyTreeSetWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
-        var button, context, tween;
-        if (this.isNotAnEmptyTree(tree)) {
-            return;
-        }
-        button = this.group.create(tree.button.x, tree.button.y, 'punzon');
-        this.group.buttonSprite = button;
-        button.name = 'button';
-        button.height = tree.button.hw;
-        button.width = tree.button.hw;
-        button.inputEnabled = true;
-        button.input.priorityID = 1;
-        button.useHandCursor = true;
-        tween = this.game.add.tween(button).to({y: tree.button.y - 100}, 500, 'Linear', true, 0, -1);
-        tween.yoyo(true, 500);
-        context = {
-            observer : this.gestureObserver,
-            button : button,
-            game : this.game,
-            previousTween : tween
-        };
-        button.events.onInputDown.add(function () {
-            this.game.add.tween(this.button).to({alpha: 0}, 300, 'Linear', true, 0, 0);
-            this.game.tweens.remove(this.previousTween);
-            this.button.inputEnabled = false;
-            this.button.useHandCursor = false;
-            this.observer.clickedOnWriteButton();
-        }, context);
     };
 
     SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id,treeGroup) {

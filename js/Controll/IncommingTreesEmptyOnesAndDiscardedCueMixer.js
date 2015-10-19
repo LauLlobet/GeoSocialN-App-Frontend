@@ -1,26 +1,85 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore'], function (underscore) {
+define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalculator.js', './MapKmToDistanceUnits.js'], function (underscore,
+                                                                                                                    CoordinatesCalculator,
+                                                                                                                    MapKmToDistanceUnits) {
     "use strict";
-    function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList, mapOfTreesById) {
+    function IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingList, mapOfTreesById, gpsMovmentTrigger) {
         this.incommingList = incommingList;
         this.mapOfTreesById = mapOfTreesById;
+        this.gpsMovmentTrigger = gpsMovmentTrigger;
+        this.coordinatesCalculator = new CoordinatesCalculator();
+        this.mapKmToDistanceUnits = new MapKmToDistanceUnits();
         this.icommingTreesWithItsUnitList = [];
         this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
+        this.firstUseOfThisClass = true;
+        this.lastKnownUserLocation  = this.gpsMovmentTrigger.lastMoveCoordinates;
     }
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded) {
         var toPushOne,
             toPushTwo;
-        this.icommingTreesWithItsUnitList = this.orderIncommingListFromFarToNearAndAddDistanceUnits(this.incommingList);
-        toPushOne = this.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt();
-        toPushTwo = this.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt();
+        if (discarded.length > 0) {
+            toPushOne = discarded.shift();
+            toPushTwo = undefined;
+            if (discarded.length > 0) {
+                toPushTwo = discarded.shift();
+            }
+        } else {
+            this.ifUserHasMovedResetExploredDistanceUnitsByWatchingEmptyTrees();
+            this.icommingTreesWithItsUnitList = this.orderIncommingListFromFarToNearAndAddDistanceUnits(this.incommingList);
+            toPushOne = this.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt();
+            toPushTwo = this.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt();
+        }
         if (Math.random() > 0.5) {
             return [toPushOne, toPushTwo];
         }
         return [toPushTwo, toPushOne];
     };
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.ifUserHasMovedResetExploredDistanceUnitsByWatchingEmptyTrees = function (){
+        if (this.firstUseOfThisClass) {
+            this.lastKnownUserLocation = this.gpsMovmentTrigger.lastKnownUserLocation;
+            this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
+            this.firstUseOfThisClass = false;
+            return;
+        }
+        var deltaPosition = this.lastKnownUserLocation - this.gpsMovmentTrigger.lastKnownUserLocation;
+        if (deltaPosition > 30) {
+            this.exploredDistanceUnitsByWatchingEmptyTrees -= this.mapKmToDistanceUnits(deltaPosition);
+            if (this.exploredDistanceUnitsByWatchingEmptyTrees < 0) {
+                this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
+            }
+        }
+    }
+
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.orderIncommingListFromFarToNearAndAddDistanceUnits = function orderIncommingListFromFarToNearAndAddDistanceUnits(incommingList) {
-        return this.icommingTreesWithItsUnitList;
+        var treeIdAndItsDistance = this.calculateMetersOfEachTreeFromTheActualPosition(incommingList),
+            that = this;
+        treeIdAndItsDistance = _.map(treeIdAndItsDistance, function (value) {
+            return { treeId: value.treeId,
+                        distanceUnit: that.mapKmToDistanceUnits.map(value.distance),
+                        distanceKm: value.distance};
+        });
+       return treeIdAndItsDistance;
+    };
+
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.calculateMetersOfEachTreeFromTheActualPosition = function calculateMetersOfEachTreeFromTheActualPosition(incommingList) {
+        var currentCooridinates = this.gpsMovmentTrigger.lastMoveCoordinates, //.longitude .latitude
+            ans = [],
+            i,
+            itree,
+            tmp = {};
+        for (i = 0; i < incommingList.length; i += 1) {
+            itree = this.mapOfTreesById[incommingList[i]];
+            tmp.coordinates = {longitude: itree.x, latitude: itree.y };
+            tmp.distance = Math.round(this.coordinatesCalculator.distanceBetweenCoordinates(
+                tmp.coordinates,
+                currentCooridinates ));
+            ans.push({treeId: itree.id, distance: tmp.distance});
+        }
+        ans.sort(function (a, b) {
+            return a.distance - b.distance;
+        });
+        return ans;
     };
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt = function icommingTreesWithItsUnitListToEmptyTreeOrNotInOrderToStackIt() {
         var nearestTree = this.icommingTreesWithItsUnitList[0],

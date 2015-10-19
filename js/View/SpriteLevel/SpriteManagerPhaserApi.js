@@ -69,7 +69,7 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     };
     SpriteManagerPhaserApi.prototype.createTreeSpriteGroup = function createSprite(tree, id) {
         var treeSpriteG;
-        if (tree.text) {
+        if (tree.text === undefined) {
             treeSpriteG = this.deletedSpriteGroupsWithoutText.pop();
         } else {
             treeSpriteG = this.deletedSpriteGroupsWithText.pop();

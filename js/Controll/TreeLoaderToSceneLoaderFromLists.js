@@ -2,7 +2,7 @@
 /*jslint todo: true */
 define(['../lib/underscore', "../lib/rsvp", "./IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (underscore, rsvp, IncommingTreesEmptyOnesAndDiscardedCueMixer) {
     "use strict";
-    function TreeLoaderToSceneLoaderFromLists(sceneLoader, incommingListAndCurrentEmptyTrees, alreadyDisplayedList, mapOfTreesById, arrayListOrderRandomizer) {
+    function TreeLoaderToSceneLoaderFromLists(sceneLoader, incommingListAndCurrentEmptyTrees, alreadyDisplayedList, mapOfTreesById) {
         this.incommingListAndCurrentEmptyTrees = incommingListAndCurrentEmptyTrees;
         this.sceneLoader = sceneLoader;
         this.alreadyDisplayed = alreadyDisplayedList;
