@@ -144,7 +144,13 @@ define([], function () {
             mapOfTreesById[2] = {id: 2, x: longi, y: lati + 0.0011 }; // 3 u
             mapOfTreesById[3] = {id: 3, x: longi, y: lati + 0.0021 }; // 5 u
             mapOfTreesById[4] = {id: 4, x: longi, y: lati - 0.0081 }; // 6 u direccio oposada
+            mapOfTreesById[5] = {id: 5, x: longi, y: lati + 0.0016 }; // 4 posicio nova no es fa servir d'arbre
 
+
+            /*ans = incommingTreesEmptyOnesAndDiscardedCueMixer.calculateMetersOfEachTreeFromTheActualPosition(incommingList);
+            expectedAns =  []
+            deepEqual(expectedAns, ans, 'distance');
+*/
             ans = incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees([1]);
             if (ans[0] !== undefined) {
                 deepEqual(ans, [1, undefined], '1');
@@ -161,13 +167,16 @@ define([], function () {
                 deepEqual(ans, [undefined, 2], '3');
             }
             deleteFromArray(incommingList, 2);
+            deepEqual(incommingTreesEmptyOnesAndDiscardedCueMixer.exploredDistanceUnitsByWatchingEmptyTrees, 3, 'reseted unit counter');
+            gpsMovmentTrigger.lastMoveCoordinates.longitude = longi;
+            gpsMovmentTrigger.lastMoveCoordinates.latitude = lati + 0.0016;
             ans = incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees([]);
             if (ans[0] !== undefined) {
-                deepEqual(ans, [2, undefined], '3');
+                deepEqual(ans, [3, undefined], '5moved');
             } else {
-                deepEqual(ans, [undefined, 2], '3');
+                deepEqual(ans, [6, undefined], '5moved');
             }
-
+            deepEqual(incommingTreesEmptyOnesAndDiscardedCueMixer.exploredDistanceUnitsByWatchingEmptyTrees, 2, 'reseted unit counter');
             QUnit.start();
         });
 

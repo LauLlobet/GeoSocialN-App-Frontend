@@ -13,7 +13,9 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
         this.icommingTreesWithItsUnitList = [];
         this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
         this.firstUseOfThisClass = true;
-        this.lastKnownUserLocation  = this.gpsMovmentTrigger.lastMoveCoordinates;
+        this.lastKnownUserLocation = {};
+        this.lastKnownUserLocation.latitude = this.gpsMovmentTrigger.lastMoveCoordinates.latitude;
+        this.lastKnownUserLocation.longitude = this.gpsMovmentTrigger.lastMoveCoordinates.longitude;
     }
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded) {
         var toPushOne,
@@ -37,17 +39,22 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
     };
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.ifUserHasMovedResetExploredDistanceUnitsByWatchingEmptyTrees = function (){
         if (this.firstUseOfThisClass) {
-            this.lastKnownUserLocation = this.gpsMovmentTrigger.lastKnownUserLocation;
+            this.lastKnownUserLocation.latitude = this.gpsMovmentTrigger.lastMoveCoordinates.latitude;
+            this.lastKnownUserLocation.longitude = this.gpsMovmentTrigger.lastMoveCoordinates.longitude;
             this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
             this.firstUseOfThisClass = false;
             return;
         }
-        var deltaPosition = this.lastKnownUserLocation - this.gpsMovmentTrigger.lastKnownUserLocation;
+        var deltaPosition = this.coordinatesCalculator.distanceBetweenCoordinates(
+                                                        this.lastKnownUserLocation,
+                                                        this.gpsMovmentTrigger.lastMoveCoordinates);
         if (deltaPosition > 30) {
-            this.exploredDistanceUnitsByWatchingEmptyTrees -= this.mapKmToDistanceUnits(deltaPosition);
+            this.exploredDistanceUnitsByWatchingEmptyTrees -= (this.mapKmToDistanceUnits.map(deltaPosition) - 1);
             if (this.exploredDistanceUnitsByWatchingEmptyTrees < 0) {
                 this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
             }
+            this.lastKnownUserLocation.latitude = this.gpsMovmentTrigger.lastMoveCoordinates.latitude;
+            this.lastKnownUserLocation.longitude = this.gpsMovmentTrigger.lastMoveCoordinates.longitude
         }
     }
 
