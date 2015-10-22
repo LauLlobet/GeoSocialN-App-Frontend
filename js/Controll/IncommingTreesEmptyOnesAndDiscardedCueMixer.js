@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalculator.js', './MapKmToDistanceUnits.js'], function (underscore,
+define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalculator.js', '/OurTreeWeb/js/Controll/MapKmToDistanceUnits.js'], function (underscore,
                                                                                                                     CoordinatesCalculator,
                                                                                                                     MapKmToDistanceUnits) {
     "use strict";
@@ -14,12 +14,11 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
         this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
         this.firstUseOfThisClass = true;
         this.lastKnownUserLocation = {};
-        this.lastKnownUserLocation.latitude = this.gpsMovmentTrigger.lastMoveCoordinates.latitude;
-        this.lastKnownUserLocation.longitude = this.gpsMovmentTrigger.lastMoveCoordinates.longitude;
     }
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded) {
         var toPushOne,
             toPushTwo;
+        discarded = discarded.filter(function(n){ return n != undefined });
         if (discarded.length > 0) {
             toPushOne = discarded.shift();
             toPushTwo = undefined;
@@ -101,13 +100,13 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
             return nearestTree.treeId;
         }
         this.exploredDistanceUnitsByWatchingEmptyTrees += 1;
+        console.log("nearest:"+distanceFromNearestTree+" recorregut:"+this.exploredDistanceUnitsByWatchingEmptyTrees);
         return undefined;
     };
 
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.deleteTreeFromIncommingList = function deleteTreeFromIncommingList(treeId) {
         var io = this.incommingList.indexOf(treeId);
-        console.log( this.incommingList.splice(io, 1));
-        console.log( this.incommingList);
+        this.incommingList.splice(io, 1)
     };
     return IncommingTreesEmptyOnesAndDiscardedCueMixer;
 });

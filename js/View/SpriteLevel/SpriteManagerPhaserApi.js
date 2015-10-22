@@ -129,7 +129,7 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     SpriteManagerPhaserApi.prototype.deleteTreeSpriteGroup = function deleteTreeSpriteGroup(id) {
         var sprite = this.findTreeSpriteGroupByName(id);
         this.allSpritesGroup.remove(sprite);
-        if (sprite.buttonSprite) {
+        if (sprite.hasText) {
             this.deletedSpriteGroupsWithText.push(sprite);
         } else {
             this.deletedSpriteGroupsWithoutText.push(sprite);

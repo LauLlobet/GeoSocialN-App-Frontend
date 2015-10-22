@@ -21,7 +21,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
     }
     RelativeLocationCalculator.prototype.onNewlyPresentedTree = function onNewlyPresentedTree (treeid) {
         var tree;
-        if (treeid === undefined || treeid < 10) {// 10 is the numbers of treeid of trees that gives instructions to users
+        if (treeid === undefined || treeid < 10 || treeid === null) {// 10 is the numbers of treeid of trees that gives instructions to users
             return;
         }
         tree = this.treeHashIdToTree[treeid];

@@ -36,6 +36,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
             this.group.textSetter.createText(tree.text, tree.unburiedLayers);
             this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
             this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
+            this.group.hasText = true;
         }
         console.log("CREATING TREE");
     };
@@ -53,6 +54,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }
         if (tree.text !== undefined) {
             this.group.textSetter.setText(tree.text);
+            console.log("REUSING Tree:" + id + " treetext:" +  tree.text);
         }
     };
 
@@ -64,7 +66,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
     };
 
     SingleTreeGroupFactory.prototype.isNotAnEmptyTree = function (tree) {
-        return (tree.text !== undefined || tree.button === undefined);
+        return (    tree.text !== undefined || tree.button === undefined);
     };
     SingleTreeGroupFactory.prototype.isNotInstructionTree = function (tree) {
         return (tree.treeid !== 1);

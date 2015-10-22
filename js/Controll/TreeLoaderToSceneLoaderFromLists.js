@@ -1,14 +1,14 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore', "../lib/rsvp", "./IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (underscore, rsvp, IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+define(['../lib/underscore', "../lib/rsvp"], function (underscore, rsvp) {
     "use strict";
-    function TreeLoaderToSceneLoaderFromLists(sceneLoader, incommingListAndCurrentEmptyTrees, alreadyDisplayedList, mapOfTreesById) {
+    function TreeLoaderToSceneLoaderFromLists(sceneLoader, incommingListAndCurrentEmptyTrees, alreadyDisplayedList, mapOfTreesById, incommingTreesEmptyOnesAndDiscardedCueMixer) {
         this.incommingListAndCurrentEmptyTrees = incommingListAndCurrentEmptyTrees;
         this.sceneLoader = sceneLoader;
         this.alreadyDisplayed = alreadyDisplayedList;
         this.mapOfTreesById = mapOfTreesById;
         this.initializedWithTrees = false;
-        this.incommingTreesEmptyOnesAndDiscardedCueMixer = new IncommingTreesEmptyOnesAndDiscardedCueMixer(incommingListAndCurrentEmptyTrees, mapOfTreesById);
+        this.incommingTreesEmptyOnesAndDiscardedCueMixer = incommingTreesEmptyOnesAndDiscardedCueMixer;
     }
     TreeLoaderToSceneLoaderFromLists.prototype.swipe = function swipe(leftOrRigthText) {
         var discarded,

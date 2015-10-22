@@ -6,14 +6,15 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
-    "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
+    "./IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
-                                                           VotingPanel, FlowerPanel) {
+                                                           VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -42,7 +43,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             this.incommingList,
             this.alreadyDisplayed,
             this.mapOfTreesById,
-            this.votingPanel
+            new IncommingTreesEmptyOnesAndDiscardedCueMixer(this.incommingList, this.mapOfTreesById, this.gpsMovmentTrigger)
         );
         tmp = new SpriteTreeTextSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeTextSetterInterface = new SceneTreeTextSetter(sceneLoaderInterface, tmp);

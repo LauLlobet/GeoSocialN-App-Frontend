@@ -65,7 +65,6 @@ define([], function () {
         hashY = Math.abs(hashY);
         x = parseInt(( "" + hashX).substring(0, 3));
         y = parseInt(( "" + hashY).substring(0, 3));
-        console.log("X:" + hashX);
         x = x / 1000;
         y = y / 1000;
         x = x * groupw;
