@@ -69,7 +69,7 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     };
     SpriteManagerPhaserApi.prototype.createTreeSpriteGroup = function createSprite(tree, id) {
         var treeSpriteG;
-        if (tree.text !== null) {
+        if (tree.text !== null && tree.treeid > 30) {
             if (tree.text === undefined) {
                 treeSpriteG = this.deletedSpriteGroupsWithoutText.pop();
             } else {
@@ -131,7 +131,7 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     SpriteManagerPhaserApi.prototype.deleteTreeSpriteGroup = function deleteTreeSpriteGroup(id) {
         var sprite = this.findTreeSpriteGroupByName(id);
         this.allSpritesGroup.remove(sprite);
-        if (!sprite.isToPlant) {
+        if (sprite.usReusable  > 30) {
             if (sprite.isWrittenByAServerTree) {
                 this.deletedSpriteGroupsWithText.push(sprite);
             } else {

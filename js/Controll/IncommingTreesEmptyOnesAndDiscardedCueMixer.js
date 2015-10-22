@@ -18,7 +18,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded) {
         var toPushOne,
             toPushTwo;
-        discarded = discarded.filter(function(n){ return n != undefined });
+        discarded = discarded.filter(function (n) { return (n !== undefined && n > 30); });
         if (discarded.length > 0) {
             toPushOne = discarded.shift();
             toPushTwo = undefined;

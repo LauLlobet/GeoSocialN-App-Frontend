@@ -71,6 +71,16 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             y: 2.111330986022949
         });
 
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
+            id: 3,
+            ip: "87.223.58.75",
+            metersToHide: 10,
+            text: "",
+            timestamp: 1441013147469,
+            x: 2.111330986022949,
+            y: 2.111330986022949
+        });
+
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
         this.sceneLoaderInterface.stackLoadScene('forestSwipeLeft',
@@ -79,7 +89,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 {id: 1, text: "Swipe left and right and discover arround you!"},
                 undefined
         ]);
-        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [null, null, null]);
+        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [{id: 3, text: ""}, null, null]);
         this.sceneLoaderInterface.playAllStackedScenes().then(function () {
             that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
             that.hashChangeTrigger.update();
@@ -116,7 +126,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     };
 
     UserInterfaceBussinesController.prototype.setHashUrlAndIgnoreUpdatingIfNotUndefined = function (id) {
-        if( id !== undefined){
+        if( id !== undefined && id !== 3) {
             this.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(id);
         } else {
             this.hashChangeTrigger.removeHash();
@@ -140,7 +150,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             return treeRestClient.put(val.treeContent);
         }).then(function (val) {
             var tree = that.getTreeAlreadyDisplayed();
-            if (tree !== undefined) {
+            if (tree !== undefined && treeid !== 3) {
                 that.flowerPanel.addNFlowers(tree.id, inc);
             }
         }).catch(function (error) {
@@ -150,7 +160,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.justDisplayedATree = function () {
         var tree = this.getTreeAlreadyDisplayed();
-        if (tree !== undefined) {
+        if (tree !== undefined && tree.treeid < 30) {
             this.votingPanel.show();
             this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
         }

@@ -17,8 +17,14 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         this.textGroup = this.phaserGame.game.add.group();
         this.buryGroup = this.phaserGame.game.add.group();
         this.compasAndKmGroup = this.phaserGame.game.add.group();
+        console.log("TREEID:" + tree.treeid);
         if (tree.treeid !== null) {
-            this.sprite = this.group.create(0, 0, 'real');
+            if (tree.treeid === 3) {
+                this.sprite = this.group.create(0, 0, 'fullTerritory');
+                this.group.isReusable = false;
+            } else {
+                this.sprite = this.group.create(0, 0, 'real');
+            }
         } else {
             this.sprite = this.group.create(0, 0, 'roots');
         }
@@ -35,6 +41,9 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
+        if (tree.treeid === 3) {
+            return;
+        }
         if (this.isNotAnEmptyTree(tree)) {
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
             this.group.textSetter.createText(tree.text, tree.unburiedLayers);
@@ -43,7 +52,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
             this.group.isWrittenByAServerTree = true;
         }
         if (tree.treeid === null) {
-            this.group.isToPlant = true;
+            this.group.isReusable = false;
             this.setWriteTextButtonToGroup(tree);
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
             this.group.textSetter.createText(" ", tree.unburiedLayers);
