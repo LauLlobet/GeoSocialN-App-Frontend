@@ -79,7 +79,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 {id: 1, text: "Swipe left and right and discover arround you!"},
                 undefined
         ]);
-        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [undefined, undefined, undefined]);
+        this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [null, null, null]);
         this.sceneLoaderInterface.playAllStackedScenes().then(function () {
             that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
             that.hashChangeTrigger.update();

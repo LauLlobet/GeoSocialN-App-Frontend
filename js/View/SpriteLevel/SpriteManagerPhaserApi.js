@@ -69,10 +69,12 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     };
     SpriteManagerPhaserApi.prototype.createTreeSpriteGroup = function createSprite(tree, id) {
         var treeSpriteG;
-        if (tree.text === undefined) {
-            treeSpriteG = this.deletedSpriteGroupsWithoutText.pop();
-        } else {
-            treeSpriteG = this.deletedSpriteGroupsWithText.pop();
+        if (tree.text !== null) {
+            if (tree.text === undefined) {
+                treeSpriteG = this.deletedSpriteGroupsWithoutText.pop();
+            } else {
+                treeSpriteG = this.deletedSpriteGroupsWithText.pop();
+            }
         }
         if (treeSpriteG === undefined) {
             this.singleTreeGroupFactory.createTreeSpriteGroup(tree, id);
@@ -129,10 +131,12 @@ define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFact
     SpriteManagerPhaserApi.prototype.deleteTreeSpriteGroup = function deleteTreeSpriteGroup(id) {
         var sprite = this.findTreeSpriteGroupByName(id);
         this.allSpritesGroup.remove(sprite);
-        if (sprite.hasText) {
-            this.deletedSpriteGroupsWithText.push(sprite);
-        } else {
-            this.deletedSpriteGroupsWithoutText.push(sprite);
+        if (!sprite.isToPlant) {
+            if (sprite.isWrittenByAServerTree) {
+                this.deletedSpriteGroupsWithText.push(sprite);
+            } else {
+                this.deletedSpriteGroupsWithoutText.push(sprite);
+            }
         }
     };
     SpriteManagerPhaserApi.prototype.findTreeSpriteGroupByName = function findTreeSpriteGroupByName(id) {

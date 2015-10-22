@@ -122,6 +122,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     };
     PhaserGame.prototype.loadImages = function loadImages(){
         this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree4.png');
+        this.game.load.image('roots', '/OurTreeWeb/assets/treeWithRoots.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
 
         this.game.load.image('keyboardBackground', '/OurTreeWeb/assets/fondoTeclat.png');

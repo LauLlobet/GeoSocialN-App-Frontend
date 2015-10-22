@@ -2,6 +2,7 @@
 /*jslint todo: true */
 define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../scenes/ForestSwipeLeft", './StackOfScenes'], function (underscore, forestSwipeRight, forestSwipeLeft, StackOfScenes) {
     "use strict";
+
     function SceneLoader(spriteManagerPhaserApiInterface, newlyPresentedTreeSubjectNotifier) //noinspection JSLint
     {
             this.idCounter = 0;
@@ -10,6 +11,7 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
             this.stackOfScenes = new StackOfScenes(this);
             this.initial = true;
             this.newlyPresentedTreeSubjectNotifier = newlyPresentedTreeSubjectNotifier;
+            this.heigthOfUnplantedTree = 900;
     }
     SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, newTrees) {
         this.stackOfScenes.stackLoadScene(sceneType, newTrees);
@@ -24,19 +26,23 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
             i = 0;
         _.each(scene.trees, function (entry) {
             if (entry.initialPosition.charAt(0) === '3' || (this.initial === true && entry.text === "%initial")) {
-                if (newTrees[i] !== undefined && newTrees[i].id !== -1) {
+                if (newTrees[i] !== null && newTrees[i] !== undefined && newTrees[i].id !== -1) {
                     entry.text = newTrees[i].text;
                     if (typeof newTrees[i].id !== 'undefined') {
                         entry.treeid = newTrees[i].id; // this treeid is the one from backend
                         entry.metersToHide = newTrees[i].metersToHide;
                     }
                     i += 1;
-                } else if (newTrees[i] !== undefined && (newTrees.length < i || newTrees[i].id === -1)) { // the array is less than 2 ( no empty trees nor full ones )
+                } else if (newTrees[i] !== null && newTrees[i] !== undefined && (newTrees.length < i || newTrees[i].id === -1)) { // the array is less than 2 ( no empty trees nor full ones )
                     entry.text = "You've seen all the written trees in the whole world, and you are in a place which trees are full, move to find empty trees and post!";
                     entry.treeid = -1;
                 } else if (newTrees[i] === undefined) {
                     entry.text = undefined;
                     entry.treeid = undefined;
+                    i += 1;
+                } else if (newTrees[i] === null) {
+                    entry.text = null;
+                    entry.treeid = null;
                     i += 1;
                 }
             }
@@ -47,6 +53,10 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
                 return;
             }
             this.bindTreeAndTweenToTable(entry);
+            if (entry.treeid === null && entry.text === null) {
+                entry.y -= this.heigthOfUnplantedTree;
+                entry.tween.y -= this.heigthOfUnplantedTree;
+            }
         }, this); // bind to table
         this.setAllToOld();
         this.spriteManagerPhaserApiInterface.tellAllActiveSpritesSoItCanUpdateIt(this.getAllActiveIds());
@@ -102,9 +112,6 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
         var toSubstituteTreeEntry,
             toSubstituteIndex = this.findIndexOfOldTreeWithFinalPosition(initialPosition);
         toSubstituteTreeEntry = this.sceneObjectsTable[toSubstituteIndex];
-        if (toSubstituteIndex.text === '1') {
-            console.log('HOLA');
-        }
         if (toSubstituteIndex >= 0) {
             this.sceneObjectsTable.splice(toSubstituteIndex, 1);
             this.copyValuesFromOldTreeToNewOne(toSubstituteTreeEntry, newTreetableentry);
@@ -116,11 +123,9 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
         newTree.tree.text = oldTree.tree.text;
         newTree.tree.type = oldTree.tree.type;
         newTree.tree.unburiedLayers = oldTree.tree.unburiedLayers;
-        if (typeof oldTree.tree.treeid !== 'undefined') {
-            newTree.tree.treeid = oldTree.tree.treeid;
+        newTree.tree.treeid = oldTree.tree.treeid;
+        if (typeof oldTree.tree.treeid !== 'undefined' || oldTree.tree.treeid !== null) {
             newTree.tree.metersToHide = oldTree.tree.metersToHide;
-        } else {
-            newTree.tree.treeid = undefined;
         }
     };
 
