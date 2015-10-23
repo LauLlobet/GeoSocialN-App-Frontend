@@ -111,7 +111,7 @@ var gpsErrorMessageDisplayerInterface = {
         document.getElementById("unblockGPS").style.display = "block";
     },
     displayPositionUnavaliableMessage : function displayPositionUnavaliableMessage() {
-        alert("El teu gps no acaba de trobar la posicio, espera una mica");
+        alert("Circle: El teu gps no acaba de trobar la posicio, espera una mica");
     },
     displayUnblockGpsMessageCalled: false,
     displayNotSupportedBrowser : function displayNotSupportedBrowser(){

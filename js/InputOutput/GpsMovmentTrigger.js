@@ -22,6 +22,12 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
                                             this.options);
     };
 
+    GpsMovmentTrigger.prototype.forceUpdate = function () {
+        navigator.geolocation.watchPosition(_.bind(this.userHasMovedUpdateFunction, this),
+            _.bind(this.errorCallback, this),
+            this.options);
+    };
+
     GpsMovmentTrigger.prototype.init = function init(relativeLocationCalculator, leafPileUnburier){
         this.relativeLocationCalculator = relativeLocationCalculator;
         this.leafPileUnburier = leafPileUnburier;
