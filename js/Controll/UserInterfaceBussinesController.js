@@ -169,9 +169,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.justDisplayedATree = function () {
         var tree = this.getTreeAlreadyDisplayed();
-        if (tree !== undefined && tree.treeid < 30) {
+        if (tree !== undefined && tree !== null && tree.treeid < 30) {
             this.votingPanel.show();
             this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
+            this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
+        }
+        if (tree === null) {
+            this.gpsMovmentTrigger.setPrecisionNowIsImportant();
         }
     };
 
@@ -189,31 +193,40 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }
     };
 
-    UserInterfaceBussinesController.prototype.putTreeOnServer = function(){
+    UserInterfaceBussinesController.prototype.putTreeOnServer = function () {
         var text = this.sceneTreeTextSetterInterface.getEditedTreeText(),
             coords = this.gpsMovmentTrigger.actualCoordinates,
             treeRestClient = new TreeRestClient(),
-            tree = { text: text, metersToHide: 10, x: coords.longitude, y: coords.latitude},
+            tree = { text: text, metersToHide: 0, x: coords.longitude, y: coords.latitude},
             that = this;
-        treeRestClient.put(tree).then(function (ans) {
-            if(ans.treeContent === null) {
-                alert("error posting tree");
-                throw "error";
+
+        return new Promise(function (resolve, reject) {
+            if (that.gpsMovmentTrigger.precisionOneToTen !== 10) {
+                reject("Not enought precision, wait for a while to plant a tree.");
             }
-            return ans;
-        }).then(function(ans) {
-            that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
-            that.gpsMovmentTrigger.forceUpdate();
+            treeRestClient.put(tree).then(function (ans) {
+                if (ans.treeContent === null) {
+                    reject("error posting tree");
+                }
+                return ans;
+            }).then(function (ans) {
+                that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
+                that.gpsMovmentTrigger.forceUpdate();
+                resolve();
+            });
         });
     };
 
     UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
         if (this.state === WRITTING) {
             if (char === "ok") {
-                this.state = NAVIGATE;
-                this.keyboardInterface.hideOnScene();
-                this.sceneTreeTextSetterInterface.setIsTyping(false);
-                this.putTreeOnServer();
+                this.putTreeOnServer().then(function () {
+                    this.state = NAVIGATE;
+                    this.keyboardInterface.hideOnScene();
+                    this.sceneTreeTextSetterInterface.setIsTyping(false);
+                }).catch(function (reason){
+                    alert(reason);
+                });
             } else if (char === "cancel") {
                 this.state = NAVIGATE;
                 this.keyboardInterface.hideOnScene();
@@ -306,7 +319,11 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     };
     UserInterfaceBussinesController.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed() {
         var treeid = this.sceneLoaderInterface.getTreeAlreadyDisplayed(),
-            tree = this.mapOfTreesById[treeid];
+            tree;
+        if (treeid === null) {
+            return null;
+        }
+        tree = this.mapOfTreesById[treeid];
         return tree;
     };
     return UserInterfaceBussinesController;

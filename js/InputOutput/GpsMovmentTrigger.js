@@ -15,6 +15,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         };
         this.setUpUpdate();
         this.phaserGame = phaserGame;
+        this.precisionIsNowImportant = false;
     }
     GpsMovmentTrigger.prototype.setUpUpdate = function () {
         navigator.geolocation.watchPosition(_.bind(this.userHasMovedUpdateFunction, this),
@@ -76,26 +77,36 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
     }
 
     GpsMovmentTrigger.prototype.handlePrecisionAlerts = function handlePrecisionAlerts(precision) {
-        var precisionInMeters = precision,
-            precisionOneToTen = 0;
+        var precisionInMeters = precision;
+       this.precisionOneToTen = 0;
 
         if (precisionInMeters < 35){
-            precisionOneToTen = 2;
+            this.precisionOneToTen = 2;
         } if (precisionInMeters < 20){
-            precisionOneToTen = 5;
+            this.precisionOneToTen = 5;
         } if (precisionInMeters < 18 ){
-            precisionOneToTen = 7;
+            this.precisionOneToTen = 7;
         } if (precisionInMeters < 16){
-            precisionOneToTen = 9;
+            this.precisionOneToTen = 9;
         } if (precisionInMeters < 14){
-            precisionOneToTen = 10;
+            this.precisionOneToTen = 10;
         }
 
         if (precisionInMeters === 150 && navigator.userAgent.match("emulated") !== null){
-           precisionOneToTen = 10;
+            this.precisionOneToTen = 10;
         }
 
-        //this.phaserGame.handlePrecisionGps(precisionOneToTen);
+        if( this.precisionIsNowImportant ) {
+            this.phaserGame.handlePrecisionGps(this.precisionOneToTen);
+        }
+    }
+
+    GpsMovmentTrigger.prototype.setPrecisionNowIsImportant = function setpPecisionNowIsImportant(precision) {
+        this.precisionIsNowImportant = true;
+    }
+
+    GpsMovmentTrigger.prototype.setPrecisionNowIsNotImportant = function setPrecisionNowIsNotImportant(precision) {
+        this.precisionIsNowImportant = false;
     }
 
     return GpsMovmentTrigger;
