@@ -98,7 +98,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             } else {
                 that.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [null, undefined, undefined]);
             }
-            this.sceneLoaderInterface.playAllStackedScenes().then(function () {
+            that.sceneLoaderInterface.playAllStackedScenes().then(function () {
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
                 that.hashChangeTrigger.update();
             });
