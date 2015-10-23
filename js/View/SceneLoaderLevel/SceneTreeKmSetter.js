@@ -7,7 +7,10 @@ define(['../../lib/underscore', "../../lib/rsvp", "../SpriteLevel/SpriteTreeKmCo
         this.spriteTreeKmSetter = spriteTreeKmSetter;
     }
     SceneTreeKmSetter.prototype.setDistance = function setDistance(meters) {
-        var tableentrytree = this.sceneLoader.getTreeWithFinalPosition("1c");
+        var tableentrytree = this.sceneLoader.getTreeWithFinalPosition("1c")
+        if (tableentrytree === null) {
+            return;
+        }
         this.spriteTreeKmSetter.setDistance(tableentrytree.id, meters);
         tableentrytree.tree.meters = meters;
     };

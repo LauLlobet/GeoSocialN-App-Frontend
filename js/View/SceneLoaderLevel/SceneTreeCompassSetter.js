@@ -8,6 +8,9 @@ define(['../../lib/underscore', "../../lib/rsvp"], function (underscore, rspv) {
     }
     SceneTreeCompassSetter.prototype.setAngle = function setAngle(angle) {
         var tableentrytree = this.sceneLoader.getTreeWithFinalPosition("1c");
+        if (tableentrytree === null) {
+            return;
+        }
         this.spriteCompassSetter.setAngle(tableentrytree.id, angle);
         tableentrytree.tree.meters = angle;
     };
