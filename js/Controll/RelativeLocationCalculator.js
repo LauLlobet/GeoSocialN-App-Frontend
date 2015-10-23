@@ -33,7 +33,6 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
 
     RelativeLocationCalculator.prototype.onNewlyLocationOfTheCellPhone = function onNewlyLocationOfTheCellPhone (coordinates) {
         this.currentCellPhoneCoordinates = coordinates;
-        console.log("acuracy:" + coordinates.acuracy);
         this.calculateAndSendLocationTips();
     }
 
