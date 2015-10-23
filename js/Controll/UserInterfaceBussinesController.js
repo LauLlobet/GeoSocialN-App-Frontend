@@ -218,12 +218,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     };
 
     UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
+        var that = this;
         if (this.state === WRITTING) {
             if (char === "ok") {
                 this.putTreeOnServer().then(function () {
-                    this.state = NAVIGATE;
-                    this.keyboardInterface.hideOnScene();
-                    this.sceneTreeTextSetterInterface.setIsTyping(false);
+                    that.state = NAVIGATE;
+                    that.keyboardInterface.hideOnScene();
+                    that.sceneTreeTextSetterInterface.setIsTyping(false);
                 }).catch(function (reason){
                     alert(reason);
                 });
