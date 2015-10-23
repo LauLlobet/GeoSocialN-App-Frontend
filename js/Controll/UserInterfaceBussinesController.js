@@ -93,10 +93,10 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             );
         this.updateWithoutMoving().then(function () {
             alert("longitude " + that.lastKnownCoords.x + "empty:" + that.incommingList.emptyTrees);
-            if (this.incommingList.emptyTrees === 0) {
-                this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [{id: 3, text: ""}, undefined, undefined]);
+            if (that.incommingList.emptyTrees === 0) {
+                that.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [{id: 3, text: ""}, undefined, undefined]);
             } else {
-                this.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [null, undefined, undefined]);
+                that.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [null, undefined, undefined]);
             }
             this.sceneLoaderInterface.playAllStackedScenes().then(function () {
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
