@@ -102,7 +102,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
                 that.hashChangeTrigger.update();
             });
-            this.fillerOfIncommingListIfItGetsEmpty.start();
+            that.fillerOfIncommingListIfItGetsEmpty.start();
         });
     };
     //MAIN INPUT FUNCTION
