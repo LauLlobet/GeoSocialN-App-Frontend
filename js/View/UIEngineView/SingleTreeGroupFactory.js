@@ -115,7 +115,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
             this.game.tweens.remove(this.previousTween);
             this.button.inputEnabled = false;
             this.button.useHandCursor = false;
-            this.observer.clickedOnWriteButton(); // hola
+            this.observer.clickedOnWriteButton();
         }, context);
     };
 
