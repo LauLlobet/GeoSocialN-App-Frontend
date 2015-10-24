@@ -59,7 +59,6 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
             this.group.textSetter.createText(" ", tree.unburiedLayers);
         }
-        console.log("CREATING TREE");
     };
 
     SingleTreeGroupFactory.prototype.reuseTreeSpriteGroup = function reuseTreeSpriteGroup(tree, id, group) {
@@ -75,7 +74,6 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }
         if (tree.text !== undefined) {
             this.group.textSetter.setText(tree.text);
-            console.log("REUSING Tree:" + id + " treetext:" +  tree.text);
         }
     };
 
@@ -111,13 +109,13 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
                 previousTween : tween,
                 group : this.group
         };
-    button.events.onInputDown.add(function () {
+        button.events.onInputDown.add(function () {
             this.game.add.tween(this.button).to({alpha: 0}, 300, 'Linear', true, 0, 0);
             this.game.add.tween(this.group).to({y: (this.group.y + 550) }, 300, 'Linear', true, 0, 0);
             this.game.tweens.remove(this.previousTween);
             this.button.inputEnabled = false;
             this.button.useHandCursor = false;
-            this.observer.clickedOnWriteButton();
+            this.observer.clickedOnWriteButton(); // hola
         }, context);
     };
 
