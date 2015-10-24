@@ -2,11 +2,12 @@
 /*jslint todo: true */
 define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], function (underscore, CoordinatesCalculator) {
     "use strict";
-    function RelativeLocationCalculator(treeHash, sceneKmSetter, compassSetter) {
+    function RelativeLocationCalculator(treeHash, sceneKmSetter, compassSetter, gpsMovmentTrigger) {
         var that = this;
         this.treeHashIdToTree = treeHash;
         this.sceneKmSetter = sceneKmSetter;
         this.compassSetter = compassSetter;
+        this.gpsMovmentTrigger = gpsMovmentTrigger;
 
         this.currentTargetCoordinates = undefined;
         this.currentCellPhoneCoordinates = undefined;
@@ -49,6 +50,11 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
         this.sceneKmSetter.setDistance(Math.round(this.metersFromCellPhoneToTargetTree));//metersFromCellPhoneToTargetTree));
+        if (this.metersFromCellPhoneToTargetTree < 130) {
+            this.gpsMovmentTrigger.setPrecisionNowIsImportant();
+        } else {
+            this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
+        }
     }
 
 

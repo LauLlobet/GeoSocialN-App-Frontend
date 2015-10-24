@@ -5,6 +5,7 @@ define(['../../lib/underscore', "../../lib/rsvp", "../SpriteLevel/SpriteTreeKmCo
     function SceneTreeKmSetter(sceneLoader, spriteTreeKmSetter) {
         this.sceneLoader = sceneLoader;
         this.spriteTreeKmSetter = spriteTreeKmSetter;
+        this.lastDistance = 0;
     }
     SceneTreeKmSetter.prototype.setDistance = function setDistance(meters) {
         var tableentrytree = this.sceneLoader.getTreeWithFinalPosition("1c")
@@ -12,7 +13,11 @@ define(['../../lib/underscore', "../../lib/rsvp", "../SpriteLevel/SpriteTreeKmCo
             return;
         }
         this.spriteTreeKmSetter.setDistance(tableentrytree.id, meters);
+        this.lastDistance = meters;
         tableentrytree.tree.meters = meters;
+    };
+    SceneTreeKmSetter.prototype.getLastDistance = function () {
+        return this.lastDistance;
     };
     return SceneTreeKmSetter;
 });

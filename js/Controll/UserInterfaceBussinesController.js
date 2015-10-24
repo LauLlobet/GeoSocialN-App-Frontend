@@ -52,7 +52,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneTreeTextKmInterface = new SceneTreeKmSetter(sceneLoaderInterface, tmp);
         tmp = new SpriteTreeCompassSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeCompassInterface = new SceneTreeCompassSetter(sceneLoaderInterface, tmp);
-        this.relativeLocationCalculator = new RelativeLocationCalculator(this.mapOfTreesById, this.sceneTreeTextKmInterface, this.sceneTreeCompassInterface );
+        this.relativeLocationCalculator = new RelativeLocationCalculator(this.mapOfTreesById, this.sceneTreeTextKmInterface, this.sceneTreeCompassInterface, this.gpsMovmentTrigger);
         this.leafPileUnburier = new LeafPileUnburier(this.mapOfTreesById, this);
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.relativeLocationCalculator);
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.leafPileUnburier);
@@ -172,7 +172,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         if (tree !== undefined && tree !== null && tree.treeid < 30) {
             this.votingPanel.show();
             this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
-            this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
         }
         if (tree === null) {
             this.gpsMovmentTrigger.setPrecisionNowIsImportant();
@@ -225,7 +224,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                     that.state = NAVIGATE;
                     that.keyboardInterface.hideOnScene();
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
-                }).catch(function (reason){
+                    this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
+                }).catch(function (reason) {
                     alert(reason);
                 });
             } else if (char === "cancel") {
