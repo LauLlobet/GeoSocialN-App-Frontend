@@ -202,6 +202,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         return new Promise(function (resolve, reject) {
             if (that.gpsMovmentTrigger.precisionOneToTen !== 10) {
                 reject("Not enought precision, wait for a while to plant a tree.");
+                return;
             }
             treeRestClient.put(tree).then(function (ans) {
                 if (ans.treeContent === null) {
