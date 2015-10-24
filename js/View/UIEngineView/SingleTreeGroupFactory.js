@@ -47,9 +47,11 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (this.isNotAnEmptyTree(tree)) {
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
             this.group.textSetter.createText(tree.text, tree.unburiedLayers);
-            this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
-            this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
-            this.group.isWrittenByAServerTree = true;
+            if (this.isNotAnInstructionTree(tree)) {
+                this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
+                this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
+                this.group.isWrittenByAServerTree = true;
+            }
         }
         if (tree.treeid === null) {
             this.group.isReusable = false;
@@ -87,10 +89,9 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
     SingleTreeGroupFactory.prototype.isNotAnEmptyTree = function (tree) {
         return tree.text !== undefined && tree.text !== null;
     };
-    SingleTreeGroupFactory.prototype.isNotInstructionTree = function (tree) {
-        return (tree.treeid !== 1);
+    SingleTreeGroupFactory.prototype.isNotAnInstructionTree = function (tree) {
+        return (tree.treeid > 30);
     };
-
     SingleTreeGroupFactory.prototype.setWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
         var button, context, tween;
         button = this.group.create(tree.button.x, tree.button.y, 'punzon');
