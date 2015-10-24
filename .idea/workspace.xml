@@ -31,8 +31,8 @@
       <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5552239" vertical-offset="3234" max-vertical-offset="5100">
-              <caret line="228" column="19" selection-start-line="228" selection-start-column="19" selection-end-line="228" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.6447761" vertical-offset="3234" max-vertical-offset="5115">
+              <caret line="230" column="46" selection-start-line="230" selection-start-column="46" selection-end-line="230" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -878,7 +878,7 @@
       <workItem from="1443800763026" duration="5839000" />
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
-      <workItem from="1445461623870" duration="47004000" />
+      <workItem from="1445461623870" duration="47622000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1178,7 +1178,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="911556000" />
+    <option name="totallyTimeSpent" value="912174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="22" width="1390" height="746" extended-state="6" />
@@ -1660,8 +1660,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5552239" vertical-offset="3234" max-vertical-offset="5100">
-          <caret line="228" column="19" selection-start-line="228" selection-start-column="19" selection-end-line="228" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.6447761" vertical-offset="3234" max-vertical-offset="5115">
+          <caret line="230" column="46" selection-start-line="230" selection-start-column="46" selection-end-line="230" selection-end-column="46" />
           <folding />
         </state>
       </provider>
