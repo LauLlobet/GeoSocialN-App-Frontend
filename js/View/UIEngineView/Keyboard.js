@@ -4,6 +4,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     "use strict";
     var LETTERS = "letters",
         MAYUSQ = "mayusq",
+        FEATURES = "features",
         ASCII = "ascii",
         NUMBERS = "numbers",
         SWITCH = "switch";
@@ -41,6 +42,12 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             position,
             char,
             keys = KeyboardDescriptor.keys;
+        if (this.state === FEATURES) {
+            this.addFeaturesCharacters();
+            position = this.calculatePosition(3, 2 + 2 + KeyboardDescriptor.keysOccupiedBySpace, false);
+            this.createSwitchKeyboard(position);
+            return;
+        }
         if (this.state === ASCII) {
             keys = KeyboardDescriptor.specialKeys;
         }
@@ -69,6 +76,28 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.createSwitchKeyboard(position);
 
     };
+    Keyboard.prototype.addFeaturesCharacters = function () {
+        var x,
+            y;
+        for(y = 0; y < 4; y += 1) {
+            for (x = 0; x < 2; x += 1) {
+                this.findPostionAndCreateFeatureButton(x, y);
+            }
+        }
+    };
+
+    Keyboard.prototype.findPostionAndCreateFeatureButton = function (x, y) {
+        var position = this.calculatePosition(y, 1 + x * KeyboardDescriptor.keysOccupiedByFeaturesKeys, false);
+        this.createFeatureButton(position,
+            KeyboardDescriptor.featuresKeys[y][x],
+            KeyboardDescriptor.featuresKeysMap[y][x],
+            KeyboardDescriptor.featuresKeysIcons[y][x]);
+    };
+
+    Keyboard.prototype.createFeatureButton = function (position, description, toInsertText, background) {
+        var sprite = this.addKeyBackground(position, toInsertText, background);
+        this.addKeyChar(description, sprite, 0.1, this.keyboardGroup);
+    }
 
     Keyboard.prototype.createChar = function (position, char) {
         var sprite = this.addKeyBackground(position, char, "keyBackground");
@@ -97,8 +126,8 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             }
             this.keyboard.createPopupGroup(this);
             this.keyboard.createPopupBackgroundSprite(this, 75, 200, 75);
-            if (this.sprite.hasCharacterWrittenOnImage !== undefined){
-               this.keyboard.createPopupCharSprite(this, 75, 200, 75);
+            if (this.sprite.hasCharacterWrittenOnImage !== undefined) {
+                this.keyboard.createPopupCharSprite(this, 75, 200, 75);
             }
             if (this.char === SWITCH) {
                 this.keyboard.nextKeyboardState();
@@ -119,7 +148,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         }
     }
 
-    Keyboard.prototype.addKeyChar = function addKeyChar(char, sprite, scale, group) {
+    Keyboard.prototype.addKeyChar = function iaddKeyChar(char, sprite, scale, group) {
 
         var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', char, 24),
             textImage =  group.create(0, 0, tmp.generateTexture());
@@ -140,6 +169,8 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         } else if (this.state === MAYUSQ) {
             this.state = NUMBERS;
         } else if (this.state === NUMBERS) {
+            this.state = FEATURES;
+        } else if (this.state === FEATURES) {
             this.state = ASCII;
         } else if (this.state === ASCII) {
             this.state = LETTERS;

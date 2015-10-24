@@ -3,7 +3,10 @@
  */
 define([], function () {
     "use strict";
-    var TEXTLENGTH = 16;
+    var TEXTLENGTH = 16,
+        LOCKSTR = "*passwd:",
+        BURYSTR = "*bury",
+        LINKSTR = "#";
     function TreeSpriteGroupTextSetter(treeSpriteGroup, treeBuryGroup, game, gestureObserver) //noinspection JSLint
     {
         this.treeSpriteGroup = treeSpriteGroup;
@@ -26,7 +29,7 @@ define([], function () {
         if (text === undefined) {
             text = "";
         }
-        this.text = text;
+        this.text = this.turnReturnIntoSpaces(text);
         this.formatedText =  this.formatText(text);
     };
     TreeSpriteGroupTextSetter.prototype.deletePreviousTreesSprites = function deletePreviousTreesSprites() {
@@ -66,8 +69,8 @@ define([], function () {
         }
     };
     TreeSpriteGroupTextSetter.prototype.buryMessageInLayerOrderAccordingToFirstAppearance = function buryMessageInLayerOrderAccordingToFirstAppearance() {
-         var lockPosition = this.findLineOfCharacterInText('$'),
-            leafPosition = this.findLineOfCharacterInText('*');
+         var lockPosition = this.findLineOfCharacterInText(LOCKSTR),
+            leafPosition = this.findLineOfCharacterInText(BURYSTR);
         if (lockPosition > leafPosition) {
             this.buryMessageIfNecesary();
             this.buryMessageLeafsIfNecesary();
@@ -95,6 +98,7 @@ define([], function () {
         var textreturned = "",
             length =  TEXTLENGTH,
             j;
+        text = this.turnReturnIntoSpaces(text);
         if (this.editing === true) {
             text = text + "|"; // per evitar que quedi tallada la ultima lletra i per mostrar el cursor
         } else {
@@ -106,6 +110,17 @@ define([], function () {
         textreturned += text.substring(j) + "\n";
         return textreturned;
     };
+
+    TreeSpriteGroupTextSetter.prototype.turnReturnIntoSpaces = function (inputText) {
+        var spaces = "",
+            nspaces = TEXTLENGTH - (inputText.indexOf("\t") % TEXTLENGTH),
+            i;
+        for (i = 0; i < nspaces; i = i + 1) {
+            spaces += " ";
+        }
+        inputText = inputText.replace("\t", spaces);
+        return inputText;
+    }
 
     function isNumeric(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
@@ -132,7 +147,7 @@ define([], function () {
             formatedText = this.formatedText;
 
         for (x = 0, c = ''; c = formatedText.charAt(x); x++) {
-            if (c === '#' && isPartOfTheAdress === false) {
+            if (c === LINKSTR && isPartOfTheAdress === false) {
                 isPartOfTheAdress = true;
             } else if (isPartOfTheAdress && !isNumeric(c)) {
                 isPartOfTheAdress = false;
@@ -239,7 +254,7 @@ define([], function () {
 
     };
     TreeSpriteGroupTextSetter.prototype.buryMessageLeafsIfNecesary  = function buryMessageLeafsIfNecesary() {
-        var line = this.findLineOfCharacterInText('*');
+        var line = this.findLineOfCharacterInText(BURYSTR);
         if ( this.lineWithThatCharExistsOnText(line) &&
             this.hasntBeenUnburied('leafs') &&
             this.buryLayerNotAlreadyExists('leafs')) {
@@ -247,18 +262,18 @@ define([], function () {
         }
     };
     TreeSpriteGroupTextSetter.prototype.unBuryMessageIfNecesary  = function unBuryMessageLeafsIfNecesary() {
-        var line = this.findLineOfCharacterInText('*');
+        var line = this.findLineOfCharacterInText(BURYSTR);
         if (!this.lineWithThatCharExistsOnText(line)) {
             this.unBury("leafs", true);
         }
-        line = this.findLineOfCharacterInText('$');
+        line = this.findLineOfCharacterInText(LOCKSTR);
         if (!this.lineWithThatCharExistsOnText(line)) {
             this.unBury("lock", true);
         }
     };
 
     TreeSpriteGroupTextSetter.prototype.buryMessageIfNecesary  = function buryMessageIfNecesary() {
-        var line = this.findLineOfCharacterInText('$');
+        var line = this.findLineOfCharacterInText(LOCKSTR);
         if (this.lineWithThatCharExistsOnText(line)
                   && this.hasntBeenUnburied('lock')
                   && this.buryLayerNotAlreadyExists('lock')
@@ -313,14 +328,29 @@ define([], function () {
         return !this.buryLayerAlreadyExists(buryLayerName);
     }
 
-    TreeSpriteGroupTextSetter.prototype.findLineOfCharacterInText = function (char) {
-        var x, c;
-        for (x = 0, c = ''; c = this.text.charAt(x); x = x + 1) {
-            if (c === char) {
-                return Math.floor(x / TEXTLENGTH);
+    String.prototype.regexIndexOf = function(regex, startpos) {
+        var indexOf = this.substring(startpos || 0).search(regex);
+        return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
+    };
+
+    String.prototype.toInteresparceRegexp = function(char) {
+        var i,
+            regexp = "",
+            toconvert;
+        toconvert = this.replace("*","\\*");
+        for(i = 0; i< toconvert.length; i++) {
+            regexp += toconvert.charAt(i)
+            if(toconvert.charAt(i)!== '\\') {
+                regexp += "[" + char + "]*"
             }
         }
-        return -1;
+        return regexp;
+    };
+
+    TreeSpriteGroupTextSetter.prototype.findLineOfCharacterInText = function (substr) {
+        var regexp = substr.toInteresparceRegexp("\n"),
+            charPos = this.text.regexIndexOf(regexp);
+        return Math.floor( charPos / TEXTLENGTH );
     };
 
     return TreeSpriteGroupTextSetter;

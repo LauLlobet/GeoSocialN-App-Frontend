@@ -21,6 +21,7 @@ define([ ], function () {
         scale: 1.29,
         keysOccupiedBySpace: 4,
         keysOccupiedByEnter: 3,
+        keysOccupiedByFeaturesKeys: 5,
         popupDistance: keySize + 30,
         mayusqKeys: [
             ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -42,6 +43,42 @@ define([ ], function () {
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
             ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ"],
             ["z", "x", "c", "v", "b", "n", "m"]
+        ],
+        featuresKeys: [
+            ["Lock: ", "Bury: "],
+            ["Tweet: ", "Link: "],
+            ["Heart: ", "Cat: "],
+            ["Video: ", undefined]
+        ],
+        /*
+        "                "
+        "    __  __      "
+        "   /  V   \     "
+        "   \     /      "
+        "    \   /       "
+        "     \/         "
+         */
+        //"    __  __         /  V   \        \     /          \   /            \/         "
+        /*
+
+        "    /\___/\     "
+        "    \ -.- /     "
+        "    `-.^.-'     "
+        "      /"\       "
+         */
+        //"    /\___/\         \ -.- /         `-.^.-'           /"\       "
+        featuresKeysMap: [
+            ["*passwd:", "*bury "],
+            ["@", "#"],
+            ["\t    __  __         /  V   \\        \\     /          \\   /            \\/         ",
+                "\t    /\\___/\\         \\ -.- /          `-.^.-'          /\"\\       "],
+            ["*video", undefined]
+        ],
+        featuresKeysIcons: [
+            ["lockBg", "buryBg"],
+            ["twitterBg", "linkBg"],
+            ["heartBg", "catBg"],
+            ["heartBg", undefined]
         ]
     };
 });

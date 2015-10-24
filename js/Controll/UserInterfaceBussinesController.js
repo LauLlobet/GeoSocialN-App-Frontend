@@ -296,16 +296,19 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }
         tree.unburiedLayers[buryLayerId] = true;
     };
+
+
     UserInterfaceBussinesController.prototype.getPasswordFromLockedTree = function getPasswordFromLockedTree() {
         var tree = this.getTreeAlreadyDisplayed(),
             password,
             rightHalfOfTextFromLockSymbol,
-            nextSpace;
-        rightHalfOfTextFromLockSymbol = tree.text.substring(tree.text.indexOf('$') + 1, tree.text.length);
+            nextSpace,
+            text = tree.text.replace("\n", "");
+        rightHalfOfTextFromLockSymbol = text.substring(text.indexOf("*passwd:") + "*passwd:".length, text.length);
         nextSpace = rightHalfOfTextFromLockSymbol.indexOf(' ');
         if (nextSpace !== -1) {
             password = rightHalfOfTextFromLockSymbol.substring(0, nextSpace);
-        }else{
+        } else {
             password = rightHalfOfTextFromLockSymbol;
         }
         password = this.firstNcharcters(password, 11);
