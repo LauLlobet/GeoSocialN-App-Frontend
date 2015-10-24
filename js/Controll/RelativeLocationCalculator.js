@@ -49,7 +49,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         this.metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
-        if( this.metersFromCellPhoneToTargetTree === NaN){
+        if(isNaN(this.metersFromCellPhoneToTargetTree)){
             return;
         }
         this.sceneKmSetter.setDistance(Math.round(this.metersFromCellPhoneToTargetTree));//metersFromCellPhoneToTargetTree));
