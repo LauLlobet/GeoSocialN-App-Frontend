@@ -226,9 +226,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                     that.keyboardInterface.hideOnScene();
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
                     this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
-                }).catch(function (reason) {
+                });/*.catch(function (reason) {
                     alert(reason);
-                });
+                });*/
             } else if (char === "cancel") {
                 this.state = NAVIGATE;
                 this.keyboardInterface.hideOnScene();
