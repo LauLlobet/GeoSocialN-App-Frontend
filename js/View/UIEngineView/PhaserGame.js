@@ -160,6 +160,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
 
         //  Firefox doesn't support mp3 files, so use ogg
         this.game.load.audio('bell', ['/OurTreeWeb/assets/bell.ogg']);
+        this.game.load.audio('plant', ['/OurTreeWeb/assets/plant.ogg']);
+        this.game.load.audio('unbell', ['/OurTreeWeb/assets/unbell.ogg']);
 
         var i;
         for(i=0; i<10; i= i+1){

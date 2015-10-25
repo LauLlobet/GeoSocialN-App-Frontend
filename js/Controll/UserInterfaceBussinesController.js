@@ -146,12 +146,16 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
     };
     UserInterfaceBussinesController.prototype.upVote = function () {
-        var music = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.game.add.audio('bell');
+        var music;
         this.voteEmmited(this.getTreeAlreadyDisplayed().id, 1);
+        music = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.game.add.audio('bell');
         music.play();
     };
     UserInterfaceBussinesController.prototype.downVote = function () {
+        var music;
         this.voteEmmited(this.getTreeAlreadyDisplayed().id, -1);
+        music = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.game.add.audio('unbell');
+        music.play();
     };
     UserInterfaceBussinesController.prototype.voteEmmited = function (treeid, inc) {
         var treeRestClient = new TreeRestClient(),
@@ -212,8 +216,11 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 }
                 return ans;
             }).then(function (ans) {
+                var music;
                 that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
                 that.gpsMovmentTrigger.forceUpdate();
+                music = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.game.add.audio('plant');
+                music.play();
                 resolve();
             });
         });

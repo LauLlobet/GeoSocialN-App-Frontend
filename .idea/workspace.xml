@@ -4,7 +4,6 @@
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3313433" vertical-offset="2109" max-vertical-offset="5130">
-              <caret line="148" column="77" selection-start-line="148" selection-start-column="77" selection-end-line="148" selection-end-column="77" />
+            <state vertical-scroll-proportion="-10.222222" vertical-offset="3039" max-vertical-offset="5235">
+              <caret line="221" column="114" selection-start-line="221" selection-start-column="114" selection-end-line="221" selection-end-column="114" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2115" max-vertical-offset="3495">
-              <caret line="161" column="67" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.8756906" vertical-offset="2113" max-vertical-offset="3525">
+              <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -187,8 +186,8 @@
         <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
         <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
       </list>
     </option>
   </component>
@@ -878,7 +877,7 @@
       <workItem from="1443800763026" duration="5839000" />
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
-      <workItem from="1445461623870" duration="49492000" />
+      <workItem from="1445461623870" duration="50166000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1178,7 +1177,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="914044000" />
+    <option name="totallyTimeSpent" value="914718000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="22" width="1390" height="746" extended-state="6" />
@@ -1650,18 +1649,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
+    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2115" max-vertical-offset="3495">
-          <caret line="161" column="67" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+        <state vertical-scroll-proportion="-10.222222" vertical-offset="3039" max-vertical-offset="5235">
+          <caret line="221" column="114" selection-start-line="221" selection-start-column="114" selection-end-line="221" selection-end-column="114" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3313433" vertical-offset="2109" max-vertical-offset="5130">
-          <caret line="148" column="77" selection-start-line="148" selection-start-column="77" selection-end-line="148" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.8756906" vertical-offset="2113" max-vertical-offset="3525">
+          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
           <folding />
         </state>
       </provider>
