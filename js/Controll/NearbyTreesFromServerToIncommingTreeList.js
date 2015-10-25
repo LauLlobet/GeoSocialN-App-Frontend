@@ -38,7 +38,8 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
             that.incommingList.emptyTrees = ans.emptyTrees;
             console.log("Fetched trees from internet, emptyTrees:" + that.incommingList.emptyTrees);
         }).catch(function (err) {
-            console.log("no connection " + err);
+            alert("error");
+            console.log("no connection " + err.stack);
         });
     };
 
@@ -49,6 +50,9 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
                 ans.treeContent.text = "this tree is null";
             }
             that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;
+        }).catch(function (error) {
+            alert("error");
+            console.log(error.stack);
         });
     };
 

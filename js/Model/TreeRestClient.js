@@ -30,6 +30,9 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                     console.log("entity is null");
                     reject("entity is null");
                 }
+            }).catch(function (error) {
+                alert("error");
+                console.log(error.stack);
             });
         });
     };
@@ -56,8 +59,9 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                     console.log("entity is null");
                     reject("entity is null");
                 }
-            }).catch(function f(exception){
-                console.log("impossible to do a get, no internet connection");
+            }).catch(function f (exception) {
+                alert("impossible to do a get, no internet connection");
+                console.log(exception.stack);
             });
         });
     };
@@ -75,7 +79,8 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                     reject("entity is null");
                 }
             }).catch(function f(exception) {
-                console.log("impossible to do a get, no internet connection");
+                alert("impossible to do a get, no internet connection");
+                console.log(exception.stack);
             });
         });
     };

@@ -107,8 +107,14 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             that.sceneLoaderInterface.playAllStackedScenes().then(function () {
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
                 that.hashChangeTrigger.update();
+            }).catch(function (error) {
+                alert("error");
+                console.log(error.stack);
             });
             that.fillerOfIncommingListIfItGetsEmpty.start();
+        }).catch(function (error) {
+            alert("error");
+            console.log(error.stack);
         });
     };
     //MAIN INPUT FUNCTION
@@ -122,6 +128,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
+            }).catch(function (error) {
+                alert("error");
+                console.log(error.stack);
             });
         }
     };
@@ -136,6 +145,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
+            }).catch(function (error) {
+                alert("error");
+                console.log(error.stack);
             });
         }
     };
@@ -176,6 +188,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             }
         }).catch(function (error) {
             alert("error in connection voting tree: " + error);
+            console.log(error.stack);
         });
     };
 
@@ -225,6 +238,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
                 that.gpsMovmentTrigger.forceUpdate();
                 resolve();
+            }).catch(function (error) {
+                alert("error");
+                console.log(error.stack);
             });
         });
     };
@@ -238,8 +254,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                     that.keyboardInterface.hideOnScene();
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
                     that.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
-                }).catch(function (reason) {
-                    alert(reason);
+                }).catch(function (error) {
+                    alert("error");
+                    console.log(error.stack);
                 });
             } else if (char === "cancel") {
                 this.state = NAVIGATE;
@@ -290,9 +307,15 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             function () {
                 that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId).then(function () {
                     that.justDisplayedATree();
+                }).catch(function (error) {
+                    alert("error");
+                    console.log(error.stack);
                 });
             }
-        );
+        ).catch(function (error) {
+                alert("error");
+                console.log(error.stack);
+        });
     };
     UserInterfaceBussinesController.prototype.buriedLayerEvent = function (buryLayerId) {
         if (buryLayerId === 'lock') {
