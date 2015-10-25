@@ -46,7 +46,7 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
     NearbyTreesFromServerToIncommingTreeList.prototype.loadSpecificTreeToHash = function (treeId) {
         var that = this;
         return this.treeRestClient.getSpecificTree(treeId).then( function (ans) {
-            if (ans.treeContent.text === null){
+            if (ans.treeContent === null){
                 ans.treeContent.text = "this tree is null";
             }
             that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;
