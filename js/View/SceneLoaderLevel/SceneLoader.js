@@ -33,9 +33,6 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
                         entry.metersToHide = newTrees[i].metersToHide;
                     }
                     i += 1;
-                } else if (newTrees[i] !== null && newTrees[i] !== undefined && (newTrees.length < i || newTrees[i].id === -1)) { // the array is less than 2 ( no empty trees nor full ones )
-                    entry.text = "You've seen all the written trees in the whole world, and you are in a place which trees are full, move to find empty trees and post!";
-                    entry.treeid = -1;
                 } else if (newTrees[i] === undefined) {
                     entry.text = undefined;
                     entry.treeid = undefined;

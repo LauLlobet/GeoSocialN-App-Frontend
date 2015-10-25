@@ -110,12 +110,16 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
                 group : this.group
         };
         button.events.onInputDown.add(function () {
+            var music;
             this.game.add.tween(this.button).to({alpha: 0}, 300, 'Linear', true, 0, 0);
             this.game.add.tween(this.group).to({y: (this.group.y + 550) }, 300, 'Linear', true, 0, 0);
             this.game.tweens.remove(this.previousTween);
             this.button.inputEnabled = false;
             this.button.useHandCursor = false;
             this.observer.clickedOnWriteButton();
+            music = this.game.add.audio('plant');
+            music.play();
+
         }, context);
     };
 

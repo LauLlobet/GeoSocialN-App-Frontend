@@ -17,7 +17,7 @@ define(['../lib/underscore', "../lib/rsvp"], function (underscore, rsvp) {
         discarded = this.getDiscarded(leftOrRigthText);
         toLoad = this.incommingTreesEmptyOnesAndDiscardedCueMixer.getToLoadAtBackgroundTrees(discarded, this.incommingListAndCurrentEmptyTrees.emptyTrees);
         _.each(toLoad, function (treeToLoadToScene) {
-            if (treeToLoadToScene !== undefined) {
+            if (treeToLoadToScene !== undefined && treeToLoadToScene !== null) {
                 that.alreadyDisplayed.push(treeToLoadToScene);
             }
         });
@@ -46,7 +46,10 @@ define(['../lib/underscore', "../lib/rsvp"], function (underscore, rsvp) {
             emptySetofTrees = [undefined, undefined];
         discarded = this.getDiscarded("both");
         _.each(discarded, function (discardedReturned) {
-            that.incommingListAndCurrentEmptyTrees.push(discardedReturned);
+            if (discardedReturned !== null && discardedReturned !== undefined) {
+                that.incommingListAndCurrentEmptyTrees.push(discardedReturned);
+            }
+
         });
         toLoad = [ undefined, treeId];
         toLoad = _.map(toLoad, function (value) {

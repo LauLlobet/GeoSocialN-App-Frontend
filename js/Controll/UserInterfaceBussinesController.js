@@ -23,6 +23,12 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     {
             this.state = NAVIGATE;
             this.incommingList = [];
+            this.incommingList.push = function (argument) {
+                if (argument === null || argument === undefined) {
+                    console.log("bug detected");
+                }
+                return Array.prototype.push.apply(this, arguments);
+            }
             this.alreadyDisplayed = [];
             this.mapOfTreesById = {};
             this.mapOfTreesById[-1] = { id: -1, text: '-1' };
@@ -216,11 +222,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 }
                 return ans;
             }).then(function (ans) {
-                var music;
                 that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
                 that.gpsMovmentTrigger.forceUpdate();
-                music = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.game.add.audio('plant');
-                music.play();
                 resolve();
             });
         });
