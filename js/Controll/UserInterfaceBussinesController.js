@@ -106,7 +106,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             }
             that.sceneLoaderInterface.playAllStackedScenes().then(function () {
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
-                that.hashChangeTrigger.update();
             }).catch(function (error) {
                 alert("error");
                 console.log(error.stack);
@@ -303,6 +302,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.hashHasBeenUpdated = function (treeId) {
         var that = this;
+        if (isNaN(treeId)) {
+            return;
+        }
         this.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(treeId).then(
             function () {
                 that.treeLoaderToSceneLoaderFromLists.swipeToSpecificTree(treeId).then(function () {
