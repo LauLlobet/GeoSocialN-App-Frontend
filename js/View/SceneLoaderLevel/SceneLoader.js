@@ -11,7 +11,7 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
             this.stackOfScenes = new StackOfScenes(this);
             this.initial = true;
             this.newlyPresentedTreeSubjectNotifier = newlyPresentedTreeSubjectNotifier;
-            this.heigthOfUnplantedTree = 900;
+            this.heigthOfUnplantedTree = 1700;
     }
     SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, newTrees) {
         this.stackOfScenes.stackLoadScene(sceneType, newTrees);

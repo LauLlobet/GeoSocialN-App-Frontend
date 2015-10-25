@@ -3,8 +3,8 @@
 define([], function () {
     'use strict';
     return {
-        x : 150,
-        y : 350,
-        hw : 65
+        x : 20,
+        y : +900,
+        hw : 165
     };
 });
