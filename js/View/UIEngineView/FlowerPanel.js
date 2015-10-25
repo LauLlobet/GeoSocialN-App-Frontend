@@ -20,10 +20,11 @@ define([], function () {
         this.group.y = groupy;
     };
 
-    FlowerPanel.prototype.addNFlowers = function addNFlowers(treeId, n) {
+    FlowerPanel.prototype.addNFlowers = function addNFlowers(treeId, n, inmedeately) {
         var i,
             flowerNumber,
-            position;
+            position,
+            flower;
         if (n < 0) {
             this.removeNFlowers(n);
             return;
@@ -31,9 +32,9 @@ define([], function () {
         for (i = 0; i < n; i += 1) {
             flowerNumber = this.lastFlowerNumber + i;
             position = this.getXYFromNAndId(flowerNumber, treeId);
-            //position.x = groupw;
-            //position.y = grouph;
-            this.flowerArray.push(this.group.create(position.x, position.y, 'flower'));
+            flower = this.group.create(position.x, position.y, 'flower');
+            this.makeFlowerAppeare(flower, inmedeately);
+            this.flowerArray.push(flower);
         }
         this.lastFlowerNumber += n;
     };
@@ -60,17 +61,35 @@ define([], function () {
         var x,
             y,
             hashX = this.hashCode(n + " " + n + "X sugar " + id),
-            hashY = this.hashCode(n + " " + n + " Y sugar " + id);
+            hashY = this.hashCode(n + " " + n + " Y sugar " + id),
+            pos;
         hashX = Math.abs(hashX);
         hashY = Math.abs(hashY);
         x = parseInt(( "" + hashX).substring(0, 3));
         y = parseInt(( "" + hashY).substring(0, 3));
         x = x / 1000;
         y = y / 1000;
-        x = x * groupw;
-        y = y * grouph;
-        return { x: x,
-                y: y };
+        x = x * groupw / 2;
+        y = y * grouph / 2;
+        pos = n % 4;
+        if (pos === 0) {
+            return { x: 0,
+                y: 0 };
+        }
+        if (pos === 1) {
+            return { x: x + (groupw / 2),
+                y: y};
+        }
+        if (pos === 2) {
+            return { x: x,
+                y: y + (grouph / 2) };
+        }
+        if (pos === 3) {
+            return { x: x + (groupw / 2),
+                y: y + (grouph / 2) };
+        }
+
+
     };
     FlowerPanel.prototype.hashCode = function (string) {
         var hash = 0,
@@ -85,6 +104,17 @@ define([], function () {
             hash = hash & hash; // Convert to 32bit integer
         }
         return hash;
+    };
+    FlowerPanel.prototype.makeFlowerAppeare = function (flowerSprite, inmedeately) {
+        var duration = Math.random() * 400,
+            delay = Math.random() * 1100;
+        if (inmedeately !== undefined) {
+            delay = 0;
+            duration = 100;
+        }
+        flowerSprite.alpha = 0;
+        flowerSprite.angle += Math.random() * 360;
+        this.game.add.tween(flowerSprite).to({alpha: 1}, duration, 'Linear', true, delay, 0);
     };
     return FlowerPanel;
 });

@@ -172,7 +172,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }).then(function (val) {
             var tree = that.getTreeAlreadyDisplayed();
             if (tree !== undefined && treeid !== 3) {
-                that.flowerPanel.addNFlowers(tree.id, inc);
+                that.flowerPanel.addNFlowers(tree.id, inc, "inmediately");
             }
         }).catch(function (error) {
             alert("error in connection voting tree: " + error);
