@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneLoader.js" afterPath="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/TreeLoaderToSceneLoaderFromLists.js" afterPath="$PROJECT_DIR$/js/Controll/TreeLoaderToSceneLoaderFromLists.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
-    </list>
+    <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="" />
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -881,7 +876,7 @@
       <workItem from="1443800763026" duration="5839000" />
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
-      <workItem from="1445461623870" duration="51452000" />
+      <workItem from="1445461623870" duration="51476000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1181,7 +1176,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="916004000" />
+    <option name="totallyTimeSpent" value="916028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="22" width="1390" height="746" extended-state="6" />
