@@ -158,6 +158,9 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.load.image('upVote', '/OurTreeWeb/assets/upVote.png');
         this.game.load.image('flower', '/OurTreeWeb/assets/flower.png');
 
+        //  Firefox doesn't support mp3 files, so use ogg
+        this.game.load.audio('bell', ['/OurTreeWeb/assets/bell.ogg']);
+
         var i;
         for(i=0; i<10; i= i+1){
             this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');

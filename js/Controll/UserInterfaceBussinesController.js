@@ -146,7 +146,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
     };
     UserInterfaceBussinesController.prototype.upVote = function () {
+        var music = this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.game.add.audio('bell');
         this.voteEmmited(this.getTreeAlreadyDisplayed().id, 1);
+        music.play();
     };
     UserInterfaceBussinesController.prototype.downVote = function () {
         this.voteEmmited(this.getTreeAlreadyDisplayed().id, -1);
@@ -169,7 +171,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.justDisplayedATree = function () {
         var tree = this.getTreeAlreadyDisplayed();
-        if (tree !== undefined && tree !== null && tree.treeid < 30) {
+        if (tree !== undefined && tree !== null && tree.id > 30) {
             this.votingPanel.show();
             this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
         }
@@ -225,10 +227,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                     that.state = NAVIGATE;
                     that.keyboardInterface.hideOnScene();
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
-                    this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
+                    that.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
                 }).catch(function (reason) {
                     alert(reason);
-                    console.log(reason.stack);
                 });
             } else if (char === "cancel") {
                 this.state = NAVIGATE;
