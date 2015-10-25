@@ -25,8 +25,11 @@ define([], function () {
             flowerNumber,
             position,
             flower;
-        if (n < 0) {
+        if (n < 0 && this.lastFlowerNumber >= n && this.lastFlowerNumber > 0) {
             this.removeNFlowers(n);
+            return;
+        }
+        if (n + this.lastFlowerNumber <= 0) {
             return;
         }
         for (i = 0; i < n; i += 1) {
@@ -89,14 +92,14 @@ define([], function () {
             return { x: x + (groupw / 2),
                 y: y + (grouph / 2) + offset };
         }
-
+        console.log("shouldnt come here");
 
     };
     FlowerPanel.prototype.hashCode = function (string) {
         var hash = 0,
             i,
             char;
-        if (string.length == 0) {
+        if (string.length === 0) {
             return hash;
         }
         for (i = 0; i < string.length; i += 1) {
@@ -116,6 +119,15 @@ define([], function () {
         flowerSprite.alpha = 0;
         flowerSprite.angle += Math.random() * 360;
         this.game.add.tween(flowerSprite).to({alpha: 1}, duration, 'Linear', true, delay, 0);
+    };
+
+    FlowerPanel.prototype.makeFlowerDisappeare = function (flowerSprite) {
+        var duration = 1400,
+            tween;
+        tween = this.game.add.tween(flowerSprite).to({alpha: 0}, duration, 'Linear', true, 0, 0);
+        tween.onComplete.add(function () {
+            flowerSprite.destroy();
+        }, this);
     };
     return FlowerPanel;
 });

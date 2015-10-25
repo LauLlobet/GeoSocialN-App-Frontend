@@ -7,14 +7,15 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
     "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
-    "./IncommingTreesEmptyOnesAndDiscardedCueMixer"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
                                                            SceneTreeKmSetter, SpriteTreeKmCounterSetter,
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
-                                                           VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer) {
+                                                           VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer,
+                                                            rsvp) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -98,7 +99,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             ]
             );
         this.updateWithoutMoving().then(function () {
-            alert("longitude " + that.lastKnownCoords.x + "empty:" + that.incommingList.emptyTrees);
             if (that.incommingList.emptyTrees === 0) {
                 that.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [undefined, {id: 3, text: ""}, undefined]);
             } else {
@@ -106,6 +106,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             }
             that.sceneLoaderInterface.playAllStackedScenes().then(function () {
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
+                that.hashChangeTrigger.update();
             }).catch(function (error) {
                 alert("error");
                 console.log(error.stack);
@@ -224,22 +225,18 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             that = this;
 
         return new Promise(function (resolve, reject) {
-            if (that.gpsMovmentTrigger.precisionOneToTen !== 10) {
-                reject("Not enought precision, wait for a while to plant a tree.");
-                return;
+            if (that.gpsMovmentTrigger.precisionOneToTen !== 10 && navigator.userAgent.match("emulated") === null   ) {
+                reject("not enought precision");
             }
-            treeRestClient.put(tree).then(function (ans) {
+            return treeRestClient.put(tree).then(function (ans) {
                 if (ans.treeContent === null) {
-                    reject("error posting tree");
+                    reject("error posting tree, this place might be full");
                 }
                 return ans;
             }).then(function (ans) {
                 that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
                 that.gpsMovmentTrigger.forceUpdate();
                 resolve();
-            }).catch(function (error) {
-                alert("error");
-                console.log(error.stack);
             });
         });
     };
@@ -254,7 +251,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
                     that.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
                 }).catch(function (error) {
-                    alert("error");
+                    alert("error"+ error);
                     console.log(error.stack);
                 });
             } else if (char === "cancel") {
@@ -302,7 +299,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.hashHasBeenUpdated = function (treeId) {
         var that = this;
-        if (isNaN(treeId)) {
+        if (isNaN(treeId) || treeId === "") {
             return;
         }
         this.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(treeId).then(
