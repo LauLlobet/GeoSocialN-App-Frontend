@@ -62,7 +62,8 @@ define([], function () {
             y,
             hashX = this.hashCode(n + " " + n + "X sugar " + id),
             hashY = this.hashCode(n + " " + n + " Y sugar " + id),
-            pos;
+            pos,
+            offset = 0;
         hashX = Math.abs(hashX);
         hashY = Math.abs(hashY);
         x = parseInt(( "" + hashX).substring(0, 3));
@@ -73,20 +74,20 @@ define([], function () {
         y = y * grouph / 2;
         pos = n % 4;
         if (pos === 0) {
-            return { x: 0,
-                y: 0 };
+            return { x: x,
+                y: y + offset};
         }
         if (pos === 1) {
             return { x: x + (groupw / 2),
-                y: y};
+                y: y + offset};
         }
         if (pos === 2) {
             return { x: x,
-                y: y + (grouph / 2) };
+                y: y + (grouph / 2) + offset};
         }
         if (pos === 3) {
             return { x: x + (groupw / 2),
-                y: y + (grouph / 2) };
+                y: y + (grouph / 2) + offset };
         }
 
 
