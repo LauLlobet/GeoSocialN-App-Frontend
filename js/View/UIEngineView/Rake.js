@@ -97,6 +97,7 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
         var tween;
         this.rake.anchor.y = constants.rake.distanceFromTheCenter;
         rake = this.rake;
+        this.setOnTheCompass(true);
         tween = this.game.add.tween(this.rake).to({
             x: this.constants.rake.compassX,
             y: this.constants.rake.compassY

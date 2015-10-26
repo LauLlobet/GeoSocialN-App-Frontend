@@ -7,7 +7,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
     "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
-    "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp", "../View/SceneLoaderLevel/SceneTreeRakeSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp", "../View/SceneLoaderLevel/SceneTreeRakeSetter",
+    "../View/SpriteLevel/SpriteTreeRakeSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
@@ -15,7 +16,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
                                                            VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer,
-                                                            rsvp, SceneTreeRakeSetter) {
+                                                            rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -59,6 +60,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneTreeTextKmInterface = new SceneTreeKmSetter(sceneLoaderInterface, tmp);
         tmp = new SpriteTreeCompassSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeCompassInterface = new SceneTreeCompassSetter(sceneLoaderInterface, tmp);
+        tmp = new SpriteTreeRakeSetter(this.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.sceneTreeRakeInterface = new SceneTreeRakeSetter(sceneLoaderInterface, tmp);
         this.relativeLocationCalculator = new RelativeLocationCalculator(this.mapOfTreesById, this.sceneTreeTextKmInterface, this.sceneTreeCompassInterface, this.sceneTreeRakeInterface , this.gpsMovmentTrigger);
         this.leafPileUnburier = new LeafPileUnburier(this.mapOfTreesById, this);
