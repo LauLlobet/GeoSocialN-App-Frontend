@@ -98,7 +98,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         }
 
         //if( this.precisionIsNowImportant ) {
-            this.phaserGame.handlePrecisionGps(this.precisionOneToTen, precisionInMeters);
+           // this.phaserGame.handlePrecisionGps(this.precisionOneToTen, precisionInMeters);
         //}
     }
 
