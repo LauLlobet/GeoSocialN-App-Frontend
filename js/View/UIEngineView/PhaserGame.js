@@ -54,7 +54,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     var setPrecision = function (precision) {
         var elem = document.getElementById("calibratingGPSPrecison");
         if (elem !== null) {
-            elem.textContent = "precision: " + precision + " expected: 14";
+            elem.textContent = "precision: " + Math.floor(precision) + " expected: 14";
         }
     };
 
@@ -94,10 +94,10 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS5");
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
-        //displayNoneElement("calibratingGPSPrecision");
+        displayNoneElement("calibratingGPSPrecision");
         blockElement("calibratingGPSPrecision");
 
-/*        if (this.ignorePrecision) {
+        if (this.ignorePrecision) {
             return;
         }
         if (precision === 0) {
@@ -116,7 +116,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             blockElement("calibratingGPSPrecision");
             blockElement("calibratingGPS9");
         }
-        */
     };
     PhaserGame.prototype.preload = function preload() {
         this.game.time.advancedTiming = true;
