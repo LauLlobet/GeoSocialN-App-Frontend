@@ -64,6 +64,10 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             elem.style.display = "none";
         }
     };
+    var displayNoText = function (element) {
+        var elem = document.getElementById(element);
+        elem.textContent = "";
+    };
     PhaserGame.prototype.handleIncorrect = function handleIncorrect() {
       //  blockElement("turn");
     };
@@ -89,32 +93,31 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPSPrecision");
     };
     PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision, meters) {
-        setPrecision(meters);
         displayNoneElement("calibratingGPS0");
         displayNoneElement("calibratingGPS2");
         displayNoneElement("calibratingGPS5");
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
-        displayNoneElement("calibratingGPSPrecision");
+        displayNoText("calibratingGPSPrecision");
 
         if (this.ignorePrecision) {
             return;
         }
         if (precision === 0) {
             blockElement("calibratingGPS0");
-            blockElement("calibratingGPSPrecision");
+            setPrecision(meters);
         } else if (precision < 3) {
             blockElement("calibratingGPS2");
-            blockElement("calibratingGPSPrecision");
+            setPrecision(meters);
         } else if (precision < 6) {
             blockElement("calibratingGPS5");
-            blockElement("calibratingGPSPrecision");
+            setPrecision(meters);
         } else if (precision < 8) {
             blockElement("calibratingGPSPrecision");
-            blockElement("calibratingGPS7");
+            setPrecision(meters);
         } else if (precision < 10) {
             blockElement("calibratingGPSPrecision");
-            blockElement("calibratingGPS9");
+            setPrecision(meters);
         }
     };
     PhaserGame.prototype.preload = function preload() {
