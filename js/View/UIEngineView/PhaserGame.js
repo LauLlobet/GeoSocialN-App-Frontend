@@ -95,7 +95,9 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
         //displayNoneElement("calibratingGPSPrecision");
-        if (this.ignorePrecision) {
+        blockElement("calibratingGPSPrecision");
+
+/*        if (this.ignorePrecision) {
             return;
         }
         if (precision === 0) {
@@ -114,6 +116,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             blockElement("calibratingGPSPrecision");
             blockElement("calibratingGPS9");
         }
+        */
     };
     PhaserGame.prototype.preload = function preload() {
         this.game.time.advancedTiming = true;

@@ -97,9 +97,9 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             this.precisionOneToTen = 10;
         }
 
-        //if( this.precisionIsNowImportant ) {
-           // this.phaserGame.handlePrecisionGps(this.precisionOneToTen, precisionInMeters);
-        //}
+        if( this.precisionIsNowImportant ) {
+           this.phaserGame.handlePrecisionGps(this.precisionOneToTen, precisionInMeters);
+        }
     }
 
     GpsMovmentTrigger.prototype.setPrecisionNowIsImportant = function setpPecisionNowIsImportant(precision) {
