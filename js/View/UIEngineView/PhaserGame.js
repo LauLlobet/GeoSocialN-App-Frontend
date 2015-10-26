@@ -54,7 +54,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     var setPrecision = function (precision) {
         var elem = document.getElementById("precisionInM");
         if (elem !== null) {
-            elem.textContent = ""+precision;
+            elem.textContent = " "+precision;
         }
     };
 
@@ -87,7 +87,8 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
     };
-    PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision) {
+    PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision, meters) {
+        setPrecision(meters);
         displayNoneElement("calibratingGPS0");
         displayNoneElement("calibratingGPS2");
         displayNoneElement("calibratingGPS5");
