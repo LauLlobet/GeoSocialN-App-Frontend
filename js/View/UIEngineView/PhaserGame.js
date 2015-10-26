@@ -52,9 +52,9 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     };
 
     var setPrecision = function (precision) {
-        var elem = document.getElementById("precisionInM");
+        var elem = document.getElementById("calibratingGPSPrecison");
         if (elem !== null) {
-            elem.textContent = " "+precision;
+            elem.textContent = "precision: " + precision + " expected: 14";
         }
     };
 
