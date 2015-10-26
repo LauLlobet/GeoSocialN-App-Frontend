@@ -86,6 +86,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS5");
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
+        displayNoneElement("calibratingGPSPrecision");
     };
     PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision, meters) {
         setPrecision(meters);
@@ -95,7 +96,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
         displayNoneElement("calibratingGPSPrecision");
-        blockElement("calibratingGPSPrecision");
 
         if (this.ignorePrecision) {
             return;
