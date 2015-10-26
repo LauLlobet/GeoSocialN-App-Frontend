@@ -52,7 +52,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
     };
 
     var setPrecision = function (precision) {
-        var elem = document.getElementById("calibratingGPSPrecison");
+        var elem = document.getElementById("calibratingGPSPrecision");
         if (elem !== null) {
             elem.textContent = "precision: " + Math.floor(precision) + " expected: 14";
         }
@@ -90,7 +90,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS5");
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
-        displayNoneElement("calibratingGPSPrecision");
+        displayNoText("calibratingGPSPrecision");
     };
     PhaserGame.prototype.handlePrecisionGps = function handlePrecisionGps(precision, meters) {
         displayNoneElement("calibratingGPS0");
@@ -113,10 +113,10 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             blockElement("calibratingGPS5");
             setPrecision(meters);
         } else if (precision < 8) {
-            blockElement("calibratingGPSPrecision");
+            blockElement("calibratingGPS7");
             setPrecision(meters);
         } else if (precision < 10) {
-            blockElement("calibratingGPSPrecision");
+            blockElement("calibratingGPS9");
             setPrecision(meters);
         }
     };
