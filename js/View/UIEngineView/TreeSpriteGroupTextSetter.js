@@ -201,19 +201,20 @@ define([], function () {
     };
     TreeSpriteGroupTextSetter.prototype.unBury = function (buryLayerId, temporary) {
         var mainTween,
-            lockTween;
+            lockTween,
+            that = this;
         if (this[buryLayerId] !== undefined) {
             mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
             mainTween.onComplete.add(function() {
-                this[buryLayerId].destroy();
-                this[buryLayerId] = undefined;
+                that[buryLayerId].destroy();
+                that[buryLayerId] = undefined;
             }, this);
         }
         if (this[buryLayerId + "pick"] !== undefined) {
             lockTween = this.game.add.tween(this[buryLayerId + "pick"]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
             lockTween.onComplete.add(function() {
-                this[buryLayerId + "pick"].destroy();
-                this[buryLayerId + "pick"] = undefined;
+                that[buryLayerId + "pick"].destroy();
+                that[buryLayerId + "pick"] = undefined;
             }, this);
         }
         if (temporary === undefined) {
