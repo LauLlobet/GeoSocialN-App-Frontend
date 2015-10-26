@@ -65,7 +65,7 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
         }, this);
     };
     Rake.prototype.destroy = function () {
-        this.context.game.tweens.remove(this.context.rake.initialTween);
+        this.game.tweens.remove(this.context.rake.initialTween);
         this.rake.destroy();
         this.rake = null;
     }
