@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/FlowerPanel.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/FlowerPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scenes/Constants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/View/UIEngineView/Rake.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeRakeSetter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/LeafPileUnburier.js" afterPath="$PROJECT_DIR$/js/Controll/LeafPileUnburier.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" afterPath="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js" afterPath="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spinningCircleOnLoading.js" afterPath="$PROJECT_DIR$/spinningCircleOnLoading.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -33,98 +44,100 @@
       <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.111111" vertical-offset="1404" max-vertical-offset="5610">
-              <caret line="101" column="51" selection-start-line="101" selection-start-column="51" selection-end-line="101" selection-end-column="51" />
+            <state vertical-scroll-proportion="-4.111111" vertical-offset="804" max-vertical-offset="5670">
+              <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GpsMovmentTrigger.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js">
+      <file leaf-file-name="SceneTreeRakeSetter.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeRakeSetter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="1770">
-              <caret line="94" column="87" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.29005525" vertical-offset="15" max-vertical-offset="450">
+              <caret line="8" column="62" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeLoaderToSceneLoaderFromLists.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Controll/TreeLoaderToSceneLoaderFromLists.js">
+      <file leaf-file-name="SceneTreeTextSetter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeTextSetter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
-              <caret line="2" column="42" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="660">
+              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeRestClient.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Model/TreeRestClient.js">
+      <file leaf-file-name="Rake.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Rake.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1425">
-              <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
+            <state vertical-scroll-proportion="-9.709678" vertical-offset="704" max-vertical-offset="1755">
+              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpriteTreeRakeSetter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+              <caret line="6" column="43" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeSpriteGroupTextSetter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
+      <file leaf-file-name="LeafPileUnburier.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Controll/LeafPileUnburier.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.555555" vertical-offset="3009" max-vertical-offset="5550">
-              <caret line="216" column="21" selection-start-line="213" selection-start-column="12" selection-end-line="216" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="1020">
+              <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewlyPresentedTreeSubjectNotifier.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Controll/NewlyPresentedTreeSubjectNotifier.js">
+      <file leaf-file-name="Constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scenes/Constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="525">
-              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="465">
+              <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearbyTreesFromServerToIncommingTreeList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Controll/NearbyTreesFromServerToIncommingTreeList.js">
+      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1095">
-              <caret line="45" column="77" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="2055">
+              <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleTreeGroupFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js">
+      <file leaf-file-name="TreeSpriteCompassSetter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="2085">
-              <caret line="119" column="49" selection-start-line="119" selection-start-column="49" selection-end-line="119" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlowerPanel.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/FlowerPanel.js">
+      <file leaf-file-name="TreeSpriteCompas.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7761194" vertical-offset="205" max-vertical-offset="2070">
-              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WriteButton.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scenes/WriteButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="240">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="945">
+              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -138,10 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/Controll/NewlyPresentedTreeSubjectNotifier.js" />
-        <option value="$PROJECT_DIR$/js/util/CoordinatesCalculator.js" />
-        <option value="$PROJECT_DIR$/test/js/CoordinatesCalculator.test.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/FunctionCallerToUIEngineView.js" />
         <option value="$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeKmCounterSetter.js" />
         <option value="$PROJECT_DIR$/js/View/SpriteLevel/FunctionCallerToUIEngineTreeView.js" />
         <option value="$PROJECT_DIR$/test/js/FunctionCallerToView.test.js" />
@@ -154,7 +163,6 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteKmDigit.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCounterKmSetter.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/PasswordDialog.js" />
@@ -167,28 +175,33 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/VotingPanel.js" />
         <option value="$PROJECT_DIR$/test/all.test.html" />
         <option value="$PROJECT_DIR$/test/js/IncommingTreesEmptyOnesAndDiscardedCueMixer.test.js" />
-        <option value="$PROJECT_DIR$/js/Controll/LeafPileUnburier.js" />
         <option value="$PROJECT_DIR$/js/Controll/MapKmToDistanceUnits.js" />
         <option value="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
-        <option value="$PROJECT_DIR$/js/View/SpriteLevel/SpriteManagerPhaserApi.js" />
         <option value="$PROJECT_DIR$/js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" />
-        <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js" />
         <option value="$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js" />
-        <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
         <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeKmSetter.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
         <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
-        <option value="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
         <option value="$PROJECT_DIR$/js/Controll/TreeLoaderToSceneLoaderFromLists.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
         <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneLoader.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/scenes/WriteButton.js" />
         <option value="$PROJECT_DIR$/js/Model/TreeRestClient.js" />
         <option value="$PROJECT_DIR$/js/Controll/NearbyTreesFromServerToIncommingTreeList.js" />
-        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/FlowerPanel.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
+        <option value="$PROJECT_DIR$/js/Controll/LeafPileUnburier.js" />
+        <option value="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
+        <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
+        <option value="$PROJECT_DIR$/js/View/SpriteLevel/SpriteManagerPhaserApi.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" />
+        <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
+        <option value="$PROJECT_DIR$/scenes/Constants.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/Rake.js" />
+        <option value="$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js" />
+        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+        <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeRakeSetter.js" />
       </list>
     </option>
   </component>
@@ -196,8 +209,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-5" />
-    <option name="y" value="54" />
+    <option name="x" value="37" />
+    <option name="y" value="26" />
     <option name="width" value="1390" />
     <option name="height" value="746" />
   </component>
@@ -368,6 +381,10 @@
               <option name="myItemId" value="View" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpriteLevel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -512,8 +529,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js/View/SceneLoaderLevel" />
       <recent name="$PROJECT_DIR$/js/View/SpriteLevel" />
+      <recent name="$PROJECT_DIR$/js/View/SceneLoaderLevel" />
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/scenes" />
       <recent name="$PROJECT_DIR$/scripts" />
@@ -879,7 +896,7 @@
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
       <workItem from="1445461623870" duration="57844000" />
-      <workItem from="1445790785240" duration="2746000" />
+      <workItem from="1445790785240" duration="13812000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1179,11 +1196,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="925142000" />
+    <option name="totallyTimeSpent" value="936208000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="54" width="1390" height="746" extended-state="0" />
-    <editor active="true" />
+    <frame x="37" y="26" width="1390" height="746" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1191,7 +1208,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40092167" sideWeight="0.5647482" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40092167" sideWeight="0.5647482" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08345324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1281,56 +1298,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="465">
-          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCounterKmSetter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="645">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OurTreeWeb.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="407">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.4313726" vertical-offset="2824" max-vertical-offset="3270">
-          <caret line="163" column="23" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/NearbyTreesFromServerToIncommingTreeList.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/snippets.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="223" max-vertical-offset="690">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/RestApi.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6666665" vertical-offset="2649" max-vertical-offset="5220">
-          <caret line="185" column="49" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/GestureObserver.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
@@ -1356,20 +1323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1050">
           <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1407,13 +1360,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
           <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteManagerPhaserApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6296296" vertical-offset="1897" max-vertical-offset="2445">
-          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1440,16 +1387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/js/TreeLoaderToSceneLoaderFromLists.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4155">
@@ -1458,18 +1395,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6296296" vertical-offset="895" max-vertical-offset="2025">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeKmSetter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
           <caret line="9" column="43" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1485,6 +1415,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5250">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1508,13 +1441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.185185" vertical-offset="856" max-vertical-offset="1335">
           <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="583" max-vertical-offset="1200">
-          <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1537,41 +1463,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2113" max-vertical-offset="3525">
-          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/LeafPileUnburier.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="1020">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeTextSetter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="660">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeTextSetter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="313" max-vertical-offset="675">
           <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeLeft.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1111112" vertical-offset="0" max-vertical-offset="2175">
-          <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1591,14 +1487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/WriteButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="240">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Model/TreeRestClient.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1425">
@@ -1611,14 +1499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="525">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="2085">
-          <caret line="119" column="49" selection-start-line="119" selection-start-column="49" selection-end-line="119" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1647,26 +1527,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCounterKmSetter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.555555" vertical-offset="3009" max-vertical-offset="5550">
-          <caret line="216" column="21" selection-start-line="213" selection-start-column="12" selection-end-line="216" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="645">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.111111" vertical-offset="1404" max-vertical-offset="5610">
-          <caret line="101" column="51" selection-start-line="101" selection-start-column="51" selection-end-line="101" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2218" max-vertical-offset="3540">
+          <caret line="159" column="34" selection-start-line="159" selection-start-column="34" selection-end-line="159" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteManagerPhaserApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="2445">
+          <caret line="93" column="42" selection-start-line="90" selection-start-column="8" selection-end-line="93" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/FlowerPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7761194" vertical-offset="205" max-vertical-offset="2070">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1708" max-vertical-offset="2070">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="129" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/ForestSwipeLeft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/WriteButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08287293" vertical-offset="0" max-vertical-offset="362">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="418" max-vertical-offset="1230">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeKmCounterSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="362">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4074075" vertical-offset="3790" max-vertical-offset="5700">
+          <caret line="257" column="2" selection-start-line="257" selection-start-column="2" selection-end-line="270" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeCompassSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="362">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="32.037037" vertical-offset="1645" max-vertical-offset="2190">
+          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="945">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="2055">
+          <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/Constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="465">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Rake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.709678" vertical-offset="704" max-vertical-offset="1755">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Controll/LeafPileUnburier.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="1020">
+          <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeTextSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="660">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.111111" vertical-offset="804" max-vertical-offset="5670">
+          <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeRakeSetter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29005525" vertical-offset="15" max-vertical-offset="450">
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="62" />
           <folding />
         </state>
       </provider>

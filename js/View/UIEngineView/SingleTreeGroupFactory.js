@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompassSetter"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter) {
+define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompassSetter", "./Rake"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -44,12 +44,19 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (tree.treeid === 3) {
             return;
         }
+
         if (this.isNotAnEmptyTree(tree)) {
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
             this.group.textSetter.createText(tree.text, tree.unburiedLayers);
             if (this.isNotAnInstructionTree(tree)) {
                 this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
                 this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
+                if (this.group.textSetter.getHeightOfLeafBuryLayer()) {
+                    this.group.rakeSetter = new Rake(this.group,
+                        this.game,
+                        this.group.textSetter.getHeightOfLeafBuryLayer(),
+                        this.group.compassSetter.getCompassPosition());
+                }
                 this.group.isWrittenByAServerTree = true;
             }
         }

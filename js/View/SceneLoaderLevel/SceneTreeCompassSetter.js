@@ -12,7 +12,6 @@ define(['../../lib/underscore', "../../lib/rsvp"], function (underscore, rspv) {
             return;
         }
         this.spriteCompassSetter.setAngle(tableentrytree.id, angle);
-        tableentrytree.tree.meters = angle;
     };
     return SceneTreeCompassSetter;
 });

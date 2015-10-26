@@ -55,7 +55,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
             this.currentTargetCoordinates
         );
         angle = angle + this.orientationNord;
-        this.compassSetter.setAngle(angle);
+        this.compassSetter.setAngle(angle); //  ??????? TODO
     }
 
     return LeafPileUnburier;

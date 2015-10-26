@@ -113,7 +113,9 @@ var gpsErrorMessageDisplayerInterface = {
         document.getElementById("unblockGPS").style.display = "block";
     },
     displayPositionUnavaliableMessage : function displayPositionUnavaliableMessage() {
-        alert("Circle: El teu gps no acaba de trobar la posicio, espera una mica");
+        if(navigator.userAgent.match("emulated") === null ) {
+            alert("Circle: El teu gps no acaba de trobar la posicio, espera una mica");
+        }
     },
     displayUnblockGpsMessageCalled: false,
     displayNotSupportedBrowser : function displayNotSupportedBrowser(){

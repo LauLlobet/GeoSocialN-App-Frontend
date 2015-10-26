@@ -230,8 +230,18 @@ define([], function () {
         if (spritename === "lock") {
             this.setLockPick(group, tmp.x, tmp.y, tmp.scale.x);
         }
+        if (spritename == "leafs") {
+            this.leafsLineY = charposY;
+        } else {
+            this.leafsLineY = undefined;
+        }
         this[buryLayerId] = tmp;
     };
+
+    TreeSpriteGroupTextSetter.prototype.getHeightOfLeafBuryLayer = function () {
+        return this.leafsLineY;
+    }
+
     TreeSpriteGroupTextSetter.prototype.setBuryLayersToClickable = function setBuryLayersToClickable(layerSpirte) {
         this.setSpriteToClickableOrNot(layerSpirte, true);
     };
