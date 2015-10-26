@@ -164,6 +164,11 @@
             z-index: 71;
         }
 
+        #calibratingGPSPrecison{
+            position:absolute; top:20px; left:30px;
+            font-size: 250%;
+        }
+
     </style>
 </head>
 
@@ -174,29 +179,18 @@
     <div id = "turn"></div>
     <div id = "unblockGPS"></div>
     <div id = "acceptGPS"></div>
+    <div id = "calibratingGPSPrecison">
+        <div id = "precisionInM ">45</div> meters, we want 14
+    </div>
     <div id = "calibratingGPS0">
-        <div class = "buttonIgnorePrecision">
-            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt=""/>
-        </div>
     </div>
     <div id = "calibratingGPS2">
-        <div class = "buttonIgnorePrecision">
-            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt="" />
-        </div>
     </div>
     <div id = "calibratingGPS5">
-        <div class = "buttonIgnorePrecision"><img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
-        </div>
     </div>
     <div id = "calibratingGPS7">
-        <div class = "buttonIgnorePrecision">
-            <img src="assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
-        </div>
     </div>
     <div id = "calibratingGPS9">
-        <div class = "buttonIgnorePrecision">
-            <img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
-        </div>
     </div>
 
     <script>

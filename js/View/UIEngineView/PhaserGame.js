@@ -50,6 +50,14 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             elem.style.display = "block";
         }
     };
+
+    var setPrecision = function (precision) {
+        var elem = document.getElementById("precisionInM");
+        if (elem !== null) {
+            elem.textContent = ""+precision;
+        }
+    };
+
     var displayNoneElement = function (element) {
         var elem = document.getElementById(element);
         if (elem !== null) {
@@ -85,18 +93,24 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         displayNoneElement("calibratingGPS5");
         displayNoneElement("calibratingGPS7");
         displayNoneElement("calibratingGPS9");
+        //displayNoneElement("calibratingGPSPrecision");
         if (this.ignorePrecision) {
             return;
         }
         if (precision === 0) {
             blockElement("calibratingGPS0");
+            blockElement("calibratingGPSPrecision");
         } else if (precision < 3) {
             blockElement("calibratingGPS2");
+            blockElement("calibratingGPSPrecision");
         } else if (precision < 6) {
             blockElement("calibratingGPS5");
+            blockElement("calibratingGPSPrecision");
         } else if (precision < 8) {
+            blockElement("calibratingGPSPrecision");
             blockElement("calibratingGPS7");
         } else if (precision < 10) {
+            blockElement("calibratingGPSPrecision");
             blockElement("calibratingGPS9");
         }
     };

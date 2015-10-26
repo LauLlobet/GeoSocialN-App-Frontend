@@ -76,9 +76,10 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         );
     }
 
-    GpsMovmentTrigger.prototype.handlePrecisionAlerts = function handlePrecisionAlerts(precision) {
+    GpsMovmentTrigger.prototype.handlePrecisionAlerts = function handlePrecisionAlerts(precision, precisionInMeters) {
         var precisionInMeters = precision;
        this.precisionOneToTen = 0;
+
 
         if (precisionInMeters < 35){
             this.precisionOneToTen = 2;
@@ -97,7 +98,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         }
 
         if( this.precisionIsNowImportant ) {
-            this.phaserGame.handlePrecisionGps(this.precisionOneToTen);
+            this.phaserGame.handlePrecisionGps(this.precisionOneToTen, precisionInMeters);
         }
     }
 
