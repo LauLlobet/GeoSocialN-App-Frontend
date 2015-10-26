@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/Constants.js" afterPath="$PROJECT_DIR$/scenes/Constants.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/Rake.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/Rake.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +32,8 @@
       <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="5700">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+            <state vertical-scroll-proportion="-5.0" vertical-offset="2055" max-vertical-offset="5700">
+              <caret line="146" column="51" selection-start-line="146" selection-start-column="51" selection-end-line="146" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -62,8 +62,8 @@
       <file leaf-file-name="Rake.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Rake.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27492446" vertical-offset="1394" max-vertical-offset="1770">
-              <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.27492446" vertical-offset="689" max-vertical-offset="1935">
+              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -104,8 +104,8 @@
       <file leaf-file-name="Constants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scenes/Constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="465">
-              <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="510">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -185,10 +185,10 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteCompassSetter.js" />
         <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
-        <option value="$PROJECT_DIR$/scenes/Constants.js" />
         <option value="$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js" />
         <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeRakeSetter.js" />
         <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+        <option value="$PROJECT_DIR$/scenes/Constants.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/Rake.js" />
       </list>
     </option>
@@ -884,7 +884,7 @@
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
       <workItem from="1445461623870" duration="57844000" />
-      <workItem from="1445790785240" duration="14920000" />
+      <workItem from="1445790785240" duration="16127000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1184,7 +1184,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="937316000" />
+    <option name="totallyTimeSpent" value="938523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="26" width="1390" height="746" extended-state="0" />
@@ -1631,14 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/Constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="465">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
@@ -1681,16 +1673,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="5700">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        <state vertical-scroll-proportion="-5.0" vertical-offset="2055" max-vertical-offset="5700">
+          <caret line="146" column="51" selection-start-line="146" selection-start-column="51" selection-end-line="146" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/Constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="510">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Rake.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27492446" vertical-offset="1394" max-vertical-offset="1770">
-          <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.27492446" vertical-offset="689" max-vertical-offset="1935">
+          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

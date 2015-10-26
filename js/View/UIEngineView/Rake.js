@@ -51,7 +51,9 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
     };
     Rake.prototype.setAngle = function (angle) {
         if (this.onTheCompass) {
-            this.rake.angle = angle;
+            this.game.add.tween(this.rake).to({
+                angle: angle
+            }, this.constants.rake.timing.timeToFollowAngle, 'Linear', true, 0, 0);
         }
     };
     Rake.prototype.disappeare = function () {
@@ -63,6 +65,7 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
         }, this);
     };
     Rake.prototype.destroy = function () {
+        this.context.game.tweens.remove(this.context.rake.initialTween);
         this.rake.destroy();
         this.rake = null;
     }
@@ -98,15 +101,23 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
         this.rake.anchor.y = constants.rake.distanceFromTheCenter;
         rake = this.rake;
         this.setOnTheCompass(true);
-        tween = this.game.add.tween(this.rake).to({
+        this.game.add.tween(this.rake).to({
             x: this.constants.rake.compassX,
             y: this.constants.rake.compassY
         }, this.constants.rake.timing.rakeTweenToCompassMs, 'Linear', true, 0, 0);
 
-        this.game.add.tween(this.rake.scale).to({
+        tween = this.game.add.tween(this.rake.scale).to({
             x: this.constants.rake.scaleNearCompass,
             y: this.constants.rake.scaleNearCompass
         }, this.constants.rake.timing.rakeTweenToCompassMs, 'Linear', true, 0, 0);
+        tween.onComplete.add(function () {
+            this.rake.initialTween = this.game.add.tween(this.rake.scale).to({
+                    x: this.constants.rake.scaleOscilationMaxDuringCompass,
+                    y: this.constants.rake.scaleOscilationMaxDuringCompass
+                },
+                this.constants.rake.timing.yoyoNearCompass, 'Linear', true, 0, -1);
+            this.rake.initialTween.yoyo(true, this.constants.rake.timing.yoyoNearCompass);
+        }, this);
     };
 
     return Rake;

@@ -14,11 +14,14 @@ define([], function () {
             scaleSizeWhenStillYoyo: 0.6,
             compassX : 9,
             compassY : 184,
-            distanceFromTheCenter : 1.9,
+            distanceFromTheCenter : 2.1,
+            scaleOscilationMaxDuringCompass : 0.45,
             scaleNearCompass : 0.4,
             timing: {
-                scaleTweenWhenStillMilliseconds : 100,
-                rakeTweenToCompassMs : 400
+                scaleTweenWhenStillMilliseconds : 300,
+                rakeTweenToCompassMs : 400,
+                yoyoNearCompass : 100,
+                timeToFollowAngle : 20
             }
         }
     };
