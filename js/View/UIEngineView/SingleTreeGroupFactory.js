@@ -79,8 +79,18 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (tree.unburiedLayers === undefined || tree.initialPosition.charAt(0) === '3') {
             tree.unburiedLayers = {};
         }
+        if (this.group.rakeSetter !== undefined) {
+            this.group.rakeSetter.destroy();
+            this.group.rakeSetter = undefined;
+        }
         if (tree.text !== undefined) {
             this.group.textSetter.setText(tree.text);
+            if (this.group.textSetter.getHeightOfLeafBuryLayer()) {
+                this.group.rakeSetter = new Rake(this.group,
+                    this.game,
+                    this.group.textSetter.getHeightOfLeafBuryLayer(),
+                    this.group.compassSetter.getCompassPosition());
+            }
         }
     };
 

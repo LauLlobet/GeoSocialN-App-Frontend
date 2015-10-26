@@ -65,10 +65,11 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
         }, this);
     };
     Rake.prototype.destroy = function () {
-        this.game.tweens.remove(this.context.rake.initialTween);
+        this.game.tweens.remove(this.rake.initialTween);
         this.rake.destroy();
         this.rake = null;
-    }
+    };
+
     Rake.prototype.setOnTheCompass = function (flag) {
         this.onTheCompass = flag;
     };
