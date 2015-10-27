@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+Acuracity is:
+<div id="acuracity" ></div>
+<script>
+    var options = {
+        enableHighAccuracy: true,
+        timeout: Infinity,
+        maximumAge: Infinity
+    };
+    var setAcuracity = function(text) {
+        var elem = document.getElementById("acuracity");
+        if (elem !== null) {
+            elem.textContent = text;
+        }
+    };
+    navigator.geolocation.watchPosition(function(result) {
+                setAcuracity( Math.floor(result.coords.accuracy) + "m");
+            },
+            function(){ setAcuracity("error")},
+            this);
+</script>
+</body>
+</html>
