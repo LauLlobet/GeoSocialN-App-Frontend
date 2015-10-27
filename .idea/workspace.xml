@@ -96,8 +96,8 @@
       <file leaf-file-name="testGps.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testGps.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44378698" vertical-offset="0" max-vertical-offset="600">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.35502958" vertical-offset="0" max-vertical-offset="555">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -888,7 +888,7 @@
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
       <workItem from="1445461623870" duration="57844000" />
-      <workItem from="1445790785240" duration="24290000" />
+      <workItem from="1445790785240" duration="24488000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1188,7 +1188,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="946686000" />
+    <option name="totallyTimeSpent" value="946884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="26" width="1390" height="746" extended-state="0" />
@@ -1704,8 +1704,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testGps.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44378698" vertical-offset="0" max-vertical-offset="600">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.35502958" vertical-offset="0" max-vertical-offset="555">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding />
         </state>
       </provider>
