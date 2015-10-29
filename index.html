@@ -170,6 +170,30 @@
             z-index: 3000;
         }
 
+        body {
+            position: relative;
+            font-family: Arial;
+            background: #cccccc;
+            color: #fff;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .modal {
+            position: relative  ;
+            top: 30%;
+            text-align: center;
+            z-index: 11; /* 1px higher than the overlay layer */
+        }
+
     </style>
 </head>
 
@@ -194,9 +218,42 @@
     </div>
 
     <script>
-        ignorePrecision = function (){
+        var ignorePrecision = function (){
             phaserGameGlobal.ignorePrecisionGps();
         }
+
+        var blockElement = function (element) {
+            var elem = document.getElementById(element);
+            if (elem !== null) {
+                elem.style.display = "block";
+            }
+        };
+
+        var setHtmlContent = function (element,html) {
+            var elem = document.getElementById(element);
+            if (elem !== null) {
+                elem.innerHTML = html;
+            }
+        };
+
+        var displayNoneElement = function (element) {
+            var elem = document.getElementById(element);
+            if (elem !== null) {
+                elem.style.display = "none";
+            }
+        };
+    </script>
+
+
+    <div class="overlay" id="popUp">
+        <div class="modal"> <center><div id="popUpContent">HOLA<div></center></div>
+    </div>
+    <script>
+        var id = 'lQwqirMnVm4';
+        var htmlContent = '<iframe src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen>';
+        setHtmlContent('popUpContent', htmlContent);
+        blockElement('popUp');
+        //displayNoneElement('popUp');
     </script>
     <canvas id="canvasBg" width="800" height="498"></canvas>
     <!--script type="text/javascript" src="avoidDraggingAndSelecting.js"></script-->

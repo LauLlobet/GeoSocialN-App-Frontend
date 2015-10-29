@@ -51,12 +51,6 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         }
     };
 
-    var setPrecision = function (precision) {
-        var elem = document.getElementById("calibratingGPSPrecision");
-        if (elem !== null) {
-            elem.textContent = "precision: " + Math.floor(precision) + " expected: 14";
-        }
-    };
 
     var displayNoneElement = function (element) {
         var elem = document.getElementById(element);
@@ -64,6 +58,13 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
             elem.style.display = "none";
         }
     };
+    var setPrecision = function (precision) {
+        var elem = document.getElementById("calibratingGPSPrecision");
+        if (elem !== null) {
+            elem.textContent = "precision: " + Math.floor(precision) + " expected: 14";
+        }
+    };
+
     var displayNoText = function (element) {
         var elem = document.getElementById(element);
         elem.textContent = "";

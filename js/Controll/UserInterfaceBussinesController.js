@@ -8,7 +8,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
     "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
     "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp", "../View/SceneLoaderLevel/SceneTreeRakeSetter",
-    "../View/SpriteLevel/SpriteTreeRakeSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeRakeSetter", "../View/IframeDisplayer"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
@@ -16,11 +16,23 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
                                                            VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer,
-                                                            rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter) {
+                                                            rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter, IframeDisplayer) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
-        PASSWORD = "password";
+        PASSWORD = "password",
+        VIDEOKEY = 'vid:',
+        PICKEY = 'pic:';
+
+
+    var isNumeric = function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    var startsWith = function (string, prefix){
+        return string.indexOf(prefix) === 0
+    }
+
     function UserInterfaceBussinesController() //noinspection JSLint
     {
             this.state = NAVIGATE;
@@ -158,7 +170,17 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     };
 
     UserInterfaceBussinesController.prototype.linkClicked = function (treeid) {
-        this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
+        var iframeDisplayer = new IframeDisplayer();
+        if(isNumeric(treeid)) {
+            this.hashChangeTrigger.setHashAtUrlAndStartUpdatingProcess(treeid);
+            return;
+        }
+        if(startsWith(treeid,VIDEOKEY)) {
+            iframeDisplayer.showYoutubeVideo(treeid.substr(VIDEOKEY.length))
+        }
+        if(startsWith(treeid,PICKEY)) {
+            iframeDisplayer.showYoutubeVideo(treeid.substr(PICKEY.length))
+        }
     };
     UserInterfaceBussinesController.prototype.upVote = function () {
         var music;

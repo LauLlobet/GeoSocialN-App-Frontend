@@ -149,11 +149,11 @@ define([], function () {
         for (x = 0, c = ''; c = formatedText.charAt(x); x++) {
             if (c === LINKSTR && isPartOfTheAdress === false) {
                 isPartOfTheAdress = true;
-            } else if (isPartOfTheAdress && !isNumeric(c)) {
+            } else if (isPartOfTheAdress && c === ' ') { // end the adress
                 isPartOfTheAdress = false;
                 linklayers.push(currentLinkCells);
                 currentLinkCells = [];
-                links.push(parseInt(currentLink));
+                links.push(currentLink);
                 currentLink = "";
             }
 
@@ -161,7 +161,7 @@ define([], function () {
                 tmp = group.create(charposX, charposY, 'linkLayer');
                 tmp.scale.x = tmp.scale.y = 1.2;
                 currentLinkCells.push(tmp);
-                if (isNumeric(c)) {
+                if( c !== '#') {
                     currentLink = currentLink + c;
                 }
             }
@@ -204,12 +204,12 @@ define([], function () {
             lockTween,
             that = this;
         if (this[buryLayerId] !== undefined) {
-            // mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
-            //mainTween.onComplete.add(function() {
-            this[buryLayerId].alpha = 0;
+            mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
+            mainTween.onComplete.add(function() {
+                this[buryLayerId].alpha = 0;
                 this[buryLayerId].destroy();
                 this[buryLayerId] = undefined;
-            //}, this);
+            }, this);
         }
         if (this[buryLayerId + "pick"] !== undefined) {
             lockTween = this.game.add.tween(this[buryLayerId + "pick"]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
@@ -279,16 +279,6 @@ define([], function () {
             this.hasntBeenUnburied('leafs') &&
             this.buryLayerNotAlreadyExists('leafs')) {
             this.buryMessageFromLine(this.treeBuryGroup, line, 'leafs', 'leafs');
-        }
-    };
-    TreeSpriteGroupTextSetter.prototype.unBuryMessageIfNecesary  = function unBuryMessageLeafsIfNecesary() {
-        var line = this.findLineOfCharacterInText(BURYSTR);
-        if (!this.lineWithThatCharExistsOnText(line)) {
-            this.unBury("leafs", true);
-        }
-        line = this.findLineOfCharacterInText(LOCKSTR);
-        if (!this.lineWithThatCharExistsOnText(line)) {
-            this.unBury("lock", true);
         }
     };
 

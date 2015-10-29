@@ -1,7 +1,7 @@
 /*global define, require, module,navigator, Phaser, Group, console, _,setTimeout */
 /*jslint todo: true */
 
-var forgedAccuracy = 150;
+var forgedAccuracy = 12;
 define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], function (underscore, CoordinatesCalculator) {
     "use strict";
     function GpsMovmentTrigger(bussinesController, phaserGame) {

@@ -1,6 +1,7 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
 
+
 define([], function () {
     "use strict";
     function TreeSpriteKmDigit(x, y, phaserGame, parentGroup) //noinspection JSLint
