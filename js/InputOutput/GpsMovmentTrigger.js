@@ -115,6 +115,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
 
     GpsMovmentTrigger.prototype.setPrecisionNowIsImportant = function setpPecisionNowIsImportant(precision) {
         this.precisionIsNowImportant = true;
+        this.handlePrecisionAlerts(this.lastMoveCoordinates.accuracy);
     }
 
     GpsMovmentTrigger.prototype.setPrecisionNowIsNotImportant = function setPrecisionNowIsNotImportant(precision) {
