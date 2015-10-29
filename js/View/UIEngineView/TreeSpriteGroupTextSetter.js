@@ -204,11 +204,12 @@ define([], function () {
             lockTween,
             that = this;
         if (this[buryLayerId] !== undefined) {
-            mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
-            mainTween.onComplete.add(function() {
-                that[buryLayerId].destroy();
-                that[buryLayerId] = undefined;
-            }, this);
+            // mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
+            //mainTween.onComplete.add(function() {
+            this[buryLayerId].alpha = 0;
+                this[buryLayerId].destroy();
+                this[buryLayerId] = undefined;
+            //}, this);
         }
         if (this[buryLayerId + "pick"] !== undefined) {
             lockTween = this.game.add.tween(this[buryLayerId + "pick"]).to({alpha: 0}, 200, 'Linear', true, 0, 0);

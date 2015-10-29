@@ -17,7 +17,6 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         this.textGroup = this.phaserGame.game.add.group();
         this.buryGroup = this.phaserGame.game.add.group();
         this.compasAndKmGroup = this.phaserGame.game.add.group();
-        console.log("TREEID:" + tree.treeid);
         if (tree.treeid !== null) {
             if (tree.treeid === 3) {
                 this.sprite = this.group.create(0, 0, 'fullTerritory');

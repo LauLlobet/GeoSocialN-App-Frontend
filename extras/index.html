@@ -7,26 +7,51 @@
 <body>
 <font size="6">
     <font size="90">
-Acuracity is:
-<div id="acuracity" ></div>
+VERSIÓN 2 del test de precision de tu gps,
+        Opcion 1: Tu precision es:
+<div id="accuracy" ></div>
+        <br/>
+        Opcion 2: Tu precision es:
+        <div id="demo"></div>
 </font>
 <script>
     var options = {
         enableHighAccuracy: true,
-        timeout: Infinity,
-        maximumAge: Infinity
+        timeout: 10000,
+        maximumAge: 2000
     };
-    var setAcuracity = function(text) {
-        var elem = document.getElementById("acuracity");
+
+    var numRefreshed = 0;
+    var numRefreshed2 = 0;
+
+    var setAccuracy = function(text) {
+        var elem = document.getElementById("accuracy");
         if (elem !== null) {
             elem.textContent = text;
         }
     };
     navigator.geolocation.watchPosition(function(result) {
-                setAcuracity( Math.floor(result.coords.accuracy) + "m");
+                numRefreshed += 1;
+                setAccuracy( Math.floor(result.coords.accuracy) + "m  refrescado: "+ numRefreshed+ "veces");
             },
-            function(){ setAcuracity("error")},
+            function(){ setAccuracy("error")},
             this);
+
+
+    var x = document.getElementById("demo");
+    var getLocation = function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML =  " "+Math.floor(position.coords.accuracy) + "m  refrescado: "+ numRefreshed2 + "veces"
+    }
+
+    setInterval(getLocation, 15000);
+
 </script>
 </body>
 </html>

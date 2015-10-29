@@ -54,7 +54,7 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
             return;
         }
         this.sceneKmSetter.setDistance(Math.round(this.metersFromCellPhoneToTargetTree));//metersFromCellPhoneToTargetTree));
-        if (this.metersFromCellPhoneToTargetTree < 130 && this.metersFromCellPhoneToTargetTree > 14) {
+        if (this.metersFromCellPhoneToTargetTree < 130) {
             this.gpsMovmentTrigger.setPrecisionNowIsImportant();
         } else {
             this.gpsMovmentTrigger.setPrecisionNowIsNotImportant();

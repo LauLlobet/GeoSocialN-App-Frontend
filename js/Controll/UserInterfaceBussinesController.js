@@ -126,9 +126,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function (ans) {
-                console.log("----SL----");
-                console.log("incomming: " +  that.incommingList);
-                console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
             }).catch(function (error) {
@@ -143,9 +140,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function (ans) {
-                console.log("----SR----");
-                console.log("incomming: " +  that.incommingList);
-                console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
             }).catch(function (error) {
@@ -228,7 +222,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             that = this;
 
         return new Promise(function (resolve, reject) {
-            if (that.gpsMovmentTrigger.precisionOneToTen !== 10 && navigator.userAgent.match("emulated") === null   ) {
+            if (that.gpsMovmentTrigger.precisionOneToTen !== 10) {
                 reject("not enought precision");
             }
             return treeRestClient.put(tree).then(function (ans) {

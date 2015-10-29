@@ -36,7 +36,6 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
                 that.loadTreeToHash(ans.treeContent[i]);
             }
             that.incommingList.emptyTrees = ans.emptyTrees;
-            console.log("Fetched trees from internet, emptyTrees:" + that.incommingList.emptyTrees);
         }).catch(function (err) {
             alert("error");
             console.log("no connection " + err.stack);
@@ -47,7 +46,7 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
         var that = this;
 
         return this.treeRestClient.getSpecificTree(treeId).then( function (ans) {
-            if (ans.treeContent === null){
+            if (ans.treeContent === null) {
                 ans.treeContent.text = "this tree is null";
             }
             that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;

@@ -48,16 +48,6 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         }
     }
 
-
-    LeafPileUnburier.prototype.calculateAndSendCompassOrientationToTreeTip = function calculateAndSendCompassOrientationToTreeTip() {
-        var angle = this.coordinatesCalculator.angleWithBetweenCoords(
-            this.currentCellPhoneCoordinates,
-            this.currentTargetCoordinates
-        );
-        angle = angle + this.orientationNord;
-        this.compassSetter.setAngle(angle); //  ??????? TODO
-    }
-
     return LeafPileUnburier;
 
 });

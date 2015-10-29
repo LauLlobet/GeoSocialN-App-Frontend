@@ -10,7 +10,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                 .header("Accept", "application/json") // set global header
                 .prefixUrl('YOUR_PATH')
                 .port(8080);
-        var host = location.host.split(':')[0] === 'localhost' ? '52.24.21.196:80' : location.host;
+        var host = location.host.split(':')[0] === 'localhost' ? '52.10.176.122:80' : location.host;
         this.path = 'http://' + host + '/YOUR_PATH/trees';
     }
     TreeRestClient.prototype.deleteAll = function () {
@@ -60,7 +60,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                     reject("entity is null");
                 }
             }).catch(function f (exception) {
-                alert("impossible to do a get, no internet connection");
+                alert("impossible to do a get, no internet connection or server is down");
                 console.log(exception.stack);
             });
         });
@@ -79,7 +79,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/O
                     reject("entity is null");
                 }
             }).catch(function f(exception) {
-                alert("impossible to do a get, no internet connection");
+                alert("impossible to do a get, no internet connection ir server us down");
                 console.log(exception.stack);
             });
         });
