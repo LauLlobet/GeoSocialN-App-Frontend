@@ -1,12 +1,17 @@
-/**
- * Created by quest on 04/08/15.
- */
 define([], function () {
     "use strict";
     var TEXTLENGTH = 16,
         LOCKSTR = "*passwd:",
         BURYSTR = "*bury",
         LINKSTR = "#";
+
+    var initCharposXS = 1,
+        charposYS = 0,
+        charposXIncS = 12.5 * 0.788,
+        charposYIncS = 21.5,
+        charLinkScaleS = 1.6;
+
+
     function TreeSpriteGroupTextSetter(treeSpriteGroup, treeBuryGroup, game, gestureObserver) //noinspection JSLint
     {
         this.treeSpriteGroup = treeSpriteGroup;
@@ -127,13 +132,13 @@ define([], function () {
     }
 
     TreeSpriteGroupTextSetter.prototype.setInteractiveLinksToRetroText = function (group, formatedText) {
-
-        var initCharposX = 1,//this.textImage.x,
+        var initCharposX = initCharposXS,// 1,
             charposX = initCharposX,
-            charposY = 60,//this.textImage.y,
-            charposXInc = 12.5,
-            charposYInc = 18.5,
-            tmp,
+            charposY = charposYS,//60,
+            charposXInc = charposXIncS,//12.5,
+            charposYInc = charposYIncS,//18.5,
+            charLinkScale = charLinkScaleS//1.2;
+      var  tmp,
             currentLink = "",
             currentLinkCells = [],
             isPartOfTheAdress = false,
@@ -159,7 +164,7 @@ define([], function () {
 
             if (isPartOfTheAdress) {
                 tmp = group.create(charposX, charposY, 'linkLayer');
-                tmp.scale.x = tmp.scale.y = 1.2;
+                tmp.scale.x = tmp.scale.y = charLinkScale;
                 currentLinkCells.push(tmp);
                 if( c !== '#') {
                     currentLink = currentLink + c;

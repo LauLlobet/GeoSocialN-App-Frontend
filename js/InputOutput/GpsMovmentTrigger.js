@@ -78,8 +78,12 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
             this.lastMoveCoordinates = position.coords;
         }
     };
-    GpsMovmentTrigger.prototype.errorCallback = function errorCallback( error ) {
-        alert("error tracking coordinates:");
+    GpsMovmentTrigger.prototype.errorCallback = function errorCallback(error) {
+        if (navigator.userAgent.match("emulated") === null) {
+            alert("error tracking coordinates");
+        } else {
+            console.log("error tracking coordinates" + error + " " + error.stack);
+        }
 
     };
 

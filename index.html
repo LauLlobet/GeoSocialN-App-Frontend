@@ -187,12 +187,30 @@
             z-index: 10;
         }
 
-        .modal {
-            position: relative  ;
-            top: 30%;
-            text-align: center;
+        .outer {
+            display: table;
+            position: absolute;
+            height: 100%;
+            width: 100%;
             z-index: 11; /* 1px higher than the overlay layer */
         }
+
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .inner {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #buttonReturnToGame{
+            width:100%;
+            height:100%;
+            position:relative;
+        }
+
 
     </style>
 </head>
@@ -216,10 +234,9 @@
     </div>
     <div id = "calibratingGPS9">
     </div>
-
     <script>
-        var ignorePrecision = function (){
-            phaserGameGlobal.ignorePrecisionGps();
+        var returnToGame = function (){
+            displayNoneElement('popUp');
         }
 
         var blockElement = function (element) {
@@ -246,13 +263,24 @@
 
 
     <div class="overlay" id="popUp">
-        <div class="modal"> <center><div id="popUpContent">HOLA<div></center></div>
+        <div class="outer">
+            <div class="middle">
+                <div class="inner">
+                    <div id="popUpContent">Impossible to load pic/video
+                    </div>
+                    <center>
+                        <div id = "buttonReturnToGame"><img src="assets/returnToGame.png" onclick="returnToGame()"/>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
     </div>
+    <script type="text/javascript" src="//s.imgur.com/min/embed.js"></script>
     <script>
         displayNoneElement('popUp');
     </script>
     <canvas id="canvasBg" width="800" height="498"></canvas>
-    <!--script type="text/javascript" src="avoidDraggingAndSelecting.js"></script-->
     <script type="text/javascript" src="js/lib/underscore.js"></script>
     <script type="text/javascript" src="spinningCircleOnLoading.js"></script>
     <script data-main="js/phaser" src="js/View/UIEngineView/phaser.js"></script>

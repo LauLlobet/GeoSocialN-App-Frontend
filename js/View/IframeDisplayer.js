@@ -8,8 +8,21 @@ define([], function () {
         blockElement('popUp');
     };
 
-    IframeDisplayer.prototype.showYoutubeVideo = function displayGrayLayerOnGame(id) {
+    IframeDisplayer.prototype.showYoutubeVideo = function showYoutubeVideo(id) {
         var htmlContent = '<iframe width="100%" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen>';
+        this.displayPopUp(htmlContent);
+    };
+
+    function addScript(JSfileName) {
+        var js = document.createElement('script');
+        js.setAttribute('type', 'text/javascript');
+        js.src = JSfileName;
+        document.body.appendChild(js);
+    }
+    IframeDisplayer.prototype.showImgurPicture = function showImgurPicture(id) {
+        var htmlContent = '<blockquote class="imgur-embed-pub" lang="en" data-id="' + id + '"></blockquote>';
+        addScript('//s.imgur.com/min/embed.js');
+        console.log(htmlContent);
         this.displayPopUp(htmlContent);
     }
 

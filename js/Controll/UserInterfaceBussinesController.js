@@ -180,7 +180,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             return;
         }
         if(startsWith(treeid,PICKEY)) {
-            iframeDisplayer.showYoutubeVideo(treeid.substr(PICKEY.length))
+            iframeDisplayer.showImgurPicture(treeid.substr(PICKEY.length))
             return;
         }
         alert("Hashtags are still not enabled, but use them so they'll be useful in the future");
