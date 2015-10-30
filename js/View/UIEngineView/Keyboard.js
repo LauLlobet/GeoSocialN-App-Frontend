@@ -5,9 +5,11 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
     var LETTERS = "letters",
         MAYUSQ = "mayusq",
         FEATURES = "features",
-        ASCII = "ascii",
+        STYMBOLS = "symbols",
         NUMBERS = "numbers",
-        SWITCH = "switch";
+        SWITCH = "switch",
+        ASCIIART = "asciiart"
+        ;
 
     function Keyboard(phaserGame, gestureObserver) //noinspection JSLint
     {
@@ -43,12 +45,18 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             char,
             keys = KeyboardDescriptor.keys;
         if (this.state === FEATURES) {
-            this.addFeaturesCharacters();
+            this.addFeaturesCharacters(KeyboardDescriptor.featuresKeyboard);
             position = this.calculatePosition(3, 2 + 2 + KeyboardDescriptor.keysOccupiedBySpace, false);
             this.createSwitchKeyboard(position);
             return;
         }
-        if (this.state === ASCII) {
+        if (this.state === ASCIIART) {
+            this.addFeaturesCharacters(KeyboardDescriptor.acsiiArtKeyboard);
+            position = this.calculatePosition(3, 2 + 2 + KeyboardDescriptor.keysOccupiedBySpace, false);
+            this.createSwitchKeyboard(position);
+            return;
+        }
+        if (this.state === STYMBOLS) {
             keys = KeyboardDescriptor.specialKeys;
         }
         if (this.state === NUMBERS) {
@@ -76,22 +84,22 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.createSwitchKeyboard(position);
 
     };
-    Keyboard.prototype.addFeaturesCharacters = function () {
+    Keyboard.prototype.addFeaturesCharacters = function (keyDistribution) {
         var x,
             y;
         for(y = 0; y < 4; y += 1) {
             for (x = 0; x < 2; x += 1) {
-                this.findPostionAndCreateFeatureButton(x, y);
+                this.findPostionAndCreateFeatureButton(x, y, keyDistribution);
             }
         }
     };
 
-    Keyboard.prototype.findPostionAndCreateFeatureButton = function (x, y) {
+    Keyboard.prototype.findPostionAndCreateFeatureButton = function (x, y, keyDistribution) {
         var position = this.calculatePosition(y, 1 + x * KeyboardDescriptor.keysOccupiedByFeaturesKeys, false);
         this.createFeatureButton(position,
-            KeyboardDescriptor.featuresKeys[y][x],
-            KeyboardDescriptor.featuresKeysMap[y][x],
-            KeyboardDescriptor.featuresKeysIcons[y][x]);
+            keyDistribution.keyboardKeys[y][x],
+            keyDistribution.keyboardMap[y][x],
+            keyDistribution.keyboardIcons[y][x]);
     };
 
     Keyboard.prototype.createFeatureButton = function (position, description, toInsertText, background) {
@@ -171,8 +179,10 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         } else if (this.state === NUMBERS) {
             this.state = FEATURES;
         } else if (this.state === FEATURES) {
-            this.state = ASCII;
-        } else if (this.state === ASCII) {
+            this.state = STYMBOLS;
+        } else if (this.state === STYMBOLS) {
+            this.state = ASCIIART;
+        } else if (this.state === ASCIIART) {
             this.state = LETTERS;
         }
     };

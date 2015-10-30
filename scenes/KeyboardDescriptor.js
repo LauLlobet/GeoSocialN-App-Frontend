@@ -36,49 +36,72 @@ define([ ], function () {
         ],
         numberKeys: [
             ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            [",", ".", "?", "!", ":", "|", "'", "`", "=", "\""],
-            ["+", "^", "*", "$", "@", "#", "#"]
+            ["-", "_", "?", "!", ":", ",", "'", ".", "=", ";"],
+            ["+", "&", "*", "$", "#", "@", "€"]
         ],
         keys: [
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
             ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ"],
             ["z", "x", "c", "v", "b", "n", "m"]
         ],
-        featuresKeys: [
-            ["Lock: ", "Bury: "],
-            ["Tweet: ", "Link: "],
-            ["Heart: ", "Cat: "],
-            ["Video: ", undefined]
-        ],
-        /*
-        "                "
-        "    __  __      "
-        "   /  V   \     "
-        "   \     /      "
-        "    \   /       "
-        "     \/         "
-         */
-        //"    __  __         /  V   \        \     /          \   /            \/         "
-        /*
-
-        "    /\___/\     "
-        "    \ -.- /     "
-        "    `-.^.-'     "
-        "      /"\       "
-         */
-        //"    /\___/\         \ -.- /         `-.^.-'           /"\       "
-        featuresKeysMap: [
-            ["*passwd:", "*bury "],
-            ["@", "#"],
-            ["\t    __  __         /  V   \\        \\     /          \\   /            \\/         ",
-                "\t    /\\___/\\         \\ -.- /          `-.^.-'          /\"\\       "],
-            ["*video", undefined]
-        ],
-        featuresKeysIcons: [
-            ["lockBg", "buryBg"],
-            ["twitterBg", "linkBg"],
-            ["heartBg", "catBg"],
-            ["heartBg", undefined]
-        ]
+        featuresKeyboard: {
+            keyboardKeys: [
+                ["Lock: ", "Bury: "],
+                ["Tweet: ", "Link: "],
+                ["Video: ", "Picture: "],
+                [undefined, undefined]
+            ],
+            keyboardMap: [
+                ["*passwd:", "*bury "],
+                ["@", "#"],
+                ["#vid:", "#pic:"],
+                [undefined, undefined]
+            ],
+            keyboardIcons: [
+                ["lockBg", "buryBg"],
+                ["twitterBg", "linkBg"],
+                ["heartBg", "catBg"],
+                ["heartBg", undefined]
+            ]
+        },
+        acsiiArtKeyboard: {
+            keyboardKeys: [
+                ["Heart: ", "Cat: "],
+                ["Video: ", undefined],
+                ["Lock: ", "Bury: "],
+                ["Tweet: ", "Link: "]
+            ],
+            keyboardMap: [
+                ["\t    __  __         /  V   \\        \\     /          \\   /            \\/         ",
+                    "\t    /\\___/\\         \\ -.- /          `-.^.-'          /\"\\       "],
+                ["*passwd:", "*bury "],
+                ["@", "#"],
+                ["*video", undefined]
+            ],
+            keyboardIcons: [
+                ["lockBg", "buryBg"],
+                ["twitterBg", "linkBg"],
+                ["heartBg", "catBg"],
+                ["heartBg", undefined]
+            ]
+        }
     };
+
+    /*
+     "                "
+     "    __  __      "
+     "   /  V   \     "
+     "   \     /      "
+     "    \   /       "
+     "     \/         "
+     */
+    //"    __  __         /  V   \        \     /          \   /            \/         "
+    /*
+
+     "    /\___/\     "
+     "    \ -.- /     "
+     "    `-.^.-'     "
+     "      /"\       "
+     */
+    //"    /\___/\         \ -.- /         `-.^.-'           /"\       "
 });

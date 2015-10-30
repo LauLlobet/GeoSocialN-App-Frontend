@@ -177,10 +177,13 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         }
         if(startsWith(treeid,VIDEOKEY)) {
             iframeDisplayer.showYoutubeVideo(treeid.substr(VIDEOKEY.length))
+            return;
         }
         if(startsWith(treeid,PICKEY)) {
             iframeDisplayer.showYoutubeVideo(treeid.substr(PICKEY.length))
+            return;
         }
+        alert("Hashtags are still not enabled, but use them so they'll be useful in the future");
     };
     UserInterfaceBussinesController.prototype.upVote = function () {
         var music;

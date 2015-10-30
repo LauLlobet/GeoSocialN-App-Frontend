@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/View/IframeDisplayer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/testGps.html" afterPath="$PROJECT_DIR$/proves.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js" afterPath="$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteKmDigit.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteKmDigit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" afterPath="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +34,28 @@
       <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.740741" vertical-offset="2410" max-vertical-offset="5940">
-              <caret line="171" column="46" selection-start-line="171" selection-start-column="46" selection-end-line="171" selection-end-column="46" />
+            <state vertical-scroll-proportion="-7.962963" vertical-offset="2410" max-vertical-offset="5985">
+              <caret line="175" column="19" selection-start-line="175" selection-start-column="19" selection-end-line="175" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyboardDescriptor.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scenes/KeyboardDescriptor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6659919" vertical-offset="256" max-vertical-offset="1680">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Keyboard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.3392856" vertical-offset="1234" max-vertical-offset="4350">
+              <caret line="91" column="76" selection-start-line="91" selection-start-column="76" selection-end-line="91" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -56,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5531915" vertical-offset="3520" max-vertical-offset="4035">
-              <caret line="252" column="34" selection-start-line="252" selection-start-column="34" selection-end-line="252" selection-end-column="34" />
+            <state vertical-scroll-proportion="-10.833333" vertical-offset="3505" max-vertical-offset="3975">
+              <caret line="251" column="36" selection-start-line="251" selection-start-column="36" selection-end-line="251" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestureObserver.test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/js/GestureObserver.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -86,43 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VotingPanel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/VotingPanel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="900">
-              <caret line="34" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeSpriteKmDigit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteKmDigit.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TreeSpriteGroupTextSetter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.740741" vertical-offset="2305" max-vertical-offset="5580">
               <caret line="164" column="17" selection-start-line="164" selection-start-column="17" selection-end-line="164" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GestureObserver.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/InputOutput/GestureObserver.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="121" max-vertical-offset="1245">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -167,8 +160,6 @@
         <option value="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
         <option value="$PROJECT_DIR$/js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" />
         <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeKmSetter.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
-        <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
         <option value="$PROJECT_DIR$/js/Controll/TreeLoaderToSceneLoaderFromLists.js" />
         <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneLoader.js" />
         <option value="$PROJECT_DIR$/scenes/WriteButton.js" />
@@ -193,10 +184,12 @@
         <option value="$PROJECT_DIR$/proves.html" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteKmDigit.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/PhaserGame.js" />
-        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js" />
         <option value="$PROJECT_DIR$/js/View/IframeDisplayer.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
+        <option value="$PROJECT_DIR$/scenes/KeyboardDescriptor.js" />
       </list>
     </option>
   </component>
@@ -374,6 +367,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="UIEngineView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OurTreeWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OurTreeWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controll" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -789,7 +800,7 @@
       <workItem from="1444327394737" duration="42066000" />
       <workItem from="1445245835179" duration="10229000" />
       <workItem from="1445461623870" duration="57844000" />
-      <workItem from="1445790785240" duration="43883000" />
+      <workItem from="1445790785240" duration="46140000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1089,7 +1100,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="966279000" />
+    <option name="totallyTimeSpent" value="968536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="22" width="1390" height="878" extended-state="6" />
@@ -1229,22 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1275">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.111111" vertical-offset="1929" max-vertical-offset="4200">
-          <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/KeyboardDescriptor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.185185" vertical-offset="856" max-vertical-offset="1335">
-          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1434,16 +1429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/GestureObserver.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1755">
@@ -1576,14 +1561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.740741" vertical-offset="2410" max-vertical-offset="5940">
-          <caret line="171" column="46" selection-start-line="171" selection-start-column="46" selection-end-line="171" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeSpriteGroupTextSetter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.740741" vertical-offset="2305" max-vertical-offset="5580">
@@ -1610,8 +1587,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5531915" vertical-offset="3520" max-vertical-offset="4035">
-          <caret line="252" column="34" selection-start-line="252" selection-start-column="34" selection-end-line="252" selection-end-column="34" />
+        <state vertical-scroll-proportion="-10.833333" vertical-offset="3505" max-vertical-offset="3975">
+          <caret line="251" column="36" selection-start-line="251" selection-start-column="36" selection-end-line="251" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/GestureObserver.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.962963" vertical-offset="2410" max-vertical-offset="5985">
+          <caret line="175" column="19" selection-start-line="175" selection-start-column="19" selection-end-line="175" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3392856" vertical-offset="1234" max-vertical-offset="4350">
+          <caret line="91" column="76" selection-start-line="91" selection-start-column="76" selection-end-line="91" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/KeyboardDescriptor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6659919" vertical-offset="256" max-vertical-offset="1680">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
           <folding />
         </state>
       </provider>
