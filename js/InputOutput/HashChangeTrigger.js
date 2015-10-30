@@ -13,12 +13,20 @@ define(["util/CoordinatesCalculator", "../lib/underscore"], function (Coordinate
         }
     };
 
+
     HashChangeTrigger.prototype.setHashAtUrlAndStartUpdatingProcess = function (newHash) {
-        location.hash = newHash;
+        this.setHash(newHash);
     };
 
     HashChangeTrigger.prototype.setHashAtUrlAndIgnoreUpdatingProcess = function (newHash) {
         this.ignoreNextUpdate();
+        this.setHash(newHash);
+    };
+
+    HashChangeTrigger.prototype.setHash = function setHash(newHash) {
+        if (newHash === null || newHash === undefined){
+            return;
+        }
         location.hash = newHash;
     };
 

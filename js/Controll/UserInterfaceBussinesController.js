@@ -352,8 +352,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             tree.unburiedLayers = {};
         }
         tree.unburiedLayers[buryLayerId] = true;
+
         if (buryLayerId === "leafs") {
-            this.sceneTreeRakeInterface.disappeare();
+           this.sceneTreeRakeInterface.disappeare();
         }
     };
 

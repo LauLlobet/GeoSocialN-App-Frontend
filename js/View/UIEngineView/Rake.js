@@ -61,7 +61,9 @@ define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
             alpha: 0,
         }, this.constants.rake.timing.rakeTweenToCompassMs, 'Linear', true, 0, 0);
         tween.onComplete.add(function () {
-            this.destroy();
+            if (this.destroy !== undefined) {
+                this.destroy();
+            }
         }, this);
     };
     Rake.prototype.destroy = function () {

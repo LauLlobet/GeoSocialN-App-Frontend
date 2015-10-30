@@ -4,7 +4,7 @@ define([], function () {
     function IframeDisplayer() {}
 
     IframeDisplayer.prototype.displayPopUp = function (html) {
-        setHtmlContent('popUpContent', html);
+        var elem = setHtmlContent('popUpContent', html);
         blockElement('popUp');
     };
 
@@ -21,9 +21,8 @@ define([], function () {
     }
     IframeDisplayer.prototype.showImgurPicture = function showImgurPicture(id) {
         var htmlContent = '<blockquote class="imgur-embed-pub" lang="en" data-id="' + id + '"></blockquote>';
-        addScript('//s.imgur.com/min/embed.js');
-        console.log(htmlContent);
         this.displayPopUp(htmlContent);
+        addScript('//s.imgur.com/min/embed.js');
     }
 
 

@@ -112,7 +112,7 @@ define([], function () {
         for (j = 0; j < text.length; j = j + length) {
             textreturned += text.substring(j, j + length) + "\n";
         }
-        textreturned += text.substring(j) + "\n";
+        textreturned += text.substring(j);
         return textreturned;
     };
 
@@ -208,23 +208,32 @@ define([], function () {
         var mainTween,
             lockTween,
             that = this;
-        if (this[buryLayerId] !== undefined) {
-            mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
-            mainTween.onComplete.add(function() {
-                this[buryLayerId].alpha = 0;
-                this[buryLayerId].destroy();
-                this[buryLayerId] = undefined;
-            }, this);
+        try {
+            if (this[buryLayerId] !== undefined) {
+                mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
+                mainTween.onComplete.add(function() {
+                    if(this[buryLayerId] !== undefined) {
+                        this[buryLayerId].alpha = 0;
+                        this[buryLayerId].destroy();
+                        this[buryLayerId] = undefined;
+                        if (temporary === undefined) {
+                            this.unburiedLayers[buryLayerId] = true;
+                        }
+                    }
+                }, this);
+            }
+            if (this[buryLayerId + "pick"] !== undefined) {
+                lockTween = this.game.add.tween(this[buryLayerId + "pick"]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
+                lockTween.onComplete.add(function() {
+                    that[buryLayerId + "pick"].destroy();
+                    that[buryLayerId + "pick"] = undefined;
+                }, this);
+            }
+
         }
-        if (this[buryLayerId + "pick"] !== undefined) {
-            lockTween = this.game.add.tween(this[buryLayerId + "pick"]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
-            lockTween.onComplete.add(function() {
-                that[buryLayerId + "pick"].destroy();
-                that[buryLayerId + "pick"] = undefined;
-            }, this);
-        }
-        if (temporary === undefined) {
-            this.unburiedLayers[buryLayerId] = true;
+        catch(err) {
+            alert(err.message);
+            console.log(err.stack);
         }
     };
     TreeSpriteGroupTextSetter.prototype.buryMessageFromLine = function (group, lineNo, spritename, buryLayerId) {
