@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../scenes/ForestSwipeLeft", './StackOfScenes'], function (underscore, forestSwipeRight, forestSwipeLeft, StackOfScenes) {
+define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../scenes/ForestSwipeLeft", './StackOfScenes', "../GrassDisplayer"], function (underscore, forestSwipeRight, forestSwipeLeft, StackOfScenes, GrassDisplayer) {
     "use strict";
 
     function SceneLoader(spriteManagerPhaserApiInterface, newlyPresentedTreeSubjectNotifier) //noinspection JSLint
@@ -12,6 +12,7 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
             this.initial = true;
             this.newlyPresentedTreeSubjectNotifier = newlyPresentedTreeSubjectNotifier;
             this.heigthOfUnplantedTree = 1700;
+            this.grassDisplayer = new GrassDisplayer(spriteManagerPhaserApiInterface.phaserGame);
     }
     SceneLoader.prototype.stackLoadScene = function stackloadScene(sceneType, newTrees) {
         this.stackOfScenes.stackLoadScene(sceneType, newTrees);
@@ -175,8 +176,11 @@ define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../sc
 
     SceneLoader.prototype.loadSceneFromScenes = function loadSceneFromScenes(sceneType) {
         if (sceneType === 'forestSwipeRight') {
+            this.grassDisplayer.swipeRight();
             return JSON.parse(JSON.stringify(forestSwipeRight));
+
         }
+        this.grassDisplayer.swipeLeft();
         return JSON.parse(JSON.stringify(forestSwipeLeft));
     };
     return SceneLoader;
