@@ -21,11 +21,10 @@ define([], function () {
         document.body.appendChild(js);
     }
     IframeDisplayer.prototype.showImgurPicture = function showImgurPicture(id) {
-        id = this.sanitizeId(id);
+       // id = this.sanitizeId(id);
         var htmlContent = '<blockquote class="imgur-embed-pub" lang="en" data-id="' + id + '"></blockquote>';
         this.displayPopUp(htmlContent);
         addScript('//s.imgur.com/min/embed.js');
-        setImgurDivHeight();
     }
 
     IframeDisplayer.prototype.sanitizeId = function sanitizeId(id) {
