@@ -207,26 +207,27 @@ define([], function () {
     TreeSpriteGroupTextSetter.prototype.unBury = function (buryLayerId, temporary) {
         var mainTween,
             lockTween,
-            that = this;
+            sprite = buryLayerId === 'leafs' ? this.leafs : this.lock;
+
         try {
-            if (this[buryLayerId] !== undefined) {
-                mainTween = this.game.add.tween(this[buryLayerId]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
+            if (sprite !== undefined) {
+                mainTween = this.game.add.tween(sprite).to({alpha: 0}, 200, 'Linear', true, 0, 0);
                 mainTween.onComplete.add(function() {
-                    if(this[buryLayerId] !== undefined) {
-                        this[buryLayerId].alpha = 0;
-                        this[buryLayerId].destroy();
-                        this[buryLayerId] = undefined;
+                    if(sprite !== undefined) {
+                        sprite.alpha = 0;
+                        sprite.destroy();
+                        sprite = undefined;
                         if (temporary === undefined) {
                             this.unburiedLayers[buryLayerId] = true;
                         }
                     }
                 }, this);
             }
-            if (this[buryLayerId + "pick"] !== undefined) {
-                lockTween = this.game.add.tween(this[buryLayerId + "pick"]).to({alpha: 0}, 200, 'Linear', true, 0, 0);
+            if (this.lockpick !== undefined) {
+                lockTween = this.game.add.tween(this.lockpick).to({alpha: 0}, 200, 'Linear', true, 0, 0);
                 lockTween.onComplete.add(function() {
-                    that[buryLayerId + "pick"].destroy();
-                    that[buryLayerId + "pick"] = undefined;
+                    this.lockpick.destroy();
+                    this.lockpick = undefined;
                 }, this);
             }
 

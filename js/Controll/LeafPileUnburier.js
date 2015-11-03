@@ -27,19 +27,19 @@ define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], fu
         this.checkIfNeedsToBeUnburied();
     }
 
-    LeafPileUnburier.prototype.onNewlyLocationOfTheCellPhone = function onNewlyLocationOfTheCellPhone (coordinates) {
+    LeafPileUnburier.prototype.onNewlyLocationOfTheCellPhone = function  (coordinates) {
         this.currentCellPhoneCoordinates = coordinates;
         this.checkIfNeedsToBeUnburied();
     }
 
-    LeafPileUnburier.prototype.checkIfNeedsToBeUnburied = function calculateAndSendLocationTips (treeid) {
+    LeafPileUnburier.prototype.checkIfNeedsToBeUnburied = function  (treeid) {
         if ( this.currentCellPhoneCoordinates === undefined) {
             return;
         }
         this.calculateMetersAndUnburyIfNecesary();
     }
 
-    LeafPileUnburier.prototype.calculateMetersAndUnburyIfNecesary = function calculateAndSendMetersToTreeTip() {
+    LeafPileUnburier.prototype.calculateMetersAndUnburyIfNecesary = function calculateMetersAndUnburyIfNecesary() {
         this.metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
