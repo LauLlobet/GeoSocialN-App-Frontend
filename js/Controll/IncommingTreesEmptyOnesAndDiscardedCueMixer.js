@@ -18,6 +18,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.getToLoadAtBackgroundTrees = function getToLoadAtBackgroundTrees(discarded) {
         var toPushOne,
             toPushTwo;
+        discarded = _.uniq(discarded);
         discarded = discarded.filter(function (n) { return (n !== undefined && n > 30); });
         if (discarded.length > 0) {
             toPushOne = discarded.shift();
@@ -91,7 +92,7 @@ define(['/OurTreeWeb/js/lib/underscore.js', '/OurTreeWeb/js/util/CoordinatesCalc
         var nearestTree = this.icommingTreesWithItsUnitList[0],
             distanceFromNearestTree;
         if (nearestTree === undefined) {
-            return -1; // no more trees in list, returning the code of no more trees in the game
+            return undefined; // no more trees in list, returning the code of no more trees in the game
         }
         distanceFromNearestTree = nearestTree.distanceUnit;
         if (distanceFromNearestTree - this.exploredDistanceUnitsByWatchingEmptyTrees < 1) {
