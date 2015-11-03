@@ -142,7 +142,7 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.loading = loading;
     };
     PhaserGame.prototype.loadImages = function loadImages(){
-        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree4.png');
+        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree3.png');
         this.game.load.image('roots', '/OurTreeWeb/assets/treeWithRoots.png');
         this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
         this.game.load.image('fullTerritory', '/OurTreeWeb/assets/fullTerritory.png');
@@ -179,7 +179,9 @@ define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockCh
         this.game.load.image('upVote', '/OurTreeWeb/assets/upVote.png');
         this.game.load.image('flower', '/OurTreeWeb/assets/flower.png');
         this.game.load.image('rake', '/OurTreeWeb/assets/rake.png');
-
+        this.game.load.image('map', 'http://www.bc-maps.com/mapa-vectorial-eps/wp-content/uploads/2012/04/GIRONA-Vector-map1.jpg');
+        this.game.load.image('alphalayer', '/OurTreeWeb/assets/alphaLayer.png');
+        this.game.load.image('alphalayerbg', '/OurTreeWeb/assets/alphaLayerBg.png');
         //  Firefox doesn't support mp3 files, so use ogg
         this.game.load.audio('bell', ['/OurTreeWeb/assets/bell.ogg']);
         this.game.load.audio('plant', ['/OurTreeWeb/assets/plant.ogg']);

@@ -8,7 +8,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
     "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
     "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp", "../View/SceneLoaderLevel/SceneTreeRakeSetter",
-    "../View/SpriteLevel/SpriteTreeRakeSetter", "../View/IframeDisplayer"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeRakeSetter", "../View/IframeDisplayer", "../View/BackgroundMap"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
@@ -16,7 +16,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                                                            SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
                                                            VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer,
-                                                            rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter, IframeDisplayer) {
+                                                            rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter, IframeDisplayer,
+                                                           BackgroundMap) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -53,7 +54,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     }
 
-    UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface) {
+    UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface, backgroundMap) {
         var that = this,
             tmp;
         this.gpsMovmentTrigger = new GpsMovmentTrigger(this, sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
@@ -76,6 +77,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneTreeRakeInterface = new SceneTreeRakeSetter(sceneLoaderInterface, tmp);
         this.relativeLocationCalculator = new RelativeLocationCalculator(this.mapOfTreesById, this.sceneTreeTextKmInterface, this.sceneTreeCompassInterface, this.sceneTreeRakeInterface , this.gpsMovmentTrigger);
         this.leafPileUnburier = new LeafPileUnburier(this.mapOfTreesById, this);
+        this.backgroundMap = backgroundMap;
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.relativeLocationCalculator);
         this.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.leafPileUnburier);
         this.gpsMovmentTrigger.init(this.relativeLocationCalculator, this.leafPileUnburier);
@@ -219,6 +221,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         if (tree !== undefined && tree !== null && tree.id > 30) {
             this.votingPanel.show();
             this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
+            this.backgroundMap.justDisplayedATreeSoDisplayAMap(tree);
         }
         if (tree === null) {
             this.gpsMovmentTrigger.setPrecisionNowIsImportant();
@@ -229,6 +232,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     UserInterfaceBussinesController.prototype.justLeftBehindATree = function () {
         this.votingPanel.hide();
         this.flowerPanel.hide();
+        this.backgroundMap.hideMap();
+
     };
 
     UserInterfaceBussinesController.prototype.clickedOnWriteButton = function clickedOnWriteButton() {
