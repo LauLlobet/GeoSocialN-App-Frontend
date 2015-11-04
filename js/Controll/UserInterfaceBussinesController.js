@@ -90,20 +90,10 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             id: 1,
             ip: "87.223.58.75",
             metersToHide: 10,
-            text: "Swipe left and right and discover arround you!",
+            text: "HASHMATTERS Swipe left and right and discover arround you!",
             timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 2.111330986022949
-        });
-
-        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 3,
-            ip: "87.223.58.75",
-            metersToHide: 10,
-            text: "",
-            timestamp: 1441013147469,
-            x: 2.111330986022949,
-            y: 2.111330986022949
+            x: this.gpsMovmentTrigger.actualCoordinates.longitude,
+            y: this.gpsMovmentTrigger.actualCoordinates.latitude
         });
 
         this.gpsMovmentTrigger.forceUpdate();
@@ -111,7 +101,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.sceneLoaderInterface.stackLoadScene('forestSwipeLeft',
             [
                 undefined,
-                {id: 1, text: "Swipe left and right and discover arround you!"},
+                that.mapOfTreesById[1],
                 undefined
             ]
             );
@@ -122,6 +112,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                 that.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [undefined, null, undefined]);
             }
             that.sceneLoaderInterface.playAllStackedScenes().then(function () {
+                that.justDisplayedATree();
                 that.hashChangeTrigger.triggerIfStoredHashWasNotEmpty();
                 that.hashChangeTrigger.update();
             }).catch(function (error) {
@@ -140,6 +131,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function (ans) {
+                console.log("----SL----");
+                console.log("incomming: " +  that.incommingList);
+                console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
             }).catch(function (error) {
@@ -154,6 +148,9 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function (ans) {
+                console.log("----SR----");
+                console.log("incomming: " +  that.incommingList);
+                console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
             }).catch(function (error) {
@@ -218,9 +215,11 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
 
     UserInterfaceBussinesController.prototype.justDisplayedATree = function () {
         var tree = this.getTreeAlreadyDisplayed();
-        if (tree !== undefined && tree !== null && tree.id > 30) {
-            this.votingPanel.show();
-            this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
+        if (tree !== undefined && tree !== null) {
+            if(tree.id > 30) {
+                this.votingPanel.show();
+                this.flowerPanel.addNFlowers(tree.id, tree.metersToHide);
+            }
             this.backgroundMap.justDisplayedATreeSoDisplayAMap(tree);
         }
         if (tree === null) {
@@ -263,7 +262,10 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
             }).then(function (ans) {
                 that.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(ans.treeContent.id)
                 that.gpsMovmentTrigger.forceUpdate();
-                resolve();
+                that.nearbyTreesFromServerToIncommingTreeList.loadSpecificTreeToHash(ans.treeContent.id).then(function(){
+                    that.incommingList.push(ans.treeContent.id);
+                    resolve();
+                })
             });
         });
     };

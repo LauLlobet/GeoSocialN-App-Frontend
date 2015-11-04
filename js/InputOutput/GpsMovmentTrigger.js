@@ -9,7 +9,10 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         this.isFirstIteration = true;
         this.bussinesController = bussinesController;
         this.lastMoveCoordinates = undefined;
-        this.actualCoordinates = undefined;
+        this.actualCoordinates = {
+            longitude: longitude,
+            latitude: latitude
+        };
         this.coordinatesCalculator = new CoordinatesCalculator();
         this.options = {
             enableHighAccuracy: true,

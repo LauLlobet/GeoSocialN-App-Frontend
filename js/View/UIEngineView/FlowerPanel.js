@@ -75,7 +75,7 @@ define([], function () {
         y = y / 1000;
         x = x * groupw / 2;
         y = y * grouph / 2;
-        pos = n % 4;
+        pos = Math.abs(n % 4);
         if (pos === 0) {
             return { x: x,
                 y: y + offset};
