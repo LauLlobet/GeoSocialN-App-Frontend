@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompassSetter", "./Rake"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake) {
+define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompassSetter", "./Rake",  "/OurTreeWeb/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -18,7 +18,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         this.buryGroup = this.phaserGame.game.add.group();
         this.compasAndKmGroup = this.phaserGame.game.add.group();
         if (tree.treeid !== null) {
-            if (tree.treeid === 3) {
+            if (tree.treeid === constants.specialTreesCodes.fullForest) {
                 this.sprite = this.group.create(0, 0, 'fullTerritory');
                 this.group.isReusable = false;
             } else {
@@ -40,7 +40,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         if (tree.unburiedLayers === undefined) {
             tree.unburiedLayers = {};
         }
-        if (tree.treeid === 3) {
+        if (tree.treeid === constants.specialTreesCodes.fullForest) {
             return;
         }
 

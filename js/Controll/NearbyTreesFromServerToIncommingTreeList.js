@@ -23,10 +23,10 @@ define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient
             that.alreadyDisplayed.push(newAlreadyDisplayed);
         });
 
-        return this.treeRestClient.get(coords.x, coords.y, this.alreadyDisplayed).then(function (ans) {
+        return this.treeRestClient.get(coords.longitude, coords.latitude, this.alreadyDisplayed).then(function (ans) {
             that.incommingList.length = 0;
             if (ans.treeContent === null) {
-                throw "no trees in a get, got a null as ans" + coords.x + " " + coords.y;
+                throw "no trees in a get, got a null as ans" + coords.longitude + " " + coords.latitude;
             }
             if (ans.treeContent.length === 0) {
                 that.fillerOfIncommingListIfItGetsEmpty.treesFromServerAreOver();

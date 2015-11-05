@@ -23,6 +23,13 @@ define([], function () {
                 yoyoNearCompass : 100,
                 timeToFollowAngle : 20
             }
+        },
+        specialTreesCodes: {
+            en: 1,
+            sp: 2,
+            ca: 3,
+            defaultLanguage: 1,
+            fullForest: 99
         }
     };
 });
