@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/Constants.js" afterPath="$PROJECT_DIR$/scenes/Constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js" afterPath="$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,6 +32,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28301886" vertical-offset="0" max-vertical-offset="5325">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Constants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scenes/Constants.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -42,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomeOfUserDinamic.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WelcomeOfUserDinamic.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5276382" vertical-offset="675" max-vertical-offset="1545">
+            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1545">
               <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
               <folding>
                 <element signature="e#41#90#0" expanded="false" />
@@ -106,13 +116,13 @@
         <option value="$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js" />
         <option value="$PROJECT_DIR$/js/Controll/WelcomeLanguageOfBrowser.js" />
         <option value="$PROJECT_DIR$/js/Controll/InitializatorOfBussinesController.js" />
-        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/js/Controll/NearbyTreesFromServerToIncommingTreeList.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/Rake.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeCompassSetter.js" />
         <option value="$PROJECT_DIR$/scenes/Constants.js" />
         <option value="$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js" />
+        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
       </list>
     </option>
   </component>
@@ -259,6 +269,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="UIEngineView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OurTreeWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OurTreeWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InputOutput" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -680,7 +708,7 @@
       <workItem from="1445461623870" duration="57844000" />
       <workItem from="1445790785240" duration="70495000" />
       <workItem from="1446476264709" duration="26862000" />
-      <workItem from="1446635728499" duration="13961000" />
+      <workItem from="1446635728499" duration="14287000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -980,7 +1008,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1033714000" />
+    <option name="totallyTimeSpent" value="1034040000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="89" y="111" width="1390" height="746" extended-state="0" />
@@ -1418,14 +1446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37196764" vertical-offset="4197" max-vertical-offset="5295">
-          <caret line="289" column="66" selection-start-line="289" selection-start-column="66" selection-end-line="289" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.8301888" vertical-offset="192" max-vertical-offset="2835">
@@ -1484,11 +1504,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5276382" vertical-offset="675" max-vertical-offset="1545">
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1545">
           <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
           <folding>
             <element signature="e#41#90#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28301886" vertical-offset="0" max-vertical-offset="5325">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

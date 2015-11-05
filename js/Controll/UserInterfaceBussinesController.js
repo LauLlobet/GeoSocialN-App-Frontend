@@ -5,13 +5,15 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     "../InputOutput/HashChangeTrigger",
     "./InitializatorOfBussinesController",
     "../View/IframeDisplayer",
-    "../Controll/WelcomeOfUserDinamic"
+    "../Controll/WelcomeOfUserDinamic",
+    "../Model/TreeRestClient"
     ], function (NearbyTreesFromServerToIncommingTreeList,
                                                           FillerOfIncommingListIfItGetsEmpty,
                                                           HashChangeTrigger,
                                                           InitializatiorOfBussinesController,
                                                           IframeDisplayer,
-                                                          WelcomeOfUserDinamic) {
+                                                          WelcomeOfUserDinamic,
+                                                          TreeRestClient) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
