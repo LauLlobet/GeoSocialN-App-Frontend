@@ -8,7 +8,8 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
     "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
     "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp", "../View/SceneLoaderLevel/SceneTreeRakeSetter",
-    "../View/SpriteLevel/SpriteTreeRakeSetter", "../View/IframeDisplayer", "../View/BackgroundMap"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "../View/SpriteLevel/SpriteTreeRakeSetter", "../View/IframeDisplayer",
+    "./WelcomeLanguageOfBrowser.js"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                            TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                            FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                            SceneTreeTextSetter, SpriteTreeTextSetter,
@@ -17,7 +18,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                                                            RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
                                                            VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer,
                                                             rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter, IframeDisplayer,
-                                                           BackgroundMap) {
+                                                           WelcomeLanguageOfBrowser ) {
     "use strict";
     var NAVIGATE = "navigate",
         WRITTING = "writting",
@@ -87,14 +88,25 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.flowerPanel = new FlowerPanel(this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
 
         this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: 1,
+            id: 2,
             ip: "87.223.58.75",
             metersToHide: 10,
-            text: "HASHMATTERS Swipe left and right and discover arround you!",
+            text: "Spanish!",
             timestamp: 1441013147469,
             x: this.gpsMovmentTrigger.actualCoordinates.longitude,
             y: this.gpsMovmentTrigger.actualCoordinates.latitude
         });
+
+        this.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
+            id: 1,
+            ip: "87.223.58.75",
+            metersToHide: 10,
+            text: "English!",
+            timestamp: 1441013147469,
+            x: this.gpsMovmentTrigger.actualCoordinates.longitude,
+            y: this.gpsMovmentTrigger.actualCoordinates.latitude
+        });
+
 
         this.gpsMovmentTrigger.forceUpdate();
         this.hashChangeTrigger.storeActualHash();
