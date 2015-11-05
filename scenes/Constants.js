@@ -25,8 +25,8 @@ define([], function () {
             }
         },
         specialTreesCodes: {
-            es: 1,
-            sp: 2,
+            en: 1,
+            es: 2,
             ca: 3,
             defaultLanguage: 1,
             fullForest: 99

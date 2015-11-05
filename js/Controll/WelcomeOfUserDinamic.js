@@ -8,16 +8,15 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
     function WelcomeOfUserDinamic(bussinesController) {
         this.bussinesController = bussinesController;
     }
-    WelcomeOfUserDinamic.prototype.startWelcomeToUser = function() {
+    WelcomeOfUserDinamic.prototype.startWelcomeToUser = function () {
         this.loadWelcomeTrees();
         this.setUpHashes();
         this.stackLoadSceneWithWelcomeTreeCorrespondingToTheBrowserLanguage();
         this.playWelcomeTrees();
-    }
-
+    };
     WelcomeOfUserDinamic.prototype.loadWelcomeTrees = function loadWelcomeTrees (coordinates) {
         this.bussinesController.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
-            id: constants.specialTreesCodes.sp,
+            id: constants.specialTreesCodes.es,
             ip: "87.223.58.75",
             metersToHide: 10,
             text: "Spanish!",
@@ -46,26 +45,22 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
             y: this.bussinesController.gpsMovmentTrigger.actualCoordinates.latitude
         });
 
-    }
-
+    };
     WelcomeOfUserDinamic.prototype.setUpHashes = function () {
         this.bussinesController.gpsMovmentTrigger.forceUpdate();
         this.bussinesController.hashChangeTrigger.storeActualHash();
-    }
-
+    };
     WelcomeOfUserDinamic.prototype.stackLoadSceneWithWelcomeTreeCorrespondingToTheBrowserLanguage = function () {
         var languageId = this.getBrowserLanguageId();
         this.stackLoadSceneWithWelcomeTreeCorrespondingToTheIdOfTheBrowserLanguage(languageId);
-    }
-
+    };
     WelcomeOfUserDinamic.prototype.getBrowserLanguageId = function () {
         var userLang = navigator.language || navigator.userLanguage;
-        if( constants.specialTreesCodes[userLang] !== undefined ){
+        if (constants.specialTreesCodes[userLang] !== undefined) {
             return constants.specialTreesCodes[userLang];
         }
-        return constants.specialTreesCodes.defaultLanguage];
-    }
-
+        return constants.specialTreesCodes.defaultLanguage;
+    },
     WelcomeOfUserDinamic.prototype.stackLoadSceneWithWelcomeTreeCorrespondingToTheIdOfTheBrowserLanguage = function (languageId) {
         if(this.bussinesController.mapOfTreesById[languageId] === undefined) {
             throw "Welcome tree with ID "+languageId+" is not loaded";
@@ -77,8 +72,7 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
                 undefined
             ]
         )
-    }
-
+    },
     WelcomeOfUserDinamic.prototype.playWelcomeTrees = function () {
         var that = this.bussinesController;
         var constantsThat = constants;
@@ -103,5 +97,4 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
         });
     }
     return WelcomeOfUserDinamic;
-
 });
