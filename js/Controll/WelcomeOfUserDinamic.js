@@ -63,7 +63,7 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
         if( constants.specialTreesCodes[userLang] !== undefined ){
             return constants.specialTreesCodes[userLang];
         }
-        return constants.specialTreesCodes["default"];
+        return constants.specialTreesCodes.defaultLanguage];
     }
 
     WelcomeOfUserDinamic.prototype.stackLoadSceneWithWelcomeTreeCorrespondingToTheIdOfTheBrowserLanguage = function (languageId) {

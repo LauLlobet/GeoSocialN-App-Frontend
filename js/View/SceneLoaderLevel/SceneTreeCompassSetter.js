@@ -15,3 +15,4 @@ define(['../../lib/underscore', "../../lib/rsvp"], function (underscore, rspv) {
     };
     return SceneTreeCompassSetter;
 });
+
