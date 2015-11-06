@@ -2,7 +2,6 @@
 /*jslint todo: true */
 define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSetter", "../DistanceTips/TreeSpriteCompassSetter", "../DistanceTips/Rake",  "/OurTreeWeb/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
     "use strict";
-    var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
     {
             this.game = phaserGame.game;
@@ -37,8 +36,8 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         this.setScalePropertiesToNewGroup(tree);
         this.sprite.name = "treeSprite";
         this.setTreeGroupIntoAllSpritesGroup(id);
-        if (tree.unburiedLayers === undefined) {
-            tree.unburiedLayers = {};
+        if (tree.unburiedLayersTreeLevel === undefined) {
+            tree.unburiedLayersTreeLevel = undefined;
         }
         if (tree.treeid === constants.specialTreesCodes.fullForest) {
             return;
@@ -46,7 +45,8 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
 
         if (this.isNotAnEmptyTree(tree)) {
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
-            this.group.textSetter.createText(tree.text, tree.unburiedLayers);
+            this.group.textSetter.setUnburiedLayers(tree.unburiedLayersTreeLevel);
+            this.group.textSetter.createText(tree.text);
             if (this.isNotAnInstructionTree(tree)) {
                 this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
                 this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
@@ -63,7 +63,7 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
             this.group.isReusable = false;
             this.setWriteTextButtonToGroup(tree);
             this.group.textSetter = new TreeSpriteGroupTextSetter(this.textGroup, this.buryGroup, this.game, this.gestureObserver);
-            this.group.textSetter.createText(" ", tree.unburiedLayers);
+            this.group.textSetter.createText(" ", tree.unburiedLayersTreeLevel);
         }
     };
 
@@ -75,14 +75,15 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         this.group.y = this.phaserGame.coordY(tree.y);
         this.setScalePropertiesToNewGroup(tree);
         this.setTreeGroupIntoAllSpritesGroup(id);
-        if (tree.unburiedLayers === undefined || tree.initialPosition.charAt(0) === '3') {
-            tree.unburiedLayers = {};
+        if (tree.unburiedLayersTreeLevel === undefined || tree.initialPosition.charAt(0) === '3') {
+            tree.unburiedLayersTreeLevel = {};
         }
         if (this.group.rakeSetter !== undefined) {
             this.group.rakeSetter.destroy();
             this.group.rakeSetter = undefined;
         }
         if (tree.text !== undefined) {
+            this.group.textSetter.setUnburiedLayers(tree.unburiedLayersTreeLevel);
             this.group.textSetter.setText(tree.text);
             if (this.group.textSetter.getHeightOfLeafBuryLayer()) {
                 this.group.rakeSetter = new Rake(this.group,

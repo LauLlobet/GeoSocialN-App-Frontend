@@ -217,10 +217,10 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     UserInterfaceBussinesController.prototype.unBuryLayer = function (buryLayerId) {
         var tree = this.getTreeAlreadyDisplayed();
         this.sceneTreeTextSetterInterface.unBury(buryLayerId);
-        if (tree.unburiedLayers === undefined) {
-            tree.unburiedLayers = {};
+        if (tree.unburiedLayersTreeLevel === undefined) {
+            tree.unburiedLayersTreeLevel = {}; // unburiedLaters == {};
         }
-        tree.unburiedLayers[buryLayerId] = true;
+        tree.unburiedLayersTreeLevel[buryLayerId] = true;
 
         if (buryLayerId === "leafs") {
            this.sceneTreeRakeInterface.disappeare();

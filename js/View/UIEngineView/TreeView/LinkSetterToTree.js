@@ -1,10 +1,10 @@
-/*global define, require, module, Phaser, Group*/
 define([], function () {
     "use strict";
     var LINKSTR = "#";
     function LinkSetterToTree() //noinspection JSLint
     {
             this.linklayers = [];
+            this.createdLinkLayers = [];
     }
     LinkSetterToTree.prototype.setInteractiveLinksToRetroText = function (group, formatedText, id, gestureObserver) {
         var initCharposX = 1,
@@ -39,6 +39,7 @@ define([], function () {
                 tmp = group.create(charposX, charposY, 'linkLayer');
                 tmp.scale.x = tmp.scale.y = charLinkScale;
                 currentLinkCells.push(tmp);
+                this.createdLinkLayers.push(tmp);
                 if (c !== '#') {
                     currentLink = currentLink + c;
                 }
@@ -66,14 +67,12 @@ define([], function () {
         }
     };
     LinkSetterToTree.prototype.removeLinks = function removeLinks() {
-        var i, j;
-        if (this.linklayers === undefined) {
+        var i;
+        if (this.createdLinkLayers === undefined) {
             return;
         }
-        for (i = 0; i < this.linklayers.length; i += 1) {
-            for (j = 0; j < this.linklayers[i].length; j += 1) {
-                this.linklayers[i][j].destroy();
-            }
+        for (i = 0; i < this.createdLinkLayers.length; i += 1) {
+            this.createdLinkLayers[i].destroy();
         }
     };
 
