@@ -4,7 +4,7 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     "./FillerOfIncommingListIfItGetsEmpty",
     "../InputOutput/HashChangeTrigger",
     "./InitializatorOfBussinesController",
-    "../View/IframeDisplayer",
+    "../View/UIEngineView/IframeDisplayer",
     "../Controll/WelcomeOfUserDinamic",
     "../Model/TreeRestClient"
     ], function (NearbyTreesFromServerToIncommingTreeList,

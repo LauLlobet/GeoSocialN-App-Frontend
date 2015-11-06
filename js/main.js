@@ -1,9 +1,9 @@
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
 var phaserGameGlobal = undefined;
 require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPhaserApi",
-        "View/UIEngineView/PhaserGame", "InputOutput/GestureObserver",
+        "View/UIEngineView/UiCore/PhaserGame", "InputOutput/GestureObserver",
         "Controll/UserInterfaceBussinesController", "View/UIEngineView/Keyboard",
-        "Controll/NewlyPresentedTreeSubjectNotifier","View/UIEngineView/PasswordDialog","View/BackgroundMap"
+        "Controll/NewlyPresentedTreeSubjectNotifier","View/UIEngineView/PasswordDialog","View/UIEngineView/BackgroundMap"
     ],
     function (SceneLoader, SpriteManagerPhaserApi, PhaserGame, GestureObserver,
               UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier,TextDialogHtml, BackgroundMap) {

@@ -1,6 +1,6 @@
 /*global define, require, module, window, Phaser, setTimeout*/
 //noinspection JSLint
-define(['../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
+define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBlockChecker) {
     "use strict";
     //noinspection JSLint
     var windowObj = window, callbackFunct, targetW = 480, targetH = 640; //also refernced in keyboard

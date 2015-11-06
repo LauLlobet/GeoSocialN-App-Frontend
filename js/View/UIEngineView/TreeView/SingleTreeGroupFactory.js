@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpriteCompassSetter", "./Rake",  "/OurTreeWeb/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
+define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSetter", "../DistanceTips/TreeSpriteCompassSetter", "../DistanceTips/Rake",  "/OurTreeWeb/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
     "use strict";
     var TEXTLENGTH = 16;
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
@@ -120,10 +120,10 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         tween.yoyo(true, 500);
         context = {
             observer : this.gestureObserver,
-                button : button,
-                game : this.game,
-                previousTween : tween,
-                group : this.group
+            button : button,
+            game : this.game,
+            previousTween : tween,
+            group : this.group
         };
         button.events.onInputDown.add(function () {
             var music;
@@ -139,7 +139,7 @@ define(["./TreeSpriteGroupTextSetter", "./TreeSpriteCounterKmSetter", "./TreeSpr
         }, context);
     };
 
-    SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id,treeGroup) {
+    SingleTreeGroupFactory.prototype.setTreeGroupIntoAllSpritesGroup = function setTreeGroupIntoAllSpritesGroup(id, treeGroup) {
         if (treeGroup !== undefined) {
             this.group = treeGroup;
         }

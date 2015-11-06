@@ -1,4 +1,4 @@
-define(["../UIEngineView/TreeSpriteKmDigit"], function (TreeSpriteKmDigit) {
+define(["./TreeSpriteKmDigit"], function (TreeSpriteKmDigit) {
     "use strict";
     var groupx = 13,
         inc = 20,

@@ -31,16 +31,19 @@ function MapKmToDistanceUnits() {
             return 1;
         }
         if (km < 100) {
-            return 2;
+            return 5;
         }
         if (km < 200) {
-            return 3;
+            return 10;
+        }
+        if (km < 400) {
+            return 25;
         }
         if (km < 5000) {
-            return Math.round(km / 1000) + 5;
+            return Math.round(km / 1000) * 2 + 25;
         }
         if (km < 10000) {
-            return 11;
+            return Math.round(Math.round(km / 1000) * 0.5) + 45;
         }
         return Math.round(km / 10000) + 13;
     };

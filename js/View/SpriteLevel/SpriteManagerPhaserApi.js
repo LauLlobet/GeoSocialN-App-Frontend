@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["../UIEngineView/SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
+define(["../UIEngineView/TreeView/SingleTreeGroupFactory"], function (SingleTreeGroupFactory) {
     "use strict";
     function SpriteManagerPhaserApi(phaserGame, gestureObserver) //noinspection JSLint
     {
