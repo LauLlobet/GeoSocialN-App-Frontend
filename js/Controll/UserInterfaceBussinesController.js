@@ -20,7 +20,6 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         PASSWORD = "password",
         VIDEOKEY = 'vid:',
         PICKEY = 'pic:';
-
     function UserInterfaceBussinesController() //noinspection JSLint
     {
             this.state = NAVIGATE;
@@ -182,8 +181,11 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
                     that.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
                 }).catch(function (error) {
-                    alert("error"+ error);
-                    console.log(error.stack);
+                    alert(error);
+                    that.state = NAVIGATE;
+                    that.keyboardInterface.hideOnScene();
+                    that.sceneTreeTextSetterInterface.setIsTyping(false);
+                    that.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
                 });
             } else if (char === "cancel") {
                 this.state = NAVIGATE;
@@ -338,6 +340,17 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         }
     };
 
+    UserInterfaceBussinesController.prototype.handleIgnoredPrecision = function (precisionOneToTen) {
+        if(precisionOneToTen < 10 ){
+            this.notPreciseAndIgnoredAlert.showNotPrecise();
+            return;
+        }
+        this.notPreciseAndIgnoredAlert.hideNotPrecise();
+    }
+
+    UserInterfaceBussinesController.prototype.forceHandlePrecisionAlerts = function () {
+        this.gpsMovmentTrigger.forceHandlePrecisionAlerts();
+    }
     var isNumeric = function isNumeric(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }

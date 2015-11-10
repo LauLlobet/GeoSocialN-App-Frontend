@@ -1,9 +1,11 @@
 /*global define, require, module,navigator, Phaser, Group, console, _,setTimeout */
 /*jslint todo: true */
 
+
 var forgedAccuracy = 12;
 define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], function (underscore, CoordinatesCalculator) {
     "use strict";
+
     function GpsMovmentTrigger(bussinesController, phaserGame) {
         this.metersToTrigger = 10;
         this.isFirstIteration = true;
@@ -22,6 +24,7 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         this.setUpUpdate();
         this.phaserGame = phaserGame;
         this.precisionIsNowImportant = false;
+        bussinesController = this;
     }
     GpsMovmentTrigger.prototype.setUpUpdate = function () {
         navigator.geolocation.watchPosition(_.bind(this.userHasMovedUpdateFunction, this),
@@ -98,34 +101,46 @@ define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], fu
         );
     }
 
-    GpsMovmentTrigger.prototype.handlePrecisionAlerts = function handlePrecisionAlerts(precision, precisionInMeters) {
-        var precisionInMeters = precision;
+    GpsMovmentTrigger.prototype.handlePrecisionAlerts = function handlePrecisionAlerts(precision) {
+       this.precisionInMeters = precision;
        this.precisionOneToTen = 0;
 
 
-        if (precisionInMeters < 35){
+        if (this.precisionInMeters < 35){
             this.precisionOneToTen = 2;
-        } if (precisionInMeters < 20){
+        } if (this.precisionInMeters < 20){
             this.precisionOneToTen = 5;
-        } if (precisionInMeters < 18 ){
+        } if (this.precisionInMeters < 18 ){
             this.precisionOneToTen = 7;
-        } if (precisionInMeters < 16){
+        } if (this.precisionInMeters < 16){
             this.precisionOneToTen = 9;
-        } if (precisionInMeters < 14){
+        } if (this.precisionInMeters < 14){
             this.precisionOneToTen = 10;
         }
 
         if( this.precisionIsNowImportant ) {
-           this.phaserGame.handlePrecisionGps(this.precisionOneToTen, precisionInMeters);
+            if( this.phaserGame.ignorePrecision ){
+                this.bussinesController.handleIgnoredPrecision(this.precisionOneToTen);
+            }
+           this.phaserGame.handlePrecisionGps(this.precisionOneToTen, this.precisionInMeters);
         }
     }
 
-    GpsMovmentTrigger.prototype.setPrecisionNowIsImportant = function setpPecisionNowIsImportant(precision) {
+    GpsMovmentTrigger.prototype.forceHandlePrecisionAlerts = function (){
+        if( this.precisionIsNowImportant ) {
+            if( this.phaserGame.ignorePrecision ){
+                this.bussinesController.handleIgnoredPrecision(this.precisionOneToTen);
+            }
+            this.phaserGame.handlePrecisionGps(this.precisionOneToTen, this.precisionInMeters);
+        }
+    }
+
+    GpsMovmentTrigger.prototype.setPrecisionNowIsImportant = function setpPecisionNowIsImportant() {
         this.precisionIsNowImportant = true;
         this.handlePrecisionAlerts(this.lastMoveCoordinates.accuracy);
     }
 
-    GpsMovmentTrigger.prototype.setPrecisionNowIsNotImportant = function setPrecisionNowIsNotImportant(precision) {
+    GpsMovmentTrigger.prototype.setPrecisionNowIsNotImportant = function setPrecisionNowIsNotImportant() {
         this.precisionIsNowImportant = false;
     }
 

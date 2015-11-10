@@ -17,7 +17,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                                                 rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter) {
     function InitializatorOfBussinesController(bussinesController) {
         this.bussinesController = bussinesController;
-
     }
     InitializatorOfBussinesController.prototype.init = function (sceneLoaderInterface) {
         var tmp;
@@ -44,7 +43,6 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.bussinesController.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.bussinesController.relativeLocationCalculator);
         this.bussinesController.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.bussinesController.leafPileUnburier);
         this.bussinesController.gpsMovmentTrigger.init(this.bussinesController.relativeLocationCalculator, this.bussinesController.leafPileUnburier);
-
         this.bussinesController.passwordDialog = new PasswordDialog(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
         this.bussinesController.votingPanel = new VotingPanel(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame, this.bussinesController);
         this.bussinesController.flowerPanel = new FlowerPanel(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);

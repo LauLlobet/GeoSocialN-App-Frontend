@@ -1,12 +1,15 @@
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
 var phaserGameGlobal = undefined;
+var bussinesControllerGlobal = "notitint";
 require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPhaserApi",
         "View/UIEngineView/UiCore/PhaserGame", "InputOutput/GestureObserver",
         "Controll/UserInterfaceBussinesController", "View/UIEngineView/Keyboard",
-        "Controll/NewlyPresentedTreeSubjectNotifier","View/UIEngineView/PasswordDialog","View/UIEngineView/BackgroundMap"
+        "Controll/NewlyPresentedTreeSubjectNotifier", "View/UIEngineView/PasswordDialog", "View/UIEngineView/BackgroundMap",
+        "View/UIEngineView/NotPreciseAlert"
     ],
     function (SceneLoader, SpriteManagerPhaserApi, PhaserGame, GestureObserver,
-              UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier,TextDialogHtml, BackgroundMap) {
+              UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier, TextDialogHtml, BackgroundMap,
+    NotPreciseAlert) {
         "use strict";
         var sceneLoader, spriteManagerApi, keyboard, backgroundMap,
         userInterfaceBussinesController = new UserInterfaceBussinesController(),
@@ -19,9 +22,10 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
                 spriteManagerApi = new SpriteManagerPhaserApi(phaserGame, gestureObserver);
                 sceneLoader = new SceneLoader(spriteManagerApi, newlyPresentedTreeSubjectNotifier);
                 spriteManagerApi.sceneLoaderInterface = sceneLoader;
-                userInterfaceBussinesController.init(sceneLoader,backgroundMap);
+                userInterfaceBussinesController.init(sceneLoader, backgroundMap);
+                userInterfaceBussinesController.notPreciseAndIgnoredAlert = new NotPreciseAlert(phaserGame);
                 return sceneLoader;
             }, gestureObserver);
-
         phaserGameGlobal = phaserGame;
-});
+        bussinesControllerGlobal = userInterfaceBussinesController;
+    });

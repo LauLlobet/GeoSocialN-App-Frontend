@@ -223,15 +223,41 @@
     <div id = "calibratingGPSPrecision">
     </div>
     <div id = "calibratingGPS0">
+        <div class = "buttonIgnorePrecision">
+            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt=""/>
+        </div>
     </div>
     <div id = "calibratingGPS2">
+        <div class = "buttonIgnorePrecision">
+            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt="" />
+        </div>
     </div>
     <div id = "calibratingGPS5">
+        <div class = "buttonIgnorePrecision"><img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
+        </div>
     </div>
     <div id = "calibratingGPS7">
+        <div class = "buttonIgnorePrecision">
+            <img src="assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
+        </div>
     </div>
     <div id = "calibratingGPS9">
+        <div class = "buttonIgnorePrecision">
+            <img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
+        </div>
     </div>
+
+    <script>
+        ignorePrecision = function (){
+            phaserGameGlobal.ignorePrecisionGps();
+            if(bussinesControllerGlobal){
+                bussinesControllerGlobal.forceHandlePrecisionAlerts();
+            }else {
+                alert("globalBCnotfound");
+            }
+        }
+    </script>
+
     <script>
         var returnToGame = function (){
             displayNoneElement('popUp');
