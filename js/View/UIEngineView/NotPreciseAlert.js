@@ -21,8 +21,12 @@ define([], function () {
         this.initialTween = this.game.add.tween(this.alphaLayer).to({alpha: 0.8},
             1200, 'Linear', true, 0, -1);
         this.initialTween.yoyo(true, 0);
+        this.lastUpdateWasToHideNotPrecise = false;
     };
     NotPreciseAlert.prototype.hideNotPrecise = function () {
+        if (this.lastUpdateWasToHideNotPrecise) {
+            return;
+        }
         this.game.add.tween(this.notPrecise).to({alpha: 0},
             100, 'Linear', true);
         this.game.add.tween(this.yesPrecise).to({alpha: 1},
@@ -38,6 +42,7 @@ define([], function () {
         } else {
             this.alphaLayer.alpha = 0;
         }
+        this.lastUpdateWasToHideNotPrecise = true;
     };
 
     /*    function NotPreciseAlert(phaserGame) {
