@@ -19,7 +19,7 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
             id: constants.specialTreesCodes.es,
             ip: "87.223.58.75",
             metersToHide: 10,
-            text: "Spanish!",
+            text: "",
             timestamp: 1441013147469,
             x: this.bussinesController.gpsMovmentTrigger.actualCoordinates.longitude,
             y: this.bussinesController.gpsMovmentTrigger.actualCoordinates.latitude
@@ -29,7 +29,7 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
             id: constants.specialTreesCodes.en,
             ip: "87.223.58.75",
             metersToHide: 10,
-            text: "English!",
+            text: "",
             timestamp: 1441013147469,
             x: this.bussinesController.gpsMovmentTrigger.actualCoordinates.longitude,
             y: this.bussinesController.gpsMovmentTrigger.actualCoordinates.latitude
@@ -39,7 +39,7 @@ define(['../lib/underscore', "/OurTreeWeb/scenes/Constants.js"], function (under
             id: constants.specialTreesCodes.ca,
             ip: "87.223.58.75",
             metersToHide: 10,
-            text: "Catala!",
+            text: "",
             timestamp: 1441013147469,
             x: this.bussinesController.gpsMovmentTrigger.actualCoordinates.longitude,
             y: this.bussinesController.gpsMovmentTrigger.actualCoordinates.latitude

@@ -204,6 +204,10 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('yesPreciseAlert', '/OurTreeWeb/assets/yesPreciseAlert.png');
         this.game.load.bitmapFont('ubuntu', '/OurTreeWeb/assets/font.png', '/OurTreeWeb/assets/font.fnt');
 
+        this.game.load.image('welcomeCa', '/OurTreeWeb/assets/welcomeCa.png');
+        this.game.load.image('welcomeEn', '/OurTreeWeb/assets/welcomeEn.png');
+        this.game.load.image('welcomeEs', '/OurTreeWeb/assets/welcomeEs.png');
+
     };
     PhaserGame.prototype.create = function create() {
         var elapsedTimeSinceStartZoomingMap = ((new Date()).getTime() - this.game.zoomStartedMillieconds),

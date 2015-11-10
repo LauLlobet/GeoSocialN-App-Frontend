@@ -26,6 +26,17 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         } else {
             this.sprite = this.group.create(0, 0, 'roots');
         }
+
+        if (tree.treeid === constants.specialTreesCodes.ca) {
+            this.welcomeMessage = this.group.create(0, 0, 'welcomeCa');
+        }
+        if (tree.treeid === constants.specialTreesCodes.en) {
+            this.welcomeMessage = this.group.create(0, 0, 'welcomeEn');
+        }
+        if (tree.treeid === constants.specialTreesCodes.es) {
+            this.welcomeMessage = this.group.create(0, 0, 'welcomeEs');
+        }
+
         this.group.add(this.textGroup);
         this.group.add(this.buryGroup);
         this.group.add(this.compasAndKmGroup);
