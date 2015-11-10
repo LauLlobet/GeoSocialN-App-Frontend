@@ -30,6 +30,11 @@ define([], function () {
             ca: 3,
             defaultLanguage: 1,
             fullForest: 99
+        },
+        specialTreesHelpTreesIds: {
+            en: 4048,
+            es: 4050,
+            ca: 4049,
         }
     };
 });

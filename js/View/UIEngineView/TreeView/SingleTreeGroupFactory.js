@@ -29,12 +29,15 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
 
         if (tree.treeid === constants.specialTreesCodes.ca) {
             this.welcomeMessage = this.group.create(0, 0, 'welcomeCa');
+            this.setHelpButtonOfWelcomeScreen('ca');
         }
         if (tree.treeid === constants.specialTreesCodes.en) {
             this.welcomeMessage = this.group.create(0, 0, 'welcomeEn');
+            this.setHelpButtonOfWelcomeScreen('en');
         }
         if (tree.treeid === constants.specialTreesCodes.es) {
             this.welcomeMessage = this.group.create(0, 0, 'welcomeEs');
+            this.setHelpButtonOfWelcomeScreen('es');
         }
 
         this.group.add(this.textGroup);
@@ -158,5 +161,17 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         this.group.name = id;
         this.mainGroup.add(this.group);
     };
+    SingleTreeGroupFactory.prototype.setHelpButtonOfWelcomeScreen = function (lang) {
+        var button = this.group.create(40, 270, "linkLayer");
+        button.scale.x = 13
+        button.inputEnabled = true;
+        button.input.priorityID = 1;
+        button.useHandCursor = true;
+        button.events.onInputDown.add(function () {
+            this.context.gestureObserver.linkClicked(constants.specialTreesHelpTreesIds[lang]);
+        }, {
+            context : this
+        });
+    }
     return SingleTreeGroupFactory;
 });
