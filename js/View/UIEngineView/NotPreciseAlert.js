@@ -2,7 +2,7 @@
 /*jslint todo: true */
 define([], function () {
     var x = 110,
-        y = 450;
+        y = 500;
     function NotPreciseAlert(phaserGame) {
         this.game = phaserGame.game;
         this.alphaLayer = this.game.add.group();
@@ -18,7 +18,7 @@ define([], function () {
             100, 'Linear', true);
         this.game.add.tween(this.yesPrecise).to({alpha: 0},
             100, 'Linear', true);
-        this.initialTween = this.game.add.tween(this.alphaLayer).to({alpha: 0.8},
+        this.initialTween = this.game.add.tween(this.alphaLayer).to({alpha: 0.3},
             1200, 'Linear', true, 0, -1);
         this.initialTween.yoyo(true, 0);
         this.lastUpdateWasToHideNotPrecise = false;
@@ -33,7 +33,7 @@ define([], function () {
             100, 'Linear', true);
         if (this.initialTween) {
             this.initialTween.stop();
-            var showup = this.game.add.tween(this.alphaLayer).to({alpha: 0.9},
+            var showup = this.game.add.tween(this.alphaLayer).to({alpha: 0.3},
                 800, 'Linear');
             var fadeout = this.game.add.tween(this.alphaLayer).to({alpha: 0},
                 400, 'Linear');
