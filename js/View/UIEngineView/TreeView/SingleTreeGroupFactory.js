@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSetter", "../DistanceTips/TreeSpriteCompassSetter", "../DistanceTips/Rake",  "/OurTreeWeb/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
+define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSetter", "../DistanceTips/TreeSpriteCompassSetter", "../DistanceTips/Rake",  "/VisitTreeNumber/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
     "use strict";
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
     {

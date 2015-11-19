@@ -1,6 +1,6 @@
 /*global define, require, module,navigator, Phaser, Group, console, underscore,setTimeout */
 /*jslint todo: true */
-define(["/OurTreeWeb/js/lib/underscore.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (underscore, TreeRestClient) {
+define(["/VisitTreeNumber/js/lib/underscore.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (underscore, TreeRestClient) {
     "use strict";
     function NearbyTreesFromServerToIncommingTreeList(incommingList, alreadyDisplayed, mapOfTreesById, fillerOfIncommingListIfItGetsEmpty) {
         this.incommingList = incommingList;

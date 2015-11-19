@@ -3,7 +3,7 @@
 
 //MANUAL curl http://127.0.0.1/YOUR_PATH/trees
 
-define(['/OurTreeWeb/js/lib/underscore.js', "/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/lib/rsvp.js"], function (underscore, restful, rsvp) {
+define(['/VisitTreeNumber/js/lib/underscore.js', "/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/lib/rsvp.js"], function (underscore, restful, rsvp) {
     "use strict";
     function TreeRestClient() {
         this.api = restful( location.host.split(':')[0])

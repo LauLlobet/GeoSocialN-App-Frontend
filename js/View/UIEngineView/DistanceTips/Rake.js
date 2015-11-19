@@ -1,7 +1,7 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
 var rake;
-define(["/OurTreeWeb/scenes/Constants.js"], function (constants ) {
+define(["/VisitTreeNumber/scenes/Constants.js"], function (constants ) {
     "use strict";
     function Rake(parentGroup, phaserGame, yOfLeafsBuryLayer, compassSpriteAbsolutePostion) //noinspection JSLint
     {

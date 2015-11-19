@@ -20,7 +20,7 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
             this.game = new Phaser.Game(targetW, targetH, Phaser.CANVAS, this);
             this.gameState = { preload: this.preload, create: this.create, update: this.update, render: this.render  };
             this.bootState = {  preload: function bootPreload() {
-                                                          this.game.load.image('aaaa', '/OurTreeWeb/assets/spaceKey.png');
+                                                          this.game.load.image('aaaa', '/VisitTreeNumber/assets/spaceKey.png');
                                         },
                                 create: function () { this.state.start('GameState');
                                         }
@@ -142,71 +142,71 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.loading = loading;
     };
     PhaserGame.prototype.loadImages = function loadImages(){
-        this.game.load.image('real', '/OurTreeWeb/assets/realDimensionTree3.png');
-        this.game.load.image('roots', '/OurTreeWeb/assets/treeWithRoots.png');
-        this.game.load.image('punzon', '/OurTreeWeb/assets/punzon.png');
-        this.game.load.image('fullTerritory', '/OurTreeWeb/assets/fullTerritory.png');
+        this.game.load.image('real', '/VisitTreeNumber/assets/realDimensionTree3.png');
+        this.game.load.image('roots', '/VisitTreeNumber/assets/treeWithRoots.png');
+        this.game.load.image('punzon', '/VisitTreeNumber/assets/punzon.png');
+        this.game.load.image('fullTerritory', '/VisitTreeNumber/assets/fullTerritory.png');
 
 
-        this.game.load.image('keyboardBackground', '/OurTreeWeb/assets/fondoTeclat.png');
-        this.game.load.image('keyBackground', '/OurTreeWeb/assets/keyBackground.png');
-        this.game.load.image('keySpace', '/OurTreeWeb/assets/spaceKey.png');
-        this.game.load.image('keyEnter', '/OurTreeWeb/assets/enter.png');
-        this.game.load.image('keyBackwards', '/OurTreeWeb/assets/keyBackwards.png');
-        this.game.load.image('keyOk', '/OurTreeWeb/assets/keyOk.png');
-        this.game.load.image('keyCancel', '/OurTreeWeb/assets/keyCancel.png');
-        this.game.load.image('keySwitchKeyboard', '/OurTreeWeb/assets/keySwitchKeyboard.png');
-        this.game.load.image('lock', '/OurTreeWeb/assets/lock.png');
-        this.game.load.image('lockpick', '/OurTreeWeb/assets/lockpick.png');
+        this.game.load.image('keyboardBackground', '/VisitTreeNumber/assets/fondoTeclat.png');
+        this.game.load.image('keyBackground', '/VisitTreeNumber/assets/keyBackground.png');
+        this.game.load.image('keySpace', '/VisitTreeNumber/assets/spaceKey.png');
+        this.game.load.image('keyEnter', '/VisitTreeNumber/assets/enter.png');
+        this.game.load.image('keyBackwards', '/VisitTreeNumber/assets/keyBackwards.png');
+        this.game.load.image('keyOk', '/VisitTreeNumber/assets/keyOk.png');
+        this.game.load.image('keyCancel', '/VisitTreeNumber/assets/keyCancel.png');
+        this.game.load.image('keySwitchKeyboard', '/VisitTreeNumber/assets/keySwitchKeyboard.png');
+        this.game.load.image('lock', '/VisitTreeNumber/assets/lock.png');
+        this.game.load.image('lockpick', '/VisitTreeNumber/assets/lockpick.png');
 
 
-        this.game.load.image('leafs', '/OurTreeWeb/assets/pileOfLeafs.png');
-        this.game.load.image('leafspick', '/OurTreeWeb/assets/leaf.png');
+        this.game.load.image('leafs', '/VisitTreeNumber/assets/pileOfLeafs.png');
+        this.game.load.image('leafspick', '/VisitTreeNumber/assets/leaf.png');
 
-        this.game.load.image('carved', '/OurTreeWeb/assets/alphabet2.png');
-        this.game.load.image('linkLayer', '/OurTreeWeb/assets/linkLayer.png');
-        this.game.load.image('passwordBox', '/OurTreeWeb/assets/passwordBox.png');
+        this.game.load.image('carved', '/VisitTreeNumber/assets/alphabet2.png');
+        this.game.load.image('linkLayer', '/VisitTreeNumber/assets/linkLayer.png');
+        this.game.load.image('passwordBox', '/VisitTreeNumber/assets/passwordBox.png');
 
-        this.game.load.image('lockBg', '/OurTreeWeb/assets/lockBg.png');
-        this.game.load.image('buryBg', '/OurTreeWeb/assets/buryBg.png');
-        this.game.load.image('twitterBg', '/OurTreeWeb/assets/twitterBg.png');
-        this.game.load.image('linkBg', '/OurTreeWeb/assets/linkBg.png');
-        this.game.load.image('heartBg', '/OurTreeWeb/assets/heartBg.png');
-        this.game.load.image('catBg', '/OurTreeWeb/assets/catBg.png');
+        this.game.load.image('lockBg', '/VisitTreeNumber/assets/lockBg.png');
+        this.game.load.image('buryBg', '/VisitTreeNumber/assets/buryBg.png');
+        this.game.load.image('twitterBg', '/VisitTreeNumber/assets/twitterBg.png');
+        this.game.load.image('linkBg', '/VisitTreeNumber/assets/linkBg.png');
+        this.game.load.image('heartBg', '/VisitTreeNumber/assets/heartBg.png');
+        this.game.load.image('catBg', '/VisitTreeNumber/assets/catBg.png');
 
 
-        this.game.load.image('downVote', '/OurTreeWeb/assets/downVote.png');
-        this.game.load.image('upVote', '/OurTreeWeb/assets/upVote.png');
-        this.game.load.image('flower', '/OurTreeWeb/assets/flower.png');
-        this.game.load.image('rake', '/OurTreeWeb/assets/rake.png');
+        this.game.load.image('downVote', '/VisitTreeNumber/assets/downVote.png');
+        this.game.load.image('upVote', '/VisitTreeNumber/assets/upVote.png');
+        this.game.load.image('flower', '/VisitTreeNumber/assets/flower.png');
+        this.game.load.image('rake', '/VisitTreeNumber/assets/rake.png');
         this.game.load.image('map', 'http://www.bc-maps.com/mapa-vectorial-eps/wp-content/uploads/2012/04/GIRONA-Vector-map1.jpg');
-        this.game.load.image('alphalayer', '/OurTreeWeb/assets/alphaLayer.png');
-        this.game.load.image('alphalayerbg', '/OurTreeWeb/assets/alphaLayerBg.png');
+        this.game.load.image('alphalayer', '/VisitTreeNumber/assets/alphaLayer.png');
+        this.game.load.image('alphalayerbg', '/VisitTreeNumber/assets/alphaLayerBg.png');
         //  Firefox doesn't support mp3 files, so use ogg
-        this.game.load.audio('bell', ['/OurTreeWeb/assets/bell.ogg']);
-        this.game.load.audio('plant', ['/OurTreeWeb/assets/plant.ogg']);
-        this.game.load.audio('unbell', ['/OurTreeWeb/assets/unbell.ogg']);
+        this.game.load.audio('bell', ['/VisitTreeNumber/assets/bell.ogg']);
+        this.game.load.audio('plant', ['/VisitTreeNumber/assets/plant.ogg']);
+        this.game.load.audio('unbell', ['/VisitTreeNumber/assets/unbell.ogg']);
 
         var i;
         for(i=0; i<10; i= i+1){
-            this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+            this.game.load.image(i+'km', '/VisitTreeNumber/assets/'+i+'km.png');
         }
         i = 'n';
-        this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+        this.game.load.image(i+'km', '/VisitTreeNumber/assets/'+i+'km.png');
         i = 'm';
-        this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+        this.game.load.image(i+'km', '/VisitTreeNumber/assets/'+i+'km.png');
         i = 'k';
-        this.game.load.image(i+'km', '/OurTreeWeb/assets/'+i+'km.png');
+        this.game.load.image(i+'km', '/VisitTreeNumber/assets/'+i+'km.png');
 
-        this.game.load.image('compasBg', '/OurTreeWeb/assets/compasBg.png');
-        this.game.load.image('needle', '/OurTreeWeb/assets/needle.png');
-        this.game.load.image('notPreciseAlert', '/OurTreeWeb/assets/notPreciseAlert.png');
-        this.game.load.image('yesPreciseAlert', '/OurTreeWeb/assets/yesPreciseAlert.png');
-        this.game.load.bitmapFont('ubuntu', '/OurTreeWeb/assets/font.png', '/OurTreeWeb/assets/font.fnt');
+        this.game.load.image('compasBg', '/VisitTreeNumber/assets/compasBg.png');
+        this.game.load.image('needle', '/VisitTreeNumber/assets/needle.png');
+        this.game.load.image('notPreciseAlert', '/VisitTreeNumber/assets/notPreciseAlert.png');
+        this.game.load.image('yesPreciseAlert', '/VisitTreeNumber/assets/yesPreciseAlert.png');
+        this.game.load.bitmapFont('ubuntu', '/VisitTreeNumber/assets/font.png', '/VisitTreeNumber/assets/font.fnt');
 
-        this.game.load.image('welcomeCa', '/OurTreeWeb/assets/welcomeCa.png');
-        this.game.load.image('welcomeEn', '/OurTreeWeb/assets/welcomeEn.png');
-        this.game.load.image('welcomeEs', '/OurTreeWeb/assets/welcomeEs.png');
+        this.game.load.image('welcomeCa', '/VisitTreeNumber/assets/welcomeCa.png');
+        this.game.load.image('welcomeEn', '/VisitTreeNumber/assets/welcomeEn.png');
+        this.game.load.image('welcomeEs', '/VisitTreeNumber/assets/welcomeEs.png');
 
     };
     PhaserGame.prototype.create = function create() {

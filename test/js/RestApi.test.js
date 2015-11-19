@@ -2,7 +2,7 @@
  * Created by quest on 23/06/15.
  */
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual, deepEqual*/
-define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
+define(["/VisitTreeNumber/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     'use strict';
     module('RestApi Test On Server');
     var deleteAll = function( ) {
@@ -11,7 +11,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     };
 
     asyncTest('test list builder', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             deleteAll().then( function (){
                 var treeRestClient = new TreeRestClient(),
                     dontIncludeList = [],
@@ -28,7 +28,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     });
 
     asyncTest('Api Put a single tree', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
             deleteAll().then( function (){
@@ -55,7 +55,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
 
 
     asyncTest('Api Put a tree', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient();
             deleteAll().then( function (){
@@ -96,7 +96,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
 
 
     asyncTest('Api get a tree', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
@@ -151,7 +151,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
 
 
     asyncTest('Api get a tree by Id', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],
@@ -197,7 +197,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
             });
         });
     asyncTest('Api PUT A TREE AND VOTE IT -1', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 originalX = 15.21;
@@ -225,7 +225,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     });
 
     asyncTest('Api PUT A TREE AND VOTE IT +1', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 originalX = 15.21;
@@ -253,7 +253,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     });
 
     asyncTest('Api PUT A TREE AND VOTE IT +0', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 originalX = 15.21;
@@ -280,7 +280,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
     });
 
     asyncTest('Api PUT A TREE AND VOTE IT +2', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 originalX = 15.21;
@@ -309,7 +309,7 @@ define(["/OurTreeWeb/js/Model/TreeRestClient.js"], function (TreeRestClient) {
 
 
     asyncTest('Api PUT A TREE AND VOTE IT -2', function () {
-        require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+        require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
             var tree = {},
                 treeRestClient = new TreeRestClient(),
                 answerIdList = [],

@@ -3,7 +3,7 @@
 
 
 var forgedAccuracy = 12;
-define(["../lib/underscore", "/OurTreeWeb/js/util/CoordinatesCalculator.js"], function (underscore, CoordinatesCalculator) {
+define(["../lib/underscore", "/VisitTreeNumber/js/util/CoordinatesCalculator.js"], function (underscore, CoordinatesCalculator) {
     "use strict";
 
     function GpsMovmentTrigger(bussinesController, phaserGame) {

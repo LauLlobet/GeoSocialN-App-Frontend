@@ -1,6 +1,6 @@
    /*
 
-     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+     require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
      var tree = {},
      treeRestClient = new TreeRestClient();
      tree.text = "more and more trees in da town";
@@ -33,7 +33,7 @@
     /*
 
 
-     require(["/OurTreeWeb/js/lib/restful.js", "/OurTreeWeb/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+     require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
      var trc = new TreeRestClient();
      trc.deleteAll();
      });

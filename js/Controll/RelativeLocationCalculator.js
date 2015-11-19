@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore', '/OurTreeWeb/js/util/CoordinatesCalculator.js'], function (underscore, CoordinatesCalculator) {
+define(['../lib/underscore', '/VisitTreeNumber/js/util/CoordinatesCalculator.js'], function (underscore, CoordinatesCalculator) {
     "use strict";
     function RelativeLocationCalculator(treeHash, sceneKmSetter, compassSetter, rakeSetter, gpsMovmentTrigger) {
         var that = this;

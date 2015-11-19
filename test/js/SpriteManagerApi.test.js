@@ -1,5 +1,5 @@
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual*/
-define([ "/OurTreeWeb/scenes/WriteButton.js"], function (writeButton) {
+define([ "/VisitTreeNumber/scenes/WriteButton.js"], function (writeButton) {
     'use strict';
     module('SpriteManagerPhaserApi with real PhaserGame');
     asyncTest('add sprites and get it\'s length', function () {
