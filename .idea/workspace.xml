@@ -4,32 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WEB-INF/cache.appcache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/OurTreeWeb.iml" afterPath="$PROJECT_DIR$/VisitTreeNumber.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy.sh" afterPath="$PROJECT_DIR$/deploy.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" afterPath="$PROJECT_DIR$/js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/LeafPileUnburier.js" afterPath="$PROJECT_DIR$/js/Controll/LeafPileUnburier.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/NearbyTreesFromServerToIncommingTreeList.js" afterPath="$PROJECT_DIR$/js/Controll/NearbyTreesFromServerToIncommingTreeList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" afterPath="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js" afterPath="$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js" afterPath="$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Model/TreeRestClient.js" afterPath="$PROJECT_DIR$/js/Model/TreeRestClient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/Rake.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/Rake.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/util/CoordinatesCalculator.js" afterPath="$PROJECT_DIR$/js/util/CoordinatesCalculator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeLeft.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" afterPath="$PROJECT_DIR$/scenes/ForestSwipeRight.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snippets.txt" afterPath="$PROJECT_DIR$/snippets.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/NearbyTreesFromServerToIncommingTreeList.test.js" afterPath="$PROJECT_DIR$/test/js/NearbyTreesFromServerToIncommingTreeList.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/RestApi.test.js" afterPath="$PROJECT_DIR$/test/js/RestApi.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" afterPath="$PROJECT_DIR$/test/js/SpriteManagerApi.test.js" />
-    </list>
+    <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="" />
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -899,7 +874,7 @@
       <workItem from="1446635728499" duration="49041000" />
       <workItem from="1447411452250" duration="5691000" />
       <workItem from="1447950415645" duration="107000" />
-      <workItem from="1447950576363" duration="796000" />
+      <workItem from="1447950576363" duration="2102000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1199,7 +1174,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1075388000" />
+    <option name="totallyTimeSpent" value="1076694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="35" width="1390" height="746" extended-state="0" />
