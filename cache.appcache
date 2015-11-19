@@ -19,7 +19,6 @@ assets/acceptGPS.psd
 assets/alphabet/!.gif
 assets/alphabet/!.psd
 assets/alphabet/,.psd
-assets/alphabet/.DS_Store
 assets/alphabet/?.psd
 assets/alphabet/a.psd
 assets/alphabet/alphabet.png
@@ -178,7 +177,6 @@ assets/yesPreciseAlert.png
 assets/yesPreciseAlert.psd
 avoidDraggingAndSelecting.js
 index.html
-js/.DS_Store
 js/Controll/FillerOfIncommingListIfItGetsEmpty.js
 js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js
 js/Controll/InitializatorOfBussinesController.js
