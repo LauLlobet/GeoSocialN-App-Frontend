@@ -179,7 +179,6 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('upVote', '/VisitTreeNumber/assets/upVote.png');
         this.game.load.image('flower', '/VisitTreeNumber/assets/flower.png');
         this.game.load.image('rake', '/VisitTreeNumber/assets/rake.png');
-        this.game.load.image('map', 'http://www.bc-maps.com/mapa-vectorial-eps/wp-content/uploads/2012/04/GIRONA-Vector-map1.jpg');
         this.game.load.image('alphalayer', '/VisitTreeNumber/assets/alphaLayer.png');
         this.game.load.image('alphalayerbg', '/VisitTreeNumber/assets/alphaLayerBg.png');
         //  Firefox doesn't support mp3 files, so use ogg

@@ -45,6 +45,7 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         welcomeOfUserDinamic = new WelcomeOfUserDinamic(this);
         initializatorOfBussinesController.init(sceneLoaderInterface);
         welcomeOfUserDinamic.startWelcomeToUser();
+        alert("Buissines controlled initiated V.2 YES appeare");
 
     };
     //MAIN INPUT FUNCTION

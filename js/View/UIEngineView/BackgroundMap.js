@@ -21,15 +21,12 @@ define([], function () {
 
     BackgroundMap.prototype.justDisplayedATreeSoDisplayAMap = function (tree) {
         var url = 'https://maps.googleapis.com/maps/api/staticmap?center=' + tree.y + ',' + tree.x + '&zoom=15&size=500x300&maptype=roadmap&key=AIzaSyARLL06eu1X3HSK4HpwHGFVbQDuOPWekh8';
-        console.log(url);
         this.dynamicLoadImage(this.game, x, y, url, 'dinmap', undefined);
     };
-    BackgroundMap.prototype.displayMap = function (coordinates) {
+    BackgroundMap.prototype.displayMap = function () {
         this.tex.renderXY(this.mapGroupSpriteImage, 0, 0, true);
         this.mapGroup.alpha = 0;
         this.game.add.tween(this.mapGroup).to({alpha: 1}, 400, 'Linear', true, 0, 0);
-
-
     };
     BackgroundMap.prototype.hideMap = function () {
         if (this.mapGroupSprite === undefined) {

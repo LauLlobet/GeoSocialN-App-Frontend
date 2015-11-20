@@ -14,7 +14,8 @@ define(['../lib/underscore', "/VisitTreeNumber/scenes/Constants.js"], function (
         this.stackLoadSceneWithWelcomeTreeCorrespondingToTheBrowserLanguage();
         this.playWelcomeTrees();
     };
-    WelcomeOfUserDinamic.prototype.loadWelcomeTrees = function loadWelcomeTrees (coordinates) {
+    WelcomeOfUserDinamic.prototype.loadWelcomeTrees = function loadWelcomeTrees () {
+        console.log("building welcome trees");
         this.bussinesController.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
             id: constants.specialTreesCodes.es,
             ip: "87.223.58.75",
