@@ -38,15 +38,12 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     }
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface, backgroundMap) {
-
         var initializatorOfBussinesController = new InitializatiorOfBussinesController(this),
             welcomeOfUserDinamic;
         this.backgroundMap = backgroundMap;
         welcomeOfUserDinamic = new WelcomeOfUserDinamic(this);
         initializatorOfBussinesController.init(sceneLoaderInterface);
         welcomeOfUserDinamic.startWelcomeToUser();
-        alert("Buissines controlled initiated V.2 YES appeare");
-
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {

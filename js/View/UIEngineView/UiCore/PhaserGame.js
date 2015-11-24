@@ -181,6 +181,7 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('rake', '/VisitTreeNumber/assets/rake.png');
         this.game.load.image('alphalayer', '/VisitTreeNumber/assets/alphaLayer.png');
         this.game.load.image('alphalayerbg', '/VisitTreeNumber/assets/alphaLayerBg.png');
+        this.game.load.image('map', '/VisitTreeNumber/assets/alphaLayerBg.png');
         //  Firefox doesn't support mp3 files, so use ogg
         this.game.load.audio('bell', ['/VisitTreeNumber/assets/bell.ogg']);
         this.game.load.audio('plant', ['/VisitTreeNumber/assets/plant.ogg']);

@@ -11,7 +11,6 @@ var canvasBg = document.getElementById('canvasBg');
 var underscore = _;
 function CookieManager(){
 }
-
 CookieManager.prototype.setCookie = function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     exdays = exdays === undefined ? 10000 : exdays;
@@ -57,6 +56,7 @@ GpsBrowserBlockChecker.prototype.start = function start() {
             break;
         case "positionunavaliable":
             this.gpsErrorMessageDisplayerInterface.displayPositionUnavaliableMessage();
+            setTimeout(underscore.bind(this.testGps, this), 4000);
             break;
         case "":
             this.gpsErrorMessageDisplayerInterface.displayAcceptRequestMessage();
@@ -67,11 +67,11 @@ GpsBrowserBlockChecker.prototype.start = function start() {
 
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { enableHighAccuracy: true,
-        timeout: 20000,
-        maximumAge: 30000};
+        timeout: 3000,
+        maximumAge: 0};
     this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
-        properties);
+        properties );
 
 }
 GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback(position) {
@@ -88,6 +88,7 @@ GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
         this.cookieManager.setCookie("gpsOn", "positionunavaliable");
     }
     this.reloadInterface.reload();
+    alert("error get pos");
 };
 /// --------------------
 

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#19 nov 2015 v 1.0.0.7
+#v234562
 assets/plant.ogg
 assets/unbell.ogg
 assets/bell.ogg
@@ -108,7 +108,6 @@ js/lib/require.js
 js/lib/restful.js
 js/lib/rsvp.js
 js/lib/underscore.js
-js/main.js
 js/Model/TreeRestClient.js
 js/require.js
 js/requireBootstrap.js
@@ -153,3 +152,4 @@ scenes/WriteButton.js
 spinningCircleOnLoading.js
 NETWORK:
 *
+js/main.js
