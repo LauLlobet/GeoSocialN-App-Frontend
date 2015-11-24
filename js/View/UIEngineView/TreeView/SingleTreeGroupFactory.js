@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSetter", "../DistanceTips/TreeSpriteCompassSetter", "../DistanceTips/Rake",  "/VisitTreeNumber/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, Rake, constants) {
+define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSetter", "../DistanceTips/TreeSpriteCompassSetter",  "/VisitTreeNumber/scenes/Constants.js"], function (TreeSpriteGroupTextSetter, TreeSpriteCounterKmSetter, TreeSpriteCompasSetter, constants) {
     "use strict";
     function SingleTreeGroupFactory(phaserGame, mainGroup, gestureObserver) //noinspection JSLint
     {
@@ -64,12 +64,6 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
             if (this.isNotAnInstructionTree(tree)) {
                 this.group.kmSetter = new TreeSpriteCounterKmSetter(this.group, this.game);
                 this.group.compassSetter = new TreeSpriteCompasSetter(this.group, this.game);
-                if (this.group.textSetter.getHeightOfLeafBuryLayer()) {
-                    this.group.rakeSetter = new Rake(this.group,
-                        this.game,
-                        this.group.textSetter.getHeightOfLeafBuryLayer(),
-                        this.group.compassSetter.getCompassPosition());
-                }
                 this.group.isWrittenByAServerTree = true;
             }
         }
@@ -92,19 +86,10 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         if (tree.unburiedLayersTreeLevel === undefined || tree.initialPosition.charAt(0) === '3') {
             tree.unburiedLayersTreeLevel = {};
         }
-        if (this.group.rakeSetter !== undefined) {
-            this.group.rakeSetter.destroy();
-            this.group.rakeSetter = undefined;
-        }
+
         if (tree.text !== undefined) {
             this.group.textSetter.setUnburiedLayers(tree.unburiedLayersTreeLevel);
             this.group.textSetter.setText(tree.text);
-            if (this.group.textSetter.getHeightOfLeafBuryLayer()) {
-                this.group.rakeSetter = new Rake(this.group,
-                    this.game,
-                    this.group.textSetter.getHeightOfLeafBuryLayer(),
-                    this.group.compassSetter.getCompassPosition());
-            }
         }
     };
 

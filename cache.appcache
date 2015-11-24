@@ -70,7 +70,6 @@ assets/playmobile.png
 assets/playportrait.png
 assets/point.png
 assets/punzon.png
-assets/rake.png
 assets/realDimensionTree2.png
 assets/realDimensionTree3.png
 assets/realDimensionTree4.png
@@ -117,16 +116,13 @@ js/util/random.js
 js/View/SceneLoaderLevel/SceneLoader.js
 js/View/SceneLoaderLevel/SceneTreeCompassSetter.js
 js/View/SceneLoaderLevel/SceneTreeKmSetter.js
-js/View/SceneLoaderLevel/SceneTreeRakeSetter.js
 js/View/SceneLoaderLevel/SceneTreeTextSetter.js
 js/View/SceneLoaderLevel/StackOfScenes.js
 js/View/SpriteLevel/SpriteManagerPhaserApi.js
 js/View/SpriteLevel/SpriteTreeCompassSetter.js
 js/View/SpriteLevel/SpriteTreeKmCounterSetter.js
-js/View/SpriteLevel/SpriteTreeRakeSetter.js
 js/View/SpriteLevel/SpriteTreeTextSetter.js
 js/View/UIEngineView/BackgroundMap.js
-js/View/UIEngineView/DistanceTips/Rake.js
 js/View/UIEngineView/DistanceTips/TreeSpriteCompas.js
 js/View/UIEngineView/DistanceTips/TreeSpriteCompassSetter.js
 js/View/UIEngineView/DistanceTips/TreeSpriteCounterKmSetter.js

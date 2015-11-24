@@ -178,7 +178,6 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('downVote', '/VisitTreeNumber/assets/downVote.png');
         this.game.load.image('upVote', '/VisitTreeNumber/assets/upVote.png');
         this.game.load.image('flower', '/VisitTreeNumber/assets/flower.png');
-        this.game.load.image('rake', '/VisitTreeNumber/assets/rake.png');
         this.game.load.image('alphalayer', '/VisitTreeNumber/assets/alphaLayer.png');
         this.game.load.image('alphalayerbg', '/VisitTreeNumber/assets/alphaLayerBg.png');
         this.game.load.image('map', '/VisitTreeNumber/assets/alphaLayerBg.png');

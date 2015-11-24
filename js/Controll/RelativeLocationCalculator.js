@@ -2,12 +2,11 @@
 /*jslint todo: true */
 define(['../lib/underscore', '/VisitTreeNumber/js/util/CoordinatesCalculator.js'], function (underscore, CoordinatesCalculator) {
     "use strict";
-    function RelativeLocationCalculator(treeHash, sceneKmSetter, compassSetter, rakeSetter, gpsMovmentTrigger) {
+    function RelativeLocationCalculator(treeHash, sceneKmSetter, compassSetter, gpsMovmentTrigger) {
         var that = this;
         this.treeHashIdToTree = treeHash;
         this.sceneKmSetter = sceneKmSetter;
         this.compassSetter = compassSetter;
-        this.rakeSetter = rakeSetter;
         this.gpsMovmentTrigger = gpsMovmentTrigger;
 
         this.currentTargetCoordinates = undefined;
@@ -69,7 +68,6 @@ define(['../lib/underscore', '/VisitTreeNumber/js/util/CoordinatesCalculator.js'
             );
         angle = angle + this.orientationNord;
         this.compassSetter.setAngle(angle);
-        this.rakeSetter.setAngle(angle);
     }
 
     return RelativeLocationCalculator;

@@ -5,8 +5,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
     "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
-    "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp", "../View/SceneLoaderLevel/SceneTreeRakeSetter",
-    "../View/SpriteLevel/SpriteTreeRakeSetter"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
+    "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                 TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                 FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,
                                                 SceneTreeTextSetter, SpriteTreeTextSetter,
@@ -14,7 +13,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
                                                 SceneTreeCompassSetter, SpriteTreeCompassSetter,
                                                 RelativeLocationCalculator, PasswordDialog, LeafPileUnburier,
                                                 VotingPanel, FlowerPanel, IncommingTreesEmptyOnesAndDiscardedCueMixer,
-                                                rsvp, SceneTreeRakeSetter, SpriteTreeRakeSetter) {
+                                                rsvp) {
     function InitializatorOfBussinesController(bussinesController) {
         this.bussinesController = bussinesController;
     }
@@ -36,9 +35,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.bussinesController.sceneTreeTextKmInterface = new SceneTreeKmSetter(sceneLoaderInterface, tmp);
         tmp = new SpriteTreeCompassSetter(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface);
         this.bussinesController.sceneTreeCompassInterface = new SceneTreeCompassSetter(sceneLoaderInterface, tmp);
-        tmp = new SpriteTreeRakeSetter(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface);
-        this.bussinesController.sceneTreeRakeInterface = new SceneTreeRakeSetter(sceneLoaderInterface, tmp);
-        this.bussinesController.relativeLocationCalculator = new RelativeLocationCalculator(this.bussinesController.mapOfTreesById, this.bussinesController.sceneTreeTextKmInterface, this.bussinesController.sceneTreeCompassInterface, this.bussinesController.sceneTreeRakeInterface , this.bussinesController.gpsMovmentTrigger);
+        this.bussinesController.relativeLocationCalculator = new RelativeLocationCalculator(this.bussinesController.mapOfTreesById, this.bussinesController.sceneTreeTextKmInterface, this.bussinesController.sceneTreeCompassInterface, this.bussinesController.gpsMovmentTrigger);
         this.bussinesController.leafPileUnburier = new LeafPileUnburier(this.bussinesController.mapOfTreesById, this.bussinesController);
         this.bussinesController.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.bussinesController.relativeLocationCalculator);
         this.bussinesController.sceneLoaderInterface.newlyPresentedTreeSubjectNotifier.addObserver(this.bussinesController.leafPileUnburier);

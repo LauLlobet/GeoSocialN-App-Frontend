@@ -221,10 +221,6 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
             tree.unburiedLayersTreeLevel = {}; // unburiedLaters == {};
         }
         tree.unburiedLayersTreeLevel[buryLayerId] = true;
-
-        if (buryLayerId === "leafs") {
-           this.sceneTreeRakeInterface.disappeare();
-        }
     };
 
 
