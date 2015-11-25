@@ -7,7 +7,7 @@ printf "histogramT = histc([0,0],[1:30:400]);\n" > scripts/histograms.m
 for i in "${commitsList[@]}"
 do
    	echo "Stats from $i"
-	git checkout $i >/dev/null 2>&1
+	git checkout $i
 	touch scripts/tmpCount
 	echo "" > scripts/tmpCount >/dev/null 2>&1
 	find ./ -type f -name "*.js" | awk '{print "wc -l "$0}' | sh | awk '{print $1}' >> scripts/tmpCount
