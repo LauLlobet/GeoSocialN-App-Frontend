@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneTreeRakeSetter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/SpriteLevel/SpriteTreeRakeSetter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/Rake.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/copywritting" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache.appcache" afterPath="$PROJECT_DIR$/cache.appcache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/InitializatorOfBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/InitializatorOfBussinesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" afterPath="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenes/Constants.js" afterPath="$PROJECT_DIR$/scenes/Constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,14 +30,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SingleTreeGroupFactory.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SingleTreeGroupFactory.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07537688">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="255" selection-start-line="2" selection-start-column="255" selection-end-line="2" selection-end-column="255" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="copywritting" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/copywritting">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.48128343">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,16 +122,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BackgroundMap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/BackgroundMap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PhaserGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -143,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/testGps.html" />
         <option value="$PROJECT_DIR$/testGps.html" />
         <option value="$PROJECT_DIR$/extras/index.html" />
         <option value="$PROJECT_DIR$/js/Model/TreeRestClient.js" />
@@ -177,7 +178,6 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/NotPreciseAlert.js" />
         <option value="$PROJECT_DIR$/deploy.sh" />
         <option value="$PROJECT_DIR$/js/Controll/IncommingTreesEmptyOnesAndDiscardedCueMixer.js" />
-        <option value="$PROJECT_DIR$/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/WEB-INF/cache.appcache" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/BackgroundMap.js" />
         <option value="$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js" />
@@ -194,6 +194,8 @@
         <option value="$PROJECT_DIR$/js/Controll/RelativeLocationCalculator.js" />
         <option value="$PROJECT_DIR$/js/Controll/InitializatorOfBussinesController.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
+        <option value="$PROJECT_DIR$/copywritting" />
+        <option value="$PROJECT_DIR$/WEB-INF/web.xml" />
       </list>
     </option>
   </component>
@@ -297,138 +299,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OurTreeWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OurTreeWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIEngineView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OurTreeWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIEngineView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UiCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OurTreeWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIEngineView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DistanceTips" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OurTreeWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpriteLevel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OurTreeWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SceneLoaderLevel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1004,7 +874,7 @@
       <workItem from="1446635728499" duration="49041000" />
       <workItem from="1447411452250" duration="5691000" />
       <workItem from="1447950415645" duration="107000" />
-      <workItem from="1447950576363" duration="11701000" />
+      <workItem from="1447950576363" duration="12594000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1304,7 +1174,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1086293000" />
+    <option name="totallyTimeSpent" value="1087186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="80" width="1390" height="746" extended-state="0" />
@@ -1646,14 +1516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/InputOutput/GpsMovmentTrigger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1780,11 +1642,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07537688">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="255" selection-start-line="2" selection-start-column="255" selection-end-line="2" selection-end-column="255" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copywritting">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48128343">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

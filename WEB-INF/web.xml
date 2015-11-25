@@ -3,4 +3,12 @@
         <extension>appcache</extension>
         <mime-type>text/cache-manifest</mime-type>
     </mime-mapping>
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>cacheControl</param-name>
+            <param-value>no-cache,public</param-value>
+        </init-param>
+    </servlet>
 </web-app>
