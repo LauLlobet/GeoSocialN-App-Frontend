@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache.appcache" afterPath="$PROJECT_DIR$/cache.appcache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spinningCircleOnLoading.js" afterPath="$PROJECT_DIR$/spinningCircleOnLoading.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.37037">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.09115282">
+              <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cache.appcache" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cache.appcache" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0375">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
               <folding />
             </state>
@@ -182,8 +182,8 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/copywritting" />
         <option value="$PROJECT_DIR$/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
         <option value="$PROJECT_DIR$/cache.appcache" />
+        <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
       </list>
     </option>
   </component>
@@ -863,7 +863,7 @@
       <workItem from="1447411452250" duration="5691000" />
       <workItem from="1447950415645" duration="107000" />
       <workItem from="1447950576363" duration="12594000" />
-      <workItem from="1448532081311" duration="2802000" />
+      <workItem from="1448532081311" duration="3132000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1163,7 +1163,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1089988000" />
+    <option name="totallyTimeSpent" value="1090318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="80" width="1390" height="746" extended-state="0" />
@@ -1601,6 +1601,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/js/GpsBrowserBlockChecker.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cache.appcache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/WelcomeOfUserDinamic.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1611,26 +1627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/js/GpsBrowserBlockChecker.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.37037">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cache.appcache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0375">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.09115282">
+          <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
           <folding />
         </state>
       </provider>

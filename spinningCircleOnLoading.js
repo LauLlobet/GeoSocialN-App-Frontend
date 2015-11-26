@@ -51,9 +51,9 @@ GpsBrowserBlockChecker.prototype.start = function start() {
     }
 };
 GpsBrowserBlockChecker.prototype.testGps = function test() {
-    var properties = { enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 1};
+    var properties = { enableHighAccuracy: false,
+        timeout: 3000,
+        maximumAge: 600000};
     this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
         properties );
