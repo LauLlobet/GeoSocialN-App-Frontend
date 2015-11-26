@@ -1,13 +1,4 @@
-var angle = 90;
-
-var canvasBg = document.getElementById('canvasBg');
-
-
 /// ------------------------ cut and paste --------------------
-
-        ///
-
-               ///
 var underscore = _;
 function CookieManager(){
 }
@@ -18,7 +9,6 @@ CookieManager.prototype.setCookie = function setCookie(cname, cvalue, exdays) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
-
 CookieManager.prototype.getCookie = function (cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -29,15 +19,11 @@ CookieManager.prototype.getCookie = function (cname) {
     }
     return "";
 }
-
 CookieManager.prototype.deleteCookie = function (cname) {
     this.setCookie(cname,"");
 }
-
 var latitude = 40;
 var longitude = 40;
-
-
 function GpsBrowserBlockChecker(gpsInterface, reloadInterface, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface) {
     this.gpsInterface = gpsInterface;
     this.loadingTimeLineToTellToContinue = loadingTimeLineToTellToContinue;
@@ -64,7 +50,6 @@ GpsBrowserBlockChecker.prototype.start = function start() {
             break;
     }
 };
-
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { enableHighAccuracy: true,
         timeout: 3000,
@@ -91,10 +76,6 @@ GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
     alert("error get pos");
 };
 /// --------------------
-
-///
-
-///
 var loadingTimeLineToTellToContinue = {
     gpsIsEnabledAndWorkingCalled : false,
     gpsIsEnabledAndWorking : function gpsIsEnabledAndWorking() {
@@ -124,9 +105,53 @@ var gpsErrorMessageDisplayerInterface = {
     }
 };
 
-var gpsManager = new GpsBrowserBlockChecker(navigator.geolocation, location, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface);
+var sitePolicy = {
 
-document.getElementById("unblockGPS").style.display = "none";
-document.getElementById("acceptGPS").style.display = "none";
+    ifAcceptedNowOrInThePastDo: function (callback) {
+        this.cookieManager = new CookieManager();
+        switch( this.cookieManager.getCookie("acceptedPolicy") ) {
+            case "yes":
+                callback();
+                break;
+            default:
+                this.showPolicyMessage(callback);
+        }
+    },
+    showPolicyMessage: function (callback) {
+        var initialMsg = "No hate message allowed, the site will use cookies to work, click cancel for details or ok to accept.";
+        var userLang = navigator.language || navigator.userLanguage;
+        switch(userLang){
+            case "es":
+                initialMsg = "No se permiten mensajes de odio en esta app, la app utiliza cookies, clicka cancelar para obtener mas detalles o aceptar per entrar";
+            case "ca":
+                initialMsg = "No es permeten missatges d'odi en aquesta app, la app utilitza cookies, clicka cancelar per a mes informació o aceptar per entrar";
+        }
+        var r = confirm(initialMsg);
 
-gpsManager.start();
+        if (r == true) {
+            this.cookieManager.setCookie("acceptedPolicy","yes")
+            callback();
+        } else {
+            var r = confirm("Hate speech is prohibited and defined as “content that promotes hatred or violence towards groups of people based on their race or ethnic origin, religion, disability, gender, age, veteran status, or sexual orientation/gender identity."+
+                "We ask you to placed cookies on your computer to help make this website better");
+            if (r == true) {
+                this.cookieManager.setCookie("acceptedPolicy","yes")
+                callback();
+            } else {
+                var r = confirm("you cannot use this website if you don't accept it's policy. Please accept by pressing ok or leave it");
+                if (r == true) {
+                    this.cookieManager.setCookie("acceptedPolicy","yes")
+                    callback();
+                } else {
+                    alert("you cannot use this website if you don't accept it's policy. Please reload it if you want to use it")
+                }
+            }
+        }
+    }
+}
+sitePolicy.ifAcceptedNowOrInThePastDo( function() {
+    var gpsManager = new GpsBrowserBlockChecker(navigator.geolocation, location, loadingTimeLineToTellToContinue, gpsErrorMessageDisplayerInterface);
+    document.getElementById("unblockGPS").style.display = "none";
+    document.getElementById("acceptGPS").style.display = "none";
+    gpsManager.start();
+});
