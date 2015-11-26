@@ -78,6 +78,9 @@ define(['../lib/underscore', "/VisitTreeNumber/scenes/Constants.js"], function (
         var that = this.bussinesController;
         var constantsThat = constants;
         this.bussinesController.updateWithoutMoving().then(function () {
+
+            that.appHasStarted();
+
             if (that.incommingList.emptyTrees === 0) {
                 that.sceneLoaderInterface.stackLoadScene('forestSwipeRight', [undefined, {id: constantsThat.specialTreesCodes.fullForest, text: ""}, undefined]);
             } else {

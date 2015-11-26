@@ -47,17 +47,44 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
     var blockElement = function (element) {
         var elem = document.getElementById(element);
         if (elem !== null) {
-            elem.style.display = "block";
+            fadeIn(elem);
         }
     };
 
+    var fadeOut = function fade(element) {
+        var op = 1;  // initial opacity
+        var timer = setInterval(function () {
+            if (op <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op * 0.1;
+        }, 1);
+    };
+
+    var fadeIn = function fadeIn(element) {
+        var op = 0.1;  // initial opacity
+        element.style.display = 'block';
+        var timer = setInterval(function () {
+            if (op >= 1){
+                clearInterval(timer);
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op += op * 0.1;
+            alert("here");
+        }, 1);
+    }
 
     var displayNoneElement = function (element) {
         var elem = document.getElementById(element);
         if (elem !== null) {
-            elem.style.display = "none";
+            fadeOut(elem);
         }
     };
+
     var setPrecision = function (precision) {
         var elem = document.getElementById("calibratingGPSPrecision");
         if (elem !== null) {
@@ -75,6 +102,10 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
 
     PhaserGame.prototype.handleCorrect = function handleCorrect() {
         //displayNoneElement("turn");
+    };
+
+    PhaserGame.prototype.removeWelcomeScreen = function removeWelcomeScreen() {
+        displayNoneElement("welcomeScreen");
     };
 
     PhaserGame.prototype.handleDesktop = function handleDesktop() {

@@ -148,6 +148,21 @@
             z-index: 68;
         }
 
+        #welcomeScreen{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-color:white;
+            background-image:url('assets/titleScreen.png');
+            background-repeat:no-repeat;
+            background-position: center center;
+            background-size:cover;
+            display:none;
+            z-index: 68;
+        }
+
         .buttonIgnorePrecision{
             width:100%;
             height:100%;
@@ -241,6 +256,10 @@
         </div>
     </div>
 
+    <div id = "welcomeScreen">
+    </div>
+
+
     <script>
         ignorePrecision = function (){
             phaserGameGlobal.ignorePrecisionGps();
@@ -296,6 +315,7 @@
     <script type="text/javascript" src="http://s.imgur.com/min/embed.js"></script>
     <script>
         displayNoneElement('popUp');
+        blockElement('welcomeScreen');
         //setHtmlContent('popUpContent','<blockquote class="imgur-embed-pub" lang="en" data-id="XRzgjor"></blockquote>');
     </script>
     <canvas id="canvasBg" width="800" height="498"></canvas>

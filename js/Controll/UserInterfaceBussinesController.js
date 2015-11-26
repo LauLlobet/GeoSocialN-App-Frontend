@@ -345,6 +345,11 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     UserInterfaceBussinesController.prototype.forceHandlePrecisionAlerts = function () {
         this.gpsMovmentTrigger.forceHandlePrecisionAlerts();
     }
+
+    UserInterfaceBussinesController.prototype.appHasStarted = function () {
+        this.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame.removeWelcomeScreen();
+    }
+
     var isNumeric = function isNumeric(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }

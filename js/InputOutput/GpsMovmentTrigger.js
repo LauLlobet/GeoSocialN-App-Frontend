@@ -47,12 +47,11 @@ define(["../lib/underscore", "/VisitTreeNumber/js/util/CoordinatesCalculator.js"
         var pos2;
         if (navigator.userAgent.match("emulated") !== null) {
             console.log("Forged accuracy:" + forgedAccuracy);
-            pos2 = { coords:{
+            pos2 = { coords: {
                 latitude : position.coords.latitude,
                 longitude : position.coords.longitude,
                 accuracy : forgedAccuracy
-                }
-            }
+            }};
             this.updateFunction(pos2);
             return;
         }
@@ -85,11 +84,11 @@ define(["../lib/underscore", "/VisitTreeNumber/js/util/CoordinatesCalculator.js"
         }
     };
     GpsMovmentTrigger.prototype.errorCallback = function errorCallback(error) {
-        if (navigator.userAgent.match("emulated") === null) {
+        /*if (navigator.userAgent.match("emulated") === null) {
             alert("error tracking coordinates");
-        } else {
+        } else {*/
             console.log("error tracking coordinates" + error + " " + error.stack);
-        }
+        /*}*/
 
     };
 
