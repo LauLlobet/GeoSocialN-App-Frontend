@@ -75,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0375">
-              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -84,8 +84,8 @@
       <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.814815">
-              <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+            <state vertical-scroll-proportion="-8.481482">
+              <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -932,7 +932,7 @@
       <workItem from="1447411452250" duration="5691000" />
       <workItem from="1447950415645" duration="107000" />
       <workItem from="1447950576363" duration="12594000" />
-      <workItem from="1448532081311" duration="7079000" />
+      <workItem from="1448532081311" duration="7324000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1232,7 +1232,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1094265000" />
+    <option name="totallyTimeSpent" value="1094510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="80" width="1390" height="746" extended-state="0" />
@@ -1698,8 +1698,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.814815">
-          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+        <state vertical-scroll-proportion="-8.481482">
+          <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1707,7 +1707,7 @@
     <entry file="file://$PROJECT_DIR$/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0375">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
           <folding />
         </state>
       </provider>
