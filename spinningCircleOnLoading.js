@@ -66,14 +66,18 @@ GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallba
     longitude = position.coords.longitude;
 };
 GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
-    var PERMISSION_DENIED = 1;
+    var PERMISSION_DENIED = 1,
+        TIMEOUT = 3;
     if(error.code === PERMISSION_DENIED){
         this.cookieManager.setCookie("gpsOn", "test");
-    }else{
+        this.reloadInterface.reload();
+    }else if(error.code === TIMEOUT){
+        alert("FAHA2 TIMEOUT "+ error.code + "---" + error.TIMEOUT);
+        this.testGps();
+    } else {
         this.cookieManager.setCookie("gpsOn", "positionunavaliable");
+        this.reloadInterface.reload();
     }
-    alert("FAHA2 TIMEOUT "+ error.code + "---" + error.TIMEOUT);
-    this.reloadInterface.reload();
 };
 /// --------------------
 var loadingTimeLineToTellToContinue = {
