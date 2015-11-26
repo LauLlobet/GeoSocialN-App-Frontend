@@ -72,7 +72,7 @@ GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
     }else{
         this.cookieManager.setCookie("gpsOn", "positionunavaliable");
     }
-    alert("error get pos"+ error.code);
+    alert("This Shoudlnt appeare FAHA"+ error.code);
     this.reloadInterface.reload();
 };
 /// --------------------
@@ -96,7 +96,7 @@ var gpsErrorMessageDisplayerInterface = {
     },
     displayPositionUnavaliableMessage : function displayPositionUnavaliableMessage() {
         if(navigator.userAgent.match("emulated") === null ) {
-            alert("Circle: El teu gps no acaba de trobar la posicio, espera una mica");
+            alert("Espera una mica");
         }
     },
     displayUnblockGpsMessageCalled: false,
