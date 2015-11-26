@@ -52,8 +52,8 @@ GpsBrowserBlockChecker.prototype.start = function start() {
 };
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { enableHighAccuracy: true,
-        timeout: 3000,
-        maximumAge: 0};
+        timeout: 10000,
+        maximumAge: 1};
     this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
         properties );
@@ -72,8 +72,8 @@ GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
     }else{
         this.cookieManager.setCookie("gpsOn", "positionunavaliable");
     }
+    alert("error get pos"+ error.code);
     this.reloadInterface.reload();
-    alert("error get pos");
 };
 /// --------------------
 var loadingTimeLineToTellToContinue = {
