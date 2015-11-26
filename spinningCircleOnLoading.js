@@ -52,8 +52,8 @@ GpsBrowserBlockChecker.prototype.start = function start() {
 };
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { enableHighAccuracy: false,
-        timeout: 3000,
-        maximumAge: 600000};
+        timeout: 20000,
+        maximumAge: 6000000};
     this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
         properties );
@@ -72,7 +72,7 @@ GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
     }else{
         this.cookieManager.setCookie("gpsOn", "positionunavaliable");
     }
-    alert("This Shoudlnt appeare FAHA"+ error.code);
+    alert("FAHA2 TIMEOUT "+ error.code + "---" + error.TIMEOUT);
     this.reloadInterface.reload();
 };
 /// --------------------
