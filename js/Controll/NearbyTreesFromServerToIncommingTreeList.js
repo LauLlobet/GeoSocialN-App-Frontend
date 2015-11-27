@@ -47,7 +47,7 @@ define(["/VisitTreeNumber/js/lib/underscore.js", "/VisitTreeNumber/js/Model/Tree
 
         return this.treeRestClient.getSpecificTree(treeId).then( function (ans) {
             if (ans.treeContent === null) {
-                ans.treeContent.text = "this tree is null";
+                throw("notfound");
             }
             that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;
         }).catch(function (error) {
