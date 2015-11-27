@@ -53,17 +53,17 @@ define([], function () {
     PasswordDialog.prototype.getText = function getText() {
         return this.text;
     };
-    PasswordDialog.prototype.addChar = function addChar(char) {
+    PasswordDialog.prototype.addChar = function addChar(character) {
         if (this.text.length > passwordSizeLimit) {
             return;
         }
-        this.addCharWithoutRestriction(char);
+        this.addCharWithoutRestriction(character);
     };
-    PasswordDialog.prototype.addCharWithoutRestriction = function addCharWithoutRestriction(char) {
+    PasswordDialog.prototype.addCharWithoutRestriction = function addCharWithoutRestriction(character) {
         if (this.text.length >= passwordSizeLimit) {
             return;
         }
-        this.text +=  char;
+        this.text +=  character;
         this.setText(this.text);
     };
     PasswordDialog.prototype.removeChar = function removeChar() {

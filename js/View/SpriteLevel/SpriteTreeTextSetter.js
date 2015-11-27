@@ -15,10 +15,10 @@ define(['../../lib/underscore', "../../lib/rsvp"], function (undercore, rspv) {
             spriteTreeTextSetter.stopTyping();
         }
     };
-    SpriteTreeTextSetter.prototype.addChar = function addChar(tableEntryId, char) {
+    SpriteTreeTextSetter.prototype.addChar = function addChar(tableEntryId, character) {
         var tree = this.spriteManagerPhaser.findTreeSpriteGroupByName(tableEntryId),
             spriteTreeTextSetter = tree.textSetter;
-        spriteTreeTextSetter.addChar(char);
+        spriteTreeTextSetter.addChar(character);
         return spriteTreeTextSetter.text;
     };
 

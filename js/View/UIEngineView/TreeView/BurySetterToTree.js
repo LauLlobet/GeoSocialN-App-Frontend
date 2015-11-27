@@ -203,7 +203,7 @@ define([], function () {
         var indexOf = string.substring(startpos || 0).search(regex);
         return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
     };
-    BurySetterToTree.prototype.toInteresparceRegexp = function (string, char) {
+    BurySetterToTree.prototype.toInteresparceRegexp = function (string, character) {
         var i,
             regexp = "",
             toconvert;
@@ -211,7 +211,7 @@ define([], function () {
         for (i = 0; i < toconvert.length; i += 1) {
             regexp += toconvert.charAt(i);
             if (toconvert.charAt(i) !== '\\') {
-                regexp += "[" + char + "]*";
+                regexp += "[" + character + "]*";
             }
         }
         return regexp;

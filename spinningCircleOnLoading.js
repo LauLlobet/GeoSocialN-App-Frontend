@@ -99,7 +99,7 @@ var gpsErrorMessageDisplayerInterface = {
     },
     displayPositionUnavaliableMessage : function displayPositionUnavaliableMessage() {
         if(navigator.userAgent.match("emulated") === null ) {
-            alert("Espera una mica");
+            //alert("Espera una mica");
         }
     },
     displayUnblockGpsMessageCalled: false,

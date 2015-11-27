@@ -169,10 +169,10 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         });
     };
 
-    UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(char) {
+    UserInterfaceBussinesController.prototype.clickedOnKey = function clickedOnKey(character) {
         var that = this;
         if (this.state === WRITTING) {
-            if (char === "ok") {
+            if (character === "ok") {
                 this.putTreeOnServer().then(function () {
                     that.state = NAVIGATE;
                     that.keyboardInterface.hideOnScene();
@@ -185,31 +185,31 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
                     that.sceneTreeTextSetterInterface.setIsTyping(false);
                     that.gpsMovmentTrigger.setPrecisionNowIsNotImportant();
                 });
-            } else if (char === "cancel") {
+            } else if (character === "cancel") {
                 this.state = NAVIGATE;
                 this.keyboardInterface.hideOnScene();
                 this.sceneTreeTextSetterInterface.setIsTyping(false);
-            } else if (char === "backwards") {
+            } else if (character === "backwards") {
                 this.sceneTreeTextSetterInterface.removeChar();
             } else {
-                this.sceneTreeTextSetterInterface.addChar(char);
+                this.sceneTreeTextSetterInterface.addChar(character);
             }
         } else if (this.state === PASSWORD) {
-            if (char === "ok") {
+            if (character === "ok") {
                 if (this.passwordDialog.getText() === this.getPasswordFromLockedTree()) {
                     this.unBuryLayer("lock");
                 }
                 this.passwordDialog.hideAndSetNoText();
                 this.keyboardInterface.hideOnScene();
                 this.state = NAVIGATE;
-            } else if (char === "cancel") {
+            } else if (character === "cancel") {
                 this.passwordDialog.hideAndSetNoText();
                 this.keyboardInterface.hideOnScene();
                 this.state = NAVIGATE;
-            } else if (char === "backwards") {
+            } else if (character === "backwards") {
                 this.passwordDialog.removeChar();
             } else {
-                this.passwordDialog.addChar(char);
+                this.passwordDialog.addChar(character);
             }
         }
     };

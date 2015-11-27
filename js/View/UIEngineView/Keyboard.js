@@ -42,7 +42,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         var row = 0,
             charPos = 0,
             position,
-            char,
+            character,
             keys = KeyboardDescriptor.keys;
         if (this.state === FEATURES) {
             this.addFeaturesCharacters(KeyboardDescriptor.featuresKeyboard);
@@ -67,9 +67,9 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         }
         for (row = 0; row < keys.length; row += 1) {
             for (charPos = 0; charPos < keys[row].length; charPos += 1) {
-                char = keys[row][charPos];
+                character = keys[row][charPos];
                 position = this.calculatePosition(row, charPos, true);
-                this.createChar(position, char);
+                this.createChar(position, character);
             }
         }
         position = this.calculatePosition(row - 1, charPos, true);
@@ -107,18 +107,18 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         this.addKeyChar(description, sprite, 0.1, this.keyboardGroup);
     }
 
-    Keyboard.prototype.createChar = function (position, char) {
-        var sprite = this.addKeyBackground(position, char, "keyBackground");
-        this.addKeyChar(char, sprite, 0.2, this.keyboardGroup);
+    Keyboard.prototype.createChar = function (position, character) {
+        var sprite = this.addKeyBackground(position, character, "keyBackground");
+        this.addKeyChar(character, sprite, 0.2, this.keyboardGroup);
     };
 
-    Keyboard.prototype.addKeyBackground = function (position, char, background) {
+    Keyboard.prototype.addKeyBackground = function (position, character, background) {
         var sprite = this.keyboardGroup.create(position.x, position.y, background),
             context = {
                 observer : this.gestureObserver,
                 sprite : sprite,
                 game : this.game,
-                char : char,
+                character : character,
                 popupDistance : KeyboardDescriptor.popupDistance,
                 keyboardGroup : this.keyboardGroup,
                 backgroundSprite : background,
@@ -137,11 +137,11 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
             if (this.sprite.hasCharacterWrittenOnImage !== undefined) {
                 this.keyboard.createPopupCharSprite(this, 75, 200, 75);
             }
-            if (this.char === SWITCH) {
+            if (this.character === SWITCH) {
                 this.keyboard.nextKeyboardState();
                 this.keyboard.buildKeyboardFromState();
             } else {
-                this.observer.clickedOnKey(this.char);
+                this.observer.clickedOnKey(this.character);
             }
         }, context);
         sprite.alive = true;
@@ -156,9 +156,9 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
         }
     }
 
-    Keyboard.prototype.addKeyChar = function iaddKeyChar(char, sprite, scale, group) {
+    Keyboard.prototype.addKeyChar = function iaddKeyChar(character, sprite, scale, group) {
 
-        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', char, 24),
+        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', character, 24),
             textImage =  group.create(0, 0, tmp.generateTexture());
         tmp.destroy();
         textImage.scale.x = 0.90;
@@ -212,7 +212,7 @@ define(["../../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
 
 
     Keyboard.prototype.createPopupCharSprite = function createPopupCharSprite (context, appeareT,stillT,disappeareT) {
-        var characterImage = context.keyboard.addKeyChar(context.char, context.newsprite, 0.3,context.popupGroup);
+        var characterImage = context.keyboard.addKeyChar(context.character, context.newsprite, 0.3,context.popupGroup);
         characterImage.z = 50;
         var kappeare = context.game.add.tween(characterImage).to({alpha: 1}, appeareT, 'Linear', false, 0, 0);
         var kstill = context.game.add.tween(characterImage ).to({alpha: 1}, stillT, 'Linear', false, 0, 0);

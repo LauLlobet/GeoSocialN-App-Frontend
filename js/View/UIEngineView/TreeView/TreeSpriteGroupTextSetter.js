@@ -38,9 +38,9 @@ define(["./LinkSetterToTree", "./BurySetterToTree"], function (LinkSetterToTree,
         this.textImage.scale.x = 0.90;
         this.textImage.scale.y = 0.90;
     };
-    TreeSpriteGroupTextSetter.prototype.addChar = function addChar(char) {
+    TreeSpriteGroupTextSetter.prototype.addChar = function addChar(character) {
         this.setEditing(true);
-        this.setText(this.text + char);
+        this.setText(this.text + character);
     };
     TreeSpriteGroupTextSetter.prototype.removeChar = function removeChar() {
         this.setText(this.text.substring(0, this.text.length - 1));
