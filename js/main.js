@@ -12,7 +12,6 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
     NotPreciseAlert) {
         "use strict";
 
-        alert("version 1");
         var timeout = 1000,
             tryLaunch = {},
             start = function start() {

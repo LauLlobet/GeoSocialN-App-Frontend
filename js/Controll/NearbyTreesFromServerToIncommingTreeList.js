@@ -51,7 +51,7 @@ define(["/VisitTreeNumber/js/lib/underscore.js", "/VisitTreeNumber/js/Model/Tree
             }
             that.mapOfTreesById[ans.treeContent.id] = ans.treeContent;
         }).catch(function (error) {
-            alert("error");
+            alert("Tree id not found");
             console.log(error.stack);
         });
     };

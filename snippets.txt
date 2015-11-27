@@ -37,4 +37,13 @@
      var trc = new TreeRestClient();
      trc.deleteAll();
      });
+
+
+
+       require(["/VisitTreeNumber/js/lib/restful.js", "/VisitTreeNumber/js/Model/TreeRestClient.js"], function (restful, TreeRestClient) {
+          var trc = new TreeRestClient();
+          trc.deleteAll();
+          });
+
+
      */
