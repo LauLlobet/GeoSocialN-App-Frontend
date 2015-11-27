@@ -7,8 +7,12 @@
         <servlet-name>default</servlet-name>
         <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
         <init-param>
-            <param-name>cacheControl</param-name>
-            <param-value>no-cache,public</param-value>
+            <param-name>CacheControl</param-name>
+            <param-value>no-cache,public,no-store,must-revalidate</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Pragma</param-name>
+            <param-value>no-cache</param-value>
         </init-param>
     </servlet>
 </web-app>

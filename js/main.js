@@ -11,6 +11,8 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
               UserInterfaceBussinesController, Keyboard, NewlyPresentedTreeSubjectNotifier, TextDialogHtml, BackgroundMap,
     NotPreciseAlert) {
         "use strict";
+
+        alert("version 1");
         var timeout = 1000,
             tryLaunch = {},
             start = function start() {
