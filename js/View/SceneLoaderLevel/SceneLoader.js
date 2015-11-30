@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser*/
 /*jslint todo: true */
-define(['../../lib/underscore', "../../../scenes/ForestSwipeRight", "../../../scenes/ForestSwipeLeft", './StackOfScenes'], function (underscore, forestSwipeRight, forestSwipeLeft, StackOfScenes   ) {
+define(['../../lib/underscore', "../../scenes/ForestSwipeRight", "../../scenes/ForestSwipeLeft", './StackOfScenes'], function (underscore, forestSwipeRight, forestSwipeLeft, StackOfScenes   ) {
     "use strict";
 
     function SceneLoader(spriteManagerPhaserApiInterface, newlyPresentedTreeSubjectNotifier) //noinspection JSLint
