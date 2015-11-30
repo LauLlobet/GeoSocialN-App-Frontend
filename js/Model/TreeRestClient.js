@@ -10,7 +10,7 @@ define(['/VisitTreeNumber/js/lib/underscore.js', "/VisitTreeNumber/js/lib/restfu
                 .header("Accept", "application/json") // set global header
                 .prefixUrl('YOUR_PATH')
                 .port(8080);
-        var host = location.host.split(':')[0] === 'localhost' ? '52.10.176.122:80' : location.host;
+        var host = location.host.split(':')[0] === 'localhost' ? '52.35.8.50:80' : location.host;
         this.path = 'http://' + host + '/YOUR_PATH/trees';
     }
     TreeRestClient.prototype.deleteAll = function () {
