@@ -1,9 +1,9 @@
  {
-     baseUrl: "..",
-     name: "js/main",
-     out: "app-built.js",
+     baseUrl: "../js",
+     name: "main",
+     out: "app.js",
 
      paths: {
-         main: 'js/main',
+         main: 'main',
      }
  }
