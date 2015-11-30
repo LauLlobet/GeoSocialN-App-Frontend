@@ -4,7 +4,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
     "../View/SpriteLevel/SpriteTreeTextSetter", "../View/SceneLoaderLevel/SceneTreeKmSetter",
     "../View/SpriteLevel/SpriteTreeKmCounterSetter", "../View/SceneLoaderLevel/SceneTreeCompassSetter",
     "../View/SpriteLevel/SpriteTreeCompassSetter", "./RelativeLocationCalculator", "../View/UIEngineView/PasswordDialog",
-    "./LeafPileUnburier", "../js/View/UIEngineView/VotingPanel.js", "../js/View/UIEngineView/FlowerPanel.js",
+    "./LeafPileUnburier", "../View/UIEngineView/VotingPanel", "../View/UIEngineView/FlowerPanel",
     "./IncommingTreesEmptyOnesAndDiscardedCueMixer", "../lib/rsvp"], function (GpsMovmentTrigger, NearbyTreesFromServerToIncommingTreeList,
                                                 TreeLoaderToSceneLoaderFromLists, TreeRestClient,
                                                 FillerOfIncommingListIfItGetsEmpty, HashChangeTrigger,

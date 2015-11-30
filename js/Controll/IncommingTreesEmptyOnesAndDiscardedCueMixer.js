@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['lib/underscore.js', 'util/CoordinatesCalculator.js', 'Controll/MapKmToDistanceUnits.js'], function (underscore,
+define(['lib/underscore', '../util/CoordinatesCalculator', './MapKmToDistanceUnits'], function (underscore,
                                                                                                                     CoordinatesCalculator,
                                                                                                                     MapKmToDistanceUnits) {
     "use strict";

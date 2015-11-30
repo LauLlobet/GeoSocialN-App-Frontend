@@ -1,6 +1,6 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore', '../util/CoordinatesCalculator.js'], function (underscore, CoordinatesCalculator) {
+define(['../lib/underscore', '../util/CoordinatesCalculator'], function (underscore, CoordinatesCalculator) {
     "use strict";
     var limitToUnbury = 14;
 

@@ -3,7 +3,7 @@
  */
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore', "../scenes/Constants.js"], function (underscore, constants) {
+define(['../lib/underscore', "../scenes/Constants"], function (underscore, constants) {
     "use strict";
     function WelcomeOfUserDinamic(bussinesController) {
         this.bussinesController = bussinesController;

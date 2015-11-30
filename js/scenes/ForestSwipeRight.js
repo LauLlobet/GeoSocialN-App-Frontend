@@ -1,6 +1,6 @@
 
 /*global define, require, module, asyncTest, equal, start, QUnit, setTimeout, notEqual*/
-define([ "/VisitTreeNumber/js/scenes/WriteButton.js"], function (writteButton) {
+define([ "./WriteButton"], function (writteButton) {
     'use strict';
     var time = 1000,
         widthFactor = 400 / 200;
