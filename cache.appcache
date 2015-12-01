@@ -1,6 +1,5 @@
 CACHE MANIFEST
-#v 0.1.4
-compiled.js
+#v 0.1.5
 assets/plant.ogg
 assets/unbell.ogg
 assets/bell.ogg
@@ -39,7 +38,6 @@ assets/flower.png
 assets/fondoTeclat.png
 assets/font.fnt
 assets/font.png
-assets/FontsLitteraProject.ltr
 assets/fullTerritory.png
 assets/heartBg.png
 assets/ignorePrecision.png
@@ -90,6 +88,6 @@ assets/welcomeEs.png
 assets/yesPreciseAlert.png
 build/main.js
 spinningCircleOnLoading.js
+js/main.js
 NETWORK:
 *
-js/main.js
