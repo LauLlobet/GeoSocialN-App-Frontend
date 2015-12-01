@@ -1,7 +1,7 @@
  {
      baseUrl: "../js",
      name: "main",
-     out: "app.js",
+     out: "main.js",
 
      paths: {
          main: 'main',
