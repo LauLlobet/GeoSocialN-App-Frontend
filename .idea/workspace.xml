@@ -91,8 +91,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7250509">
-              <caret line="338" column="5" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.5417515">
+              <caret line="319" column="13" selection-start-line="319" selection-start-column="13" selection-end-line="319" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -1005,7 +1005,7 @@
       <workItem from="1447950576363" duration="12594000" />
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
-      <workItem from="1448814499186" duration="10749000" />
+      <workItem from="1448814499186" duration="11352000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1305,7 +1305,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1115371000" />
+    <option name="totallyTimeSpent" value="1115974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="103" width="1390" height="746" extended-state="0" />
@@ -1809,8 +1809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7250509">
-          <caret line="338" column="5" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.5417515">
+          <caret line="319" column="13" selection-start-line="319" selection-start-column="13" selection-end-line="319" selection-end-column="13" />
           <folding />
         </state>
       </provider>
