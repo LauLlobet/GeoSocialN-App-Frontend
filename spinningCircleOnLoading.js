@@ -71,7 +71,7 @@ GpsBrowserBlockChecker.prototype.errorCallback = function errorCallback(error) {
         this.cookieManager.setCookie("gpsOn", "test");
         this.reloadInterface.reload();
     }else if(error.code === TIMEOUT){
-        alert("FAHA2 TIMEOUT "+ error.code + "---" + error.TIMEOUT);
+        alert("Timeout problems with the GPS");
         this.testGps();
     } else {
         this.cookieManager.setCookie("gpsOn", "positionunavaliable");

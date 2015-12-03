@@ -33,6 +33,7 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
                 phaserGameGlobal = phaserGame;
                 bussinesControllerGlobal = userInterfaceBussinesController;
             };
+        alert("version 1Publisher");
         tryLaunch.tryit = function() {
             alert("went wrong");
         };
