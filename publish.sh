@@ -17,7 +17,7 @@ sed -i -- 's*js/main*build/main*g' index.html
 cp ../spinningCircleOnLoading.js .
 mkdir build;
 cp ../build/main.js ./build/
-sed -i -- 's*&&version&&*$1*g' build/main.js
+sed -i -- "s*&&version&&*$1*g" build/main.js
 mkdir js/lib
 
 ############################
@@ -28,7 +28,7 @@ if [ "$2" == "debug" ]; then
        echo -e "\033[37m …"
 	mkdir dbg
 	rsync -av --progress .. dbg/ --exclude dbg > /dev/null
-	sed -i -- 's*&&version&&*$1*g' dbg/js/main.js
+	sed -i -- "s*&&version&&*$1*g" dbg/js/main.js
 fi
 
 ############################
