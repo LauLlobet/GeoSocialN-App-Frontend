@@ -11,8 +11,11 @@ define([], function () {
         if (metres < 50) {
             return 2;
         }
+        if (metres < 75) {
+            return 4;
+        }
         if (metres < 100) {
-            return 6;
+            return 5;
         }
         if (metres < 200) {
             return 7;
