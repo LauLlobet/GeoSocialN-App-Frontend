@@ -26,7 +26,7 @@ mkdir js/lib
 if [ "$2" == "debug" ]; then
        echo -e "\033[31m Deploying a debug instance in server!!" 
 	mkdir dbg
-	rsync -av --progress .. dbg/ --exclude dbg $1> /dev/null
+	rsync -av --progress .. dbg/ --exclude dbg #$1> /dev/null
 	sed -i -- 's*&&version&&*$1*g' dbg/js/main.js
 fi
 
