@@ -19,7 +19,7 @@ mkdir js/lib
 ############################
 ##  DELETE when PRODUCTION #
 ############################
-
+echo "second argument:*$2*"
 if [ "$2" == "debug" ]; then
        echo -e "\033[31m Deploying a debug instance in server!!" 
 	mkdir dbg
