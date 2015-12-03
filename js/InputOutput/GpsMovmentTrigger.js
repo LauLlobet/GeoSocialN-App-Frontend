@@ -46,7 +46,7 @@ define(["../lib/underscore", "../util/CoordinatesCalculator"], function (undersc
     GpsMovmentTrigger.prototype.userHasMovedUpdateFunction = function userHasMovedUpdateFunction(position) {
         var pos2;
         if (navigator.userAgent.match("emulated") !== null) {
-            console.log("Forged accuracy:" + forgedAccuracy);
+            console.log("forged accuracy:" + forgedAccuracy);
             pos2 = { coords: {
                 latitude : position.coords.latitude,
                 longitude : position.coords.longitude,
@@ -72,7 +72,6 @@ define(["../lib/underscore", "../util/CoordinatesCalculator"], function (undersc
             this.bussinesController.userHasMoved(position.coords);
             this.lastMoveCoordinates = position.coords;
             this.isFirstIteration = false;
-            console.log("GPS: Accuracy:" + position.coords.accuracy + " lattitude:" +  position.coords.latitude );
         }
         this.relativeLocationCalculator !== undefined ? this.relativeLocationCalculator.onNewlyLocationOfTheCellPhone(position.coords) : console.log("relativeLocationCalculator Not Set Yet");
         this.relativeLocationCalculator !== undefined ? this.leafPileUnburier.onNewlyLocationOfTheCellPhone(position.coords) : console.log("leafPileUnburier Not Set Yet");
