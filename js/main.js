@@ -33,7 +33,7 @@ require(["View/SceneLoaderLevel/SceneLoader", "View/SpriteLevel/SpriteManagerPha
                 phaserGameGlobal = phaserGame;
                 bussinesControllerGlobal = userInterfaceBussinesController;
             };
-        console.log("###### Wiressly version: &&version&& ######", 'background: #222; color: #bada55');
+        console.log("%c ###### Wiressly version: &&version&& ######", 'background: #222; color: #bada55');
         tryLaunch.tryit = function() {
             alert("went wrong");
         };
