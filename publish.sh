@@ -1,6 +1,7 @@
 
 cd build 
 node r.js -o build.single.js
+nodejs r.js -o build.single.js
 cd ..
 cd dist
 rm -rf *
