@@ -13,7 +13,7 @@ sed -i -- 's*js/main*build/main*g' index.html
 cp ../spinningCircleOnLoading.js .
 mkdir build;
 cp ../build/main.js ./build/
-sed -i -- 's*&&version&&*$1*g' /build/main.js
+sed -i -- 's*&&version&&*$1*g' build/main.js
 mkdir js/lib
 
 ############################
