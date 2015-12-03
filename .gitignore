@@ -2,3 +2,8 @@
 scripts/*
 dist/**
 build/main.js
+dist/build/main.js
+dist/cache.appcache
+dist/index.html
+dist/spinningCircleOnLoading.js
+dist/*
