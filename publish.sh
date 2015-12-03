@@ -1,4 +1,8 @@
-
+if [ -z "$1" ] && [ -z "$2" ]; then
+  echo "USAGE: ./publish.sh versionName  [debug|nodebug]"
+  echo "FOUND: ./publish.sh $1 $2"
+  exit;
+fi
 cd build 
 node r.js -o build.single.js
 nodejs r.js -o build.single.js
@@ -19,7 +23,6 @@ mkdir js/lib
 ############################
 ##  DELETE when PRODUCTION #
 ############################
-echo "second argument:*$2*"
 if [ "$2" == "debug" ]; then
        echo -e "\033[31m Deploying a debug instance in server!!" 
 	mkdir dbg
