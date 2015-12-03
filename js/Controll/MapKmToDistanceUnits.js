@@ -9,24 +9,24 @@ define([], function () {
             return 0;
         }
         if (metres < 50) {
-            return 1;
+            return 2;
         }
         if (metres < 100) {
-            return 3;
+            return 6;
         }
         if (metres < 200) {
-            return 4;
+            return 7;
         }
         if (metres < 400) {
-            return 10;
+            return 13;
         }
         if (metres < 5000) {
-            return Math.round(metres / 1000) * 2 + 10;
+            return Math.round(metres / 1000) * 2 + 13;
         }
         if (metres < 10000) {
-            return Math.round(Math.round(metres / 1000) * 0.5) + 20;
+            return Math.round(Math.round(metres / 1000) * 0.5) + 23;
         }
-        return Math.round(metres / 10000) + 25;
+        return Math.round(metres / 10000) + 28;
     };
     return MapKmToDistanceUnits;
 });

@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/MapKmToDistanceUnits.js" afterPath="$PROJECT_DIR$/js/Controll/MapKmToDistanceUnits.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -33,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="1" selection-start-line="115" selection-start-column="1" selection-end-line="115" selection-end-column="1" />
+              <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -84,8 +83,8 @@
       <file leaf-file-name="MapKmToDistanceUnits.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Controll/MapKmToDistanceUnits.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18292683">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            <state vertical-scroll-proportion="1.1371951">
+              <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -1022,7 +1021,7 @@
       <workItem from="1447950576363" duration="12594000" />
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
-      <workItem from="1448814499186" duration="20409000" />
+      <workItem from="1448814499186" duration="20714000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1322,7 +1321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1125031000" />
+    <option name="totallyTimeSpent" value="1125336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="22" width="1390" height="782" extended-state="0" />
@@ -1793,7 +1792,7 @@
     <entry file="file://$PROJECT_DIR$/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="1" selection-start-line="115" selection-start-column="1" selection-end-line="115" selection-end-column="1" />
+          <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1826,8 +1825,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/MapKmToDistanceUnits.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18292683">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state vertical-scroll-proportion="1.1371951">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
