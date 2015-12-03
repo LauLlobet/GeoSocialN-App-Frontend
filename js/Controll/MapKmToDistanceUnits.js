@@ -1,10 +1,9 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
-define(['../lib/underscore'], function (underscore) {
+define([], function () {
     "use strict";
-function MapKmToDistanceUnits() {
+    function MapKmToDistanceUnits() {
     }
-
     MapKmToDistanceUnits.prototype.map =  function (metres) {
         if (metres < 30) {
             return 0;
