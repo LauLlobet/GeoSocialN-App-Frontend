@@ -5,8 +5,135 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/0km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/13-512.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/1km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/2km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/3km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/4km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/5km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/6km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/7km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/8km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/9km.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/FontsLitteraProject.ltr" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/acceptGPS.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphaLayer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphaLayerBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet dobleWHITE.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet-doble.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/!.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/!.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/,.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/?.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/a.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/alphabet.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/alphabet.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/alphabet2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/b.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/c.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/d.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/e.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/f.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/g.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/h.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/i.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/j.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/k.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/l.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/m.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/n.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/o.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/p.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/q.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/r.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/s.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/t.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/u.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/v.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/w.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/x.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/y.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet/z.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabet2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/alphabetBLACK.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/bell.ogg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/buryBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/calibratingGPS0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/calibratingGPS2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/calibratingGPS5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/calibratingGPS7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/calibratingGPS9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/catBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/compasBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/downVote" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/downVote.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/enter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/exemple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/flower.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/fondoTeclat.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/font.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/font.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/fullTerritory.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/heartBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/ignorePrecision.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/influ1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/influ2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/keyBackground.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/keyBackwards.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/keyCancel.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/keyOk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/keySwitchKeyboard.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/kkm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/leaf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/linkBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/linkLayer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/loading.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/lock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/lock3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/lockBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/lockpick.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/miniTreeTrunk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/mkm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/needle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/nkm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/notPreciseAlert.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/passwordBox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/pileOfLeafs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/pin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/plant.ogg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/playmobile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/playportrait.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/point.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/punzon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/rake.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/realDimensionTree2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/realDimensionTree3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/realDimensionTree4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/realDimensionTree5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/returnToGame.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/spaceKey.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/titleScreen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/treeWithRoots.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/twitterBg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/ubuntu.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/ubuntu.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/unbell.ogg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/unblockGPS.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/upVote.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/welcomeCa.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/welcomeEn.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/welcomeEs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/yesPreciseAlert.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/build/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/cache.appcache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/lib/phaser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/lib/underscore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/require.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/spinningCircleOnLoading.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +160,7 @@
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+              <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -52,8 +179,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64912283">
-              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.7559055">
+              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -214,7 +341,7 @@
     <option name="x" value="53" />
     <option name="y" value="22" />
     <option name="width" value="1390" />
-    <option name="height" value="746" />
+    <option name="height" value="782" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1018,7 +1145,7 @@
       <workItem from="1447950576363" duration="12594000" />
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
-      <workItem from="1448814499186" duration="18429000" />
+      <workItem from="1448814499186" duration="19062000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1318,11 +1445,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1123051000" />
+    <option name="totallyTimeSpent" value="1123684000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="22" width="1390" height="746" extended-state="0" />
-    <editor active="true" />
+    <frame x="53" y="22" width="1390" height="782" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1335,7 +1462,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25148368" sideWeight="0.61301774" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13853504" sideWeight="0.5645401" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38403615" sideWeight="0.5645401" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49905837" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08308605" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1815,15 +1942,15 @@
     <entry file="file://$PROJECT_DIR$/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+          <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64912283">
-          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.7559055">
+          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding />
         </state>
       </provider>

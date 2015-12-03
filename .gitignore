@@ -1,3 +1,4 @@
 *.war
 scripts/*
 dist/**
+build/main.js
