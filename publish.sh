@@ -20,7 +20,7 @@ mkdir js/lib
 ##  DELETE when PRODUCTION #
 ############################
 
-if [ $2 == "debug" ]; then
+if [ "$2" == "debug" ]; then
        echo -e "\033[31m Deploying a debug instance in server!!" 
 	mkdir dbg
 	rsync -av --progress .. dbg/ --exclude dbg $1> /dev/null
