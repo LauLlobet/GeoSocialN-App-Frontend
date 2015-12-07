@@ -4,12 +4,8 @@ if [ -z "$1" ] && [ -z "$2" ]; then
   exit;
 fi
 
-
-
-
 rm -rf /var/lib/jetty/webapps/root/welcome/*
-cp -rf ../rootWebpage  /var/lib/jetty/webapps/root/welcome/
-
+cp -rf rootWebpage/*  /var/lib/jetty/webapps/root/welcome/
 
 cd build 
 node r.js -o build.single.js

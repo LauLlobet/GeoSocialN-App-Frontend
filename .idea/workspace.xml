@@ -33,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+              <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -116,8 +116,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rootWebsite/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62283736">
-              <caret line="231" column="53" selection-start-line="231" selection-start-column="53" selection-end-line="231" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.7785467">
+              <caret line="246" column="47" selection-start-line="246" selection-start-column="47" selection-end-line="246" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -1068,7 +1068,7 @@
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
-      <workItem from="1449473392691" duration="2738000" />
+      <workItem from="1449473392691" duration="2970000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1368,7 +1368,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1128800000" />
+    <option name="totallyTimeSpent" value="1129032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
@@ -1764,7 +1764,7 @@
     <entry file="file://$PROJECT_DIR$/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1839,8 +1839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rootWebsite/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62283736">
-          <caret line="231" column="53" selection-start-line="231" selection-start-column="53" selection-end-line="231" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.7785467">
+          <caret line="246" column="47" selection-start-line="246" selection-start-column="47" selection-end-line="246" selection-end-column="47" />
           <folding />
         </state>
       </provider>
