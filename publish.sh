@@ -3,6 +3,14 @@ if [ -z "$1" ] && [ -z "$2" ]; then
   echo "FOUND: ./publish.sh $1 $2"
   exit;
 fi
+
+
+
+
+rm -rf /var/lib/jetty/webapps/root/welcome/*
+cp -rf ../rootWebpage  /var/lib/jetty/webapps/root/welcome/
+
+
 cd build 
 node r.js -o build.single.js
 nodejs r.js -o build.single.js
@@ -37,7 +45,3 @@ cp ../js/lib/phaser.js ./js/lib/
 cp ../js/lib/underscore.js ./js/lib/
 cp ../js/require.js ./js/
 cp ../cache.appcache .
-
-
-rm -rf /var/lib/jetty/webapps/root/welcome/*
-cp -rf ../rootWebpage  /var/lib/jetty/webapps/root/welcome/
