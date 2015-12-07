@@ -5,7 +5,7 @@ if [ -z "$1" ] && [ -z "$2" ]; then
 fi
 
 rm -rf /var/lib/jetty/webapps/root/welcome/*
-cp -rf rootWebpage/*  /var/lib/jetty/webapps/root/welcome/
+cp -rf rootWebsite/*  /var/lib/jetty/webapps/root/welcome/
 
 cd build 
 node r.js -o build.single.js
