@@ -37,3 +37,7 @@ cp ../js/lib/phaser.js ./js/lib/
 cp ../js/lib/underscore.js ./js/lib/
 cp ../js/require.js ./js/
 cp ../cache.appcache .
+
+
+rm /var/lib/jetty/webapps/root/welcome/*
+cp -rf ../rootWebpage/*  /var/lib/jetty/webapps/root/welcome/
