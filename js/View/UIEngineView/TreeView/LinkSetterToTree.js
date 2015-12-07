@@ -4,7 +4,7 @@ define([], function () {
     function LinkSetterToTree() //noinspection JSLint
     {
             this.linklayers = [];
-            this.createdLinkLayers = [];
+            this.createdLinkSpritesStoredToDestroyThemLater = [];
     }
     LinkSetterToTree.prototype.setInteractiveLinksToRetroText = function (group, formatedText, id, gestureObserver) {
         var initCharposX = 1,
@@ -23,6 +23,7 @@ define([], function () {
             i,
             j;
 
+        this.removeLinks();
         for (x = 0, c = '';  c = formatedText.charAt(x); x += 1) {
             c = formatedText.charAt(x);
             if (c === LINKSTR && isPartOfTheAdress === false) {
@@ -39,7 +40,7 @@ define([], function () {
                 tmp = group.create(charposX, charposY, 'linkLayer');
                 tmp.scale.x = tmp.scale.y = charLinkScale;
                 currentLinkCells.push(tmp);
-                this.createdLinkLayers.push(tmp);
+                this.createdLinkSpritesStoredToDestroyThemLater.push(tmp);
                 if (c !== '#') {
                     currentLink = currentLink + c;
                 }
@@ -68,12 +69,14 @@ define([], function () {
     };
     LinkSetterToTree.prototype.removeLinks = function removeLinks() {
         var i;
-        if (this.createdLinkLayers === undefined) {
+        if (this.createdLinkSpritesStoredToDestroyThemLater === undefined) {
             return;
         }
-        for (i = 0; i < this.createdLinkLayers.length; i += 1) {
-            this.createdLinkLayers[i].destroy();
+        for (i = 0; i < this.createdLinkSpritesStoredToDestroyThemLater.length; i += 1) {
+            this.createdLinkSpritesStoredToDestroyThemLater[i].destroy();
         }
+        this.createdLinkSpritesStoredToDestroyThemLater = [];
+        this.linklayers = [];
     };
 
     return LinkSetterToTree;
