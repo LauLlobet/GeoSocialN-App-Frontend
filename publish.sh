@@ -39,5 +39,5 @@ cp ../js/require.js ./js/
 cp ../cache.appcache .
 
 
-rm /var/lib/jetty/webapps/root/welcome/*
+rm -rf /var/lib/jetty/webapps/root/welcome/*
 cp -rf ../rootWebpage/*  /var/lib/jetty/webapps/root/welcome/

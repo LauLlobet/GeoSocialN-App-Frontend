@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/publish.sh" afterPath="$PROJECT_DIR$/publish.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rootWebsite/index.html" afterPath="$PROJECT_DIR$/rootWebsite/index.html" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+              <caret line="120" column="1" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -115,8 +116,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rootWebsite/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3633218">
-              <caret line="174" column="29" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.62283736">
+              <caret line="216" column="64" selection-start-line="216" selection-start-column="64" selection-end-line="216" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -1067,7 +1068,7 @@
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
-      <workItem from="1449473392691" duration="2463000" />
+      <workItem from="1449473392691" duration="2599000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1367,7 +1368,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1128525000" />
+    <option name="totallyTimeSpent" value="1128661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
@@ -1763,7 +1764,7 @@
     <entry file="file://$PROJECT_DIR$/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+          <caret line="120" column="1" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1838,8 +1839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rootWebsite/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3633218">
-          <caret line="174" column="29" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.62283736">
+          <caret line="216" column="64" selection-start-line="216" selection-start-column="64" selection-end-line="216" selection-end-column="64" />
           <folding />
         </state>
       </provider>
