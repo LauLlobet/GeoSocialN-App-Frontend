@@ -40,4 +40,4 @@ cp ../cache.appcache .
 
 
 rm -rf /var/lib/jetty/webapps/root/welcome/*
-cp -rf ../rootWebpage/*  /var/lib/jetty/webapps/root/welcome/
+cp -rf ../rootWebpage  /var/lib/jetty/webapps/root/welcome/
