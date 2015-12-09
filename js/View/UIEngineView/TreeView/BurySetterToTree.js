@@ -2,7 +2,8 @@ define([], function () {
     "use strict";
     var  BURYSTR = "*bury",
         LOCKSTR = "*passwd:",
-        TEXTLENGTH = 16;
+        TEXTLENGTH = 16,
+        YTEXT = -50;
 
     function BurySetterToTree(game, treeBuryGroup, gestureObserver) //noinspection JSLint
     {
@@ -74,7 +75,7 @@ define([], function () {
     };
     BurySetterToTree.prototype.buryMessageFromLine = function (group, lineNo, spritename, buryLayerId) {
         var charposX = -10,
-            charposY = 21.5 * lineNo,
+            charposY = 21.5 * lineNo + YTEXT,
             tmp,
             scale = 1.3;
         tmp = group.create(charposX, charposY, spritename);

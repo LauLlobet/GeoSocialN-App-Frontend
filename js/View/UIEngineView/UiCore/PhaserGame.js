@@ -150,8 +150,6 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
     PhaserGame.prototype.preload = function preload() {
         this.game.time.advancedTiming = true;
         this.game.stage.backgroundColor = '#99b4cf';
-        var loading = this.game.add.sprite(50, 50, 'aaaa');
-        this.load.setPreloadSprite(loading);
         this.game.parent.loadImages();
         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.game.scale.refresh();
@@ -165,13 +163,13 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         } else {
             this.game.parent.handleMobile();
         }
-        this.game.loading = loading;
     };
     PhaserGame.prototype.loadImages = function loadImages(){
-        this.game.load.image('real', '/VisitTreeNumber/assets/realDimensionTree3.png');
+        this.game.load.image('real', '/VisitTreeNumber/assets/tree.png');
         this.game.load.image('roots', '/VisitTreeNumber/assets/treeWithRoots.png');
-        this.game.load.image('punzon', '/VisitTreeNumber/assets/punzon.png');
         this.game.load.image('fullTerritory', '/VisitTreeNumber/assets/fullTerritory.png');
+
+        this.game.load.image('fondo', '/VisitTreeNumber/assets/fondo.png');
 
 
         this.game.load.image('keyboardBackground', '/VisitTreeNumber/assets/fondoTeclat.png');
@@ -204,9 +202,11 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('downVote', '/VisitTreeNumber/assets/downVote.png');
         this.game.load.image('upVote', '/VisitTreeNumber/assets/upVote.png');
         this.game.load.image('flower', '/VisitTreeNumber/assets/flower.png');
+
         this.game.load.image('alphalayer', '/VisitTreeNumber/assets/alphaLayer.png');
         this.game.load.image('alphalayerbg', '/VisitTreeNumber/assets/alphaLayerBg.png');
         this.game.load.image('map', '/VisitTreeNumber/assets/alphaLayerBg.png');
+
         //  Firefox doesn't support mp3 files, so use ogg
         this.game.load.audio('bell', ['/VisitTreeNumber/assets/bell.ogg']);
         this.game.load.audio('plant', ['/VisitTreeNumber/assets/plant.ogg']);
@@ -227,7 +227,7 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('needle', '/VisitTreeNumber/assets/needle.png');
         this.game.load.image('notPreciseAlert', '/VisitTreeNumber/assets/notPreciseAlert.png');
         this.game.load.image('yesPreciseAlert', '/VisitTreeNumber/assets/yesPreciseAlert.png');
-        this.game.load.bitmapFont('ubuntu', '/VisitTreeNumber/assets/font.png', '/VisitTreeNumber/assets/font.fnt');
+        this.game.load.bitmapFont('font', '/VisitTreeNumber/assets/font.png', '/VisitTreeNumber/assets/font.fnt');
 
         this.game.load.image('welcomeCa', '/VisitTreeNumber/assets/welcomeCa.png');
         this.game.load.image('welcomeEn', '/VisitTreeNumber/assets/welcomeEn.png');
@@ -243,9 +243,6 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         parent.game.world.setBounds(0, 0, windowObj.innerWidth, windowObj.innerHeight);
         parent.game.input.addPointer();
         setTimeout(callbackFunct(parent), 0);
-        parent.game.stage.backgroundColor = '#93fbbc';
-        parent.game.world.remove(parent.game.loading);
-        parent.game.world.remove(parent.game.map);
     };
     PhaserGame.prototype.coordX = function coordX(xi) {
         return xi * this.scale + targetW / 2;//+ this.game.world.centerX;
@@ -275,7 +272,7 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         //this.game.debug.inputInfo(16, 16);
          //this.game.debug.pointer(this.game.input.activePointer);
     //    this.game.debug.pointer(this.game.input.pointer1);
-        this.game.debug.text(this.game.time.fps || '--', 2, 14, "#ffff00");
+       // this.game.debug.text(this.game.time.fps || '--', 2, 14, "#ffff00");
 
     };
 

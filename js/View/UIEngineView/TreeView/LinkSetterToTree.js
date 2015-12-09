@@ -1,15 +1,18 @@
 define([], function () {
     "use strict";
     var LINKSTR = "#";
+
+    var YTEXT = -50;
+
     function LinkSetterToTree() //noinspection JSLint
     {
             this.linklayers = [];
             this.createdLinkSpritesStoredToDestroyThemLater = [];
     }
     LinkSetterToTree.prototype.setInteractiveLinksToRetroText = function (group, formatedText, id, gestureObserver) {
-        var initCharposX = 1,
+        var initCharposX = 1 + 10,
             charposX = initCharposX,
-            charposY = 0,
+            charposY = YTEXT,
             charposXInc = 12.5 * 0.788,
             charposYInc = 21.5,
             charLinkScale = 1.6,

@@ -1,19 +1,24 @@
 /*global define, require, module, Phaser, Group*/
 /*jslint todo: true */
+
+var front, back;
+
 define([], function () {
     var x = 0,
         y = 340;
     function BackgroundMap(phaserGame) {
         this.game = phaserGame.game;
-        this.alphaLayerGroupBg = this.game.add.group();
-        this.alphaLayerGroupBg.create(x, y, "alphalayerbg");
-        this.mapGroup = this.game.add.group();
-        this.alphaLayerGroup = this.game.add.group();
-        this.alphaLayerSprite = this.alphaLayerGroup.create(x, y, "alphalayer");
-        this.alphaLayerSprite.alpha = 0.5;
+        this.game.add.sprite(0, 0, 'fondo');
+
         this.mapGroupSpriteImage = this.game.add.image(0, -1500, 'map');
-        this.tex = this.game.add.renderTexture(this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height, 'name', true);
-        this.mapGroupSprite = this.mapGroup.create(x, y, this.tex);
+        this.backgroundMapWihileTheOtherLoadsGroup = this.game.add.group();
+
+        this.rendertexture = this.game.add.renderTexture(this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height, 'name', true);
+        this.backgroundRenderTexture = this.game.add.renderTexture(this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height, 'name', true);
+
+        this.backgroundMapWihileTheOtherLoadsGroup.create(x, y, this.backgroundRenderTexture);
+        this.mapGroup = this.game.add.group();
+        this.mapGroupSprite = this.mapGroup.create(x, y, this.rendertexture);
 
 
     }
@@ -24,9 +29,16 @@ define([], function () {
         this.dynamicLoadImage(this.game, x, y, url, 'dinmap', undefined);
     };
     BackgroundMap.prototype.displayMap = function () {
-        this.tex.renderXY(this.mapGroupSpriteImage, 0, 0, true);
+        var tween,
+            that = this;
+        this.rendertexture.renderXY(this.mapGroupSpriteImage, 0, 0, true);
         this.mapGroup.alpha = 0;
-        this.game.add.tween(this.mapGroup).to({alpha: 1}, 400, 'Linear', true, 0, 0);
+        tween = this.game.add.tween(this.mapGroup).to({alpha: 1}, 400, 'Linear', true, 0, 0);
+        tween.onComplete.add(function () {
+            that.backgroundRenderTexture.renderXY(that.mapGroupSpriteImage, 0, 0, true);
+        });
+        front = this.mapGroupSprite;
+        back = this.backgroundMapWihileTheOtherLoadsGroup;
     };
     BackgroundMap.prototype.hideMap = function () {
         if (this.mapGroupSprite === undefined) {

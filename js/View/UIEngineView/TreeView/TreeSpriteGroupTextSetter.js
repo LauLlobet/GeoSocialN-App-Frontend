@@ -1,6 +1,7 @@
 define(["./LinkSetterToTree", "./BurySetterToTree"], function (LinkSetterToTree, BurySetterToTree) {
     "use strict";
-    var TEXTLENGTH = 16;
+    var TEXTLENGTH = 16,
+        YTEXT = -50
 
     function TreeSpriteGroupTextSetter(treeSpriteGroup, treeBuryGroup, game, gestureObserver) //noinspection JSLint
     {
@@ -32,8 +33,8 @@ define(["./LinkSetterToTree", "./BurySetterToTree"], function (LinkSetterToTree,
         this.formatedText =  this.formatText(text);
     };
     TreeSpriteGroupTextSetter.prototype.addTextImage = function addTextImage() {
-        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', this.formatedText, 24);
-        this.textImage =  this.treeSpriteGroup.create(0, 0, tmp.generateTexture());
+        var tmp = this.game.add.bitmapText(4, 60, 'font', this.formatedText, 24);
+        this.textImage =  this.treeSpriteGroup.create(10, YTEXT, tmp.generateTexture());
         tmp.destroy();
         this.textImage.scale.x = 0.90;
         this.textImage.scale.y = 0.90;

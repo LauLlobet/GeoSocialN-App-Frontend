@@ -268,8 +268,6 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     UserInterfaceBussinesController.prototype.justLeftBehindATree = function () {
         this.votingPanel.hide();
         this.flowerPanel.hide();
-        this.backgroundMap.hideMap();
-
     };
 
     UserInterfaceBussinesController.prototype.getTreeAlreadyDisplayed = function getTreeAlreadyDisplayed() {

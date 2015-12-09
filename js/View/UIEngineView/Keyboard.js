@@ -158,7 +158,7 @@ define(["../../scenes/KeyboardDescriptor"], function (KeyboardDescriptor) {
 
     Keyboard.prototype.addKeyChar = function iaddKeyChar(character, sprite, scale, group) {
 
-        var tmp = this.game.add.bitmapText(4, 60, 'ubuntu', character, 24),
+        var tmp = this.game.add.bitmapText(4, 60, 'font', character, 24),
             textImage =  group.create(0, 0, tmp.generateTexture());
         tmp.destroy();
         textImage.scale.x = 0.90;

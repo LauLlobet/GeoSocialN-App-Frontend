@@ -23,7 +23,7 @@ define([], function () {
     };
 
     PasswordDialog.prototype.addTextImage = function addTextImage(textOffsetx, textOffsety, fontText) {
-        var tmp = this.game.add.bitmapText(0, 0, 'ubuntu', fontText, 24);
+        var tmp = this.game.add.bitmapText(0, 0, 'font', fontText, 24);
         this.textImage =  this.displayGroup.create(textOffsetx, textOffsety, tmp.generateTexture());
         tmp.destroy();
         this.textImage.scale.x = 0.90;
