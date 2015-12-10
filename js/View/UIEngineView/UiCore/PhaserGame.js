@@ -171,6 +171,7 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
 
         this.game.load.image('fondo', '/VisitTreeNumber/assets/fondo.png');
 
+        this.game.load.image('pala', '/VisitTreeNumber/assets/pala.png');
 
         this.game.load.image('keyboardBackground', '/VisitTreeNumber/assets/fondoTeclat.png');
         this.game.load.image('keyBackground', '/VisitTreeNumber/assets/keyBackground.png');
@@ -187,7 +188,6 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         this.game.load.image('leafs', '/VisitTreeNumber/assets/pileOfLeafs.png');
         this.game.load.image('leafspick', '/VisitTreeNumber/assets/leaf.png');
 
-        this.game.load.image('carved', '/VisitTreeNumber/assets/alphabet2.png');
         this.game.load.image('linkLayer', '/VisitTreeNumber/assets/linkLayer.png');
         this.game.load.image('passwordBox', '/VisitTreeNumber/assets/passwordBox.png');
 

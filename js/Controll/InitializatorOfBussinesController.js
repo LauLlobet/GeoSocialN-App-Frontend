@@ -44,6 +44,7 @@ define(["../InputOutput/GpsMovmentTrigger", "../Controll/NearbyTreesFromServerTo
         this.bussinesController.votingPanel = new VotingPanel(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame, this.bussinesController);
         this.bussinesController.flowerPanel = new FlowerPanel(this.bussinesController.sceneLoaderInterface.spriteManagerPhaserApiInterface.phaserGame);
 
+        this.bussinesController.backgroundMap.justDisplayedATreeSoDisplayAMap({x: longitude,y: latitude})
     }
 
     return InitializatorOfBussinesController;

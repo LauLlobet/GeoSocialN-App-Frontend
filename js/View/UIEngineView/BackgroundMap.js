@@ -11,15 +11,30 @@ define([], function () {
         this.game.add.sprite(0, 0, 'fondo');
 
         this.mapGroupSpriteImage = this.game.add.image(0, -1500, 'map');
+
+
         this.backgroundMapWihileTheOtherLoadsGroup = this.game.add.group();
+        this.slidingBackgroundMapWhilOtherLoads = this.game.add.group();
+        this.mapGroup = this.game.add.group();
 
         this.rendertexture = this.game.add.renderTexture(this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height, 'name', true);
         this.backgroundRenderTexture = this.game.add.renderTexture(this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height, 'name', true);
+        this.slidingBackgroundRenderTexture = this.game.add.renderTexture(this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height, 'name', true);
 
         this.backgroundMapWihileTheOtherLoadsGroup.create(x, y, this.backgroundRenderTexture);
-        this.mapGroup = this.game.add.group();
         this.mapGroupSprite = this.mapGroup.create(x, y, this.rendertexture);
+        this.slidingBackgroundMapWhilOtherLoads.create(x, y, this.slidingBackgroundRenderTexture);
 
+
+        this.shineGroup = this.game.add.group();
+        this.completionSprite = this.game.add.graphics(0, 0);
+        this.completionSprite.beginFill(0xFFFFFF, 1);
+        this.completionSprite.boundsPadding = 0;
+        this.completionSprite.bounds = new PIXI.Rectangle(0, 0, this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height);
+        this.completionSprite.drawRect(0, 0,  this.mapGroupSpriteImage.width, this.mapGroupSpriteImage.height);
+        this.shineGroup.add(this.completionSprite);
+        this.shineGroup.position.y = 340;
+        this.shineGroup.alpha = 0;
 
     }
 
@@ -30,12 +45,23 @@ define([], function () {
     };
     BackgroundMap.prototype.displayMap = function () {
         var tween,
-            that = this;
+            that = this,
+            shinetween;
         this.rendertexture.renderXY(this.mapGroupSpriteImage, 0, 0, true);
         this.mapGroup.alpha = 0;
         tween = this.game.add.tween(this.mapGroup).to({alpha: 1}, 400, 'Linear', true, 0, 0);
+
+        this.game.add.tween(this.slidingBackgroundMapWhilOtherLoads).to({y: 500}, 400, 'Linear', true, 0, 0);
+
+        shinetween = this.game.add.tween(this.shineGroup).to({alpha: 1}, 180, 'Linear', true, 0, 0);
+        shinetween.onComplete.add(function(){
+            that.game.add.tween(that.shineGroup).to({alpha: 0}, 100, 'Linear', true, 0, 0);
+        })
+
         tween.onComplete.add(function () {
             that.backgroundRenderTexture.renderXY(that.mapGroupSpriteImage, 0, 0, true);
+            that.slidingBackgroundRenderTexture.renderXY(that.mapGroupSpriteImage, 0, 0, true);
+            that.game.add.tween(that.slidingBackgroundMapWhilOtherLoads).to({y: 0}, 1, 'Linear', true, 0, 0);
         });
         front = this.mapGroupSprite;
         back = this.backgroundMapWihileTheOtherLoadsGroup;

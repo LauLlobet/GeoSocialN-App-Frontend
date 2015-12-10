@@ -108,7 +108,7 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
     };
     SingleTreeGroupFactory.prototype.setWriteTextButtonToGroup = function ifEmptyTreeSetWriteTextButtonToGroup(tree) {
         var button, context, tween;
-        button = this.group.create(tree.button.x, tree.button.y, 'punzon');
+        button = this.group.create(tree.button.x, tree.button.y, 'pala');
         this.group.buttonSprite = button;
         button.name = 'button';
         button.height = tree.button.hw;

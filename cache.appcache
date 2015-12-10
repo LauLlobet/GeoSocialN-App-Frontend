@@ -4,7 +4,6 @@ assets/plant.ogg
 assets/unbell.ogg
 assets/bell.ogg
 assets/0km.png
-assets/13-512.png
 assets/1km.png
 assets/2km.png
 assets/3km.png
@@ -15,14 +14,6 @@ assets/7km.png
 assets/8km.png
 assets/9km.png
 assets/acceptGPS.png
-assets/alphabet/alphabet.png
-assets/alphabet/alphabet2.png
-assets/alphabet-doble.png
-assets/alphabet.png
-assets/alphabet2.png
-assets/alphabetBLACK.png
-assets/alphaLayer.png
-assets/alphaLayerBg.png
 assets/buryBg.png
 assets/calibratingGPS0.png
 assets/calibratingGPS2.png
@@ -35,44 +26,31 @@ assets/downVote.png
 assets/enter.png
 assets/exemple.png
 assets/flower.png
-assets/fondoTeclat.png
 assets/font.fnt
 assets/font.png
 assets/fullTerritory.png
 assets/heartBg.png
 assets/ignorePrecision.png
-assets/influ1.jpg
-assets/influ2.jpg
 assets/keyBackground.png
 assets/keyBackwards.png
 assets/keyCancel.png
 assets/keyOk.png
 assets/keySwitchKeyboard.png
 assets/kkm.png
-assets/leaf.png
 assets/linkBg.png
 assets/linkLayer.png
-assets/loading.jpg
 assets/lock.png
-assets/lock3.png
 assets/lockBg.png
 assets/lockpick.png
-assets/miniTreeTrunk.png
 assets/mkm.png
 assets/needle.png
 assets/nkm.png
 assets/notPreciseAlert.png
 assets/passwordBox.png
 assets/pileOfLeafs.png
-assets/pin.svg
 assets/playmobile.png
 assets/playportrait.png
-assets/point.png
-assets/punzon.png
-assets/realDimensionTree2.png
-assets/realDimensionTree3.png
-assets/realDimensionTree4.png
-assets/realDimensionTree5.png
+assets/tree.png
 assets/titleScreen.png
 assets/returnToGame.png
 assets/spaceKey.png
@@ -85,48 +63,10 @@ assets/upVote.png
 assets/welcomeCa.png
 assets/welcomeEn.png
 assets/welcomeEs.png
+assets/pala.png
 assets/yesPreciseAlert.png
 build/main.js
 spinningCircleOnLoading.js
 NETWORK:
 *
-# 12-03-2015 09:48:41 AM
-# 12-03-2015 09:50:25 AM
-# 12-03-2015 10:00:55 AM
-# 12-03-2015 10:01:55 AM
-# 12-03-2015 10:42:43 AM
-# 12-03-2015 10:47:39 AM
-# 12-03-2015 10:50:39 AM
-# 12-03-2015 10:51:23 AM
-# 12-03-2015 10:52:07 AM
-# 12-03-2015 10:53:58 AM
-# 12-03-2015 10:58:07 AM
-# 12-03-2015 10:59:46 AM
-# 12-03-2015 11:01:18 AM
-# 12-03-2015 11:04:03 AM
-# 12-03-2015 11:09:58 AM
-# 12-03-2015 11:15:06 AM
-# 12-03-2015 11:16:26 AM
-# 12-03-2015 11:20:56 AM
-# 12-03-2015 11:24:11 AM
-# 12-03-2015 11:26:02 AM
-# 12-03-2015 12:54:31 PM
-# 12-03-2015 12:56:02 PM
-# 12-03-2015 12:59:06 PM
-# 12-03-2015 12:59:56 PM
-# 12-03-2015 01:00:16 PM
-# 12-03-2015 01:10:10 PM
-# 12-03-2015 01:15:16 PM
-# 12-03-2015 01:20:26 PM
-# 12-03-2015 01:22:15 PM
-# 12-07-2015 09:32:19 AM
-# 12-07-2015 12:47:14 PM
-# 12-07-2015 12:49:58 PM
-# 12-07-2015 12:54:51 PM
-# 12-07-2015 12:55:47 PM
-# 12-07-2015 12:58:48 PM
-# 12-07-2015 01:08:24 PM
-# 12-07-2015 01:09:05 PM
-# 12-07-2015 01:13:52 PM
-# 12-07-2015 01:14:51 PM
-# 12-09-2015 07:15:40 PM
+
