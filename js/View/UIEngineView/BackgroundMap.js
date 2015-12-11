@@ -41,6 +41,7 @@ define([], function () {
 
     BackgroundMap.prototype.justDisplayedATreeSoDisplayAMap = function (tree) {
         var url = 'https://maps.googleapis.com/maps/api/staticmap?center=' + tree.y + ',' + tree.x + '&zoom=15&size=500x300&maptype=roadmap&key=AIzaSyARLL06eu1X3HSK4HpwHGFVbQDuOPWekh8';
+        console.log(url);
         this.dynamicLoadImage(this.game, x, y, url, 'dinmap', undefined);
     };
     BackgroundMap.prototype.displayMap = function () {
