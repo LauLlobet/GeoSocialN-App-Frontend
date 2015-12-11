@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/to.default.html" afterPath="$PROJECT_DIR$/to.default.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/to.watch.html" afterPath="$PROJECT_DIR$/to.watch.html" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,13 +40,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="to.default.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="to.default.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/to.default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21520804">
-              <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+            <state vertical-scroll-proportion="-21.875">
+              <caret line="36" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="7" />
               <folding>
                 <element signature="e#251#258#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="to.watch.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/to.watch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.37761194">
+              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+              <folding>
+                <element signature="e#259#266#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -92,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeViewInEngine/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCounterKmSetter.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/NotPrecisieAlert.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/NotPreciseAlert.js" />
@@ -143,6 +154,7 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/BackgroundMap.js" />
         <option value="$PROJECT_DIR$/default.to.js.html" />
         <option value="$PROJECT_DIR$/to.default.html" />
+        <option value="$PROJECT_DIR$/to.watch.html" />
       </list>
     </option>
   </component>
@@ -1007,7 +1019,7 @@
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
-      <workItem from="1449473392691" duration="12238000" />
+      <workItem from="1449473392691" duration="12838000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1307,7 +1319,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1138300000" />
+    <option name="totallyTimeSpent" value="1138900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
@@ -1751,14 +1763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/to.watch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/BackgroundMap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.905661">
@@ -1795,10 +1799,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/to.default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21520804">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+        <state vertical-scroll-proportion="-21.875">
+          <caret line="36" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="7" />
           <folding>
             <element signature="e#251#258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/to.watch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37761194">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+          <folding>
+            <element signature="e#259#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
