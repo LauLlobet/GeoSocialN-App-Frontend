@@ -63,7 +63,7 @@ Amb watch position.
     };
     GpsBrowserBlockChecker.prototype.testGps = function test() {
         var properties = { enableHighAccuracy: true,
-            timeout: 2000};
+            timeout: 6000};
         this.id = this.gpsInterface.watchPosition(underscore.bind(this.succesfullCallback, this),
                 underscore.bind(this.errorCallback, this),
                 properties );

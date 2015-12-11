@@ -7,7 +7,7 @@
 <body>
 <script>
     var properties = { enableHighAccuracy: true,
-        timeout: 2000};
+        timeout: 6000};
     this.id = navigator.geolocation.watchPosition(function(){alert("TOWS:OK  es molt bon resultat")},
             function(error){
                 var PERMISSION_DENIED = 1,
@@ -15,7 +15,7 @@
                 if(error.code === PERMISSION_DENIED){
                     alert("permis denegat, activa el gps")
                 }else if(error.code === TIMEOUT){
-                    alert("TOWS:TIMEOUT es el pitjor resultat de tots");
+                    alert("DTOWS:TIMEOUT es el pitjor resultat de tots");
                 }
             },
             properties);

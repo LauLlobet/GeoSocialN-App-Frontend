@@ -62,7 +62,7 @@ Per defecte.
     };
     GpsBrowserBlockChecker.prototype.testGps = function test() {
         var properties = { enableHighAccuracy: true,
-            timeout: 2000};
+            timeout: 6000};
         this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
                 underscore.bind(this.errorCallback, this),
                 properties );
