@@ -7,18 +7,23 @@
 <body>
 <script>
     var properties = { enableHighAccuracy: false,
-        timeout: 2000,
-    frequency: 2000};
+        timeout: 20000,
+    maximumAge: 0};
+    var errf = function(error){
+            var PERMISSION_DENIED = 1,
+                    TIMEOUT = 3;
+            if(error.code === PERMISSION_DENIED){
+                alert("permis denegat, activa el gps")
+            }else if(error.code === TIMEOUT){
+                alert("V2.3freq timeout, esperem");
+                this.id = navigator.geolocation.watchPosition(function(){alert("DTOWS:OK  es molt bon resultat")},
+                        errf,
+                        properties);
+            }
+        }
+    }
     this.id = navigator.geolocation.watchPosition(function(){alert("DTOWS:OK  es molt bon resultat")},
-            function(error){
-                var PERMISSION_DENIED = 1,
-                        TIMEOUT = 3;
-                if(error.code === PERMISSION_DENIED){
-                    alert("permis denegat, activa el gps")
-                }else if(error.code === TIMEOUT){
-                    alert("V2.3freq timeout, esperem");
-                }
-            },
+            errf,
             properties);
 
 </script>
