@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/to.s.watch.html" afterPath="$PROJECT_DIR$/to.s.watch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/to.watch.html" afterPath="$PROJECT_DIR$/to.watch.html" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="to.watch.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="to.watch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/to.watch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5718085">
-              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
+            <state vertical-scroll-proportion="-17.916666">
+              <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
               <folding>
                 <element signature="e#259#266#0" expanded="false" />
               </folding>
@@ -76,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="to.s.watch.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="to.s.watch.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/to.s.watch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.33909574">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -165,8 +163,8 @@
         <option value="$PROJECT_DIR$/default.to.js.html" />
         <option value="$PROJECT_DIR$/to.default.html" />
         <option value="$PROJECT_DIR$/to.s.default.html" />
-        <option value="$PROJECT_DIR$/to.s.watch.html" />
         <option value="$PROJECT_DIR$/to.watch.html" />
+        <option value="$PROJECT_DIR$/to.s.watch.html" />
       </list>
     </option>
   </component>
@@ -1030,7 +1028,7 @@
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
       <workItem from="1449473392691" duration="14778000" />
-      <workItem from="1449835605842" duration="319000" />
+      <workItem from="1449835605842" duration="568000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1330,7 +1328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1141159000" />
+    <option name="totallyTimeSpent" value="1141408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1776,21 +1774,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/to.s.watch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/to.watch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5718085">
-          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
+        <state vertical-scroll-proportion="-17.916666">
+          <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
           <folding>
             <element signature="e#259#266#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/to.s.watch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33909574">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
