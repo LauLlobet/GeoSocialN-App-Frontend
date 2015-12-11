@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var properties = { enableHighAccuracy: true,
+        timeout: 2000};
+    this.gpsInterface.getCurrentPosition(underscore.bind(function(){alert("TODS:OK  no es bon resultat")}, this), function(error){
+                var PERMISSION_DENIED = 1,
+                        TIMEOUT = 3;
+                if(error.code === PERMISSION_DENIED){
+                    alert("permis denegat, activa el gps")
+                }else if(error.code === TIMEOUT){
+                    alert("TODS:TIMEOUT es el resultat que esperavem");
+                }
+            },
+            properties );
+</script>
+
+</body>
+</html>

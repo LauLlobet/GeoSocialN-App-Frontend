@@ -81,7 +81,7 @@ Per defecte.
             this.cookieManager.setCookie("gpsOn", "test");
             this.reloadInterface.reload();
         }else if(error.code === TIMEOUT){
-            alert("Timeout problems with the GPS");
+            alert("TOD:TIMEOUT es el resultat que esperavem");
             this.testGps();
         } else {
             this.cookieManager.setCookie("gpsOn", "positionunavaliable");
@@ -95,7 +95,7 @@ Per defecte.
         gpsIsEnabledAndWorkingCalled : false,
         gpsIsEnabledAndWorking : function gpsIsEnabledAndWorking() {
             this.gpsIsEnabledAndWorkingCalled = true;
-            alert("Gps obte coordenades OK.");
+            alert("TOD:OK no es un bon resultat");
         }
     };
     var gpsErrorMessageDisplayerInterface = {

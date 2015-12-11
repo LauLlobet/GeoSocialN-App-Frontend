@@ -83,7 +83,7 @@ Amb watch position.
             this.cookieManager.setCookie("gpsOn", "test");
             this.reloadInterface.reload();
         }else if(error.code === TIMEOUT){
-            alert("Timeout problems with the GPS");
+            alert("TOW:TIMEOUT es un resultat preocupant");
             this.testGps();
         } else {
             this.cookieManager.setCookie("gpsOn", "positionunavaliable");
@@ -97,7 +97,7 @@ Amb watch position.
         gpsIsEnabledAndWorkingCalled : false,
         gpsIsEnabledAndWorking : function gpsIsEnabledAndWorking() {
             this.gpsIsEnabledAndWorkingCalled = true;
-            alert("Gps obte coordenades OK.");
+            alert("TOW:OK es el millor resultat que es pot tenir si no n'hi ha hagut cap altre de dolent");
         }
     };
     var gpsErrorMessageDisplayerInterface = {

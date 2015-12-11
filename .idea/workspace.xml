@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/to.s.default.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/to.s.watch.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/to.default.html" afterPath="$PROJECT_DIR$/to.default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/to.watch.html" afterPath="$PROJECT_DIR$/to.watch.html" />
     </list>
     <ignored path="OurTreeWeb.iws" />
@@ -40,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="to.default.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="to.default.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/to.default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.875">
-              <caret line="36" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.6987088">
+              <caret line="97" column="47" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
               <folding>
                 <element signature="e#251#258#0" expanded="false" />
               </folding>
@@ -52,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="to.watch.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="to.watch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/to.watch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37761194">
-              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+            <state vertical-scroll-proportion="1.5686275">
+              <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="65" selection-end-column="27" />
               <folding>
                 <element signature="e#259#266#0" expanded="false" />
               </folding>
@@ -64,11 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proves.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proves.html">
+      <file leaf-file-name="to.s.default.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/to.s.default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="to.s.watch.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/to.s.watch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -104,8 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCounterKmSetter.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/NotPrecisieAlert.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/NotPreciseAlert.js" />
         <option value="$PROJECT_DIR$/deploy.sh" />
         <option value="$PROJECT_DIR$/WEB-INF/cache.appcache" />
@@ -155,6 +167,8 @@
         <option value="$PROJECT_DIR$/default.to.js.html" />
         <option value="$PROJECT_DIR$/to.default.html" />
         <option value="$PROJECT_DIR$/to.watch.html" />
+        <option value="$PROJECT_DIR$/to.s.watch.html" />
+        <option value="$PROJECT_DIR$/to.s.default.html" />
       </list>
     </option>
   </component>
@@ -1019,7 +1033,7 @@
       <workItem from="1448532081311" duration="14014000" />
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
-      <workItem from="1449473392691" duration="12838000" />
+      <workItem from="1449473392691" duration="14003000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1319,7 +1333,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1138900000" />
+    <option name="totallyTimeSpent" value="1140065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
@@ -1413,21 +1427,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCounterKmSetter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="86" selection-start-line="26" selection-start-column="86" selection-end-line="26" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snippets.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1797,22 +1796,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/to.default.html">
+    <entry file="file://$PROJECT_DIR$/to.s.default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.875">
-          <caret line="36" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="7" />
-          <folding>
-            <element signature="e#251#258#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/to.s.watch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/to.watch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37761194">
-          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+        <state vertical-scroll-proportion="1.5686275">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="65" selection-end-column="27" />
           <folding>
             <element signature="e#259#266#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/to.default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6987088">
+          <caret line="97" column="47" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+          <folding>
+            <element signature="e#251#258#0" expanded="false" />
           </folding>
         </state>
       </provider>
