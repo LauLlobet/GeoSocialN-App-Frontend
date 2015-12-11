@@ -62,7 +62,7 @@ Amb watch position.
         }
     };
     GpsBrowserBlockChecker.prototype.testGps = function test() {
-        var properties = { enableHighAccuracy: true,
+        var properties = { enableHighAccuracy: false,
             timeout: 6000};
         this.id = this.gpsInterface.watchPosition(underscore.bind(this.succesfullCallback, this),
                 underscore.bind(this.errorCallback, this),
@@ -83,8 +83,8 @@ Amb watch position.
             this.cookieManager.setCookie("gpsOn", "test");
             this.reloadInterface.reload();
         }else if(error.code === TIMEOUT){
-            alert("TOW:TIMEOUT es un resultat preocupant");
-            this.testGps();
+            alert("TOW:TIMEOUT esperem");
+            //this.testGps();
         } else {
             this.cookieManager.setCookie("gpsOn", "positionunavaliable");
             this.reloadInterface.reload();
