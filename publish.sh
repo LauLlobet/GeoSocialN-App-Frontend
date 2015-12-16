@@ -41,11 +41,3 @@ cp ../js/lib/phaser.js ./js/lib/
 cp ../js/lib/underscore.js ./js/lib/
 cp ../js/require.js ./js/
 cp ../cache.appcache .
-
-Templates Buffet Link
-Here is a sample Templates Buffet link which pulls in a simple heart image
-http://www.zazzle.com/api/create/at-
-238555878123854031?rf=238555878123854031&ax=DesignBlast&sr=2503752025421
-80800&cg=0&t__useQpc=true&ed=true&t__smart=false&continueUrl=http%3A%2F%2F
-www.zazzle.com%2Fcrazydaisyshop&rut=Go%20back%20to%20crazydaisyshop's%20
-store&fwd=ProductPage&tc=&ic=&t_image0_iid=7a19909b-23fd-4d9d-ba4b-898510a956b8
