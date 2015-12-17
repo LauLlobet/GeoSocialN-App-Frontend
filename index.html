@@ -225,7 +225,8 @@
 
 <body id="mainId">
 
-    <div id = "desktopWarning"></div>
+
+<div id = "desktopWarning"></div>
     <div id = "turn"></div>
     <div id = "unblockGPS"></div>
     <div id = "acceptGPS"></div>
@@ -307,16 +308,18 @@
                         <div id = "buttonReturnToGame"><img src="assets/returnToGame.png" onclick="returnToGame()"/>
                         </div>
                     </center>
-                    <div id="popUpContent">
+                    <div id="popUpContent" style="height: 600px;">
+
                     </div>
                 </div>
             </div>
-        </div>
+       </div>
     </div>
+
     <script type="text/javascript" src="http://s.imgur.com/min/embed.js"></script>
     <script>
-        displayNoneElement('popUp');
         blockElement('welcomeScreen');
+        displayNoneElement('popUp');
         //setHtmlContent('popUpContent','<blockquote class="imgur-embed-pub" lang="en" data-id="XRzgjor"></blockquote>');
     </script>
 

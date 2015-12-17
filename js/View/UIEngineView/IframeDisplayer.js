@@ -10,7 +10,7 @@ define([], function () {
 
     IframeDisplayer.prototype.showYoutubeVideo = function showYoutubeVideo(id) {
         id = this.sanitizeId(id);
-        var htmlContent = '<iframe width="100%" src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen>';
+        var htmlContent = '<iframe width="100%"  height="100%"  src="//www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen>';
         this.displayPopUp(htmlContent);
     };
 
