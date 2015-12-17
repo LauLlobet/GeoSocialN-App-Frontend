@@ -53,7 +53,7 @@ GpsBrowserBlockChecker.prototype.start = function start() {
 GpsBrowserBlockChecker.prototype.testGps = function test() {
     var properties = { enableHighAccuracy: true,
         timeout: 2000};
-    this.gpsInterface.getCurrentPosition(underscore.bind(this.succesfullCallback, this),
+    this.id = this.gpsInterface.watchPosition(underscore.bind(this.succesfullCallback, this),
         underscore.bind(this.errorCallback, this),
         properties );
 
@@ -61,6 +61,7 @@ GpsBrowserBlockChecker.prototype.testGps = function test() {
 GpsBrowserBlockChecker.prototype.succesfullCallback =  function succesfullCallback(position) {
     this.loadingTimeLineToTellToContinue.gpsIsEnabledAndWorking();
     this.cookieManager.setCookie("gpsOn", "true");
+    this.gpsInterface.clearWatch(this.id);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 };
