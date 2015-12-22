@@ -75,7 +75,7 @@ define([], function () {
     };
     BurySetterToTree.prototype.buryMessageFromLine = function (group, lineNo, spritename, buryLayerId) {
         var offset = spritename === 'leafs' ? -59 : 0,
-            charposX = -10,
+            charposX = -15,
             charposY = 21.5 * lineNo + YTEXT + offset,
             tmp,
             scale = 1.3;

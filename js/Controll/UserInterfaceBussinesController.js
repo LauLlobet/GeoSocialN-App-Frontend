@@ -151,7 +151,7 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
 
         return new Promise(function (resolve, reject) {
             if (that.gpsMovmentTrigger.precisionOneToTen !== 10) {
-                reject("not enought precision");
+                reject("not enought precision, your planted tree will be in a aproximate place.");
             }
             return treeRestClient.put(tree).then(function (ans) {
                 if (ans.treeContent === null) {

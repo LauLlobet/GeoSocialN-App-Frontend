@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/compasBg.png" afterPath="$PROJECT_DIR$/assets/compasBg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/compasBg.psd" afterPath="$PROJECT_DIR$/assets/compasBg.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/needle.png" afterPath="$PROJECT_DIR$/assets/needle.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/needle.psd" afterPath="$PROJECT_DIR$/assets/needle.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompas.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompassSetter.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompassSetter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rootWebsite/index.html" afterPath="$PROJECT_DIR$/rootWebsite/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Lock.psd" afterPath="$PROJECT_DIR$/assets/Lock.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/backwards.psd" afterPath="$PROJECT_DIR$/assets/backwards.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackground.png" afterPath="$PROJECT_DIR$/assets/keyBackground.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackground.psd" afterPath="$PROJECT_DIR$/assets/keyBackground.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackwards.png" afterPath="$PROJECT_DIR$/assets/keyBackwards.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyCancel.png" afterPath="$PROJECT_DIR$/assets/keyCancel.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyCancel.psd" afterPath="$PROJECT_DIR$/assets/keyCancel.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyOk.png" afterPath="$PROJECT_DIR$/assets/keyOk.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyOk.psd" afterPath="$PROJECT_DIR$/assets/keyOk.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/lock.png" afterPath="$PROJECT_DIR$/assets/lock.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/space.psd" afterPath="$PROJECT_DIR$/assets/space.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/spaceKey.png" afterPath="$PROJECT_DIR$/assets/spaceKey.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js" afterPath="$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,18 +43,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="spinningCircleOnLoading.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spinningCircleOnLoading.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.444445">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#CookieManager#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="to.watch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/to.watch.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,21 +55,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="to.s.default.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/to.s.default.html">
+      <file leaf-file-name="BurySetterToTree.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0">
-              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            <state vertical-scroll-proportion="-11.888889">
+              <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BurySetterToTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
+      <file leaf-file-name="KeyboardDescriptor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.555555">
-              <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="96" selection-start-line="74" selection-start-column="96" selection-end-line="74" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserInterfaceBussinesController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46666667">
+              <caret line="153" column="95" selection-start-line="153" selection-start-column="95" selection-end-line="153" selection-end-column="95" />
               <folding />
             </state>
           </provider>
@@ -110,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeSpriteCompassSetter.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TreeSpriteCompassSetter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompassSetter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.033333335">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
             </state>
@@ -162,7 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cache.1.0.0.5.appcache" />
         <option value="$PROJECT_DIR$/cacheV2.appcache" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/Rake.js" />
         <option value="$PROJECT_DIR$/scenes/Constants.js" />
@@ -195,7 +201,6 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/PasswordDialog.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/TreeSpriteGroupTextSetter.js" />
-        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/cache.appcache" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js" />
@@ -207,12 +212,14 @@
         <option value="$PROJECT_DIR$/to.s.watch.html" />
         <option value="$PROJECT_DIR$/to.s.default.html" />
         <option value="$PROJECT_DIR$/spinningCircleOnLoading.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/IframeDisplayer.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/rootWebsite/index.html" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompas.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompassSetter.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
+        <option value="$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js" />
+        <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
       </list>
     </option>
   </component>
@@ -374,11 +381,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIEngineView" />
+              <option name="myItemId" value="scenes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -396,59 +399,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIEngineView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreeView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIEngineView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DistanceTips" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisitTreeNumber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
+              <option name="myItemId" value="Controll" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1056,7 +1007,7 @@
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
       <workItem from="1449473392691" duration="14778000" />
-      <workItem from="1449835605842" duration="12468000" />
+      <workItem from="1449835605842" duration="14978000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1356,7 +1307,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1153308000" />
+    <option name="totallyTimeSpent" value="1155818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
@@ -1464,13 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/SceneLoaderLevel/SceneLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1496,6 +1440,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1531,6 +1476,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="70" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1559,6 +1505,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1617,6 +1564,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1624,6 +1572,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1631,6 +1580,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
+          <folding>
+            <element signature="e#41#90#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1661,6 +1613,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="160" column="55" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1701,18 +1654,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="258" column="13" selection-start-line="258" selection-start-column="13" selection-end-line="259" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Controll/InitializatorOfBussinesController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="105" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1720,6 +1666,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.905661">
           <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1776,14 +1723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.555555">
-          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/IframeDisplayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1830,8 +1769,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/DistanceTips/TreeSpriteCompassSetter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.033333335">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.888889">
+          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="96" selection-start-line="74" selection-start-column="96" selection-end-line="74" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46666667">
+          <caret line="153" column="95" selection-start-line="153" selection-start-column="95" selection-end-line="153" selection-end-column="95" />
           <folding />
         </state>
       </provider>
