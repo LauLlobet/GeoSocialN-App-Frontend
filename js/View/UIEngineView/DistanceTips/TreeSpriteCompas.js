@@ -7,8 +7,9 @@ define([], function () {
     {
             this.parentGroup = parentGroup;
             this.createSpritesAndGroup(phaserGame);
-            this.setScale(0.50);
+            this.centerBg();
             this.centerNeedle();
+            this.setScale(0.70);
             this.setXY(x, y);
     }
     TreeSpriteCompas.prototype.createSpritesAndGroup = function createSpriteAndGroup(phaserGame) {
@@ -21,6 +22,12 @@ define([], function () {
     TreeSpriteCompas.prototype.createSprites = function createSprites() {
         this.background = this.group.create(0, 0, 'compasBg');
         this.needle = this.group.create(0, 0, 'needle');
+    };
+    TreeSpriteCompas.prototype.centerBg = function centerNeedle() {
+
+        this.background.x = this.background.width / 2;
+        this.background.y = this.background.width / 2;
+        this.background.anchor.setTo(0.5, 0.5);
     };
     TreeSpriteCompas.prototype.centerNeedle = function centerNeedle() {
 
@@ -42,8 +49,8 @@ define([], function () {
         this.setScalefromSetted();
     };
     TreeSpriteCompas.prototype.setScalefromSetted = function setScalefromSetted() {
-        this.needle.scale.x = this.scale;
-        this.needle.scale.y = this.scale;
+        this.needle.scale.x = this.scale * 0.8;
+        this.needle.scale.y = this.scale * 0.8;
         this.background.scale.x = this.scale;
         this.background.scale.y = this.scale;
     };

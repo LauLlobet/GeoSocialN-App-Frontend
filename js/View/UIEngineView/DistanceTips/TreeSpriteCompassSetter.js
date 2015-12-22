@@ -1,7 +1,7 @@
 define(["./TreeSpriteCompas"], function (TreeSpriteCompas) {
     "use strict";
-    var groupx = 79,
-        groupy = 268; // abans ended 88
+    var groupx = 55,
+        groupy = 258; // abans ended 88
     function TreeCompasTextSetter(parentGroup, game) //noinspection JSLint
     {
             this.phaserGame = game;
