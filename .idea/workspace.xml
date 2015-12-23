@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Lock.psd" afterPath="$PROJECT_DIR$/assets/Lock.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/backwards.psd" afterPath="$PROJECT_DIR$/assets/backwards.psd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackground.png" afterPath="$PROJECT_DIR$/assets/keyBackground.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackground.psd" afterPath="$PROJECT_DIR$/assets/keyBackground.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyBackwards.png" afterPath="$PROJECT_DIR$/assets/keyBackwards.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyCancel.png" afterPath="$PROJECT_DIR$/assets/keyCancel.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyCancel.psd" afterPath="$PROJECT_DIR$/assets/keyCancel.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyOk.png" afterPath="$PROJECT_DIR$/assets/keyOk.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keyOk.psd" afterPath="$PROJECT_DIR$/assets/keyOk.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/lock.png" afterPath="$PROJECT_DIR$/assets/lock.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/keySwitchKeyboard.psd" afterPath="$PROJECT_DIR$/assets/keySwitchKeyboard.psd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/space.psd" afterPath="$PROJECT_DIR$/assets/space.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/spaceKey.png" afterPath="$PROJECT_DIR$/assets/spaceKey.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" afterPath="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js" afterPath="$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1007,7 +997,7 @@
       <workItem from="1448618885076" duration="3422000" />
       <workItem from="1448814499186" duration="21440000" />
       <workItem from="1449473392691" duration="14778000" />
-      <workItem from="1449835605842" duration="14978000" />
+      <workItem from="1449835605842" duration="15573000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1307,7 +1297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1155818000" />
+    <option name="totallyTimeSpent" value="1156413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
