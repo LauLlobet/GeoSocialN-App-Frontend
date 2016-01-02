@@ -43,7 +43,7 @@ define(['../lib/underscore', '../util/CoordinatesCalculator'], function (undersc
         this.metersFromCellPhoneToTargetTree = this.coordinatesCalculator.distanceBetweenCoordinates(
             this.currentCellPhoneCoordinates,
             this.currentTargetCoordinates);
-        if(this.metersFromCellPhoneToTargetTree < limitToUnbury &&  this.currentCellPhoneCoordinates.accuracy < 14) {
+        if(this.metersFromCellPhoneToTargetTree < limitToUnbury) {
             this.bussinesController.unBuryLayer("leafs");
         }
     }
