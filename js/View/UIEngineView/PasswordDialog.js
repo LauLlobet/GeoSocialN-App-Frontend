@@ -2,10 +2,10 @@
 /*jslint todo: true */
 define([], function () {
     "use strict";
-    var x = 92,
-        y = 100,
-        textOffsetx = 9,
-        textOffsety = 60,
+    var x = 0,
+        y = -40 ,
+        textOffsetx = 246,
+        textOffsety = 252,
         passwordSizeLimit = 11;
 
     function PasswordDialog(phaserGame) {
@@ -20,14 +20,15 @@ define([], function () {
     };
     PasswordDialog.prototype.createBackground = function () {
         this.background = this.displayGroup.create(x, y, 'passwordBox');
+        this.background.scale.x = 0.77;
+        this.background.scale.y = 0.7;
     };
 
     PasswordDialog.prototype.addTextImage = function addTextImage(textOffsetx, textOffsety, fontText) {
-        var tmp = this.game.add.bitmapText(0, 0, 'font', fontText, 24);
+        var tmp = this.game.add.bitmapText(0, 0, 'font', fontText, 40);
         this.textImage =  this.displayGroup.create(textOffsetx, textOffsety, tmp.generateTexture());
         tmp.destroy();
-        this.textImage.scale.x = 0.90;
-        this.textImage.scale.y = 0.90;
+        console.log("TOY:" + textOffsety);
     };
 
     PasswordDialog.prototype.show = function show() {

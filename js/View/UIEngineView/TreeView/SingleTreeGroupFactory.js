@@ -111,8 +111,9 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         button = this.group.create(tree.button.x, tree.button.y, 'pala');
         this.group.buttonSprite = button;
         button.name = 'button';
-        button.height = tree.button.hw;
-        button.width = tree.button.hw;
+        var sizeRatio = tree.button.hw/button.height;
+        button.height *= sizeRatio;
+        button.width *= sizeRatio;
         button.inputEnabled = true;
         button.input.priorityID = 1;
         button.useHandCursor = true;
