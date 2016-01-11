@@ -84,12 +84,13 @@
             position:fixed;
             top:0px;
             left:0px;
-            background-color:white;
             background-image:url('assets/calibratingGPS0.png');
             background-repeat:no-repeat;
-            background-position: center center;
+            background-position: top right;
             display:none;
             z-index: 70;
+            pointer-events: none;
+            opacity: 0.7;
         }
 
         #calibratingGPS2{
@@ -98,12 +99,13 @@
             position:fixed;
             top:0px;
             left:0px;
-            background-color:white;
             background-image:url('assets/calibratingGPS2.png');
             background-repeat:no-repeat;
-            background-position: center center;
+            background-position: top right;
             display:none;
             z-index: 69;
+            pointer-events: none;
+            opacity: 0.7;
         }
 
         #calibratingGPS5{
@@ -112,12 +114,13 @@
             position:fixed;
             top:0px;
             left:0px;
-            background-color:white;
             background-image:url('assets/calibratingGPS5.png');
             background-repeat:no-repeat;
-            background-position: center center;
+            background-position: top right;
             display:none;
             z-index: 68;
+            pointer-events: none;
+            opacity: 0.7;
         }
 
         #calibratingGPS7{
@@ -126,12 +129,13 @@
             position:fixed;
             top:0px;
             left:0px;
-            background-color:white;
             background-image:url('assets/calibratingGPS7.png');
             background-repeat:no-repeat;
-            background-position: center center;
+            background-position: top right;
+            pointer-events: none;
             display:none;
             z-index: 67;
+            opacity: 0.7;
         }
 
         #calibratingGPS9{
@@ -140,10 +144,26 @@
             position:fixed;
             top:0px;
             left:0px;
-            background-color:white;
             background-image:url('assets/calibratingGPS9.png');
             background-repeat:no-repeat;
-            background-position: center center;
+            background-position: top right;
+            pointer-events: none;
+            display:none;
+            z-index: 68;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        #fog{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-image:url('assets/fog.png');
+            background-repeat:no-repeat;
+            background-position: top right;
+            pointer-events: none;
             display:none;
             z-index: 68;
         }
@@ -154,12 +174,12 @@
             position:fixed;
             top:0px;
             left:0px;
-            background-color:white;
             background-image:url('assets/titleScreen.png');
             background-repeat:no-repeat;
-            background-position: center center;
             background-size:cover;
             display:none;
+            background-position: top right;
+            pointer-events: none;
             z-index: 68;
         }
 
@@ -233,29 +253,22 @@
     <div id = "calibratingGPSPrecision">
     </div>
     <div id = "calibratingGPS0">
-        <div class = "buttonIgnorePrecision">
-            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt=""/>
-        </div>
     </div>
     <div id = "calibratingGPS2">
-        <div class = "buttonIgnorePrecision">
-            <img src="assets/ignorePrecision.png" onclick="ignorePrecision()" alt="" />
-        </div>
     </div>
     <div id = "calibratingGPS5">
-        <div class = "buttonIgnorePrecision"><img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
-        </div>
     </div>
     <div id = "calibratingGPS7">
-        <div class = "buttonIgnorePrecision">
-            <img src="assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
-        </div>
     </div>
     <div id = "calibratingGPS9">
+    </div>
+
+    <div id = "fog">
         <div class = "buttonIgnorePrecision">
             <img src = "assets/ignorePrecision.png" onclick = "ignorePrecision()" alt="" />
         </div>
     </div>
+
 
     <div id = "welcomeScreen">
     </div>

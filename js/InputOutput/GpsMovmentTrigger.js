@@ -2,7 +2,7 @@
 /*jslint todo: true */
 
 
-var forgedAccuracy = 12;
+var forgedAccuracy = 32;
 define(["../lib/underscore", "../util/CoordinatesCalculator"], function (underscore, CoordinatesCalculator) {
     "use strict";
 
