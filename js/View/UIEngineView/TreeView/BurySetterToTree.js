@@ -108,11 +108,11 @@ define([], function () {
         }
     };
     BurySetterToTree.prototype.setLockPick = function (group, x, y, scale) {
-        var charposX = x + 60,
+        var charposX = x + 90,
             charposY = y + 50,
             tmp;
         tmp = group.create(charposX, charposY, "lockpick");
-        tmp.scale.x = tmp.scale.y = scale;
+        tmp.scale.x = tmp.scale.y = scale + 0.5;
         tmp.inputEnabled = true;
         tmp.input.priorityID = 52;
         tmp.useHandCursor = true;
@@ -173,11 +173,11 @@ define([], function () {
             this.setBuryLayersToNotClickable(this.lockpick);
         }
         if (this.buryLayerAlreadyExists("lock")) {
-            this.lock.alpha = 0.2;
+            this.lock.alpha = 0.44;
             this.setBuryLayersToNotClickable(this.lock);
         }
         if (this.buryLayerAlreadyExists("leafs")) {
-            this.leafs.alpha = 0.2;
+            this.leafs.alpha = 0.44;
             this.setBuryLayersToNotClickable(this.leafs);
         }
     };

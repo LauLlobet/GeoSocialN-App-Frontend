@@ -17,7 +17,7 @@ define(['../lib/underscore', '../util/CoordinatesCalculator'], function (undersc
     }
     LeafPileUnburier.prototype.onNewlyPresentedTree = function onNewlyPresentedTree (treeid) {
         var tree;
-        if (treeid === undefined || treeid < 10 || treeid === null) {// 10 is the numbers of treeid of trees that gives instructions to users
+        if (treeid === undefined || treeid < 100 || treeid === null) {// 10 is the numbers of treeid of trees that gives instructions to users
             return;
         }
         tree = this.treeHashIdToTree[treeid];
