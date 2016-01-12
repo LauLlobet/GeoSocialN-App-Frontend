@@ -1052,7 +1052,7 @@
       <workItem from="1450879287917" duration="194000" />
       <workItem from="1450879694632" duration="79000" />
       <workItem from="1451757358170" duration="624000" />
-      <workItem from="1452148420773" duration="6923000" />
+      <workItem from="1452148420773" duration="7085000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1352,7 +1352,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1165764000" />
+    <option name="totallyTimeSpent" value="1165926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-124" width="1280" height="1024" extended-state="0" />
