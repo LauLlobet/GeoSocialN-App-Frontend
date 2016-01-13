@@ -272,7 +272,7 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
         //this.game.debug.inputInfo(16, 16);
          //this.game.debug.pointer(this.game.input.activePointer);
     //    this.game.debug.pointer(this.game.input.pointer1);
-       // this.game.debug.text(this.game.time.fps || '--', 2, 14, "#ffff00");
+        this.game.debug.text('© 2016 Wiressly.Ltd  ', 285   , 635, "#000000");
 
     };
 
