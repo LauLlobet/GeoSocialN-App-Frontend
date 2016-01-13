@@ -82,9 +82,9 @@ define(['../../../InputOutput/GpsBrowserBlockChecker'], function (GpsBrowserBloc
 
     var setPrecision = function (precision) {
         var elem = document.getElementById("calibratingGPSPrecision");
-        if (elem !== null) {
+      /*  if (elem !== null) {
             elem.textContent = "precision: " + Math.floor(precision) + " expected: 14";
-        }
+        }*/
     };
 
     var displayNoText = function (element) {
