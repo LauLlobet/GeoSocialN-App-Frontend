@@ -1,0 +1,120 @@
+  691  cat spinningcircleonloading.js 
+  692  cat spinning
+  693  ls /var/lib 
+  694  postgres
+  695  cd ~/
+  696  wget http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm
+  697  ls
+  698  rpm -ivh pgdg-redhat93-9.3-1.noarch.rpm 
+  699  sudo rpm -ivh pgdg-redhat93-9.3-1.noarch.rpm 
+  700  yum install postgresql93 postgresql93-server postgresql93-devel
+  701  sudo yum install postgresql93 postgresql93-server postgresql93-devel
+  702  wget http://download.osgeo.org/geos/geos-3.4.2.tar.bz2
+  703  tar xjf geos-3.4.2.tar.bz2
+  704  cd geos-3.4.2
+  705  ./configure 
+  706  make
+  707  sudo make
+  708  sudo ./configure 
+  709  sudo make
+  710  yum install gcc
+  711  sudo yum install gcc
+  712  sudo yum install gcc-c++.x86_64
+  713  sudo yum install gcc
+  714  sudo make
+  715  yum install make glibc-devel gcc
+  716  sudo yum install make glibc-devel gcc
+  717  sudo make
+  718  sudo yum groupinstall "Development Tools"
+  719  sudo make
+  720  sudo./configure
+  721  sudo ./configure
+  722  sudo make
+  723  sudo make install
+  724  cd ~/
+  725  wget http://download.osgeo.org/proj/proj-4.8.0.tar.gz
+  726  tar xzf proj-4.8.0.tar.gz
+  727  cd proj-4.8.0
+  728  ./configure
+  729  sudo make
+  730  sudo make install
+  731  cd ~/
+  732  wget http://download.osgeo.org/gdal/1.10.1/gdal-1.10.1.tar.gz
+  733  tar -xvzf gdal-1.10.1.tar.gz
+  734  sudo ./configure
+  735  ls
+  736  cd gdal-1.10.1
+  737  sudo ./configure
+  738  sudo make
+  739  sudo make install
+  740  cd ~/
+  741  wget https://s3.amazonaws.com/json-c_releases/releases/json-c-0.11.tar.gz
+  742  tar -xvzf json-c-0.11.tar.gz
+  743  cd json-c-0.11
+  744  sudo ./configure
+  745  sudo make
+  746  sudo make install
+  747  cd ~/
+  748  wget http://download.osgeo.org/postgis/source/postgis-2.1.2.tar.gz
+  749  tar -xvzf postgis-2.1.2.tar.gz
+  750  cd postgis-2.1.2
+  751  ./configure --with-pgconfig=/usr/pgsql-9.3/bin/pg_config --with-geosconfig=/usr/local/bin/geos-config --with-gdalconfig=/usr/local/bin/gdal-config
+  752  ls /usr/
+  753  ls /usr/bin/pgs
+  754  search / -name pg_config
+  755  find / -name pg_config
+  756  sudo find / -name pg_config
+  757  ss./configure --with-pgconfig=/usr/bin/pg_config --with-geosconfig=/usr/local/bin/geos-config --with-gdalconfig=/usr/local/bin/gdal-config
+  758  sudo find / -name geos-config
+  759  sudo find / -name gdal-config
+  760  ./configure --with-pgconfig=/usr/bin/pg_config --with-geosconfig=/usr/local/bin/geos-config --with-gdalconfig=/usr/local/bin/gdal-config
+  761  sudo find / -name libxml2
+  762  sudo find / -name li
+  763  yum install libxml2-devel
+  764  sudo yum install libxml2-devel
+  765  ./configure --with-pgconfig=/usr/bin/pg_config --with-geosconfig=/usr/local/bin/geos-config --with-gdalconfig=/usr/local/bin/gdal-config
+  766  sudo make
+  767  echo /usr/local/lib >> /etc/ld.so.conf
+  768  sudo echo /usr/local/lib >> /etc/ld.so.conf
+  769  ldconfig
+  770  sudo ldconfig
+  771  psql -v
+  772  psql -V
+  773  createdb ourtree
+  774  sudo createdb ourtree
+  775  psql -l
+  776  psql -V
+  777  psql
+  778  service postgresql-9.3 initdb
+  779  service postgresql initdb
+  780  service postgresql-9.3 initdb
+  781  yum install postgresql93 postgresql93-server postgresql93-devel
+  782  sudo yum install postgresql93 postgresql93-server postgresql93-devel
+  783  service postgresql-9.3 initdb
+  784  sudo service postgresql-9.3 initdb
+  785  service postgresql-9.3 initdb 
+  786  LANG=en_EN
+  787  service postgresql-9.3 initdb 
+  788  sudo yum install postgresql-server
+  789  service postgresql-9.3 initdb 
+  790  service postgresql-9.2 initdb 
+  791  service postgresql-9.3 initdb 
+  792  /sbin/chkconfig postgresql on
+  793  sudo /sbin/chkconfig postgresql on
+  794  sudo service postgresql-9.3 initdb 
+  795   /sbin/service postgresql start
+  796  sudo  /sbin/service postgresql start
+  797  service postgresql initdb
+  798  sudo service postgresql initdb
+  799  cat history 1000
+  800  history 1000
+  801  history 104
+  802  history 106
+  803  history 107
+  804  history 110
+  805  history 1101 > installingPosgreGis.history
+  806  ls
+  807  cat installingPosgreGis.history 
+  808  history 113 >> installingPosgreGis.history
+  809  cat installingPosgreGis.history 
+  810  history 120 > installingPosgreGis.history
