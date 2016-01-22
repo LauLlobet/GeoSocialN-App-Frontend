@@ -101,7 +101,6 @@ define(['lib/underscore', '../util/CoordinatesCalculator', './MapKmToDistanceUni
             return nearestTree.treeId;
         }
         this.exploredDistanceUnitsByWatchingEmptyTrees += 1;
-        console.log("nearest:"+distanceFromNearestTree+" recorregut:"+this.exploredDistanceUnitsByWatchingEmptyTrees);
         return undefined;
     };
 

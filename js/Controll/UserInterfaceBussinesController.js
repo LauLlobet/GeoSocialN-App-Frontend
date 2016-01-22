@@ -35,15 +35,16 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
             this.fillerOfIncommingListIfItGetsEmpty = new FillerOfIncommingListIfItGetsEmpty(this.incommingList, this);
             this.nearbyTreesFromServerToIncommingTreeList = new NearbyTreesFromServerToIncommingTreeList(this.incommingList, this.alreadyDisplayed, this.mapOfTreesById, this.fillerOfIncommingListIfItGetsEmpty);
             this.hashChangeTrigger = new HashChangeTrigger(this);
+            this.afterBackButonPressedFlag = false;
     }
 
     UserInterfaceBussinesController.prototype.init = function (sceneLoaderInterface, backgroundMap) {
-        var initializatorOfBussinesController = new InitializatiorOfBussinesController(this),
-            welcomeOfUserDinamic;
+        var initializatorOfBussinesController = new InitializatiorOfBussinesController(this);
         this.backgroundMap = backgroundMap;
-        welcomeOfUserDinamic = new WelcomeOfUserDinamic(this);
+        this.welcomeOfUserDinamic = new WelcomeOfUserDinamic(this);
         initializatorOfBussinesController.init(sceneLoaderInterface);
-        welcomeOfUserDinamic.startWelcomeToUser();
+        this.welcomeOfUserDinamic.startWelcomeToUser();
+
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
@@ -51,9 +52,9 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeLeft().then( function (ans) {
-                console.log("----SL----");
-                console.log("incomming: " +  that.incommingList);
-                console.log("already: " +  that.alreadyDisplayed);
+               // console.log("----SL----");
+               // console.log("incomming: " +  that.incommingList);
+              //  console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
             }).catch(function (error) {
@@ -68,9 +69,9 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
             return this.treeLoaderToSceneLoaderFromLists.swipeRight().then( function (ans) {
-                console.log("----SR----");
-                console.log("incomming: " +  that.incommingList);
-                console.log("already: " +  that.alreadyDisplayed);
+              //  console.log("----SR----");
+              //  console.log("incomming: " +  that.incommingList);
+              //  console.log("already: " +  that.alreadyDisplayed);
                 that.setHashUrlAndIgnoreUpdatingIfNotUndefined(ans);
                 that.justDisplayedATree();
             }).catch(function (error) {
@@ -98,10 +99,11 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     };
 
     UserInterfaceBussinesController.prototype.setHashUrlAndIgnoreUpdatingIfNotUndefined = function (id) {
+        history.pushState(null,null,"#startExploring");
         if( id !== undefined && id !== 3) {
             this.hashChangeTrigger.setHashAtUrlAndIgnoreUpdatingProcess(id);
         } else {
-            this.hashChangeTrigger.removeHash();
+                this.hashChangeTrigger.removeHash();
         }
     };
 
@@ -292,6 +294,15 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
 
     UserInterfaceBussinesController.prototype.hashHasBeenUpdated = function (treeId) {
         var that = this;
+        this.justLeftBehindATree();
+        if(treeId==="startExploring") {
+            if(this.afterBackButonPressedFlag !== true) {
+                this.welcomeOfUserDinamic.stackAndPlayWelcomeTrees();
+                this.afterBackButonPressedFlag = true;
+            }
+        } else {
+            this.afterBackButonPressedFlag = false;
+        }
         if (isNaN(treeId) || treeId === "") {
             return;
         }

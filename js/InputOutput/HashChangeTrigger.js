@@ -50,11 +50,11 @@ define(["util/CoordinatesCalculator", "../lib/underscore"], function (Coordinate
     };
     HashChangeTrigger.prototype.removeHash = function removeHash() {
         var loc = window.location;
-        if ("pushState" in history)
+        /*if ("pushState" in history)
             history.pushState("", document.title, loc.pathname + loc.search);
-        else {
+        else {*/
             loc.hash = "";
-        }
+        //}
     };
 
     HashChangeTrigger.prototype.update = function () {

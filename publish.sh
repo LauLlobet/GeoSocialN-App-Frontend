@@ -28,13 +28,13 @@ mkdir js/lib
 ############################
 ##  DELETE when PRODUCTION #
 ############################
-if [ "$2" == "debug" ]; then
-       echo -e "\033[31m Deploying a debug instance in server!!"
-       echo -e "\033[37m …"
-	mkdir dbg
-	rsync -av --progress .. dbg/ --exclude dbg > /dev/null
-	sed -i -- "s*&&version&&*$1*g" dbg/js/main.js
-fi
+#####if [ "$2" == "debug" ]; then
+#####       echo -e "\033[31m Deploying a debug instance in server!!"
+#####       echo -e "\033[37m …"
+#####	mkdir dbg
+#####	rsync -av --progress .. dbg/ --exclude dbg > /dev/null
+#####	sed -i -- "s*&&version&&*$1*g" dbg/js/main.js
+#####fi
 
 ############################
 

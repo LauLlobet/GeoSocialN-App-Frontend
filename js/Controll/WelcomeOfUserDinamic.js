@@ -11,9 +11,12 @@ define(['../lib/underscore', "../scenes/Constants"], function (underscore, const
     WelcomeOfUserDinamic.prototype.startWelcomeToUser = function () {
         this.loadWelcomeTrees();
         this.setUpHashes();
+        this.stackAndPlayWelcomeTrees();
+    };
+    WelcomeOfUserDinamic.prototype.stackAndPlayWelcomeTrees = function () {
         this.stackLoadSceneWithWelcomeTreeCorrespondingToTheBrowserLanguage();
         this.playWelcomeTrees();
-    };
+    }
     WelcomeOfUserDinamic.prototype.loadWelcomeTrees = function loadWelcomeTrees () {
         this.bussinesController.nearbyTreesFromServerToIncommingTreeList.loadTreeToHash({
             id: constants.specialTreesCodes.es,

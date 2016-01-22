@@ -46,7 +46,7 @@ define(["../lib/underscore", "../util/CoordinatesCalculator"], function (undersc
     GpsMovmentTrigger.prototype.userHasMovedUpdateFunction = function userHasMovedUpdateFunction(position) {
         var pos2;
         if (navigator.userAgent.match("emulated") !== null) {
-            console.log("forged accuracy:" + forgedAccuracy);
+            //console.log("forged accuracy:" + forgedAccuracy);
             pos2 = { coords: {
                 latitude : position.coords.latitude,
                 longitude : position.coords.longitude,
