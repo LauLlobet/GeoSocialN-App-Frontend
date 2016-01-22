@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/._SingleTreeGroupFactory.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1065,7 +1063,7 @@
       <workItem from="1450879694632" duration="79000" />
       <workItem from="1451757358170" duration="624000" />
       <workItem from="1452148420773" duration="10405000" />
-      <workItem from="1453456873128" duration="524000" />
+      <workItem from="1453456873128" duration="767000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1365,7 +1363,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1169770000" />
+    <option name="totallyTimeSpent" value="1170013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />

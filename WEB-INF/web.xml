@@ -14,5 +14,9 @@
             <param-name>Pragma</param-name>
             <param-value>no-cache</param-value>
         </init-param>
+        <init-param>
+        	<param-name>listings</param-name>
+        <param-value>false</param-value>    <!-- This setting enables/disables directory listings -->
+    </init-param>
     </servlet>
 </web-app>
