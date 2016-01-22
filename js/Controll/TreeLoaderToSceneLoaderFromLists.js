@@ -55,10 +55,10 @@ define(['../lib/underscore', "../lib/rsvp"], function (underscore, rsvp) {
         toLoad = _.map(toLoad, function (value) {
             return that.mapOfTreesById[value];
         });
+        this.sceneLoader.stackLoadScene("forestSwipeLeft", emptySetofTrees);
         this.sceneLoader.stackLoadScene("forestSwipeRight", emptySetofTrees);
-        this.sceneLoader.stackLoadScene("forestSwipeLeft", emptySetofTrees);
-        this.sceneLoader.stackLoadScene("forestSwipeRight", toLoad);
-        this.sceneLoader.stackLoadScene("forestSwipeLeft", emptySetofTrees);
+        this.sceneLoader.stackLoadScene("forestSwipeLeft", toLoad);
+        this.sceneLoader.stackLoadScene("forestSwipeRight", emptySetofTrees);
         return this.sceneLoader.playAllStackedScenes();
     };
 
