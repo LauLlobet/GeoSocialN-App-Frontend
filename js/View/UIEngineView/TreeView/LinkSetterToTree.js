@@ -59,7 +59,7 @@ define([], function () {
         for (i = 0; i < this.linklayers.length; i += 1) {
             for (j = 0; j < this.linklayers[i].length; j += 1) {
                 this.linklayers[i][j].inputEnabled = true;
-                this.linklayers[i][j].input.priorityID = 1;
+                this.linklayers[i][j].input.priorityID = 1000;
                 this.linklayers[i][j].useHandCursor = true;
                 this.linklayers[i][j].events.onInputDown.add(function () {
                     gestureObserver.linkClicked(this.id);

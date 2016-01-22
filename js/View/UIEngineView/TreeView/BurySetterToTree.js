@@ -104,7 +104,7 @@ define([], function () {
     BurySetterToTree.prototype.setSpriteToClickableOrNot = function setSpriteToClickavleOrNot(tmp, bool) {
         tmp.inputEnabled = bool;
         if (bool) {
-            tmp.input.priorityID = 50;
+            tmp.input.priorityID = 1000;
         }
     };
     BurySetterToTree.prototype.setLockPick = function (group, x, y, scale) {
@@ -114,7 +114,7 @@ define([], function () {
         tmp = group.create(charposX, charposY, "lockpick");
         tmp.scale.x = tmp.scale.y = scale + 0.5;
         tmp.inputEnabled = true;
-        tmp.input.priorityID = 52;
+        tmp.input.priorityID = 1000;
         tmp.useHandCursor = true;
         tmp.events.onInputDown.add(function () {
             this.gestureObserver.buriedLayerEvent(this.eventId);

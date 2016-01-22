@@ -30,7 +30,7 @@ define([], function () {
             panel : this
         };
         button.inputEnabled = true;
-        button.input.priorityID = 1;
+        button.input.priorityID = 1000;
         button.useHandCursor = true;
         button.events.onInputDown.removeAll();
         button.events.onInputDown.add(function () {
