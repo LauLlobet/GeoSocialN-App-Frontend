@@ -10,6 +10,10 @@ define(["../lib/underscore", "../Model/TreeRestClient"], function (underscore, T
         this.fillerOfIncommingListIfItGetsEmpty = fillerOfIncommingListIfItGetsEmpty;;
 
     }
+
+    NearbyTreesFromServerToIncommingTreeList.prototype.resetAlreadyDisplayed = function () {
+        this.alreadyDisplayed = [];
+    };
     NearbyTreesFromServerToIncommingTreeList.prototype.userHasMovedTo = function (coords) {
         var i = 0,
             that = this,

@@ -58,6 +58,11 @@ define(['lib/underscore', '../util/CoordinatesCalculator', './MapKmToDistanceUni
         }
     }
 
+    IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.resetExploredDistanceUnitsAndSeenTrees = function () {
+        this.exploredDistanceUnitsByWatchingEmptyTrees = 0;
+
+    }
+
     IncommingTreesEmptyOnesAndDiscardedCueMixer.prototype.orderIncommingListFromFarToNearAndAddDistanceUnits = function orderIncommingListFromFarToNearAndAddDistanceUnits(incommingList) {
         var treeIdAndItsDistance = this.calculateMetersOfEachTreeFromTheActualPosition(incommingList),
             that = this;

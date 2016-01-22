@@ -28,7 +28,6 @@ define([], function () {
         var tmp = this.game.add.bitmapText(0, 0, 'font', fontText, 40);
         this.textImage =  this.displayGroup.create(textOffsetx, textOffsety, tmp.generateTexture());
         tmp.destroy();
-        console.log("TOY:" + textOffsety);
     };
 
     PasswordDialog.prototype.show = function show() {

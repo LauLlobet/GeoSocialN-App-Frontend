@@ -43,11 +43,15 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         this.backgroundMap = backgroundMap;
         this.welcomeOfUserDinamic = new WelcomeOfUserDinamic(this);
         initializatorOfBussinesController.init(sceneLoaderInterface);
+        this.justPlanted = false;
         this.welcomeOfUserDinamic.startWelcomeToUser();
 
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeLeft = function swipeLeft() {
+        if(this.getTreeAlreadyDisplayed() === null && !this.justPlanted){
+            return;
+        }
         var that = this;
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
@@ -65,6 +69,9 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
     };
     //MAIN INPUT FUNCTION
     UserInterfaceBussinesController.prototype.swipeRight = function swipeRight() {
+        if(this.getTreeAlreadyDisplayed() === null  && !this.justPlanted){
+            return;
+        }
         var that = this;
         if (this.state === NAVIGATE) {
             that.justLeftBehindATree();
@@ -151,6 +158,7 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
             tree = { text: text, metersToHide: 0, x: coords.longitude, y: coords.latitude},
             that = this;
 
+        this.justPlanted = true;
         return new Promise(function (resolve, reject) {
             if (that.gpsMovmentTrigger.precisionOneToTen !== 10) {
                 reject("not enought precision, your planted tree will be in a aproximate place.");
@@ -297,7 +305,12 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
         this.justLeftBehindATree();
         if(treeId==="startExploring") {
             if(this.afterBackButonPressedFlag !== true) {
+
+                this.nearbyTreesFromServerToIncommingTreeList.resetAlreadyDisplayed();
+                this.updateWithoutMoving();
+                this.incommingTreesEmptyOnesAndDiscardedCueMixer.resetExploredDistanceUnitsAndSeenTrees();
                 this.welcomeOfUserDinamic.stackAndPlayWelcomeTrees();
+                this.justPlanted = false;
                 this.afterBackButonPressedFlag = true;
             }
         } else {

@@ -15,13 +15,13 @@ define([], function () {
             return 2;
         }
         if (metres < 100) {
-            return 3;
+            return 2;
         }
         if (metres < 200) {
-            return 5;
+            return 3;
         }
         if (metres < 400) {
-            return 8;
+            return 3;
         }
         if (metres < 5000) {
             return Math.round(metres / 1000) * 2 + 8;
