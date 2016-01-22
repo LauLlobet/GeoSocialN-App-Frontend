@@ -188,11 +188,7 @@ define([], function () {
         }
         if (this.buryLayerAlreadyExists("lock")) {
             this.lock.alpha = 1;
-            this.setBuryLayersToClickable(this.lock);
-        }
-        if (this.buryLayerAlreadyExists("leafs")) {
-            this.leafs.alpha = 1;
-            this.setBuryLayersToClickable(this.leafs);
+           // this.setBuryLayersToClickable(this.lock);
         }
     };
     BurySetterToTree.prototype.buryLayerAlreadyExists = function (buryLayerName) {

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf5c5828-e9ca-4130-a97b-62cf1e0a6480" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/._index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/._spinningCircleOnLoading.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/._workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/UIEngineView/._VotingPanel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/UIEngineView/UiCore/._PhaserGame.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/._SingleTreeGroupFactory.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/LinkSetterToTree.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/LinkSetterToTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/VotingPanel.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/VotingPanel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" afterPath="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
     </list>
     <ignored path="OurTreeWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NewlyPresentedTreeSubjectNotifier.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Controll/NewlyPresentedTreeSubjectNotifier.js">
+      <file leaf-file-name="BurySetterToTree.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.42857143">
+              <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BurySetterToTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
+      <file leaf-file-name="Keyboard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+              <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -97,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleTreeGroupFactory.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SingleTreeGroupFactory.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33707866">
-              <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="153" column="38" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -195,7 +190,6 @@
         <option value="$PROJECT_DIR$/js/scenes/KeyboardDescriptor.js" />
         <option value="$PROJECT_DIR$/js/Controll/UserInterfaceBussinesController.js" />
         <option value="$PROJECT_DIR$/js/Controll/MapKmToDistanceUnits.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
         <option value="$PROJECT_DIR$/js/scenes/WriteButton.js" />
         <option value="$PROJECT_DIR$/cache.appcache" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/PasswordDialog.js" />
@@ -206,8 +200,9 @@
         <option value="$PROJECT_DIR$/js/View/UIEngineView/UiCore/PhaserGame.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/VotingPanel.js" />
-        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
         <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/LinkSetterToTree.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js" />
+        <option value="$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js" />
       </list>
     </option>
   </component>
@@ -1070,7 +1065,7 @@
       <workItem from="1450879694632" duration="79000" />
       <workItem from="1451757358170" duration="624000" />
       <workItem from="1452148420773" duration="10405000" />
-      <workItem from="1453456873128" duration="141000" />
+      <workItem from="1453456873128" duration="524000" />
     </task>
     <task id="LOCAL-00003" summary="test de desplaçament de texte i imatge a lhora amb exit&#10;">
       <created>1424521621384</created>
@@ -1370,7 +1365,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1169387000" />
+    <option name="totallyTimeSpent" value="1169770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1577,13 +1572,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="106" column="42" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="160" column="55" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1819,14 +1807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/LinkSetterToTree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1837,8 +1817,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/SingleTreeGroupFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33707866">
-          <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="153" column="38" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/Keyboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/View/UIEngineView/TreeView/BurySetterToTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42857143">
+          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
           <folding />
         </state>
       </provider>

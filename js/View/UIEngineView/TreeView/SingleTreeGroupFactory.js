@@ -151,7 +151,7 @@ define(["./TreeSpriteGroupTextSetter", "../DistanceTips/TreeSpriteCounterKmSette
         var button = this.group.create(40, 270, "linkLayer");
         button.scale.x = 13
         button.inputEnabled = true;
-        button.input.priorityID = 1;
+        button.input.priorityID = 1000;
         button.useHandCursor = true;
         button.events.onInputDown.add(function () {
             this.context.gestureObserver.linkClicked(constants.specialTreesHelpTreesIds[lang]);
