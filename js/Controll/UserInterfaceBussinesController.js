@@ -199,6 +199,7 @@ define([ "../Controll/NearbyTreesFromServerToIncommingTreeList",
                 this.state = NAVIGATE;
                 this.keyboardInterface.hideOnScene();
                 this.sceneTreeTextSetterInterface.setIsTyping(false);
+                this.justPlanted = true;
             } else if (character === "backwards") {
                 this.sceneTreeTextSetterInterface.removeChar();
             } else {

@@ -68,10 +68,11 @@ define(['../lib/underscore', "../scenes/Constants"], function (underscore, const
         if(this.bussinesController.mapOfTreesById[languageId] === undefined) {
             throw "Welcome tree with ID "+languageId+" is not loaded";
         }
-        this.bussinesController.sceneLoaderInterface.stackLoadScene('forestSwipeLeft',
+        this.bussinesController.sceneLoaderInterface.stackLoadScene('forestSwipeRight',
             [
-                undefined,
+
                 this.bussinesController.mapOfTreesById[languageId],
+                undefined,
                 undefined
             ]
         )
