@@ -15,6 +15,7 @@ cd dist
 rm -rf *
 mkdir js
 cp -rf ../assets .
+cp -rf ../WEB-INF .
 rm assets/*.psd
 cp  ../*.html .
 sed -i -- 's*js/main*build/main*g' index.html
